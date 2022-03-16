@@ -181,7 +181,7 @@
 		to_chat(user, span_warning("[src] won't work on that limb!"))
 		return FALSE
 	// try fixing arteries first
-	if(affecting.get_incision(TRUE))
+	if(affecting.get_incision(FALSE))
 		if(affecting.is_artery_torn())
 			var/time = (user == C ? self_delay : other_delay ) * 20
 			time *= (ATTRIBUTE_MIDDLING/max(GET_MOB_ATTRIBUTE_VALUE(user, STAT_DEXTERITY), 1))
@@ -253,8 +253,9 @@
 			user.visible_message(span_green("<b>[user]</b> stitches \a [injury.get_desc()] shut on <b>[C]</b>'s [affecting.name] with \the [src]."), \
 								span_green("I stitch \a [injury.get_desc()] shut on \the [affecting.name] with \the [src]."))
 		injury.suture_injury()
-		if(!repeating)
-			return TRUE
+		return TRUE
+		//if(!repeating)
+		//	return TRUE
 	to_chat(user, span_warning("<b>[C]</b>'s [affecting.name] can not be healed with [src]!"))
 	return FALSE
 
