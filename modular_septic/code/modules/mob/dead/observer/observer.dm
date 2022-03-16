@@ -18,3 +18,19 @@
 	var/mob/dead/new_player/NP = new()
 	NP.key = src.key
 	qdel(src)
+
+//-Matt edit
+//Ghosts are fucking stupid and I hate them. I'll figure out another way to let people respawn.
+/mob/living/verb/ghost()
+	set category = "OOC"
+	set name = "Ghost"
+	set desc = "Relinquish your life and enter the land of the dead."
+
+	if(stat != DEAD)
+		succumb()
+	if(stat == DEAD)
+		if(check_rights(R_ADMIN))//Only admins are allowed to ghost. Players can go fuck themselves.
+			ghostize(TRUE)
+			return TRUE
+		return FALSE
+	return TRUE
