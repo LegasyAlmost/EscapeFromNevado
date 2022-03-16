@@ -48,6 +48,9 @@
 	var/static/list/homie_types = list("caucasian", "asian", "nigger")
 	var/homie_type = "caucasian"
 
+/datum/species/homie/check_roundstart_eligible()
+	return FALSE
+
 /datum/species/homie/New()
 	. = ..()
 	homie_type = pick(homie_types)

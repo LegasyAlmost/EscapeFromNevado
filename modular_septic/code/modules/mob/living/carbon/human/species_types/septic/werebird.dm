@@ -40,6 +40,9 @@
 	limbs_id = "mammal"
 	examine_icon_state = "werebird"
 
+/datum/species/werebird/check_roundstart_eligible()
+	return FALSE
+
 /datum/species/werebird/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	returned["mcolor"] = random_color()

@@ -533,6 +533,7 @@
 		return
 	recent_rack = world.time + rack_delay
 	rack(user)
+	user.changeNext_move(CLICK_CD_RANGE)
 	return
 
 

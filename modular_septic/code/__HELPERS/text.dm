@@ -38,7 +38,7 @@
 	return "[fail_string(TRUE)]!"
 
 /proc/click_fail_msg()
-	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))
+	return span_alert(pick("I'm not ready!", "No!", "I did all I could!", "I can't!", "Not yet!"))
 
 /proc/get_signs_from_number(num, index = 0)
 	var/signs = num

@@ -157,6 +157,7 @@
 	. = ..()
 	if(.)
 		return
+	user.changeNext_move(CLICK_CD_RANGE)
 	if(!internal_magazine && istype(A, /obj/item/ammo_box/magazine))
 		var/obj/item/ammo_box/magazine/new_magazine = A
 		if(!magazine)
@@ -291,9 +292,15 @@
 		to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
 	process_chamber(!chambered, FALSE)
 	sound_hint()
-	if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
-		bolt_locked = TRUE
-		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
+	if(bolt_type == BOLT_TYPE_LOCKING)
+		if(!chambered && (magazine?.ammo_count()<=0))
+			bolt_locked = TRUE
+			playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
+		else if(!chambered && (magazine?.ammo_count()>0))
+			if(bolt_drop_sound)
+				playsound(src, bolt_drop_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
+		else
+			playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 	else
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 	update_appearance()

@@ -100,6 +100,7 @@
 	if((reagents?.total_volume) && COOLDOWN_FINISHED(src, drag_cooldown))
 		COOLDOWN_START(src, drag_cooldown, dragtime)
 		handle_reagents()
+		new /obj/effect/cig_smoke(location)
 
 /obj/item/clothing/mask/cigarette/space_cigarette
 	name = "asbestos stick"

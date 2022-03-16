@@ -1,3 +1,4 @@
+/*
 import { CheckboxInput, FeatureToggle } from "../base";
 
 export const filmgrainpref: FeatureToggle = {
@@ -5,3 +6,4 @@ export const filmgrainpref: FeatureToggle = {
   category: "UI",
   component: CheckboxInput,
 };
+*/

@@ -305,6 +305,7 @@
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	else
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
+		/*
 		if(message)
 			if(pointblank)
 				if(ismob(pbtarget))
@@ -324,6 +325,7 @@
 				user.visible_message(span_danger("<b>[user]</b> fires [src]!"), \
 								span_danger("I fire [src]!"), \
 								span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE)
+		*/
 
 	if(weapon_weight >= WEAPON_HEAVY)
 		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 20))

@@ -42,6 +42,8 @@
 	limbs_icon = 'modular_septic/icons/mob/human/species/mammal/mammal_parts_greyscale.dmi'
 	limbs_id = "mammal"
 	examine_icon_state = "werecat"
+/datum/species/werecat/check_roundstart_eligible()
+	return FALSE
 
 /datum/species/werecat/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST

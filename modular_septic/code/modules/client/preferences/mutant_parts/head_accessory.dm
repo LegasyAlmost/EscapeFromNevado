@@ -8,7 +8,8 @@
 	relevant_mutant_bodypart = "head_acc"
 	can_randomize = FALSE
 	should_generate_icons = TRUE
-
+/datum/preference/choiced/head_acc/is_accessible(datum/preferences/preferences)
+	return FALSE
 /datum/preference/choiced/head_acc/create_informed_default_value(datum/preferences/preferences)
 	. = ..()
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)

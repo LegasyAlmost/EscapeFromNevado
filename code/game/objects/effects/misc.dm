@@ -98,3 +98,22 @@
 	if(!ismob(loc))
 		return INITIALIZE_HINT_QDEL
 
+
+/obj/effect/cig_smoke
+	name = "smoke"
+	icon_state = "smallsmoke"
+	icon = 'icons/effects/effects.dmi'
+	opacity = FALSE
+	anchored = TRUE
+	mouse_opacity = FALSE
+	layer = ABOVE_MOB_LAYER
+
+	var/time_to_live = 3 SECONDS
+
+/obj/effect/cig_smoke/Initialize()
+	. = ..()
+	setDir(pick(GLOB.cardinals))
+	pixel_x = rand(0, 13)
+	pixel_y = rand(0, 13)
+	animate(src, alpha = 0, time_to_live, easing = EASE_IN)
+	QDEL_IN(src, time_to_live)

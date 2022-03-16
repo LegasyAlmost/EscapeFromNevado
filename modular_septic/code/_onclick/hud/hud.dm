@@ -42,7 +42,7 @@
 
 /datum/hud/New(mob/owner)
 	. = ..()
-	if(uses_film_grain && (!owner?.client || owner.client?.prefs?.read_preference(/datum/preference/toggle/filmgrain)))
+	if(uses_film_grain) //&& (!owner?.client || owner.client?.prefs?.read_preference(/datum/preference/toggle/filmgrain)))
 		noise = new()
 		noise.hud = src
 		screenoverlays |= noise

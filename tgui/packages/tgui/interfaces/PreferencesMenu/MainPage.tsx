@@ -41,16 +41,6 @@ const CharacterControls = (props: {
         />
       </Stack.Item>
 
-      <Stack.Item>
-        <Button
-          onClick={props.handleOpenSpecies}
-          fontSize="22px"
-          icon="paw"
-          tooltip="Species"
-          tooltipPosition="top"
-        />
-      </Stack.Item>
-
       {props.showGender && (
         <Stack.Item>
           <GenderButton

@@ -19,9 +19,8 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_silenced.wav'
 	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_forward.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.ogg'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
 	load_sound = list('modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav',
 					 'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav')
 	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
@@ -38,6 +37,8 @@
 	suppressor_x_offset = 13
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_SHOTGUN
+	bolt_type = BOLT_TYPE_LOCKING //lock it back when the round is empty.
+	bolt_wording = "pump"
 
 // DOUBLE BARRELED SHOTGUN
 /obj/item/gun/ballistic/shotgun/doublebarrel
@@ -234,3 +235,28 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas.wav'
 	can_suppress = FALSE
+
+
+/obj/item/gun/ballistic/shotgun/sweeper
+	name = "\improper Sweeper 36"
+	desc = "A standard pump action shotgun for turning people you don't like into red mist."
+	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
+	icon_state = "sweeper"
+	base_icon_state = "sweeper"
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
+	inhand_icon_state = "sweeper"
+	can_suppress = FALSE
+
+/obj/item/gun/ballistic/shotgun/plunker
+	name = "\improper Plunker 72"
+	desc = "Packs a much bigger punch than it's younger brother the Plinker, but at the cost of being bolt action instead of fully automatic."
+	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
+	icon_state = "plunker"
+	base_icon_state = "plunker"
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
+	inhand_icon_state = "plunker"
+	magazine = /obj/item/ammo_box/magazine/internal/boltaction
+	can_suppress = FALSE
+	bolt_wording = "bolt"

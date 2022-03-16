@@ -17,6 +17,38 @@
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_RIFLE
 
+/obj/item/gun/ballistic/automatic/remis/plinker
+	name = "\improper Plinker 45"
+	desc = "Named for the plinking a 45 does against armor. Practically useless."
+	icon = 'modular_septic/icons/obj/items/guns/rifle.dmi'
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	worn_icon_state = "inverno"
+	inhand_icon_state = "plinker"
+	icon_state = "plinker"
+	base_icon_state = "plinker"
+	mag_type = /obj/item/ammo_box/magazine/a545
+	full_auto = TRUE
+	fire_delay = 0.6
+	burst_size = 1
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/g3.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/mrack.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	force = 14
+	custom_price = 45000
+	carry_weight = 3
+	recoil_animation_information = list("recoil_angle_upper" = -15, \
+										"recoil_angle_lower" = -25)
+
+
 // Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
