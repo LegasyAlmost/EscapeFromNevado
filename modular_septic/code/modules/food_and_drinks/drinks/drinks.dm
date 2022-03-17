@@ -7,8 +7,8 @@
 	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/food/chocolate, 5, 3 MINUTES)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/coke
-	name = "Cock Cola"
-	desc = "Nothing like drinking a can of big, black cock!\n\
+	name = "Conk"
+	desc = "Sippy sippy on that good shit!\n\
 			<span class='warning'>WARNING: Do not shake!</span>"
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "cocaine_cola"
@@ -20,8 +20,8 @@
 	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/pepsi
-	name = "Penis Cola"
-	desc = "Penis Cola - Bigger and harder than the competition!"
+	name = "Shlorp Bepis"
+	desc = "A fitting name for a drink, and your serious character!"
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "pepsi"
 	list_reagents = list(/datum/reagent/consumable/pepsi = 30)
@@ -32,7 +32,7 @@
 	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/pepsi/diet
-	name = "Diet Penis Cola"
+	name = "Diet Shlorp Bepis"
 	desc = "Replacing the sugar in the original drink with a concentrated \"Baphomet\" essence.\n\
 			<span class='dead'>WARNING: Excessive consumption of this product is linked with:\n\
 			Depression, anhedonia, autism, gynecomastia, tumor growth around the pubic region, erectile dysfunction, \
