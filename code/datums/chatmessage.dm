@@ -214,7 +214,7 @@
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
-	animate(message, alpha = 255, time = CHAT_MESSAGE_SPAWN_TIME)
+	animate(message, 1, alpha = 255, pixel_y = message.pixel_y+6, time = CHAT_MESSAGE_SPAWN_TIME)
 
 	// Register with the runechat SS to handle EOL and destruction
 	scheduled_destruction = world.time + (lifespan - CHAT_MESSAGE_EOL_FADE)
@@ -229,7 +229,7 @@
  */
 /datum/chatmessage/proc/end_of_life(fadetime = CHAT_MESSAGE_EOL_FADE)
 	eol_complete = scheduled_destruction + fadetime
-	animate(message, alpha = 0, time = fadetime, flags = ANIMATION_PARALLEL)
+	animate(message, 1, alpha = 0, pixel_y = message.pixel_y+16, time = fadetime, flags = ANIMATION_PARALLEL)
 	enter_subsystem(eol_complete) // re-enter the runechat SS with the EOL completion time to QDEL self
 
 /**
