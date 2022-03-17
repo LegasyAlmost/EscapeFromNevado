@@ -214,7 +214,7 @@
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
-	animate(message, 1, alpha = 255, pixel_y = message.pixel_y+6, time = CHAT_MESSAGE_SPAWN_TIME)
+	animate(message, 1, alpha = 255, pixel_y = message.pixel_y+4, time = CHAT_MESSAGE_SPAWN_TIME)
 
 	// Register with the runechat SS to handle EOL and destruction
 	scheduled_destruction = world.time + (lifespan - CHAT_MESSAGE_EOL_FADE)
