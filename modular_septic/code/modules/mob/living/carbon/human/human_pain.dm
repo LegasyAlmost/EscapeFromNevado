@@ -6,7 +6,10 @@
 	var/list/return_text = list("<span class='infoplain'><div class='infobox'>")
 	return_text += "<span class='notice'><EM>Let's see how I am doing.</EM></span>"
 	if(stat < DEAD)
-		return_text += "\n<span class='notice'>I'm still alive.</span>"
+		if(HAS_TRAIT(src, TRAIT_DEATHS_DOOR))
+			return_text += "\n<span class='flashinguserdanger'>I'm knocking on death's door!</span>"
+		else
+			return_text += "\n<span class='notice'>I'm still alive.</span>"
 		return_text += "\n<span class='notice'>I can carry up to <b>[CEILING(maximum_carry_weight, 1)]kg[CEILING(maximum_carry_weight, 1) == 1 ? "" : "s"]</b>.</span>"
 		return_text += "\n<span class='notice'>Basic lift: <b>[CEILING(maximum_carry_weight/10, 1)]kg[CEILING(maximum_carry_weight/10, 1) == 1 ? "" : "s"]</b>.</span>"
 		return_text += "\n<span class='notice'>Encumbrance: [encumbrance_text()] (<b>[CEILING(carry_weight, 1)]kg[CEILING(carry_weight, 1) == 1 ? "" : "s"]</b>)</span>"
@@ -18,8 +21,7 @@
 			return_text += "\n<span class='flashingdanger'>I'm tetraplegic!</span>"
 		if(undergoing_septic_shock())
 			return_text += "\n<span class='necrosis'>I'm undergoing septic shock!</span>"
-		if(HAS_TRAIT(src, TRAIT_DEATHS_DOOR))
-			return_text += "\n<span class='flashingdanger'>I'm knocking on death's door!</span>"
+
 		if((stat >= UNCONSCIOUS) && (jitteriness >= 300))
 			return_text += "\n<span class='flashingdanger'>I'm having a seizure!</span>"
 	else
