@@ -60,7 +60,9 @@
 	occur_text = "sprays chips of bone and develops a nasty looking bruise"
 
 	severity = WOUND_SEVERITY_SEVERE
-	sound_effect = 'modular_septic/sound/gore/crack2.ogg'
+	sound_effect = list('modular_septic/sound/gore/trauma1.ogg', \
+					'modular_septic/sound/gore/trauma2.ogg', \
+					'modular_septic/sound/gore/trauma3.ogg')
 	threshold_minimum = 60
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
@@ -97,7 +99,9 @@
 	occur_text = "cracks apart, exposing broken bones to open air"
 
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
+	sound_effect = list('modular_septic/sound/gore/trauma1.ogg', \
+					'modular_septic/sound/gore/trauma2.ogg', \
+					'modular_septic/sound/gore/trauma3.ogg')
 	threshold_minimum = 80
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 
@@ -134,7 +138,9 @@
 	occur_text = "cracks apart, exposing broken bones to open air"
 
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'modular_septic/sound/gore/crack3.ogg'
+	sound_effect = list('modular_septic/sound/gore/trauma1.ogg', \
+					'modular_septic/sound/gore/trauma2.ogg', \
+					'modular_septic/sound/gore/trauma3.ogg')
 	threshold_minimum = 80
 	wound_flags = (WOUND_SOUND_HINTS|WOUND_MANGLES_BONE)
 

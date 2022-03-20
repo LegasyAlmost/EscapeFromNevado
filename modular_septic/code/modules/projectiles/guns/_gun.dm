@@ -84,8 +84,8 @@
 	. = ..()
 	if(foldable)
 		new /datum/action/item_action/toggle_stock(src)
-	if(full_auto)
-		AddComponent(/datum/component/automatic_fire)
+
+	initialize_full_auto()
 
 /obj/item/gun/update_icon(updates)
 	. = ..()

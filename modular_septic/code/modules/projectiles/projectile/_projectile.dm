@@ -192,7 +192,7 @@
 				var/volume = vol_by_damage()
 				playsound(src, hitsound, volume, TRUE, -1)
 			sound_hint()
-			hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
+			hit_text = "" //span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")
 			target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		living_target.on_hit(src)
 

@@ -17,19 +17,20 @@
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_RIFLE
 
-/obj/item/gun/ballistic/automatic/remis/plinker
-	name = "\improper Plinker 45"
-	desc = "Named for the plinking a 45 does against armor. Practically useless."
-	icon = 'modular_septic/icons/obj/items/guns/rifle.dmi'
+/obj/item/gun/ballistic/automatic/remis/m545
+	name = "\improper Peacekeeper 545"
+	desc = "Named nicknamed for the type of PMC armies that are generally found carrying them."
+	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
 	worn_icon_state = "inverno"
-	inhand_icon_state = "plinker"
-	icon_state = "plinker"
-	base_icon_state = "plinker"
+	inhand_icon_state = "m4"
+	icon_state = "m4"
+	base_icon_state = "m4"
 	mag_type = /obj/item/ammo_box/magazine/a545
 	full_auto = TRUE
-	fire_delay = 0.6
+	fire_delay_auto = 1.2
+	burst_size_auto = 1
 	burst_size = 1
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/g3.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
@@ -47,6 +48,26 @@
 	carry_weight = 3
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
+
+
+/obj/item/gun/ballistic/automatic/remis/m545/ak
+	name = "\improper Eclipse 545"
+	desc = "Often found on... less than scrupulous PMC groups."
+	inhand_icon_state = "ak"
+	icon_state = "ak"
+	base_icon_state = "ak"
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/ak.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/ak_silenced.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/rifle/akmagin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/akmagin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/rifle/akmagout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/akmagout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
 
 
 // Winter Genocide Nigga Killer-49
