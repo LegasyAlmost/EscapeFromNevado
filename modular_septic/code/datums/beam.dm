@@ -17,7 +17,7 @@
 				time = INFINITY, \
 				maxdistance = INFINITY, \
 				btype = /obj/effect/ebeam, \
-				connects_to_turf=FALSE)
+				connects_to_turf = FALSE)
 	origin = beam_origin
 	target = beam_target
 	max_distance = maxdistance
@@ -29,10 +29,15 @@
 		QDEL_IN(src, time)
 
 /datum/beam/Start()
-	. = ..()
 	if(connect_to_turf)
-		origin.AddElement(/datum/element/connect_loc, loc_connections_origin)
-		target.AddElement(/datum/element/connect_loc, loc_connections_target)
+		AddComponent(/datum/component/connect_loc_behalf, origin, loc_connections_origin)
+		AddComponent(/datum/component/connect_loc_behalf, target, loc_connections_target)
+	return ..()
+
+/datum/beam/Destroy()
+	for(var/component in GetComponents(/datum/component/connect_loc_behalf))
+		qdel(component)
+	return ..()
 
 /datum/beam/Draw()
 	var/atom/actual_target = target
