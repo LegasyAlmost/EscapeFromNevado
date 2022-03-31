@@ -32,7 +32,7 @@
 		if(player_client?.ckey == "shyshadow")
 			spawned.put_in_hands(new /obj/item/reagent_containers/glass/bottle/lean(spawned.drop_location()), FALSE)
 		if(player_client?.ckey == "PurpleShritedEyeStaber")
-			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/combatmaster(spawned.drop_location()), FALSE)
+			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster(spawned.drop_location()), FALSE)
 		if(SSmapping.config?.everyone_is_fucking_naked)
 			incinerate_inventory(spawned)
 		else
@@ -71,6 +71,8 @@
 				if(departments_bitflags & DEPARTMENT_BITFLAG_NOBILITY)
 					bank_account.adjust_money(2000)
 			GLOB.data_core.birthday_boys += spawned_human.real_name
+	// this needs to be reset to pick up the color from preferences
+	spawned.chat_color_name = ""
 
 /datum/job/get_roundstart_spawn_point()
 	if(random_spawns_possible)

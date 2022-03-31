@@ -693,6 +693,7 @@
 	embedded_objects = null
 	if(status == BODYPART_ORGANIC)
 		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
+	update_icon_dropped()
 
 /// Returns the volume of organs and cavity items for the organ storage component to use
 /obj/item/bodypart/proc/get_cavity_volume()
@@ -1918,7 +1919,7 @@
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
 		owner.visible_message(span_danger("<b>[owner]</b>'s [current_gauze] on [owner.p_their()] [name] falls away in rags."), \
-						span_animatedpain("<i>[current_gauze] on my [name] falls away in rags.</i>"), \
+						span_userdanger("<i>[current_gauze] on my [name] falls away in rags.</i>"), \
 						vision_distance=COMBAT_MESSAGE_RANGE,\
 						)
 		remove_gauze(FALSE)
@@ -2264,9 +2265,9 @@
 /obj/item/bodypart/proc/kill_limb()
 	if(!can_decay())
 		return
-	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL)
+	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(!already_rot)
-		ADD_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL)
+		ADD_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(owner && !already_rot)
 		owner.update_body()
 	else
@@ -2275,9 +2276,9 @@
 /obj/item/bodypart/proc/revive_limb()
 	if(!can_decay())
 		return
-	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL)
+	var/already_rot = HAS_TRAIT_FROM(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(already_rot)
-		REMOVE_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL)
+		REMOVE_TRAIT(src, TRAIT_ROTTEN, GERM_LEVEL_TRAIT)
 	if(owner && already_rot)
 		owner.update_body()
 	else

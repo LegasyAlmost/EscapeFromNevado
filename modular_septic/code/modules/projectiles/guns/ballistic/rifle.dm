@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/remis
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
-	equip_sound = list('modular_septic/sound/weapons/guns/rifle_holster1.ogg', 'modular_septic/sound/weapons/guns/rifle_holster2.ogg')
+	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	slot_flags = ITEM_SLOT_BACK
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE
@@ -32,7 +32,9 @@
 	actions_types = null
 	burst_size = 1
 	select = FALSE
+	can_unsuppress = FALSE
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/niggakiller.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/niggakiller_silenced.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
 	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
 	eject_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
@@ -43,8 +45,14 @@
 	force = 14
 	custom_price = 45000
 	carry_weight = 3
+	suppressor_x_offset = 7
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
+
+/obj/item/gun/ballistic/automatic/remis/winter/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/S = new(src)
+	install_suppressor(S)
 
 /obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
 	. = ..()
@@ -286,6 +294,7 @@
 	recoil = 0.4
 	can_suppress = TRUE
 	suppressor_x_offset = 8
+	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 58, \
 										"pixel_y" = 17, \
 										"inactive_when_silenced" = TRUE)

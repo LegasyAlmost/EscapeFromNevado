@@ -12,7 +12,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/smg
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
-	equip_sound = list('modular_septic/sound/weapons/guns/rifle_holster1.ogg', 'modular_septic/sound/weapons/guns/rifle_holster2.ogg')
+	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	skill_melee = SKILL_IMPACT_WEAPON
 	slot_flags = ITEM_SLOT_BACK
 	skill_ranged = SKILL_SMG
@@ -154,10 +154,10 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	weapon_weight = WEAPON_MEDIUM
-	worn_icon_state = "hksmg-s"
-	inhand_icon_state = "hksmg-s"
-	base_icon_state = "hksmg-s"
-	icon_state = "hksmg-s"
+	worn_icon_state = "hksmgs"
+	inhand_icon_state = "hksmgs"
+	base_icon_state = "hksmgs"
+	icon_state = "hksmgs"
 	fire_delay = 1.4
 	burst_size = 3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380
@@ -165,7 +165,7 @@
 	can_suppress = TRUE
 	can_unsuppress = FALSE
 	foldable = TRUE
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()

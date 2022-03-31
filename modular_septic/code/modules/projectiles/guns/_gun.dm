@@ -104,6 +104,11 @@
 
 /obj/item/gun/update_overlays()
 	. = ..()
+	if(foldable)
+		//generally, the stock should be below everything else, otherwise it will look very fucked
+		var/image/folding_image = image(icon, src, "[base_icon_state]_[folded ? "folded" : "unfolded"]")
+		folding_image.layer = layer - 1
+		. += folding_image
 	if(gun_light)
 		var/image/flashlight_overlay
 		var/state = "[gunlight_state][gun_light.on? "_on":""]" //Generic state.
@@ -125,16 +130,11 @@
 	if(safety_flags & GUN_SAFETY_HAS_SAFETY)
 		var/image/safety_overlay
 		if((safety_flags & GUN_SAFETY_ENABLED) && (safety_flags & GUN_SAFETY_OVERLAY_ENABLED))
-			safety_overlay = image(icon, src, "[base_icon_state]-safe")
+			safety_overlay = image(icon, src, "[base_icon_state]_safe")
 		else if(!(safety_flags & GUN_SAFETY_ENABLED) && (safety_flags & GUN_SAFETY_OVERLAY_DISABLED))
-			safety_overlay = image(icon, src, "[base_icon_state]-unsafe")
+			safety_overlay = image(icon, src, "[base_icon_state]_unsafe")
 		if(safety_overlay)
 			. += safety_overlay
-	if(foldable)
-		if(folded)
-			. += "[base_icon_state]_folded"
-		else
-			. += "[base_icon_state]_unfolded"
 
 /obj/item/gun/add_weapon_description()
 	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
@@ -231,7 +231,7 @@
 			return
 		var/list/modifiers = params2list(params)
 		//Gun does not fire when flogging
-		if((safety_flags & GUN_SAFETY_FLOGGING_PROOFED) && IS_HARM_INTENT(user, modifiers))
+		if((safety_flags & GUN_SAFETY_NO_FLOGGING) && IS_HARM_INTENT(user, modifiers))
 			return
 		if(iscarbon(target) && !IS_HARM_INTENT(user, modifiers))
 			var/mob/living/carbon/carbon_target = target
@@ -386,6 +386,7 @@
 	if(user)
 		to_chat(user, span_notice("I [safety_flags & GUN_SAFETY_ENABLED ? "enable" : "disable"] [src]'s safety."))
 	sound_hint()
+	update_appearance()
 	user.update_mouse_pointer()
 
 /obj/item/gun/proc/firing_animation(mob/user, burst_fire = FALSE)

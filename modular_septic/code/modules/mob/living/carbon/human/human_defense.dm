@@ -545,6 +545,32 @@
 		var/mob/living/carbon/human/human_user = user
 		dna.species.spec_attack_jaw(human_user, src, user.mind?.martial_art, modifiers)
 
+/mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
+	if(dna?.species)
+		var/spec_return = dna.species.spec_hitby(AM, src)
+		if(spec_return)
+			return spec_return
+	var/obj/item/thrown_item
+	if(isitem(AM))
+		thrown_item = AM
+		if(thrown_item.thrownby == WEAKREF(src)) //No throwing stuff at yourself to trigger hit reactions
+			return ..()
+	if(!throwingdatum.critical_hit && thrown_item)
+		if(check_shields(thrown_item, thrown_item.throwforce, "\the [thrown_item]", BLOCK_FLAG_THROWN) & COMPONENT_HIT_REACTION_BLOCK)
+			hitpush = FALSE
+			skipcatch = TRUE
+			blocked = TRUE
+		if(check_parry(thrown_item, thrown_item.throwforce, "\the [thrown_item]", BLOCK_FLAG_THROWN) & COMPONENT_HIT_REACTION_BLOCK)
+			hitpush = FALSE
+			skipcatch = TRUE
+			blocked = TRUE
+		if(check_dodge(thrown_item, thrown_item.throwforce, "\the [thrown_item]", BLOCK_FLAG_THROWN) & COMPONENT_HIT_REACTION_BLOCK)
+			hitpush = FALSE
+			skipcatch = TRUE
+			blocked = TRUE
+
+	return ..()
+
 /mob/living/carbon/human/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
 	//SPECIES STUFF
 	if(dna?.species)
@@ -623,7 +649,8 @@
 				if(diceroll >= DICE_CRIT_SUCCESS)
 					critical_hit = TRUE
 		if(critical_hit)
-			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_flashingbigdanger(" CRITICAL HIT!"))
+			SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bigdanger(" CRITICAL HIT!"))
+			hitting_projectile.edge_protection_penetration += 30
 			hitting_projectile.subtractible_armour_penetration += 30
 		if(!critical_hit && (hitting_projectile.firer != src))
 			if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
