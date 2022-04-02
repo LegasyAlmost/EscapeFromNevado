@@ -189,8 +189,7 @@
 // SAIGA-12 AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/abyss
 	name = "\improper AN-12 Abyss automatic shotgun"
-	desc = "An odd-looking shotgun manufactured by Godheavy Industries \
-	Shoots 20-round drums."
+	desc = "An odd-looking shotgun manufactured by Godheavy Industries"
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
@@ -200,7 +199,7 @@
 	base_icon_state = "saiga"
 	bolt_wording = "bolt"
 	mag_display = TRUE
-	empty_indicator = TRUE
+	empty_icon_state = TRUE
 	special_mags = FALSE
 	mag_display_ammo = TRUE
 	semi_auto = TRUE
@@ -215,7 +214,7 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
-	gunshot_animation_information = list("pixel_x" = 31, \
+	gunshot_animation_information = list("piwdxel_x" = 31, \
 										"pixel_y" = 0, \
 										"inactive_when_silenced" = TRUE,
 										"add_pixel_x_sawn" = -5)
@@ -223,7 +222,7 @@
 										"recoil_angle_lower" = -30)
 	pin = /obj/item/firing_pin
 	mag_type = /obj/item/ammo_box/magazine/abyss_shotgun_drum
-	suppressor_x_offset = 17
+	suppressor_x_offset = 8
 
 
 /obj/item/gun/ballistic/shotgun/bolas

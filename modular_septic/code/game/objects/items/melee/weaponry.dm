@@ -11,7 +11,10 @@
 	desc = "Illegal in the Separated Kingdom, this surplus knife is barely able to cut through skin. It can, however, hunt many Z's."
 	icon = 'modular_septic/icons/obj/items/melee/knife.dmi'
 	icon_state = "zhunter"
+	min_force = 3
 	force = 10
+	min_force_strength = 0
+	force_strength = 0
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	wound_bonus = 0
@@ -26,7 +29,10 @@
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_righthand.dmi'
 	inhand_icon_state = "truncheon"
-	force = 15
+	min_force = 3
+	force = 5
+	min_force_strength = 1
+	force_strength = 1.5
 	wound_bonus = 3
 	bare_wound_bonus = 0
 	carry_weight = 2.5
@@ -47,8 +53,22 @@
 	if(ishuman(target) && proximity_flag && (user.zone_selected == BODY_ZONE_HEAD))
 		user.client?.give_award(/datum/award/achievement/misc/leadpipe, user)
 
-/obj/item/melee/sabre
+/obj/item/fireaxe
+	min_force = 4
+	force = 6
+	min_force_strength = 0
+	force_strength = 0
 	parrying_modifier = 0
+	wield_info = /datum/wield_info/fireaxe
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	readying_flags = READYING_FLAG_SOFT_TWO_HANDED
+
+/obj/item/fireaxe/Initialize()
+	. = ..()
+	AddComponent(/datum/component/butchering, 100, 80, 0 , hitsound) //axes are not known for being precision butchering tools
+
+/obj/item/melee/sabre
+	parrying_modifier = 1
 	skill_melee = SKILL_RAPIER
 
 /obj/item/melee/chainofcommand
@@ -77,11 +97,11 @@
 
 /obj/item/mounted_chainsaw
 	parrying_modifier = -1
-	skill_melee = SKILL_POLEARM
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 
 /obj/item/chainsaw
 	parrying_modifier = -1
-	skill_melee = SKILL_POLEARM
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 
 /obj/item/melee/baseball_bat
 	parrying_modifier = 0
