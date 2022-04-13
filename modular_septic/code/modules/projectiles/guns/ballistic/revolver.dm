@@ -18,15 +18,27 @@
 	// open cylinder sound
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/cylinder_out.ogg'
 	// hammer sound
-	rack_sound = 'modular_septic/sound/weapons/guns/revolver/hammer1.ogg'
+	rack_sound = list(
+		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
+		'modular_septic/sound/weapons/guns/revolver/hammer2.ogg', \
+	)
 	fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
 	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/revolver_fire.ogg'
 	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.wav'
 	pickup_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_draw.wav'
-	gunshot_animation_information = list("pixel_x" = 12, \
-										"pixel_y" = 5)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
+	dry_fire_sound = 'modular_septic/sound/weapons/guns/revolver/empty_revolver.wav'
+	gunshot_animation_information = list(
+		"pixel_x" = 12, \
+		"pixel_y" = 5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.5,
+		"duration" = 2.5,
+	)
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1.5
 	skill_melee = SKILL_IMPACT_WEAPON
@@ -61,11 +73,19 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/gado_out.wav'
 	// hammer sound
 	rack_sound = 'modular_septic/sound/weapons/guns/revolver/gado_hammer.wav'
-	gunshot_animation_information = list("pixel_x" = 13, \
-										"pixel_y" = 3)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
-	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
+	gunshot_animation_information = list(
+		"pixel_x" = 13, \
+		"pixel_y" = 3, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15,
+		"recoil_angle_lower" = -30, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.5,
+		"duration" = 2.5,
+	)
+	safety_flags = GUN_SAFETY_HAS_SAFETY | GUN_SAFETY_ENABLED | GUN_SAFETY_OVERLAY_ENABLED | GUN_SAFETY_OVERLAY_DISABLED
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/gado
 	carry_weight = 2
 
@@ -78,10 +98,14 @@
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
 	inhand_icon_state = "newnambu"
-	gunshot_animation_information = list("pixel_x" = 13, \
-										"pixel_y" = 3)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
+	gunshot_animation_information = list(
+		"pixel_x" = 13, \
+		"pixel_y" = 3, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -25, \
+	)
 	fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
 	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/nova.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova
@@ -89,3 +113,32 @@
 	initial_caliber = CALIBER_38
 	alternative_caliber = CALIBER_357
 	carry_weight = 1.5
+
+// Poppy
+/obj/item/gun/ballistic/revolver/remis/poppy
+	name = "\improper .500 Poppy Revolver"
+	desc = "A revolver used in a notorius game of random deathmatch."
+	icon_state = "500"
+	base_icon_state = "500"
+	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/pistol_righthand.dmi'
+	inhand_icon_state = "poppy"
+	fire_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy.wav'
+	alternative_fire_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_in.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_out.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_hammer.wav'
+	gunshot_animation_information = list(
+		"pixel_x" = 13, \
+		"pixel_y" = 3, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -25, \
+		"recoil_angle_lower" = -30, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.8,
+		"duration" = 3,
+	)
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
+	carry_weight = 3

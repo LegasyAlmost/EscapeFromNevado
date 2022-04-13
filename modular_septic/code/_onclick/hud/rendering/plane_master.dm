@@ -12,9 +12,13 @@
 	. = ..()
 	remove_filter("AO")
 	remove_filter("AO2")
+	remove_filter("AO3")
+	remove_filter("AO4")
 	if(istype(mymob) && mymob.client?.prefs.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, GENERAL_AMBIENT_OCCLUSION1)
 		add_filter("AO2", 2, GENERAL_AMBIENT_OCCLUSION2)
+		add_filter("AO3", 3, GENERAL_AMBIENT_OCCLUSION3)
+		add_filter("AO4", 4, GENERAL_AMBIENT_OCCLUSION4)
 
 /atom/movable/screen/plane_master/game_world_fov_hidden
 	name = "game world fov hidden plane master"
@@ -88,15 +92,6 @@
 	// Don't render pollution when the player is near, etc
 	add_filter("pollution_blocker", 1, alpha_mask_filter(render_source = POLLUTION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
-/// Stores the visible FoV shadow cone
-/atom/movable/screen/plane_master/field_of_vision_visual
-	name = "field of vision visual plane master"
-	plane = FIELD_OF_VISION_VISUAL_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = RENDER_PLANE_GAME
-
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
@@ -124,3 +119,29 @@
 	blend_mode = BLEND_OVERLAY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/hud
+	name = "HUD plane"
+	plane = HUD_PLANE
+	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/above_hud
+	name = "above HUD plane"
+	plane = ABOVE_HUD_PLANE
+	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/peeper
+	name = "peeper plane"
+	plane = PEEPER_PLANE
+	render_relay_plane = RENDER_PLANE_PEEPER
+
+/atom/movable/screen/plane_master/above_peeper
+	name = "above peeper plane"
+	plane = ABOVE_PEEPER_PLANE
+	render_relay_plane = RENDER_PLANE_PEEPER
+
+/atom/movable/screen/plane_master/splashscreen
+	name = "splashscreen plane"
+	plane = SPLASHSCREEN_PLANE
+	render_relay_plane = RENDER_PLANE_NON_GAME
+

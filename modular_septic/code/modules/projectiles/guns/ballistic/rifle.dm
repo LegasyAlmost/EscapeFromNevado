@@ -1,7 +1,7 @@
 /obj/item/gun/ballistic/automatic/remis
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE
 	load_sound_vary = FALSE
@@ -45,7 +45,7 @@
 	force = 14
 	custom_price = 45000
 	carry_weight = 3
-	suppressor_x_offset = 7
+	suppressor_x_offset = 6
 	recoil_animation_information = list("recoil_angle_upper" = -15, \
 										"recoil_angle_lower" = -25)
 
@@ -92,9 +92,13 @@
 	suppressor_x_offset = 10
 	gunshot_animation_information = list("pixel_x" = 32, \
 										"pixel_y" = 3, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20)
+	client_recoil_animation_information = list(
+		"strength" = 0.3,
+		"duration" = 2,
+	)
 	custom_price = 30000
 	w_class = WEIGHT_CLASS_HUGE
 	full_auto = TRUE
@@ -130,11 +134,15 @@
 	custom_price = 20000
 	gunshot_animation_information = list("pixel_x" = 21, \
 										"pixel_y" = -1, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
+	client_recoil_animation_information = list(
+		"strength" = 0.3,
+		"duration" = 2,
+	)
 
 //copypasted just to ensure that we can nuke the casing
 /obj/item/gun/ballistic/automatic/remis/g11/handle_chamber(empty_chamber, from_firing, chamber_next_round)
@@ -189,11 +197,15 @@
 	verb_say = "passionately whispers"
 	gunshot_animation_information = list("pixel_x" = 29, \
 										"pixel_y" = 0, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -10, \
 										"recoil_angle_lower" = -20, \
 										"recoil_burst_speed" = 0.5, \
 										"return_burst_speed" = 0.5)
+	client_recoil_animation_information = list(
+		"strength" = 0.1,
+		"duration" = 1,
+	)
 	custom_price = 80000
 
 /obj/item/gun/ballistic/automatic/remis/steyr/Initialize(mapload)
@@ -264,9 +276,13 @@
 	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 43, \
 										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -18, \
 										"recoil_angle_lower" = -25)
+	client_recoil_animation_information = list(
+		"strength" = 0.5,
+		"duration" = 2,
+	)
 
 /obj/item/gun/ballistic/automatic/remis/g3
 	name = "\proper \"Arma\" A3 semi-automatic designated marksman rifle"
@@ -300,6 +316,10 @@
 	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 58, \
 										"pixel_y" = 17, \
-										"inactive_when_silenced" = TRUE)
+										"inactive_wben_suppressed" = TRUE)
 	recoil_animation_information = list("recoil_angle_upper" = -18, \
 										"recoil_angle_lower" = -25)
+	client_recoil_animation_information = list(
+		"strength" = 0.5,
+		"duration" = 2,
+	)

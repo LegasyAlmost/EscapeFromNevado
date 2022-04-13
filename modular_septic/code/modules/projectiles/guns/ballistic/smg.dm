@@ -14,7 +14,7 @@
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
 	skill_melee = SKILL_IMPACT_WEAPON
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE
 	full_auto = TRUE
@@ -64,13 +64,21 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 9
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.1,
+		"duration" = 1,
+	)
 	custom_price = 10000
 
 /obj/item/gun/ballistic/automatic/remis/smg/bastardo
@@ -103,13 +111,21 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 6
-	gunshot_animation_information = list("pixel_x" = 15, \
-										"pixel_y" = 2, \
-										"inactive_when_silenced" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 15, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
+	client_recoil_animation_information = list(
+		"strength" = 0.3, \
+		"duration" = 2, \
+	)
 	custom_price = 20000
 
 /obj/item/gun/ballistic/automatic/remis/smg/thump
@@ -145,8 +161,12 @@
 	can_flashlight = TRUE
 	flight_x_offset = 30
 	flight_y_offset = 14
+	client_recoil_animation_information = list(
+		"strength" = 0.25, \
+		"duration" = 2, \
+	)
 
-// s-hksmg
+// SUPPRESSED HK SMG
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
 	name = "Solitario-SD Inseguro R7 \"Saber\" submachine gun"
 	desc = "An integrally suppressed version of the Solitario, changed post-factory to be chambered in .380, however. This has made the drum mags incompatible."
@@ -166,6 +186,10 @@
 	can_unsuppress = FALSE
 	foldable = TRUE
 	w_class = WEIGHT_CLASS_SMALL
+	client_recoil_animation_information = list(
+		"strength" = 0.15, \
+		"duration" = 1, \
+	)
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/Initialize(mapload)
 	. = ..()
@@ -175,35 +199,50 @@
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
 	spawnwithmagazine = FALSE
 
-/obj/item/gun/ballistic/automatic/remis/smg/vector
-	name = "\improper Animada R10 submachine gun"
-	desc = "Someone kept adding to a Gosma pistol until It eventually became this mess. Usually available to guards and law enforcement as a concealable equivilant to the thump. Somehow. Just somehow. Fires in .45 caseless."
-	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
+// macs
+/obj/item/gun/ballistic/automatic/remis/smg/mac
+	name = "Cricket R0\"NOTALENT\" submachine gun"
+	desc = "A controversially-made submachine gun, due to the design rumored to be stolen by a man without talents or any patience whatsoever, It was abandoned, and thrown in the trash, where It belongs. That's most likely where you found this."
+	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
-	inhand_icon_state = "vector"
-	base_icon_state = "vector"
-	icon_state = "vector"
-	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockback.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_lockin.wav'
-	load_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magin.wav'
-	eject_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_magout.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/smg/macs_rack.wav'
+	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/macs_lockback.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/macs_lockin.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/smg/macs_magin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/macs_magin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/smg/macs_magout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/macs_magout.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/vector.ogg'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/vector_silenced.ogg'
-	mag_type =	/obj/item/ammo_box/magazine/vector45
-	weapon_weight = WEAPON_MEDIUM
-	force = 7
-	recoil = 0.1
-	fire_delay = 1.2
+	fire_sound = 'modular_septic/sound/weapons/guns/smg/macs.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/macs.wav'
+	weapon_weight = WEAPON_LIGHT
+	inhand_icon_state = "macs"
+	base_icon_state = "macs"
+	icon_state = "macs"
+	actions_types = null
 	burst_size = 3
-	slot_flags = ITEM_SLOT_BELT
+	fire_delay = 0.8
+	select = TRUE
+	full_auto = TRUE
+	mag_type = /obj/item/ammo_box/magazine/macs
+	slot_flags = null
 	can_suppress = TRUE
-	foldable = TRUE
-	folded = FALSE
-	suppressor_x_offset = 7
-	custom_price = 65633
+	can_unsuppress = FALSE
+	w_class = WEIGHT_CLASS_SMALL
+	wielded_inhand_state = FALSE
+	bolt_type = BOLT_TYPE_OPEN
+	bolt_locked = TRUE
+	client_recoil_animation_information = list(
+		"strength" = 0.7, \
+		"duration" = 1, \
+	)
+
+/obj/item/gun/ballistic/automatic/remis/smg/mac/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/suppressor = new(src)
+	install_suppressor(suppressor)
+	if(chambered)
+		QDEL_NULL(chambered)
+	update_appearance()

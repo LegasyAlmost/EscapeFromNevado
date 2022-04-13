@@ -136,6 +136,8 @@
 		/obj/item/ammo_casing/a357 = 65,
 		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
 		/obj/item/ammo_box/magazine/m45 = 40,
+		/obj/item/ammo_box/magazine/m9mm_aps = 40,
+		/obj/item/ammo_box/magazine/glock9mm = 40,
 		/obj/item/ammo_casing/shotgun/buckshot = 569,
 		/obj/item/ammo_casing/shotgun = 420,
 		/obj/item/flashlight/seclite = 5,
@@ -145,10 +147,10 @@
 		/obj/item/ammo_box/magazine/a545 = 18,
 		/obj/item/ammo_box/magazine/a762winter = 13,
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
-		/obj/item/ammo_box/magazine/vector45 = 25,
 		/obj/item/ammo_box/magazine/hksmg22lr = 40,
 		/obj/item/ammo_box/magazine/hksmg380 = 40,
 		/obj/item/ammo_box/magazine/thump45 = 20,
+		/obj/item/ammo_box/magazine/macs = 30,
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
@@ -184,61 +186,3 @@
 		playsound(src, putalines,  volume, TRUE, vary = FALSE)
 		speak(slogan)
 		last_slogan = world.time
-
-/obj/machinery/vending/tiktok
-	name = "Tiktok Submissitory"
-	desc = "A meta-physical line to a Devious, Godforsaken, and Diabolical Corporation."
-	density = FALSE
-	onstation = FALSE
-	slogan_delay = 150
-	icon_state = "tiktok"
-	icon = 'modular_septic/icons/obj/vending.dmi'
-	product_slogans = "You're licked! You're absolutely licked.;🐿ʙᴏɪ🐿ᴡʜᴀᴛ🐿ᴛʜᴇ🐿ʜᴇʟʟ🐿ʙᴏɪ🐿;Due to a stupid Tik Tok trend kids have been vandalizing our school bathrooms, now we need an escort to pee. Soap dispensers and a hand dryer has been stolen. A stall door was also taken off its hinges and vandalized. My generation can't think for themselves!"
-	var/list/tiktoklines = 'modular_septic/sound/effects/singer.ogg'
-	products = list(
-		/obj/item/gun/ballistic/automatic/pistol/m1911 = 35,
-		/obj/item/ammo_box/magazine/m45 = 65,
-	)
-
-/obj/machinery/vending/tiktok/process(delta_time, volume = 70)
-	if(machine_stat & (BROKEN|NOPOWER))
-		return PROCESS_KILL
-	if(!active)
-		return
-
-	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
-		seconds_electrified--
-
-	//Pitch to the people!  Really sell it!
-	if(last_slogan + slogan_delay <= world.time && slogan_list.len > 0 && !shut_up && DT_PROB(2.5, delta_time))
-		var/slogan = pick(slogan_list)
-		playsound(src, tiktoklines,  volume, TRUE, vary = FALSE)
-		speak(slogan)
-		last_slogan = world.time
-
-/obj/machinery/vending/tiktok/directional/north
-	dir = SOUTH
-	pixel_y = 32
-
-/obj/machinery/vending/tiktok/directional/south
-	dir = NORTH
-	pixel_y = -32
-
-/obj/machinery/vending/tiktok/directional/east
-	dir = WEST
-	pixel_x = 32
-
-/obj/machinery/vending/tiktok/directional/west
-	dir = EAST
-	pixel_x = -32
-
-
-/* Notes for Remis
-Here's what you've got to do
-1: Add Cough Syrup
-2: Add Lean
-3: Add pill packets and add both copium pill packets and Pep Pill packets.
-4: Change the flashlight sprite
-5: Finish the map.
-6: Host.
-*/

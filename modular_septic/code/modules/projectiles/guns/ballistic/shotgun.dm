@@ -19,26 +19,32 @@
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_silenced.wav'
 	pickup_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_draw.wav'
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lock_back.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_forward.ogg'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.ogg'
-	load_sound = list('modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav',
-					 'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav')
+	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
+	load_sound = list(
+		'modular_septic/sound/weapons/guns/shotgun/shotgun_load.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/shotgun_load2.wav', \
+	)
 	safety_off_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety2.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_safety1.wav'
-	gunshot_animation_information = list("pixel_x" = 24, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -5)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 24, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	force = 12
 	pb_knockback = 0
 	can_suppress = TRUE
 	suppressor_x_offset = 13
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_SHOTGUN
-	bolt_type = BOLT_TYPE_LOCKING //lock it back when the round is empty.
-	bolt_wording = "pump"
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 
 // DOUBLE BARRELED SHOTGUN
 /obj/item/gun/ballistic/shotgun/doublebarrel
@@ -64,12 +70,16 @@
 	inhand_icon_state = "riot"
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
-	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -4)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 25, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -4, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	suppressor_x_offset = 14
 
 // BENELLI M4 SHOTGUN
@@ -85,17 +95,23 @@
 	flight_y_offset = 10
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
-	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/comgun1.wav',
-					'modular_septic/sound/weapons/guns/shotgun/comgun2.wav')
+	fire_sound = list(
+		'modular_septic/sound/weapons/guns/shotgun/comgun1.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/comgun2.wav', \
+	)
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
 	empty_indicator = FALSE
 	empty_icon_state = TRUE
-	gunshot_animation_information = list("pixel_x" = 23, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -4)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 23, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -4, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	suppressor_x_offset = 12
 
 // BROWNING 2000 SHOTGUN
@@ -113,12 +129,16 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_silenced.wav'
-	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -5)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 25, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 
 // BELADOR 2021 SILENCED SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2021
@@ -138,18 +158,22 @@
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/semigun_cycle.wav'
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/rape_gun.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
-	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -5)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 25, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/b2021
 
 /obj/item/gun/ballistic/shotgun/automatic/b2021/Initialize(mapload)
 	. = ..()
-	var/obj/item/suppressor/S = new(src)
-	install_suppressor(S)
+	var/obj/item/suppressor/suppressor = new(src)
+	install_suppressor(suppressor)
 
 // ??? AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/bulldog
@@ -177,12 +201,16 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
-	gunshot_animation_information = list("pixel_x" = 25, \
-										"pixel_y" = 1, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -5)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 25, \
+		"pixel_y" = 1, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	pin = /obj/item/firing_pin
 	can_suppress = TRUE
 	suppressor_x_offset = 12
@@ -216,53 +244,34 @@
 	eject_empty_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	eject_sound = 'modular_septic/sound/weapons/guns/shotgun/autogun_magout.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/shotgun/belador_silenced.wav'
-	gunshot_animation_information = list("piwdxel_x" = 31, \
-										"pixel_y" = 0, \
-										"inactive_when_silenced" = TRUE,
-										"add_pixel_x_sawn" = -5)
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -30)
+	gunshot_animation_information = list(
+		"pixel_x" = 31, \
+		"pixel_y" = 0, \
+		"inactive_wben_suppressed" = TRUE, \
+		"add_pixel_x_sawn" = -5, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -30, \
+	)
 	pin = /obj/item/firing_pin
 	mag_type = /obj/item/ammo_box/magazine/abyss_shotgun_drum
 	suppressor_x_offset = 8
 
-
+// BALLS DESTROYER
 /obj/item/gun/ballistic/shotgun/bolas
 	name = "\improper Destruidor de Bolas 4-gauge shotgun"
-	desc = "Holy shit. That's a big shotgun."
+	desc = "Holy shit. That's a big fucking shotgun."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	icon_state = "ks23"
 	base_icon_state = "ks23"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
 	fire_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas.wav'
-	load_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas_load.wav',
-					 'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav',
-					 'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav')
+	load_sound = list(
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav', \
+	)
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.ogg'
 	can_suppress = FALSE
-
-
-/obj/item/gun/ballistic/shotgun/sweeper
-	name = "\improper Sweeper 36"
-	desc = "A standard pump action shotgun for turning people you don't like into red mist."
-	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
-	icon_state = "sweeper"
-	base_icon_state = "sweeper"
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
-	inhand_icon_state = "sweeper"
-	can_suppress = FALSE
-
-/obj/item/gun/ballistic/shotgun/plunker
-	name = "\improper Plunker 72"
-	desc = "Packs a much bigger punch than it's younger brother the Plinker, but at the cost of being bolt action instead of fully automatic."
-	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
-	icon_state = "plunker"
-	base_icon_state = "plunker"
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
-	inhand_icon_state = "plunker"
-	magazine = /obj/item/ammo_box/magazine/internal/boltaction
-	can_suppress = FALSE
-	bolt_wording = "bolt"

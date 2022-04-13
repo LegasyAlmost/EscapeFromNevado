@@ -1,3 +1,4 @@
+/* SEPTIC EDIT REMOVAL
 /proc/priority_announce(text, title = "", sound, type , sender_override, has_important_message)
 	if(!text)
 		return
@@ -101,7 +102,6 @@
 	M.content = text
 
 	SScommunications.send_message(M)
-
 /proc/minor_announce(message, title = "Attention:", alert, html_encode = TRUE)
 	if(!message)
 		return
@@ -118,9 +118,8 @@
 					SEND_SOUND(M, sound('sound/misc/notice1.ogg'))
 				else
 					SEND_SOUND(M, sound('sound/misc/notice2.ogg'))
-	//SEPTIC EDIT BEGIN
 	SSstation.station_announcements += list(
 		list("title" = title, \
 			"text" = message)
 	)
-	//SEPTIC EDIT END
+*/

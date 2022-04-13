@@ -242,12 +242,12 @@
 	//Check if the user can use the gun, if the user isn't alive (turrets) assume it can.
 	if(istype(user))
 		var/mob/living/living_user = user
-		before_trigger_checks(living_user)
 		if(!can_trigger_gun(living_user))
 			shoot_with_empty_chamber(living_user)
 			return
 
 	//Just because you can pull the trigger doesn't mean it can shoot.
+	before_can_shoot_checks(user)
 	if(!can_shoot())
 		shoot_with_empty_chamber(user)
 		return
@@ -331,8 +331,7 @@
 		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 20))
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
-
-	if(weapon_weight == WEAPON_MEDIUM)
+	else if(weapon_weight >= WEAPON_MEDIUM)
 		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 14))
 			user.dropItemToGround(src)
 			to_chat(user, span_userdanger(uppertext(fail_msg(TRUE))))
@@ -361,7 +360,7 @@
 		else
 			. += span_notice("<b>Weapon Weight:</b> Invalid")
 
-/obj/item/gun/proc/before_trigger_checks(mob/living/user)
+/obj/item/gun/proc/before_can_shoot_checks(mob/living/user)
 	return TRUE
 
 /obj/item/gun/proc/safety_examine(mob/user)
@@ -397,7 +396,7 @@
 
 // wARNING: For some god forsaken reason, the recoil animation conflicts pretty badly with the gunshot, as the gunshot refuses to get angled
 /obj/item/gun/proc/gunshot_animation(mob/user, burst_fire = FALSE)
-	if(LAZYACCESS(gunshot_animation_information, "inactive_wben_silenced") && suppressed)
+	if(suppressed && LAZYACCESS(gunshot_animation_information, "inactive_wben_silenced"))
 		return
 	var/shot_icon = gunshot_animation_information["icon"] || 'modular_septic/icons/effects/gunshot.dmi'
 	var/shot_icon_state = gunshot_animation_information["icon_state"] || "gunshot"
@@ -412,10 +411,10 @@
 	cut_overlay(shots_fired)
 
 /obj/item/gun/proc/recoil_animation(mob/user, burst_fire = FALSE)
-	if(burst_fire)
-		return recoil_animation_burst(user, burst_fire)
 	if(recoil_animation_information["doing_recoil_burst_animation"])
 		return
+	if(burst_fire)
+		return recoil_animation_burst(user, burst_fire)
 
 	var/recoil_angle_upper = recoil_animation_information["recoil_angle_upper"] || -20
 	var/recoil_angle_lower = recoil_animation_information["recoil_angle_lower"] || -40
@@ -433,9 +432,6 @@
 	animate(src, transform = return_matrix, time = return_speed, easing = return_easing)
 
 /obj/item/gun/proc/recoil_animation_burst(mob/user, burst_fire = FALSE)
-	if(recoil_animation_information["doing_recoil_burst_animation"])
-		return
-
 	var/recoil_burst_angle_upper = recoil_animation_information["recoil_burst_angle_upper"] || -5
 	var/recoil_burst_angle_lower = recoil_animation_information["recoil_burst_angle_upper"] || -10
 	var/recoil_burst_speed = recoil_animation_information["recoil_burst_speed"] || 0.5

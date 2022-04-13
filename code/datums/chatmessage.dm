@@ -121,18 +121,8 @@
 
 	// Calculate target color if not already present
 	if (!target.chat_color || target.chat_color_name != target.name)
-		/* SEPTIC EDIT REMOVAL
 		target.chat_color = colorize_string(target.name)
 		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-		*/
-		//SEPTIC EDIT BEGIN
-		if(GLOB.name_to_chat_color["[target.name]"])
-			target.chat_color = GLOB.name_to_chat_color["[target.name]"]
-			target.chat_color_darkened = GLOB.name_to_chat_color_darkened["[target.name]"]
-		else
-			target.chat_color = colorize_string(target.name)
-			target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-		//SEPTIC EDIT END
 		target.chat_color_name = target.name
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
@@ -214,7 +204,13 @@
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
-	animate(message, 1, alpha = 255, pixel_y = message.pixel_y+4, time = CHAT_MESSAGE_SPAWN_TIME)
+	/* SEPTIC EDIT REMOVAL
+	animate(message, alpha = 255, time = CHAT_MESSAGE_SPAWN_TIME)
+	*/
+	//SEPTIC EDIT BEGIN
+	message.pixel_y -= mheight
+	animate(message, alpha = 255, pixel_y = message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME)
+	//SEPTIC EDIT END
 
 	// Register with the runechat SS to handle EOL and destruction
 	scheduled_destruction = world.time + (lifespan - CHAT_MESSAGE_EOL_FADE)
@@ -229,7 +225,7 @@
  */
 /datum/chatmessage/proc/end_of_life(fadetime = CHAT_MESSAGE_EOL_FADE)
 	eol_complete = scheduled_destruction + fadetime
-	animate(message, 1, alpha = 0, pixel_y = message.pixel_y+16, time = fadetime, flags = ANIMATION_PARALLEL)
+	animate(message, alpha = 0, time = fadetime, flags = ANIMATION_PARALLEL)
 	enter_subsystem(eol_complete) // re-enter the runechat SS with the EOL completion time to QDEL self
 
 /**
