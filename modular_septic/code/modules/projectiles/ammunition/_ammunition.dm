@@ -4,18 +4,25 @@
 	var/diceroll_modifier = 0
 	/// Add this to the projectile diceroll modifiers of whatever we fire, but ONLY against a specified target
 	var/list/target_specific_diceroll
+	/// The funny sound we make when we bounce on floors
+	var/bounce_sound = list('modular_septic/sound/bullet/casing_bounce1.wav', 'modular_septic/sound/bullet/casing_bounce2.wav', 'modular_septic/sound/bullet/casing_bounce3.wav')
+	/// The volume of the bouncing
+	var/bounce_volume = 40
+	/// Should bouncing vary
+	var/bounce_vary = FALSE
 
-/obj/item/ammo_casing/bounce_away(still_warm, bounce_delay)
+/obj/item/ammo_casing/bounce_away(still_warm = FALSE, bounce_delay = 0)
 	if(!heavy_metal)
 		return
 	update_appearance()
+	undo_messy()
 	do_messy()
 	SpinAnimation(10, 1)
 	var/turf/bouncer = drop_location()
 	if(still_warm && bouncer?.bullet_sizzle)
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 20, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
-	else if(bouncer?.bullet_bounce_sound)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, bouncer.bullet_bounce_sound, 20, FALSE), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+	else
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, pick(bounce_sound), bounce_volume, bounce_vary), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
 
 /obj/item/ammo_casing/add_notes_ammo()
 	var/list/readout = list()
@@ -25,7 +32,8 @@
 	var/obj/projectile/exam_proj = GLOB.proj_by_path_key[projectile_type]
 	if(!istype(exam_proj) || (pellets == 0))
 		return readout
-	readout += span_notice("<b>Projectile Force:</b> [exam_proj.damage]")
+	readout += span_notice("<b>Projectile Minimum Force:</b> [exam_proj.damage]")
+	readout += span_notice("<b>Projectile Maximum Force:</b> [exam_proj.damage]")
 	if(exam_proj.wound_bonus)
 		readout += span_notice("<b>Projectile Wound Bonus:</b> [exam_proj.wound_bonus]")
 	if(exam_proj.bare_wound_bonus)

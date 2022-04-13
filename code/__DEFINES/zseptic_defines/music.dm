@@ -44,13 +44,15 @@
 
 #define DRONING_DARKLIMINAL list('modular_septic/sound/music/droning/thunderdrome.ogg')
 
-#define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/something.ogg')
+#define DRONING_LIMINALHALL list('modular_septic/sound/music/droning/hallway1.ogg', \
+							'modular_septic/sound/music/droning/hallway2.wav')
 
 #define DRONING_LIMINALINTRO list('modular_septic/sound/music/droning/introduction.ogg')
 
-#define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg')
+#define DRONING_LIMINALDEEP list('modular_septic/sound/music/droning/deepliminal.ogg', \
+							'modular_septic/sound/music/droning/deepliminal2.ogg')
 
-#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.ogg')
+#define DRONING_LIMINALCLUB list('modular_septic/sound/music/droning/certainty.wav')
 
 #define DRONING_LIMINALOB list('modular_septic/sound/music/droning/observitory.ogg')
 
@@ -61,3 +63,7 @@
 #define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/liminaltrain1.ogg')
 
 #define DRONING_DETROIT list('modular_septic/sound/music/droning/detroit.wav')
+
+#define DRONING_LIMINALBUNKER list('modular_septic/sound/music/droning/metalic.wav')
+
+#define DRONING_LIMINALDERELICT list('modular_septic/sound/music/droning/death_penality.wav')

@@ -25,9 +25,10 @@
 	if(!dropping.has_gravity())
 		return
 	var/turf/dropping_turf = get_turf(dropping)
-	if(!dropping_turf)
+	if(!dropping_turf || (dropping_turf == src))
 		return
-	if(dropping_turf.turf_height - turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD)
+	if((dropping_turf.turf_height - src.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD) \
+		|| (dropping_turf.z > src.z) )
 		//Climb down
 		if(user == dropping)
 			dropping.visible_message(span_notice("<b>[user]</b> is descending down to [src]"), \
@@ -38,7 +39,7 @@
 		if(do_mob(user, dropping, 2 SECONDS))
 			dropping.forceMove(src)
 		return
-	else if(turf_height - dropping_turf.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD)
+	else if(src.turf_height - dropping_turf.turf_height >= TURF_HEIGHT_BLOCK_THRESHOLD)
 		//Climb up
 		if(user == dropping)
 			dropping.visible_message(span_notice("<b>[user]</b> is climbing onto [src]"), \

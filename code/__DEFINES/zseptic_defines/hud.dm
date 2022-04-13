@@ -53,7 +53,6 @@
 #define ui_alert3 "EAST-1,SOUTH-4"
 #define ui_alert4 "EAST-1,SOUTH-5"
 #define ui_alert5 "EAST-1,SOUTH-6"
-#define ui_alert6 "EAST-1,SOUTH-7"
 
 //Lower middle right
 #define ui_filler "EAST-1,SOUTH+4"
@@ -90,7 +89,7 @@
 #define ui_zonesel "EAST,SOUTH"
 
 //Middle of the screen stuff
-#define ui_fullscreen "WEST+3,SOUTH+1"
+#define ui_fullscreen "WEST+4,SOUTH+1"
 #define ui_fov "WEST+4,SOUTH+1"
 
 //Expand inventory bookmark
@@ -224,3 +223,6 @@
 #define ui_peeper_action_loadout_down "statmap:5:10,0:24"
 #define ui_peeper_action_tooltip_background "statmap:1,0 to 5,0"
 #define ui_peeper_action_tooltip "statmap:1,0"
+#define ui_peeper_alert_tooltip_background "statmap:1,2:-16 to 5,2:-16"
+#define ui_peeper_alert_tooltip_name "statmap:1,2:-16"
+#define ui_peeper_alert_tooltip_desc "statmap:1,0"

@@ -3,6 +3,7 @@
 	icon = 'modular_septic/icons/hud/quake/peeper.dmi'
 	icon_state = "blank"
 	maptext = "N/A"
+	maptext_height = 32
 	maptext_width = 158
 	maptext_x = 2
 	plane = PEEPER_PLANE

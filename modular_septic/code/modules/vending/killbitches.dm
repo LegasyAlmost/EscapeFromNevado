@@ -128,18 +128,16 @@
 		/obj/item/stack/medical/splint = 30,
 		/obj/item/stack/sheet/cloth/five = 10,
 		/obj/item/gun/ballistic/revolver/remis/nova = 1,
-		/obj/item/clothing/under/stray = 20,
-		/obj/item/clothing/shoes/jackboots = 20,
-		/obj/item/clothing/gloves/fingerless = 20,
-		/obj/item/clothing/mask/gas/ordinator/slaughter = 20,
-		/obj/item/clothing/mask/gas/explorer = 5,
+		/obj/item/clothing/under/itobe = 20,
+		/obj/item/clothing/shoes/itobe = 20,
+		/obj/item/clothing/gloves/color/black = 20,
+		/obj/item/clothing/mask/gas/explorer = 1,
 		/obj/item/ammo_casing/c38 = 90,
 		/obj/item/ammo_casing/a357 = 65,
 		/obj/item/ammo_box/magazine/combatmaster9mm = 69,
 		/obj/item/ammo_box/magazine/m45 = 40,
 		/obj/item/ammo_casing/shotgun/buckshot = 569,
 		/obj/item/ammo_casing/shotgun = 420,
-		/obj/item/suppressor = 5,
 		/obj/item/flashlight/seclite = 5,
 		/obj/item/ammo_box/magazine/a762g3 = 4,
 		/obj/item/ammo_box/magazine/a762svd = 4,
@@ -147,7 +145,9 @@
 		/obj/item/ammo_box/magazine/a545 = 18,
 		/obj/item/ammo_box/magazine/a762winter = 13,
 		/obj/item/ammo_box/magazine/bastardo9mm = 25,
+		/obj/item/ammo_box/magazine/vector45 = 25,
 		/obj/item/ammo_box/magazine/hksmg22lr = 40,
+		/obj/item/ammo_box/magazine/hksmg380 = 40,
 		/obj/item/ammo_box/magazine/thump45 = 20,
 	)
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 0, FIRE = 100, ACID = 50)
@@ -195,6 +195,10 @@
 	icon = 'modular_septic/icons/obj/vending.dmi'
 	product_slogans = "You're licked! You're absolutely licked.;🐿ʙᴏɪ🐿ᴡʜᴀᴛ🐿ᴛʜᴇ🐿ʜᴇʟʟ🐿ʙᴏɪ🐿;Due to a stupid Tik Tok trend kids have been vandalizing our school bathrooms, now we need an escort to pee. Soap dispensers and a hand dryer has been stolen. A stall door was also taken off its hinges and vandalized. My generation can't think for themselves!"
 	var/list/tiktoklines = 'modular_septic/sound/effects/singer.ogg'
+	products = list(
+		/obj/item/gun/ballistic/automatic/pistol/m1911 = 35,
+		/obj/item/ammo_box/magazine/m45 = 65,
+	)
 
 /obj/machinery/vending/tiktok/process(delta_time, volume = 70)
 	if(machine_stat & (BROKEN|NOPOWER))

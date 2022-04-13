@@ -15,7 +15,7 @@
 	/// How much we are allowed to vary in y
 	var/variation_y = 32
 	/// Render relay plate we get our render_source from
-	var/atom/movable/screen/plane_master/rendering_plate/game_plate
+	var/atom/movable/screen/plane_master/rendering_plate/source_plate
 	/// Render relay plate we are actually messing with
 	var/atom/movable/screen/plane_master/rendering_plate/filter_plate
 	/// Funny tinnitus sound effect
@@ -26,9 +26,11 @@
 /datum/status_effect/incapacitating/headrape/Destroy()
 	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/end_animation)
-	QDEL_IN(tinnitus, 4 SECONDS)
+		QDEL_IN(tinnitus, 4 SECONDS)
+	else
+		qdel(tinnitus)
 	tinnitus = null
-	game_plate = null
+	source_plate = null
 	filter_plate = null
 	filters_handled = null
 	return ..()
@@ -36,12 +38,13 @@
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
-	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME]"] && owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"])
-		game_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
-		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_PREMASTER]"]
+	if(owner?.hud_used?.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"] && owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"])
+		source_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_PRE_PROCESSING]"]
+		filter_plate = owner.hud_used.plane_masters["[RENDER_PLANE_GAME_POST_PROCESSING]"]
 		for(var/i in 1 to intensity)
-			var/filter_color = rgb(255, 255, 255, max(16, starting_alpha/(2**i)))
-			filters_handled["headrape[i]"] = layering_filter(render_source = game_plate.render_target, \
+			var/filter_intensity = max(16, starting_alpha/(2**i))
+			var/filter_color = rgb(filter_intensity, filter_intensity, filter_intensity, filter_intensity)
+			filters_handled["headrape[i]"] = layering_filter(render_source = source_plate.render_target, \
 															blend_mode = BLEND_DEFAULT, \
 															x = 0, \
 															y = 0, \
@@ -49,7 +52,7 @@
 		for(var/filter_name in filters_handled)
 			var/filter_index = filters_handled.Find(filter_name)
 			var/list/filter_params = filters_handled[filter_name]
-			filter_plate.add_filter(filter_name, 10+filter_index, filter_params)
+			filter_plate.add_filter(filter_name, 21-filter_index, filter_params)
 	if(!QDELETED(filter_plate))
 		INVOKE_ASYNC(src, .proc/perform_animation)
 

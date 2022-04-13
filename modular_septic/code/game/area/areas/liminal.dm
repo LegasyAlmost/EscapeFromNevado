@@ -39,6 +39,20 @@
 	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
 	mood_bonus = -5
 
+/area/maintenance/liminal/bunker
+	name = "Liminal Bunker"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALBUNKER
+	mood_message = "<span class='bloody'>THIS AREA FUCKS!</span>\n"
+	mood_bonus = 3
+
+/area/maintenance/liminal/derelict
+	name = "Liminal Derelict"
+	icon_state = "engine_sm"
+	droning_sound = DRONING_LIMINALDERELICT
+	mood_message = "<span class='bloody'>SO POOPDARK AND UKRANIANCORE!</span>\n"
+	mood_bonus = 1
+
 /area/maintenance/liminal/darkclub
 	name = "Liminal Club"
 	icon_state = "darkgreen"
@@ -67,6 +81,18 @@
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
 	droning_sound = DRONING_LIMINALINTRO
+
+/area/maintenance/liminal/intro/elevators
+	name = "Liminal Intro Elevators"
+	droning_sound = null
+	ambience_index = AMBIENCE_ELEVATOR
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
+
+/area/maintenance/liminal/elevators
+	name = "Liminal Elevators"
+	droning_sound = null
+	ambience_index = AMBIENCE_ELEVATOR
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()

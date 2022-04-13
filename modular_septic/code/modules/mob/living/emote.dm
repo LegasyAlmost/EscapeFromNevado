@@ -204,7 +204,7 @@
 /datum/emote/living/grunt/get_sound(mob/living/user)
 	if(ishuman(user))
 		if(user.gender != FEMALE)
-			return "modular_septic/sound/emotes/moan_male[rand(1, 6)].ogg"
+			return "modular_septic/sound/emotes/moan_male[rand(1, 8)].ogg"
 		else
 			return "modular_septic/sound/emotes/moan_female[rand(1, 8)].ogg"
 	else
@@ -213,7 +213,7 @@
 /datum/emote/living/groan/get_sound(mob/living/user)
 	if(ishuman(user))
 		if(user.gender != FEMALE)
-			return "modular_septic/sound/emotes/moan_male[rand(1, 7)].ogg"
+			return "modular_septic/sound/emotes/moan_male[rand(1, 8)].ogg"
 		else
 			return "modular_septic/sound/emotes/moan_female[rand(1, 8)].ogg"
 	else
@@ -431,6 +431,8 @@
 /datum/emote/living/dance/run_emote(mob/user, params, type_override, intentional)
 	. = TRUE
 	if(!can_run_emote(user, TRUE, intentional))
+		return FALSE
+	if(user.movement_type & FLOATING)
 		return FALSE
 
 	var/static/list/possible_affirmative_messages = list(

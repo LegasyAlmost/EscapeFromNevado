@@ -1,10 +1,9 @@
 /datum/hud
-	/// This datum essentially controls a separate section of the HUD
-	var/datum/peeper/peeper
 	/// Is the peeper open?
 	var/peeper_active = FALSE
+	/// This datum essentially controls a completely separate section of the HUD
+	var/datum/peeper/peeper
 
-	var/image/shadowcasting_holder
 	var/atom/movable/screen/fullscreen/fog_blocker/fog_blocker
 	var/atom/movable/screen/fullscreen/noise/noise
 	var/atom/movable/screen/fullscreen/pain_flash/pain_flash
@@ -62,8 +61,7 @@
 	screenoverlays |= fog_blocker
 	if(ispath(peeper))
 		peeper = new peeper(src)
-		if(owner)
-			owner.open_peeper()
+		peeper?.show_peeper(owner)
 
 /datum/hud/show_hud(version, mob/viewmob)
 	. = ..()
@@ -78,7 +76,6 @@
 		screenmob.client?.screen |= fov_holder
 	if(fog_blocker)
 		screenmob.client?.screen |= fog_blocker
-		fog_blocker.update_for_view(screenmob.client.view)
 	if((screenmob == mymob) && peeper)
 		add_verb(screenmob, /mob/proc/open_peeper)
 		add_verb(screenmob, /mob/proc/close_peeper)
@@ -93,6 +90,27 @@
 	.["toggle_icon"] = 'modular_septic/icons/hud/quake/actions.dmi'
 	.["toggle_hide"] = "hide"
 	.["toggle_show"] = "show"
+
+/datum/hud/reorganize_alerts(mob/viewmob)
+	var/mob/screenmob = viewmob || mymob
+	if(!screenmob.client)
+		return
+	var/list/alerts = mymob.alerts
+	if(!hud_shown)
+		screenmob.client.screen -= flatten_list(alerts)
+		return TRUE
+	if(!peeper?.peeper_tabs[/datum/peeper_tab/alerts])
+		return TRUE
+	var/datum/peeper_tab/alerts/peeper_alerts = peeper.peeper_tabs[/datum/peeper_tab/alerts]
+	if(peeper_active && (peeper.current_tab == peeper_alerts))
+		peeper_alerts.hide_tab()
+	peeper_alerts.all_alerts = list()
+	for(var/i in 1 to LAZYLEN(alerts))
+		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
+		peeper_alerts.all_alerts |= alert
+	peeper_alerts.update_tab_loadout()
+	if(peeper_active && (peeper.current_tab == peeper_alerts))
+		peeper_alerts.show_tab()
 
 /datum/hud/proc/destroy_remaining_hud()
 	QDEL_LIST_ASSOC(inv_slots)

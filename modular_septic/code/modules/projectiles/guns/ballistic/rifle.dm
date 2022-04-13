@@ -83,6 +83,8 @@
 	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
 	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	fold_open_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_open.wav'
+	fold_close_sound = 'modular_septic/sound/weapons/guns/rifle/ak_stock_close.wav'
 	force = 16
 	fire_delay = 2
 	burst_size = 2
@@ -258,7 +260,8 @@
 	custom_price = 30000
 	recoil = 0.4
 	can_suppress = TRUE
-	suppressor_x_offset = 2
+	suppressor_x_offset = 6
+	suppressor_y_offset = 1
 	gunshot_animation_information = list("pixel_x" = 43, \
 										"pixel_y" = 2, \
 										"inactive_when_silenced" = TRUE)

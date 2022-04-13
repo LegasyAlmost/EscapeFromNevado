@@ -46,3 +46,14 @@
 	pellets = 10
 	variance = 10
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_bolas/buckshot
+
+/obj/item/ammo_casing/shotgun
+	bounce_sound = list('modular_septic/sound/weapons/guns/shotgun/12cal1.wav', 'modular_septic/sound/weapons/guns/shotgun/12cal2.wav', 'modular_septic/sound/weapons/guns/shotgun/12cal3.wav')
+	bounce_volume = 45
+
+/obj/item/ammo_casing/shotgun/Initialize(mapload)
+	if(prob(1))
+		playsound(src, 'modular_septic/sound/weapons/faggot.ogg', 70, FALSE)
+		name = "reggie slug"
+		desc = "Hi, my name is Reggie, I like penetrating IIIA body armor."
+	. = ..()
