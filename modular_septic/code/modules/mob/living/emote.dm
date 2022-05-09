@@ -187,6 +187,20 @@
 /datum/emote/living/deathgasp
 	message = "makes a disgusting noise."
 
+/datum/emote/living/crackaddict
+	key = "crackaddict"
+	key_third_person = "joyful laughs"
+	message = "feels joyful."
+	emote_type = EMOTE_AUDIBLE
+	muzzle_ignore = TRUE
+	hands_use_check = FALSE
+
+/datum/emote/living/crackaddict/get_sound(mob/living/user)
+	if(ishuman(user))
+		return "modular_septic/sound/emotes/crack_addict.wav"
+	else
+		return ..()
+
 // Fuck it deathgasp does the same sound
 /datum/emote/living/deathgasp/get_sound(mob/living/user)
 	if(ishuman(user))
@@ -432,7 +446,8 @@
 	. = TRUE
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
-	if(user.movement_type & FLOATING)
+	if((user.movement_type & FLOATING) || HAS_TRAIT(user, TRAIT_FLOORED) || HAS_TRAIT(user, TRAIT_INCAPACITATED) \
+		|| HAS_TRAIT_NOT_FROM(user, TRAIT_DANCING, EMOTE_TRAIT))
 		return FALSE
 
 	var/static/list/possible_affirmative_messages = list(

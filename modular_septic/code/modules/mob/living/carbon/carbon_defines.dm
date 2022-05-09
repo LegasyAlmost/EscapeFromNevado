@@ -16,15 +16,19 @@
 	default_num_legs = 4
 	num_legs = 0
 	usable_legs = 0
+	/// Makes carbon account the new bodyparts
+	bodyparts = BODYPARTS_PATH
+	/// Associated list - zone = bodypart
+	var/list/bodyparts_zones = list()
+
+	/// To reduce processing, this list is used to associate body zone with all organs inside that zone
+	var/list/organs_by_zone = list()
+
 	/// A collection of organs (eyes) used to see
 	var/list/eye_organs = list()
 	default_num_eyes = 2
 	num_eyes = 0
 	usable_eyes = 0
-	/// Makes carbon account the new bodyparts
-	bodyparts = BODYPARTS_PATH
-	/// Associated list - zone = bodypart
-	var/list/bodyparts_zones = list()
 
 	/// All injuries we have accumulated on our body
 	var/list/datum/injury/all_injuries
@@ -84,7 +88,3 @@
 	var/shock_penalty = 0
 	/// Last time we got a major wound (crippling shock)
 	var/last_crippling_shock = 0
-
-	// ~ENDORPHIN BONUSES
-	/// Last time our body produced endorphins
-	var/last_endorphination = 0

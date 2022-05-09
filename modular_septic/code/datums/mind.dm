@@ -2,6 +2,11 @@
 	/// Music when combat mode is on
 	var/combat_music = 'modular_septic/sound/music/combat/ritual.ogg'
 
+/datum/mind/New()
+	. = ..()
+	if(SSmapping.config?.combat_map)
+		combat_music = 'modular_septic/sound/music/combat/converter.ogg'
+
 /datum/mind/give_uplink(silent, datum/antagonist/antag_datum)
 	if(!current)
 		return

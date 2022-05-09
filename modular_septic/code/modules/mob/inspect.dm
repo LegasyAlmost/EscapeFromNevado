@@ -27,14 +27,14 @@
 	if(!client || !inspected.inspect_icon_state || !COOLDOWN_FINISHED(src, next_move))
 		return
 	var/ghost_icon_state = inspected.inspect_icon_state
-	if(isopenspace(inspected))
+	if(isopenspaceturf(inspected))
 		ghost_icon_state = "openspace"
 	else if(isfloorturf(inspected))
 		ghost_icon_state = "floor[rand(1, 11)]"
 	else if(iswallturf(inspected))
 		ghost_icon_state = "wall[rand(1, 2)]"
-	var/image/ghost_image = image('modular_septic/icons/hud/blind.dmi', get_turf(inspected), ghost_icon_state)
-	ghost_image.plane = FULLSCREEN_PLANE
+	var/image/ghost_image = image('modular_septic/icons/effects/blind.dmi', get_turf(inspected), ghost_icon_state)
+	ghost_image.plane = SOUND_HINT_PLANE
 	ghost_image.layer = INSPECTION_IMAGE_LAYER
 	animate(ghost_image, alpha = 0, time = inspected.inspect_duration)
 	client.images |= ghost_image

@@ -1,6 +1,13 @@
 /obj/item
 	drop_sound = 'modular_septic/sound/items/drop.wav'
 
+	/// Sound when missing an attack
+	var/miss_sound = 'modular_septic/sound/attack/punchmiss.ogg'
+	/// Sound when we parry, if we are able to parry
+	var/parry_sound = list('modular_septic/sound/weapons/melee/bladeparry1.wav', 'modular_septic/sound/weapons/melee/bladeparry2.wav', 'modular_septic/sound/weapons/melee/bladeparry3.wav')
+	/// Sound when we block, if we are able to block
+	var/block_sound = list('modular_septic/sound/weapons/melee/bladeparry1.wav', 'modular_septic/sound/weapons/melee/bladeparry2.wav', 'modular_septic/sound/weapons/melee/bladeparry3.wav')
+
 	// Mutant icon garbage
 	var/worn_icon_muzzled = 'modular_septic/icons/mob/clothing/head_muzzled.dmi'
 	var/worn_icon_digi = 'modular_septic/icons/mob/clothing/suit_digi.dmi'
@@ -10,7 +17,6 @@
 	var/mutant_variants = NONE
 
 	// Only mattters when worn on the head
-	var/fov_angle = 0
 	var/fov_shadow_angle = ""
 
 	/// Organ storage component requires this
@@ -21,7 +27,7 @@
 
 	/// How much to remove from edge_protection
 	var/edge_protection_penetration = 0
-	/// Armour penetration that oly applies to subtractible armor
+	/// Armour penetration that only applies to subtractible armor
 	var/subtractible_armour_penetration = 0
 	/// Whether or not our object is easily hindered by the presence of subtractible armor
 	var/weak_against_subtractible_armour = FALSE

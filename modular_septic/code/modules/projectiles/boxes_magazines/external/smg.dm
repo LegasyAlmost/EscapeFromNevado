@@ -21,6 +21,8 @@
 	caliber = CALIBER_22LR
 	max_ammo = 40
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 64
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/hksmg22lr/update_icon_state()
 	. = ..()
@@ -35,22 +37,10 @@
 	caliber = CALIBER_380
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/hksmg380/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
-
-/obj/item/ammo_box/magazine/macs
-	name = "R0 Submachine Gun magazine (9mm)"
-	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
-	icon_state = "macs"
-	base_icon_state = "macs"
-	ammo_type = /obj/item/ammo_casing/c45
-	caliber = CALIBER_45
-	max_ammo = 30
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/macs/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
 
@@ -63,6 +53,8 @@
 	caliber = CALIBER_9MM
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/bastardo9mm/update_icon_state()
 	. = ..()
@@ -78,22 +70,9 @@
 	caliber = CALIBER_45
 	max_ammo = 25
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/ammo_box/magazine/thump45/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]-[ammo_count() ? 25 : 0]"
-
-/obj/item/ammo_box/magazine/mangus46
-	name = "RNULL Submachine Gun magazine (4.6mm)"
-	icon = 'modular_septic/icons/obj/items/ammo/smg.dmi'
-	icon_state = "mp7"
-	base_icon_state = "mp7"
-	ammo_type = /obj/item/ammo_casing/l46
-	caliber = CALIBER_46G
-	max_ammo = 30
-	multiple_sprites = AMMO_BOX_ONE_SPRITE
-
-/obj/item/ammo_box/magazine/mangus46/update_icon_state()
-	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count() ? 30 : 0]"
-

@@ -31,7 +31,7 @@
 	ADD_TRAIT(carbon_parent, TRAIT_NO_FLOATING_ANIM, CLINGING_TRAIT)
 	ADD_TRAIT(carbon_parent, TRAIT_MOVE_FLOATING, CLINGING_TRAIT)
 	to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
-	SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+	SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 
 /datum/component/clinging/Destroy(force, silent)
 	UnregisterClinging()
@@ -81,7 +81,16 @@
 	if((over.z != user.z) && (over != below_turf))
 		over = locate(over.x, over.y, user.z)
 	//User to clinging = Go up
-	if((clinging_to == over) || (get_turf(clinging_to) == over))
+	if(clinging_to == over)
+		if(HAS_TRAIT(clinging_to, TRAIT_CLIMBABLE))
+			return
+		. = COMPONENT_NO_MOUSEDROP
+		INVOKE_ASYNC(src, .proc/try_going_up)
+	//User to clinging turf = Go up
+	else if(get_turf(clinging_to) == over)
+		var/turf/cling_turf = get_turf(clinging_to)
+		if(HAS_TRAIT(cling_turf, TRAIT_CLIMBABLE))
+			return
 		. = COMPONENT_NO_MOUSEDROP
 		INVOKE_ASYNC(src, .proc/try_going_up)
 	//User to turf below user's turf = Go down
@@ -122,7 +131,7 @@
 		RegisterClinging()
 		RegisterSignal(carbon_parent, COMSIG_ATOM_DIR_CHANGE, .proc/deny_dir_change)
 		to_chat(carbon_parent, span_notice("I cling onto [over]."))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 	else
 		to_chat(carbon_parent, span_notice("I can't cling to that."))
 
@@ -194,22 +203,20 @@
 	if(!carbon_parent.zMove(UP, TRUE))
 		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		return
-	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	UnregisterClinging()
 	clinging_to = new_clinger
 	//(Probably) Open turf available, try to move to it
-	if(landing_spot && landing_spot.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
+	if(landing_spot?.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
 		carbon_parent.Move(clinging_to, dir)
 		to_chat(carbon_parent, span_notice("I climb onto [clinging_to]."))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 		qdel(src)
-		return
 	//Cling to (probably) closed turf instead
 	else if(new_clinger?.Adjacent(carbon_parent))
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
-		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUND)
+		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		RegisterClinging()
-		return
 
 /datum/component/clinging/proc/try_going_down()
 	var/mob/living/carbon/carbon_parent = parent
@@ -244,6 +251,7 @@
 		UnregisterSignal(clinging_to, COMSIG_CLICK)
 		to_chat(span_warning("[fail_string(TRUE)]."))
 		return
+	UnregisterSignal(clinging_to, COMSIG_CLICK)
 	var/turf/landing_spot
 	//Remove floating trait temporarily to handle zfalling proper, if we aren't using a new clinger
 	if(!new_clinger)
@@ -259,19 +267,18 @@
 	if(!carbon_parent.zMove(DOWN, TRUE))
 		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		return
-	RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 	UnregisterClinging()
 	clinging_to = new_clinger
 	//(Probably) Open turf, try to move to it
-	if(landing_spot && landing_spot.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
+	if(landing_spot?.Adjacent(carbon_parent) && carbon_parent.Move(landing_spot, dir))
 		to_chat(carbon_parent, span_notice("I land onto [landing_spot]."))
 		qdel(src)
-		return
 	//Cling instead
 	else if(new_clinger?.Adjacent(carbon_parent))
+		SEND_SIGNAL(clinging_to, COMSIG_CLINGABLE_CLING_SOUNDING)
 		to_chat(carbon_parent, span_notice("I cling onto [clinging_to]."))
+		RegisterSignal(carbon_parent, COMSIG_MOVABLE_MOVED, .proc/parent_moved)
 		RegisterClinging()
-		return
 
 /datum/component/clinging/proc/cancel_cling()
 	SIGNAL_HANDLER

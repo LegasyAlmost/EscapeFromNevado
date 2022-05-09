@@ -67,3 +67,21 @@
 #define DRONING_LIMINALBUNKER list('modular_septic/sound/music/droning/metalic.wav')
 
 #define DRONING_LIMINALDERELICT list('modular_septic/sound/music/droning/death_penality.wav')
+
+#define DRONING_WAITROOM list('modular_septic/sound/music/droning/organtic.wav')
+
+#define DRONING_LIMINALTUNE list('modular_septic/sound/music/droning/tune.wav')
+
+#define DRONING_LIMINALBOLT list('modular_septic/sound/music/droning/wild_flower.ogg')
+
+#define DRONING_LIMINALTENSE list('modular_septic/sound/music/droning/tensity.wav')
+
+#define DRONING_LIMINALBIGROOM list('modular_septic/sound/music/droning/scpripoff.wav')
+
+#define DRONING_DIVINE list('modular_septic/sound/music/droning/wind.wav')
+
+#define DRONING_BOSS list('modular_septic/sound/music/droning/BBL.wav')
+
+#define DRONING_DENOMINATOR list('modular_septic/sound/music/droning/monotony.wav')
+
+#define DRONING_BARRACKS list('modular_septic/sound/music/droning/thirdeye.wav')

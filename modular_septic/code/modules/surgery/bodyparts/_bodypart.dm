@@ -34,7 +34,7 @@
 	var/limb_flags = BODYPART_EDIBLE|BODYPART_HAS_BONE|BODYPART_HAS_TENDON|BODYPART_HAS_NERVE|BODYPART_HAS_ARTERY
 	/// How efficient this limb is at performing... whatever it performs
 	var/limb_efficiency = 100
-	/// Gets processed on life()
+	/// Needs to get processed on next life() tick
 	var/needs_processing = FALSE
 
 	/// BODY_ZONE_CHEST, BODY_ZONE_L_ARM, etc - Identifying string
@@ -437,14 +437,14 @@
 
 /// Processing outside the body
 /obj/item/bodypart/process(delta_time)
-	on_death(delta_time)
+	return on_death(delta_time)
 
 /// Things that process when the limb is well, rotting
 /obj/item/bodypart/proc/on_death(delta_time, times_fired)
 	if(can_decay())
 		decay(delta_time, times_fired)
 	else if(!owner)
-		STOP_PROCESSING(SSobj, src)
+		return PROCESS_KILL
 
 /// Rotting away over time
 /obj/item/bodypart/proc/decay(delta_time, times_fired)
@@ -583,10 +583,12 @@
 
 		// Make internal organs become infected one at a time instead of all at once
 		var/obj/item/organ/target_organ
+		var/obj/item/organ/organ
 		var/list/candidate_organs = list()
-		for(var/obj/item/organ/O in get_organs())
-			if(O.germ_level <= germ_level)
-				candidate_organs |= O
+		for(var/thing in get_organs())
+			organ = thing
+			if(organ.germ_level <= germ_level)
+				candidate_organs |= organ
 		if(length(candidate_organs))
 			target_organ = pick(candidate_organs)
 
@@ -662,15 +664,13 @@
 /// Since organs aren't actually stored in the bodypart themselves while attached to a person, we have to query the owner for what we should have
 /obj/item/bodypart/proc/get_organs()
 	if(!owner)
+		. = list()
+		for(var/thing in contents)
+			if(isorgan(thing))
+				. |= thing
 		return
 
-	var/list/bodypart_organs = list()
-	for(var/obj/item/organ/organ_check as anything in owner.internal_organs) //internal organs inside the dismembered limb are dropped.
-		if(check_zone(organ_check.current_zone) == body_zone)
-			bodypart_organs |= organ_check
-
-	if(LAZYLEN(bodypart_organs))
-		return bodypart_organs
+	return LAZYACCESS(owner.organs_by_zone, body_zone)
 
 /// Empties the bodypart from its organs and other things inside it
 /obj/item/bodypart/proc/drop_organs(mob/user, violent_removal)
@@ -707,6 +707,15 @@
 	if(status == BODYPART_ORGANIC)
 		playsound(src, 'sound/misc/splort.ogg', 50, TRUE, -1)
 	update_icon_dropped()
+
+/// Empties the bodypart of bodyparts inside it
+/obj/item/bodypart/proc/drop_bodyparts()
+	var/turf/drop_location = drop_location()
+	for(var/obj/item/bodypart/bodypart in src)
+		if(istype(drop_location))
+			bodypart.forceMove(drop_location)
+		else
+			qdel(bodypart)
 
 /// Returns the volume of organs and cavity items for the organ storage component to use
 /obj/item/bodypart/proc/get_cavity_volume()
@@ -780,14 +789,15 @@
 
 /// Deal with injury healing and other updates
 /obj/item/bodypart/proc/update_injuries(delta_time, times_fired)
-	var/toxins = owner?.get_chem_effect(CE_TOXIN)
-	//the dylovenal is mightier than the cyanide
-	if(owner?.get_chem_effect(CE_ANTITOX) >= 10)
-		toxins = 0
-	//broken heart
-	var/broken_heart = (owner?.getorganslotefficiency(ORGAN_SLOT_HEART) < ORGAN_FAILING_EFFICIENCY)
-	if(broken_heart)
-		toxins = max(toxins, 1)
+	var/toxins = 0
+	if(owner)
+		toxins = owner.get_chem_effect(CE_TOXIN)
+		//the dylovenal is mightier than the cyanide
+		if(owner?.get_chem_effect(CE_ANTITOX) >= 10)
+			toxins = 0
+		//broken heart
+		if(owner?.getorganslotefficiency(ORGAN_SLOT_HEART) < ORGAN_FAILING_EFFICIENCY)
+			toxins = max(toxins, 1)
 	for(var/thing in injuries)
 		var/datum/injury/injury = thing
 		if(injury.damage <= 0)
@@ -820,23 +830,21 @@
 /obj/item/bodypart/proc/can_feel_pain()
 	. = FALSE
 	if(CHECK_BITFIELD(limb_flags, BODYPART_CUT_AWAY|BODYPART_DEAD))
-		return FALSE
+		return
 	if(HAS_TRAIT(src, TRAIT_NOPAIN))
-		return FALSE
-	if(owner?.can_feel_pain())
-		return TRUE
+		return
+	return owner?.can_feel_pain()
 
 /// Add pain_dam to a bodypart
 /obj/item/bodypart/proc/add_pain(amount = 0, updating_health = TRUE, required_status = null)
-	if(required_status && status != required_status)
+	if(required_status && (status != required_status))
 		return
 	if(!can_feel_pain())
 		return
 	var/can_inflict = max_pain_damage - pain_dam
 	amount *= CONFIG_GET(number/damage_multiplier)
 	amount -= owner.get_chem_effect(CE_PAINKILLER)/PAINKILLER_DIVISOR
-	if(amount > can_inflict)
-		amount = can_inflict
+	amount = min(can_inflict, amount)
 	pain_dam = round(pain_dam + max(amount, 0), DAMAGE_PRECISION)
 	if(updating_health)
 		owner.update_shock()
@@ -846,7 +854,7 @@
 
 /// Remove pain_dam from a bodypart
 /obj/item/bodypart/proc/remove_pain(amount = 0, updating_health = TRUE, required_status = null)
-	if(required_status && status != required_status)
+	if(required_status && (status != required_status))
 		return
 	if(amount > pain_dam)
 		amount = pain_dam
@@ -859,7 +867,7 @@
 
 /// Make total pain equal amount
 /obj/item/bodypart/proc/set_pain(amount = 0, updating_health = TRUE, required_status = null)
-	if(required_status && status != required_status)
+	if(required_status && (status != required_status))
 		return
 	var/diff = amount - pain_dam
 	if(diff >= 0)
@@ -884,11 +892,17 @@
 	var/constant_pain = 0
 	constant_pain += SHOCK_MOD_BRUTE * brute_dam
 	constant_pain += SHOCK_MOD_BURN * burn_dam
-	for(var/datum/wound/wound as anything in wounds)
+	var/datum/wound/wound
+	for(var/thing in wounds)
+		wound = thing
 		constant_pain += wound.pain_amount
-	for(var/obj/item/organ/organ as anything in get_organs())
+	var/obj/item/organ/organ
+	for(var/thing in get_organs())
+		organ = thing
 		constant_pain += organ.get_shock(FALSE)
-	for(var/obj/item/item as anything in embedded_objects)
+	var/obj/item/item
+	for(var/thing in embedded_objects)
+		item = thing
 		if(!item.isEmbedHarmless())
 			constant_pain += 3 * item.w_class
 	if(is_stump())
@@ -937,12 +951,14 @@
 	brute = round(max(brute * dmg_mlt * burn_brutemod * damage_multiplier * incoming_brute_mult, 0), DAMAGE_PRECISION)
 	burn = round(max(burn * dmg_mlt * damage_multiplier * incoming_burn_mult, 0), DAMAGE_PRECISION)
 	stamina = round(max(stamina * dmg_mlt, 0), DAMAGE_PRECISION)
-	var/initial_brute =  max(0, brute - brute_reduction)
-	var/initial_burn =  max(0, burn - burn_reduction)
-	var/actually_reduced_brute = min(initial_brute, reduced)
-	brute = max(0, initial_brute - (initial_brute >= initial_burn ? reduced : 0))
-	burn = max(0, initial_burn - (initial_burn > initial_brute ? reduced : 0))
+	brute =  max(0, brute - brute_reduction)
+	burn =  max(0, burn - burn_reduction)
 
+	var/initial_brute = brute
+	var/initial_burn = burn
+	var/actually_reduced_brute = min(brute, reduced)
+	brute = max(0, brute - (brute >= burn ? reduced : 0))
+	burn = max(0, burn - (burn > brute ? reduced : 0))
 	if(subarmor_flags & SUBARMOR_FLEXIBLE)
 		brute += FLOOR(actually_reduced_brute*0.1, 1)
 
@@ -1101,13 +1117,13 @@
 			if(initial_wounding_dmg >= SPILL_MINIMUM_DAMAGE)
 				check_wounding(WOUND_SPILL, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= ARTERY_MINIMUM_DAMAGE))
-			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.8 : 1), wound_bonus, bare_wound_bonus)
+			check_wounding(WOUND_ARTERY, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= TENDON_MINIMUM_DAMAGE))
-			check_wounding(WOUND_TENDON, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.5 : (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1)), wound_bonus, bare_wound_bonus)
+			check_wounding(WOUND_TENDON, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.5 : (initial_wounding_type == WOUND_PIERCE ? 0.75 : 1)), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE)) && (initial_wounding_dmg >= NERVE_MINIMUM_DAMAGE))
 			check_wounding(WOUND_NERVE, initial_wounding_dmg * (initial_wounding_type == WOUND_BLUNT ? 0.65 : (initial_wounding_type == WOUND_PIERCE ? 0.5 : 1)), wound_bonus, bare_wound_bonus)
 		if((initial_wounding_type in list(WOUND_BLUNT, WOUND_PIERCE)) && (initial_wounding_dmg >= TEETH_MINIMUM_DAMAGE))
-			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type == WOUND_PIERCE ? 0.6 : 1), wound_bonus, bare_wound_bonus)
+			check_wounding(WOUND_TEETH, initial_wounding_dmg * (initial_wounding_type != WOUND_BLUNT ? 0.65 : 1), wound_bonus, bare_wound_bonus)
 	/*
 	// END WOUND HANDLING
 	*/
@@ -1236,11 +1252,7 @@
 	if(!forced && (!(cur_damage >= organ_damaged_required) || !(damage_amt >= organ_damage_minimum)))
 		return FALSE
 
-	// About half the chance of damaging an organ when you hit the face instead of the head
 	var/organ_hit_chance = 30 * (damage_amt/organ_damage_minimum)
-	if(body_zone == BODY_ZONE_PRECISE_FACE)
-		organ_hit_chance *= 0.5
-
 	// Bones getting in the way aaaaah
 	var/modifier = 1
 	var/list/bones = list()
@@ -1373,12 +1385,15 @@
 			if(mangled_state == BODYPART_MANGLED_BOTH)
 				damage_integrity(initial_wounding_type, phantom_wounding_dmg, wound_bonus, bare_wound_bonus)
 
-/obj/item/bodypart/proc/get_wound_resistance(wounding_type = WOUND_BLUNT)
+/obj/item/bodypart/proc/get_wound_weakness(wounding_type = WOUND_BLUNT)
 	. = wound_resistance
 	var/mangled_state = get_mangled_state()
-	if((mangled_state in list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)) && \
+	var/static/list/mangled_flesh_states = list(BODYPART_MANGLED_FLESH, BODYPART_MANGLED_BOTH)
+	if((mangled_state in mangled_flesh_states) && \
 		(wounding_type in BODYPART_MANGLED_FLESH_AFFECTED_WOUNDS))
 		. += BODYPART_MANGLED_FLESH_MODIFIER
+	if(is_flesh_pulped())
+		. += BODYPART_PULPED_FLESH_MODIFIER
 
 /**
  * check_wounding() is where we handle rolling for, selecting, and applying a wound if we meet the criteria
@@ -1433,7 +1448,7 @@
 		var/list/clothing = human_wearer.clothingonpart(src)
 		for(var/obj/item/clothing/clothes_check in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
-			if(clothes_check.armor.getRating(WOUND))
+			if(clothes_check.armor.getRating(WOUND) || clothes_check.subarmor.getRating(WOUND))
 				bare_wound_bonus = 0
 				break
 
@@ -1491,8 +1506,10 @@
 		for(var/obj/item/clothes as anything in clothing)
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
 			armor_ablation += clothes.armor.getRating(WOUND)
+			armor_ablation += clothes.subarmor.getRating(WOUND)
 		if(!armor_ablation)
 			injury_mod += bare_wound_bonus
+
 	injury_mod -= armor_ablation
 	injury_mod += wound_bonus
 
@@ -1502,14 +1519,11 @@
 	for(var/datum/injury/injury as anything in injuries)
 		injury_mod += injury.threshold_penalty
 
-	var/part_mod = 0
-	part_mod -= get_wound_resistance(wounding_type)
-	for(var/obj/item/organ/organ in get_organs())
-		part_mod -= organ.get_wound_resistance(wounding_type)
+	injury_mod += get_wound_weakness(wounding_type)
+	for(var/obj/item/organ/organ as anything in get_organs())
+		injury_mod += organ.get_wound_weakness(wounding_type)
 	if(get_damage(FALSE, FALSE) >= max_damage)
-		part_mod += maxdam_wound_penalty
-
-	injury_mod += part_mod
+		injury_mod += maxdam_wound_penalty
 
 	return injury_mod
 
@@ -1627,7 +1641,7 @@
 	// passing any of these checks means we are absolutely worthless
 	if(!functional || is_cut_away() || bone_missing() || tendon_missing() || nerve_missing() || artery_missing())
 		limb_efficiency = 0
-	else if((broken_factor >= 0.75) && (broken_factor - splint_factor > 0))
+	else if((broken_factor > 0.75) && (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
 	if(can_be_disabled)
@@ -2031,7 +2045,7 @@
 	if(!owner)
 		return
 	var/mob/living/carbon/our_owner = owner //dropping nulls the limb
-	for(var/obj/item/organ/organ as anything in our_owner.getorganszone(body_zone))
+	for(var/obj/item/organ/organ as anything in get_organs())
 		if(istype(organ, /obj/item/organ/tendon) || istype(organ, /obj/item/organ/artery) || istype(organ, /obj/item/organ/nerve) || istype(organ, /obj/item/organ/bone))
 			organ.Remove(our_owner, special = TRUE)
 			qdel(organ)
@@ -2069,7 +2083,7 @@
 	if(!injury)
 		return
 	injury.open_injury(min(injury.damage, injury.damage_list[1] - injury.damage), TRUE)
-	for(var/obj/item/organ/organ in get_organs())
+	for(var/obj/item/organ/organ as anything in get_organs())
 		organ.on_find(user)
 
 /// Proc for bitflags on "how open" a bodypart is
@@ -2171,9 +2185,14 @@
 
 /obj/item/bodypart/proc/is_tendon_torn()
 	. = FALSE
-	for(var/thing in getorganslotlist(ORGAN_SLOT_TENDON))
-		var/obj/item/organ/tendon/tendon = thing
+	for(var/obj/item/organ/tendon/tendon as anything in getorganslotlist(ORGAN_SLOT_TENDON))
 		if(tendon.is_bruised())
+			return TRUE
+
+/obj/item/bodypart/proc/is_tendon_dissected()
+	. = FALSE
+	for(var/obj/item/organ/tendon/tendon as anything in getorganslotlist(ORGAN_SLOT_TENDON))
+		if(tendon.is_broken())
 			return TRUE
 
 /obj/item/bodypart/proc/nerve_needed()
@@ -2187,9 +2206,14 @@
 
 /obj/item/bodypart/proc/is_nerve_torn()
 	. = FALSE
-	for(var/thing in getorganslotlist(ORGAN_SLOT_NERVE))
-		var/obj/item/organ/nerve/nerve = thing
+	for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
 		if(nerve.is_bruised())
+			return TRUE
+
+/obj/item/bodypart/proc/is_nerve_dissected()
+	. = FALSE
+	for(var/obj/item/organ/nerve/nerve as anything in getorganslotlist(ORGAN_SLOT_NERVE))
+		if(nerve.is_broken())
 			return TRUE
 
 /obj/item/bodypart/proc/artery_needed()
@@ -2203,77 +2227,82 @@
 
 /obj/item/bodypart/proc/is_artery_torn()
 	. = FALSE
-	for(var/thing in getorganslotlist(ORGAN_SLOT_ARTERY))
-		var/obj/item/organ/artery/artery = thing
+	for(var/obj/item/organ/artery/artery as anything in getorganslotlist(ORGAN_SLOT_ARTERY))
 		if(artery.is_bruised())
+			return TRUE
+
+/obj/item/bodypart/proc/is_artery_dissected()
+	. = FALSE
+	for(var/obj/item/organ/artery/artery as anything in getorganslotlist(ORGAN_SLOT_ARTERY))
+		if(artery.is_broken())
 			return TRUE
 
 /obj/item/bodypart/proc/is_bandaged()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_bandaged())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_bandaged())
 			return FALSE
 
 /obj/item/bodypart/proc/is_salved()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_salved())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_salved())
 			return FALSE
 
 /obj/item/bodypart/proc/is_disinfected()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_disinfected())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_disinfected())
 			return FALSE
 
 /obj/item/bodypart/proc/is_clamped()
 	. = TRUE
-	for(var/datum/injury/IN in injuries)
-		if(!IN.is_clamped())
+	for(var/datum/injury/injury in injuries)
+		if(!injury.is_clamped())
 			return FALSE
 
 /obj/item/bodypart/proc/is_stump()
 	return FALSE
 
 /obj/item/bodypart/proc/clamp_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.clamp_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.clamp_injury()
 
 /obj/item/bodypart/proc/unclamp_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unclamp_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unclamp_injury()
 
 /obj/item/bodypart/proc/suture_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.suture_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.suture_injury()
 
 /obj/item/bodypart/proc/unsuture_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unsuture_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unsuture_injury()
 
 /obj/item/bodypart/proc/salve_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.salve_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.salve_injury()
 
 /obj/item/bodypart/proc/unsalve_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unsalve_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unsalve_injury()
 
 /obj/item/bodypart/proc/disinfect_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.disinfect_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.disinfect_injury()
 
 /obj/item/bodypart/proc/undisinfect_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.undisinfect_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.undisinfect_injury()
 
 /obj/item/bodypart/proc/bandage_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.bandage_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.bandage_injury()
 
 /obj/item/bodypart/proc/unbandage_limb()
-	for(var/datum/injury/IN as anything in injuries)
-		IN.unbandage_injury()
+	for(var/datum/injury/injury as anything in injuries)
+		injury.unbandage_injury()
 
 /obj/item/bodypart/proc/kill_limb()
 	if(!can_decay())

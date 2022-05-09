@@ -3,9 +3,10 @@
 	. = ..()
 	//values are quite low due to the way dirty clothing dirtifies you
 	set_germ_level(rand(GERM_LEVEL_START_MIN, GERM_LEVEL_START_MAX))
+	add_verb(src, /mob/living/carbon/human/proc/hide_furry_shit)
 	AddComponent(/datum/component/fixeye)
 	AddComponent(/datum/component/interactable)
-	add_verb(src, /mob/living/carbon/human/proc/hide_furry_shit)
+	AddComponent(/datum/component/babble)
 
 /mob/living/carbon/human/set_stat(new_stat)
 	if(new_stat == stat)
@@ -159,6 +160,7 @@
 							s_store,
 							glasses,
 							ears,
+							ears_extra,
 							wear_id,
 							wear_neck)
 	for(var/obj/item/item in clothings)

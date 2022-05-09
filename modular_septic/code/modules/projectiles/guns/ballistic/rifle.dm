@@ -1,6 +1,7 @@
 /obj/item/gun/ballistic/automatic/remis
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_mediumgun.wav'
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE
@@ -16,11 +17,14 @@
 	inhand_y_dimension = 32
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_RIFLE
+	w_class = WEIGHT_CLASS_BULKY
+	tetris_width = 128
+	tetris_height = 64
 
 // Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
-	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 7.62, ordinator-issue high-power rifles used for Military and Extreme Law Enforcement."
+	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 7.62, often issued to ordinators, high-power rifles used for Military and Extreme Law Enforcement across the globe."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
@@ -32,7 +36,6 @@
 	actions_types = null
 	burst_size = 1
 	select = FALSE
-	can_unsuppress = FALSE
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/niggakiller.wav'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/niggakiller_silenced.wav'
 	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
@@ -45,14 +48,10 @@
 	force = 14
 	custom_price = 45000
 	carry_weight = 3
-	suppressor_x_offset = 6
-	recoil_animation_information = list("recoil_angle_upper" = -15, \
-										"recoil_angle_lower" = -25)
-
-/obj/item/gun/ballistic/automatic/remis/winter/Initialize(mapload)
-	. = ..()
-	var/obj/item/suppressor/S = new(src)
-	install_suppressor(S)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -15, \
+		"recoil_angle_lower" = -25, \
+	)
 
 /obj/item/gun/ballistic/automatic/remis/winter/pickup(mob/user)
 	. = ..()
@@ -60,9 +59,9 @@
 
 //Darkworld Gun
 /obj/item/gun/ballistic/automatic/remis/abyss
-	name = "\improper AN-94 5.4539mm Abyss Assault Rifle"
-	desc = "A mysterious rifle chambered in a forgotten cartridge. The rifle doesn't seem to have any serial number, making It untraceable. \
-		The muzzle brake seems to be compatable with noise suppressors."
+	name = "\improper AN-94 5.4539mm Abyss Armaments Assault Rifle"
+	desc = "A mysterious bolshevik rifle that was produced as a result of a need for a fully-automatic standard rifle for the red's finest. \
+		The muzzle brake seems to be compatable with noise suppressors! So good."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
@@ -90,25 +89,29 @@
 	burst_size = 2
 	can_suppress = TRUE
 	suppressor_x_offset = 10
-	gunshot_animation_information = list("pixel_x" = 32, \
-										"pixel_y" = 3, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20)
+	gunshot_animation_information = list(
+		"pixel_x" = 32, \
+		"pixel_y" = 3, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.3,
 		"duration" = 2,
 	)
 	custom_price = 30000
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
 	full_auto = TRUE
 	foldable = TRUE
 	folded = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/g11
-	name = "\improper Guloseima 4.92x34mm Prototype Assault Rifle"
-	desc = "An oddly chunky assault rifle chambered in caseless 4.92x34mm. \
-		Never seen before in this region, how'd you get your hands on this?"
+	name = "\improper Kh11 4.92x34mm Assault Rifle"
+	desc = "An almost sci-fi designed rifle with a complex mechanism on the inside. \
+	It was rumored in the past that the HRE was making a rifle that could be shot without casings being left behind, this chunky firearm is their sucess story."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
@@ -132,13 +135,17 @@
 	burst_size = 3
 	can_suppress = FALSE
 	custom_price = 20000
-	gunshot_animation_information = list("pixel_x" = 21, \
-										"pixel_y" = -1, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 21, \
+		"pixel_y" = -1, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.3,
 		"duration" = 2,
@@ -195,13 +202,17 @@
 	suppressor_x_offset = 8
 	can_suppress = TRUE
 	verb_say = "passionately whispers"
-	gunshot_animation_information = list("pixel_x" = 29, \
-										"pixel_y" = 0, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -10, \
-										"recoil_angle_lower" = -20, \
-										"recoil_burst_speed" = 0.5, \
-										"return_burst_speed" = 0.5)
+	gunshot_animation_information = list(
+		"pixel_x" = 29, \
+		"pixel_y" = 0, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -10, \
+		"recoil_angle_lower" = -20, \
+		"recoil_burst_speed" = 0.5, \
+		"return_burst_speed" = 0.5, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.1,
 		"duration" = 1,
@@ -215,6 +226,21 @@
 /obj/item/gun/ballistic/automatic/remis/steyr/Destroy()
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
 	return ..()
+
+/obj/item/gun/ballistic/automatic/remis/steyr/AltClick(mob/user, sounding)
+	. = ..()
+	var/monologue = "NIGGERS!"
+	switch(sounding)
+		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/cyberpunk.wav')
+			monologue = "Cyberpunk is just a soyjack interpretation of the real world."
+		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/consequences.wav')
+			monologue = "Now you know the consequences of your actions."
+		if('modular_septic/sound/weapons/guns/rifle/voice_steyr/thefeds.wav')
+			monologue = "I hate the feds."
+	if(monologue)
+		say(monologue)
+	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+
 
 /obj/item/gun/ballistic/automatic/remis/steyr/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
 	var/voice_line = "NIGGERS!"
@@ -237,7 +263,6 @@
 		sleep(time_in)
 		animate(src, pixel_x = pixel_x - intensity, time = time_out)
 		sleep(time_out)
-
 
 // 7.62x54R Lampiao sniper-rifle
 /obj/item/gun/ballistic/automatic/remis/svd
@@ -274,52 +299,63 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 6
 	suppressor_y_offset = 1
-	gunshot_animation_information = list("pixel_x" = 43, \
-										"pixel_y" = 2, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -18, \
-										"recoil_angle_lower" = -25)
+	gunshot_animation_information = list(
+		"pixel_x" = 43, \
+		"pixel_y" = 2, \
+		"inactive_wben_suppressed" = TRUE, \
+	)
+	recoil_animation_information = list(
+		"recoil_angle_upper" = -18, \
+		"recoil_angle_lower" = -25, \
+	)
 	client_recoil_animation_information = list(
 		"strength" = 0.5,
 		"duration" = 2,
 	)
 
-/obj/item/gun/ballistic/automatic/remis/g3
-	name = "\proper \"Arma\" A3 semi-automatic designated marksman rifle"
-	desc = "A 7.62x51mm semi-automatic firearm that uses a roller-delayed blowback operating system. Not well known within Nevado due to the heavy weight and expensive price."
+/obj/item/gun/ballistic/rifle/boltaction/remis
+	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
-	worn_icon_state = "g3"
-	inhand_icon_state = "g3"
-	icon_state = "g3"
-	base_icon_state = "g3"
-	mag_type = /obj/item/ammo_box/magazine/a762g3
-	actions_types = null
-	burst_size = 1
-	select = FALSE
-	fire_sound = 'modular_septic/sound/weapons/guns/rifle/g3.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/g3_silenced.wav'
-	load_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagin.wav'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagin.wav'
-	eject_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagout.wav'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/svdmagout.wav'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/smg/hksmg_rack.wav'
-	force = 13
-	carry_weight = 4
-	custom_price = 40000
-	recoil = 0.4
-	can_suppress = TRUE
-	suppressor_x_offset = 8
-	suppressor_y_offset = 1
-	gunshot_animation_information = list("pixel_x" = 58, \
-										"pixel_y" = 17, \
-										"inactive_wben_suppressed" = TRUE)
-	recoil_animation_information = list("recoil_angle_upper" = -18, \
-										"recoil_angle_lower" = -25)
-	client_recoil_animation_information = list(
-		"strength" = 0.5,
-		"duration" = 2,
-	)
+	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
+	rack_sound_vary = FALSE
+	suppressed = SUPPRESSED_NONE
+	load_sound_vary = FALSE
+	eject_sound_vary = FALSE
+	mag_display = FALSE
+	mag_display_ammo = FALSE
+	empty_indicator = FALSE
+	empty_icon_state = FALSE
+	wielded_inhand_state = TRUE
+	weapon_weight = WEAPON_HEAVY
+	w_class = WEIGHT_CLASS_BULKY
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
+	skill_ranged = SKILL_RIFLE
+	can_bayonet = FALSE
+	can_be_sawn_off = FALSE
+	can_jam = FALSE
+	safety_flags = NONE
+	tetris_width = 32
+	tetris_height = 128
+
+/obj/item/gun/ballistic/rifle/boltaction/remis/federson
+	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
+	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Federson."
+	icon_state = "pedersen"
+	base_icon_state = "pedersen"
+	inhand_icon_state = "pedersen"
+	worn_icon_state = "pedersen"
+	fire_sound_volume = 100
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_silenced.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltout.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson_boltin.wav'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_mediumgun.wav'
+	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
+	can_suppress = FALSE
+	mag_type = /obj/item/ammo_box/magazine/internal/federson
+	rack_delay = 4

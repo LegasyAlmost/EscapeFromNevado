@@ -163,6 +163,9 @@
 
 	// We dim italicized text to make it more distinguishable from regular text
 	var/tgt_color = extra_classes.Find("italics") ? target.chat_color_darkened : target.chat_color
+	// i personally think that giving non-mobs colored text looks goofy af
+	if(!ismob(target))
+		tgt_color = extra_classes.Find("italics") ? "#CCCCCC" : "#FFFFFF"
 
 	// Approximate text height
 	var/complete_text = "<span class='center [extra_classes.Join(" ")]' style='color: [tgt_color]'>[owner.say_emphasis(text)]</span>"
@@ -204,13 +207,8 @@
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
-	/* SEPTIC EDIT REMOVAL
-	animate(message, alpha = 255, time = CHAT_MESSAGE_SPAWN_TIME)
-	*/
-	//SEPTIC EDIT BEGIN
 	message.pixel_y -= mheight
 	animate(message, alpha = 255, pixel_y = message.pixel_y + mheight, time = CHAT_MESSAGE_SPAWN_TIME)
-	//SEPTIC EDIT END
 
 	// Register with the runechat SS to handle EOL and destruction
 	scheduled_destruction = world.time + (lifespan - CHAT_MESSAGE_EOL_FADE)
@@ -277,7 +275,13 @@
  * * sat_shift - A value between 0 and 1 that will be multiplied against the saturation
  * * lum_shift - A value between 0 and 1 that will be multiplied against the luminescence
  */
-/datum/chatmessage/proc/colorize_string(name, sat_shift = 1, lum_shift = 1)
+/proc/colorize_string(name, sat_shift = 1, lum_shift = 1, check_preference_list = TRUE)
+	if(check_preference_list)
+		if((sat_shift == 0.85) && (lum_shift == 0.85) && GLOB.name_to_chat_color_darkened[name])
+			return GLOB.name_to_chat_color_darkened[name]
+		else if(GLOB.name_to_chat_color[name])
+			return GLOB.name_to_chat_color[name]
+
 	// seed to help randomness
 	var/static/rseed = rand(1,26)
 

@@ -14,6 +14,7 @@
 	fire_sound = 'modular_septic/sound/weapons/guns/energy/siren.wav'
 	safety_off_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyoff.wav'
 	safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.wav'
 	vary_fire_sound = FALSE
 	cell_type = /obj/item/stock_parts/cell/high
 	charge_delay = 5
@@ -41,6 +42,8 @@
 	carry_weight = 5
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_LAW
+	tetris_width = 96
+	tetris_height = 96
 
 /obj/item/gun/energy/remis/siren/Initialize(mapload)
 	. = ..()

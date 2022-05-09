@@ -3,8 +3,8 @@
 	desc = "I'll take you to burn."
 	icon = 'modular_septic/icons/effects/fire/fire.dmi'
 	icon_state = "fire_small"
-	plane = GAME_PLANE
-	layer = ABOVE_MOB_LAYER
+	plane = GAME_PLANE_BLOOM
+	layer = TURF_FIRE_LAYER
 	anchored = TRUE
 	move_resist = INFINITY
 	light_range = 1.5
@@ -114,7 +114,7 @@
 			for(var/turf/open/open_neighbor in range(1, src))
 				if(open_neighbor.turf_fire || !open_neighbor.flammable)
 					continue
-				if(isopenspace(open_neighbor) || isspaceturf(open_neighbor))
+				if(isopenspaceturf(open_neighbor) || isspaceturf(open_neighbor))
 					continue
 				if(prob(IGNITE_NEIGHBOR_TURF_CHANCE))
 					arthur_brown += open_neighbor
@@ -126,10 +126,6 @@
 		update_fire_state()
 
 /atom/movable/fire/proc/on_entered(datum/source, atom/movable/movable)
-	var/turf/open/open_turf = loc
-	//If we have an active hotspot, let it do the damage instead
-	if(open_turf.active_hotspot)
-		return
 	movable.fire_act(TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), TURF_FIRE_VOLUME)
 	if(isliving(movable))
 		var/mob/living/living = movable
@@ -162,30 +158,26 @@
 	if(new_state == current_fire_state)
 		return
 	current_fire_state = new_state
-
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	switch(current_fire_state)
 		if(TURF_FIRE_STATE_SMALL)
 			icon_state = "fire_small"
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_small", LYING_MOB_LAYER, GAME_PLANE_FOV_HIDDEN, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
-			plane = GAME_PLANE
-			layer = BELOW_MOB_LAYER
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_small", LARGE_TURF_FIRE_LAYER, GAME_PLANE_UPPER_BLOOM)
+			plane = GAME_PLANE_BLOOM
+			layer = TURF_FIRE_LAYER
 			set_light_range(1.5)
-			add_filter("fire_filter", 10, drop_shadow_filter(x=0, y=0, size=32, offset=3, color=light_color))
 		if(TURF_FIRE_STATE_MEDIUM)
 			icon_state = "fire_medium"
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_medium", ON_EDGED_TURF_LAYER, GAME_PLANE_FOV_HIDDEN, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
-			plane = GAME_PLANE
-			layer = BELOW_MOB_LAYER
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_medium", LARGE_TURF_FIRE_LAYER, GAME_PLANE_UPPER_BLOOM)
+			plane = GAME_PLANE_UPPER_BLOOM
+			layer = TURF_FIRE_LAYER
 			set_light_range(2.5)
-			add_filter("fire_filter", 10, drop_shadow_filter(x=0, y=0, size=32, offset=6, color=light_color))
 		if(TURF_FIRE_STATE_LARGE)
 			icon_state = "fire_big"
-			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_big", ABOVE_ALL_MOB_LAYER, GAME_PLANE_FOV_HIDDEN, add_appearance_flags = RESET_COLOR|RESET_ALPHA)
-			plane = GAME_PLANE_UPPER
-			layer = ABOVE_MOB_LAYER
+			SSvis_overlays.add_vis_overlay(src, 'modular_septic/icons/effects/fire/fire_overlays.dmi', "fire_big", LARGEST_TURF_FIRE_LAYER, GAME_PLANE_UPPER_BLOOM)
+			plane = GAME_PLANE_UPPER_BLOOM
+			layer = LARGE_TURF_FIRE_LAYER
 			set_light_range(3.5)
-			add_filter("fire_filter", 10, drop_shadow_filter(x=0, y=0, size=32, offset=10, color=light_color))
 
 ///All the subtypes are for adminbussery and or mapping
 /atom/movable/fire/magical

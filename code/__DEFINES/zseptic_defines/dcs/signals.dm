@@ -62,6 +62,8 @@
 	#define COMPONENT_NO_DIR_CHANGE 1
 ///from base of atom/setDir(): (old_dir, new_dir). Called after the direction changes.
 #define COMSIG_ATOM_POST_DIR_CHANGE "atom_post_dir_change"
+///from base of atom/set_smoothed_icon_state(): (new_junction)
+#define COMSIG_ATOM_SET_SMOOTHED_ICON_STATE "set_smoothed_icon_state"
 
 ///from base of [atom/proc/attackby_tertiary()]: (/obj/item/weapon, /mob/user, params)
 #define COMSIG_PARENT_ATTACKBY_TERTIARY "atom_attackby_tertiary"
@@ -96,8 +98,6 @@
 ///from base of atom/movable/liquid_turf/Initialize(): (atom/movable/liquid_turf/liquids)
 #define COMSIG_TURF_LIQUIDS_CREATION "turf_liquids_creation"
 	#define COMPONENT_NO_LIQUID_CREATION (1<<0) //cancels the creation of the liquid movable
-///from base of turf/update_shadowcasting_overlays()
-#define COMSIG_TURF_SHADOWCASTING_UPDATED "turf_shadowcasting_updated"
 
 // ~footstep changer component
 ///from base of datum/component/footstep_changer/proc/is_footstep_changed(): (turf/open/source, datum/component/footstep_changer)
@@ -167,15 +167,15 @@
 ///from base of datum/element/clingable/clingable_check(): (mob/user)
 #define COMSIG_CLINGABLE_CHECK "clingable_check"
 ///from base of datum/element/clingable/play_clinging_sound(): (atom/source)
-#define COMSIG_CLINGABLE_CLING_SOUND "clingable_cling_sound"
+#define COMSIG_CLINGABLE_CLING_SOUNDING "clingable_cling_sounding"
 
 // ~radioactive element
 ///from base of datum/element/radioactive/process(): (delta_time)
 #define COMSIG_RADIOACTIVE_PULSE_SENT "radioactive_pulse_sent"
 
-// ~fireaxe element
-///from base of datum/element/fireaxe_brittle/do_break()
-#define COMSIG_FIREAXE_BRITTLE_BREAK "fireaxe_brittle_break"
+// ~conditional destructive element
+///from base of datum/element/conditional_destructive/do_break()
+#define COMSIG_CONDITIONAL_DESTRUCTIVE_BREAK "conditional_destructive_break"
 
 // ~embed element
 ///from base of datum/element/embed/checkEmbed()

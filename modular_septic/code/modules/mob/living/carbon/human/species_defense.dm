@@ -118,18 +118,18 @@
 			if(CS_AIMED)
 				attack_skill_modifier += 4
 				attack_delay *= 1.2
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
+				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 			if(CS_STRONG)
 				damage *= 1.5
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
+				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 			if(CS_FEINT)
-				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				human_user.update_dodging_cooldown(DODGING_COOLDOWN)
+				human_user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				human_user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				human_user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 	if(user != victim)
 		var/hit_modifier = weapon.melee_modifier+attack_skill_modifier+attack_skill_modifier
 		var/hit_zone_modifier = weapon.melee_zone_modifier
@@ -201,7 +201,7 @@
 			attack_message = pick(weapon.attack_verb_simple)
 		user.sound_hint()
 		var/target_area = parse_zone(check_zone(user.zone_selected))
-		playsound(user, 'modular_septic/sound/attack/punchmiss.ogg', weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+		playsound(user, weapon.miss_sound, weapon.get_clamped_volume(), extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 		user.visible_message(span_danger("<b>[user]</b> tries to [attack_message] <b>[src]</b>'s [target_area] with [weapon], but misses!"), \
 				span_userdanger("I try to [attack_message] <b>[src]</b>'s [target_area] with my [weapon], but miss!"), \
 				span_hear("I hear a swoosh!"), \
@@ -353,9 +353,9 @@
 		switch(user.combat_style)
 			if(CS_AIMED)
 				attack_delay *= 1.5
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 	if(user != target)
 		if(target.check_block())
 			user.do_attack_animation(target, no_effect = TRUE)
@@ -494,19 +494,19 @@
 			if(CS_AIMED)
 				attack_skill_modifier += 4
 				attack_delay *= 1.2
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 			if(CS_STRONG)
 				attack_damage *= 1.5
 				attack_fatigue_cost *= 1.5
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 			if(CS_FEINT)
-				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN)
-				user.update_blocking_cooldown(BLOCKING_COOLDOWN)
-				user.update_dodging_cooldown(DODGING_COOLDOWN)
+				user.update_parrying_penalty(PARRYING_PENALTY, PARRYING_PENALTY_COOLDOWN_DURATION)
+				user.update_blocking_cooldown(BLOCKING_COOLDOWN_DURATION)
+				user.update_dodging_cooldown(DODGING_COOLDOWN_DURATION)
 	if(user != target)
 		if(target.check_block())
 			user.do_attack_animation(target, no_effect = TRUE)

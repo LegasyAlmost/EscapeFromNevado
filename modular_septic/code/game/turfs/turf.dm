@@ -11,14 +11,10 @@
 		return SCREENTIP_TURF(uppertext(name))
 
 /turf/handle_fall(mob/faller)
-	if(faller.mob_has_gravity())
-		playsound(src, "modular_septic/sound/effects/collapse[rand(1,5)].wav", 50, TRUE)
+	if(!faller.mob_has_gravity())
+		return
+	playsound(src, "modular_septic/sound/effects/collapse[rand(1,5)].wav", 50, TRUE)
 	SEND_SIGNAL(src, COMSIG_TURF_MOB_FALL, faller)
-
-/turf/handle_atom_del(atom/deleting_atom)
-	. = ..()
-	if(deleting_atom.opacity && shadowcasting_overlays)
-		update_shadowcasting_overlays()
 
 /turf/air_update_turf(update = FALSE, remove = FALSE)
 	. = ..()
@@ -29,6 +25,6 @@
 
 /turf/proc/initialize_clinging()
 	if(clingable)
-		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 8, clinging_sound)
+		AddElement(/datum/element/clingable, SKILL_ACROBATICS, 10, clinging_sound)
 		return TRUE
 	return FALSE

@@ -3,8 +3,10 @@
 	desc = "Bone apple tea."
 	icon_state = "bone"
 	base_icon_state = "bone"
+
 	organ_flags = ORGAN_NOINFECTION|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE // you can't just eat a bone
 	organ_efficiency = list(ORGAN_SLOT_BONE = 100)
+	needs_processing = FALSE
 
 	maxHealth = BONE_MAX_HEALTH
 	//compound fracture
@@ -243,19 +245,19 @@
 	name = "reinforced [name]"
 	update_appearance()
 
-/obj/item/organ/bone/get_wound_resistance(wounding_type = WOUND_BLUNT)
-	. = wound_resistance
+/obj/item/organ/bone/get_wound_weakness(wounding_type = WOUND_BLUNT)
+	. = -wound_resistance
 	if(damage < low_threshold)
 		return
 	//dislocated
 	else if(damage < medium_threshold)
-		. -= 15
+		. += 15
 	//fractured
 	else if(damage < high_threshold)
-		. -= 30
+		. += 30
 	//compound fractured
 	else
-		. -= 35
+		. += 35
 
 /// If we're a human who's punching something with a broken hand, we might hurt ourselves doing so
 /obj/item/organ/bone/proc/attack_with_hurt_hand(mob/living/carbon/owner, obj/item/bodypart/limb, atom/target)

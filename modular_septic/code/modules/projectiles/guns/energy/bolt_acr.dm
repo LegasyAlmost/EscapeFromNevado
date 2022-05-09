@@ -8,6 +8,7 @@
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.wav'
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	wielded_inhand_state = TRUE
 	inhand_icon_state = "boltacr"
@@ -43,6 +44,8 @@
 	custom_price = 100000
 	skill_melee = SKILL_IMPACT_WEAPON_TWOHANDED
 	skill_ranged = SKILL_LAW
+	tetris_width = 128
+	tetris_height = 96
 
 /obj/item/gun/energy/remis/bolt_acr/gunshot_animation(mob/user, burst_fire)
 	flick("boltacr_firing", src)

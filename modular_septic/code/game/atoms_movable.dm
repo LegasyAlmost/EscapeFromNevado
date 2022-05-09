@@ -2,6 +2,9 @@
 	. = ..()
 	if(isnull(min_throwforce))
 		min_throwforce = throwforce
+	// god has forced me to not put this in /atom/proc/Initialize()
+	if(frill_icon)
+		AddElement(/datum/element/frill, frill_icon, frill_uses_icon_state, upper_frill_plane, upper_frill_layer, lower_frill_plane, lower_frill_layer)
 
 /atom/movable/throw_at(atom/target, range, speed, mob/thrower, spin, diagonals_first, datum/callback/callback, force, gentle, quickstart)
 	spin = FALSE

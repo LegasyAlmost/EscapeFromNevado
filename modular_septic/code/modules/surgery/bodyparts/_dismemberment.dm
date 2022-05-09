@@ -1,8 +1,34 @@
-/// Can this limb suffer dismemberment?
+/// Checks if the bodypart is damaged enough to receive a pulped wound modifier
+/obj/item/bodypart/proc/is_flesh_pulped()
+	var/biological_state = BIO_FLESH_BONE
+	if(owner)
+		biological_state = owner.get_biological_state()
+	var/required_flesh_severity = WOUND_SEVERITY_SEVERE
+	if(biological_state == BIO_JUST_FLESH)
+		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
+			required_flesh_severity = WOUND_SEVERITY_CRITICAL
+
+	var/static/list/injuries_accepted = list("[WOUND_BLUNT]" = 0.5, \
+											"[WOUND_SLASH]" = 1, \
+											"[WOUND_PIERCE]" = 1, \
+											"[WOUND_BURN]" = 1)
+	var/required_flesh_damage = ((required_flesh_severity-1) * 25)
+	var/flesh_damage = 0
+	var/datum/injury/injury
+	for(var/thing in injuries)
+		injury = thing
+		if(!injuries_accepted["[injury.damage_type]"])
+			continue
+		flesh_damage += (injuries_accepted["[injury.damage_type]"] * injury.damage)
+	if(flesh_damage >= required_flesh_damage)
+		return TRUE
+	return FALSE
+
+/// Checks if a limb can be dismembered
 /obj/item/bodypart/proc/can_dismember(obj/item/dismemberer)
 	return dismemberable
 
-/// Does this limb leave a stump behind, when dismembered?
+/// Checks if this limb leaves a stump behind, when dismembered
 /obj/item/bodypart/proc/can_stump(obj/item/dismemberer)
 	return (!(limb_flags & BODYPART_NO_STUMP) && (animal_origin != HOMIE_BODYPART))
 
@@ -19,10 +45,12 @@
 		return FALSE
 
 	var/obj/item/bodypart/affecting = was_owner.get_bodypart(parent_body_zone)
-	affecting.receive_damage(clamp(brute_dam/2, 15, 50), clamp(burn_dam/2, 0, 50), wound_bonus=CANT_WOUND) //Damage the parent based on limb's existing damage
+	affecting.receive_damage(clamp(brute_dam/2, 15, 50), clamp(burn_dam/2, 0, 50), wound_bonus = CANT_WOUND) //Damage the parent based on limb's existing damage
 
 	INVOKE_ASYNC(was_owner, /mob/living.proc/death_scream)
 	SEND_SIGNAL(was_owner, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
+	if(max_teeth && teeth_object)
+		knock_out_teeth(max_teeth)
 	drop_limb(dismembered = TRUE, destroyed = destroy, wounding_type = wounding_type)
 	was_owner.update_equipment_speed_mods() // Update in case speed affecting item unequipped by dismemberment
 
@@ -32,7 +60,7 @@
 	add_mob_blood(was_owner)
 	was_owner.bleed(rand(10, 20)) // let the arterial bleeding fuck the bastard over
 	var/direction = pick(GLOB.cardinals)
-	var/t_range = rand(2,max(throw_range/2, 2))
+	var/t_range = rand(1,max(throw_range/2, 2))
 	var/turf/target_turf = get_turf(src)
 	for(var/i in 1 to t_range-1)
 		var/turf/new_turf = get_step(target_turf, direction)
@@ -156,7 +184,16 @@
 	limb_integrity = max_limb_integrity
 	if(!QDELETED(src))
 		// Tsec = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced
-		if(!istype(Tsec) || destroyed)
+		if(!istype(Tsec))
+			qdel(src)
+			return
+		else if(destroyed)
+			// Certain bodyparts should not drop children when gored
+			var/static/list/fullgore_zones = list(BODY_ZONE_HEAD, \
+												BODY_ZONE_PRECISE_FACE, \
+												BODY_ZONE_PRECISE_NECK)
+			if(!(src in fullgore_zones))
+				drop_bodyparts()
 			qdel(src)
 			return
 		else if(is_pseudopart)
@@ -184,7 +221,6 @@
 		biological_state = owner.get_biological_state()
 	var/required_bone_severity = WOUND_SEVERITY_SEVERE
 	var/required_flesh_severity = WOUND_SEVERITY_SEVERE
-	var/required_flesh_damage = min(25, FLOOR(max_damage * 0.5, 1)) //How much cut or pierce damage we need
 
 	if(biological_state == BIO_JUST_BONE)
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
@@ -192,60 +228,56 @@
 
 	if(biological_state == BIO_JUST_FLESH)
 		if(!HAS_TRAIT(owner, TRAIT_EASYDISMEMBER))
-			required_flesh_damage = min(max_damage, required_flesh_damage * 2)
+			required_flesh_severity = WOUND_SEVERITY_CRITICAL
 
-	for(var/datum/wound/iter_wound as anything in wounds)
+	var/datum/wound/iter_wound
+	for(var/thing as anything in wounds)
+		iter_wound = thing
 		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
 		if(. == BODYPART_MANGLED_BOTH)
 			return
 
 		if((iter_wound.wound_flags & WOUND_MANGLES_BONE) && (iter_wound.severity >= required_bone_severity))
-			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
+			if((. == BODYPART_MANGLED_FLESH) || (. == BODYPART_MANGLED_BOTH))
 				. = BODYPART_MANGLED_BOTH
 			else
 				. = BODYPART_MANGLED_BONE
 		if((iter_wound.wound_flags & WOUND_MANGLES_FLESH) && (iter_wound.severity >= required_flesh_severity))
-			if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
+			if((. == BODYPART_MANGLED_BONE) || . == (BODYPART_MANGLED_BOTH))
 				. = BODYPART_MANGLED_BOTH
 			else
 				. = BODYPART_MANGLED_FLESH
 
-	var/flesh_damage = 0
-	for(var/datum/injury/injury as anything in injuries)
-		//just return, no point in continuing - if we know we are fucked, we won't get unfucked
-		if(. == BODYPART_MANGLED_BOTH)
-			return
-
-		if(injury.damage_type in list(WOUND_BLUNT, WOUND_SLASH, WOUND_PIERCE, WOUND_BLUNT))
-			if(injury.damage_type == WOUND_BLUNT)
-				flesh_damage += (injury.damage * 0.5)
-				continue
-			flesh_damage += injury.damage
-
-	if(flesh_damage >= required_flesh_damage)
-		if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
-			. = BODYPART_MANGLED_BOTH
+	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_BONE))
+		if(required_flesh_severity >= WOUND_SEVERITY_CRITICAL)
+			if(is_tendon_dissected() || no_tendon())
+				if((. == BODYPART_MANGLED_BONE) || . == (BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_FLESH
 		else
-			. = BODYPART_MANGLED_FLESH
+			if(is_tendon_torn() || no_tendon())
+				if((. == BODYPART_MANGLED_BONE) || (. == BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_FLESH
 
-	if(is_tendon_torn() || no_tendon())
-		if(. == BODYPART_MANGLED_BONE || . == BODYPART_MANGLED_BOTH)
-			. = BODYPART_MANGLED_BOTH
+	if(. == BODYPART_MANGLED_BOTH)
+		return
+
+	if((. == BODYPART_MANGLED_NONE) || (. == BODYPART_MANGLED_FLESH))
+		if(required_bone_severity >= WOUND_SEVERITY_CRITICAL)
+			if(is_compound_fractured() || no_bone())
+				if((. == BODYPART_MANGLED_FLESH) || (. == BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_BONE
 		else
-			. = BODYPART_MANGLED_FLESH
-
-	if(required_bone_severity >= WOUND_SEVERITY_CRITICAL)
-		if(is_compound_fractured() || no_bone())
-			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
-				. = BODYPART_MANGLED_BOTH
-			else
-				. = BODYPART_MANGLED_BONE
-	else
-		if(is_fractured() || no_bone())
-			if(. == BODYPART_MANGLED_FLESH || . == BODYPART_MANGLED_BOTH)
-				. = BODYPART_MANGLED_BOTH
-			else
-				. = BODYPART_MANGLED_BONE
+			if(is_fractured() || no_bone())
+				if((. == BODYPART_MANGLED_FLESH) || (. == BODYPART_MANGLED_BOTH))
+					. = BODYPART_MANGLED_BOTH
+				else
+					. = BODYPART_MANGLED_BONE
 
 /**
   * damage_integrity() is used, once we've confirmed that a flesh and bone bodypart has both the muscle and bone mangled,
@@ -272,7 +304,7 @@
 		var/mob/living/carbon/human/human_owner = owner
 		for(var/obj/item/clothing/clothes_check as anything in human_owner.clothingonpart(src))
 			// unlike normal armor checks, we tabluate these piece-by-piece manually so we can also pass on appropriate damage the clothing's limbs if necessary
-			if(clothes_check.armor.getRating(WOUND))
+			if(clothes_check.armor.getRating(WOUND) || clothes_check.subarmor.getRating(WOUND))
 				bare_wound_bonus = 0
 				break
 
@@ -477,7 +509,7 @@
 		new_owner.update_hair()
 		new_owner.update_damage_overlays()
 
-//Attach a limb to a human and drop any existing limb of that type.
+/// Attaches a limb to a human and drop any existing limb of that type.
 /obj/item/bodypart/proc/replace_limb(mob/living/carbon/new_owner, special = FALSE, ignore_child_limbs = FALSE, ignore_parent_limb = FALSE)
 	if(!istype(new_owner))
 		return
@@ -487,7 +519,7 @@
 	if(!attach_limb(new_owner, special, ignore_parent_limb))
 		qdel(src)
 
-//Regenerates all limbs. Returns amount of limbs regenerated
+/// Regenerates all limbs. Returns amount of limbs regenerated
 /mob/living/proc/regenerate_limbs(noheal = FALSE, list/excluded_zones = list(), special = FALSE)
 	SEND_SIGNAL(src, COMSIG_LIVING_REGENERATE_LIMBS, noheal, excluded_zones)
 
@@ -499,6 +531,7 @@
 	for(var/zone in zone_list)
 		. += regenerate_limb(zone, noheal, special)
 
+/// Regenerates a single limb
 /mob/living/proc/regenerate_limb(limb_zone = BODY_ZONE_CHEST, noheal = FALSE, special = FALSE)
 	return
 

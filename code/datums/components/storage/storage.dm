@@ -97,8 +97,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/update_actions)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(isitem(parent))
-		RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equipped)
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equipped)
 	//SEPTIC EDIT END
 	RegisterSignal(parent, COMSIG_MOVABLE_POST_THROW, .proc/close_all)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_move)
@@ -189,12 +188,7 @@
 
 	var/atom/A = parent
 	for(var/mob/living/L in can_see_contents())
-		/* SEPTIC EDIT REMOVAL
 		if(!L.CanReach(A))
-		*/
-		//SEPTIC EDIT BEGIN
-		if(!L.CanReach(A) || !worn_check(A, L, TRUE))
-		//SEPTIC EDIT END
 			hide_from(L)
 
 /datum/component/storage/proc/attack_self(datum/source, mob/M)
@@ -875,10 +869,9 @@
 		playsound(A, "rustle", 50, TRUE, -5)
 	*/
 	//SEPTIC EDIT BEGIN
-	if(isitem(A))
-		var/obj/item/I = A
-		if(!worn_check(I, user, TRUE))
-			return FALSE
+	if(!worn_check(A, user, TRUE))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	playsound(A, rustle_sound, 50, TRUE, -5)
 	//SEPTIC EDIT END
 
 	if(ishuman(user))

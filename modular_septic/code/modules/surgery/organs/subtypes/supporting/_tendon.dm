@@ -5,8 +5,10 @@
 	desc = "Not the song made by experimental musician Igorrr."
 	icon_state = "tendon"
 	base_icon_state = "tendon"
+
 	organ_flags = ORGAN_EDIBLE|ORGAN_LIMB_SUPPORTER|ORGAN_INDESTRUCTIBLE|ORGAN_NO_VIOLENT_DAMAGE
 	organ_efficiency = list(ORGAN_SLOT_TENDON = 100)
+	needs_processing = FALSE
 
 	maxHealth = TENDON_MAX_HEALTH
 	high_threshold = TENDON_MAX_HEALTH * 0.8
@@ -26,21 +28,11 @@
 /obj/item/organ/tendon/tear()
 	if(!owner)
 		return
-	if(owner.stat < UNCONSCIOUS)
-		if(ORGAN_SLOT_VOICE in organ_efficiency)
-			owner.agony_gargle()
-		else
-			owner.death_scream()
 	applyOrganDamage(maxHealth * 0.5)
 
 /obj/item/organ/tendon/dissect()
 	if(!owner)
 		return
-	if(owner.stat < UNCONSCIOUS)
-		if(ORGAN_SLOT_VOICE in organ_efficiency)
-			owner.agony_gargle()
-		else
-			owner.death_scream()
 	applyOrganDamage(maxHealth)
 
 /obj/item/organ/tendon/mend()

@@ -5,6 +5,8 @@
 	)
 	/// Why is this not already a variable?
 	var/bolt_drop_sound_vary = FALSE
+	/// Does this gun use a cylinder?
+	var/uses_cylinder = FALSE
 	/// Wording for the cylinder, for break action guns
 	var/cylinder_wording = "cylinder"
 	/// If this is a break action bolt gun, is the cylinder open?
@@ -40,7 +42,7 @@
 		. += suppressor_overlay
 
 	if(show_bolt_icon)
-		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN)
+		if(bolt_type == BOLT_TYPE_LOCKING || bolt_type == BOLT_TYPE_OPEN || bolt_type == BOLT_TYPE_STANDARD)
 			. += "[base_icon_state]_bolt[bolt_locked ? "_locked" : ""]"
 
 	//this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon
@@ -203,7 +205,7 @@
 			if(num_loaded)
 				to_chat(user, span_notice("I load [num_loaded] [cartridge_wording]\s into [src]."))
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
-				if((chambered == null) && (bolt_type == BOLT_TYPE_NO_BOLT))
+				if(isnull(chambered) && (bolt_type == BOLT_TYPE_NO_BOLT))
 					chamber_round()
 				A.update_appearance()
 				update_appearance()
@@ -249,6 +251,7 @@
 		if(casing)
 			casing.forceMove(drop_location())
 			user.put_in_hands(casing)
+			update_appearance()
 			return
 	return ..()
 
@@ -264,16 +267,16 @@
 			eject_magazine(user)
 
 /obj/item/gun/ballistic/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
+	. = ..()
 	//double action revolvers should automatically get cocked when firing
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
 		bolt_locked = FALSE
-		if(!autofire_start && (magazine?.max_ammo > 1))
-			chamber_round(spin_cylinder = TRUE)
+		if(!autofire_start)
+			chamber_round()
 		update_appearance()
-	return TRUE
 
 /obj/item/gun/ballistic/can_shoot()
-	. = ..()
+	. = chambered
 	if(cylinder_open)
 		return FALSE
 	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && bolt_locked)
@@ -281,7 +284,7 @@
 
 /obj/item/gun/ballistic/drop_bolt(mob/user)
 	playsound(src, bolt_drop_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
-	if (user)
+	if(user)
 		to_chat(user, span_notice("I drop the [bolt_wording] of [src]."))
 	chamber_round()
 	bolt_locked = FALSE
@@ -306,8 +309,7 @@
 			return
 		if(user)
 			to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
-		if(magazine?.max_ammo > 1)
-			chamber_round(spin_cylinder = TRUE)
+		chamber_round()
 		bolt_locked = FALSE
 		sound_hint()
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
@@ -354,6 +356,26 @@
 		to_chat(user, span_notice("I pull the [magazine_wording] out of [src]."))
 	update_appearance()
 
+/obj/item/gun/ballistic/fire_gun(atom/target, mob/living/user, flag, params)
+	prefire_empty_checks()
+	return ..()
+
+/obj/item/gun/ballistic/on_autofire_start(mob/living/shooter)
+	prefire_empty_checks()
+	return ..()
+
+/obj/item/gun/ballistic/do_autofire(datum/source, atom/target, mob/living/shooter, params)
+	prefire_empty_checks()
+	return ..()
+
+/obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
+	. = ..()
+	postfire_empty_checks(.)
+
+/obj/item/gun/ballistic/process_burst(mob/living/user, atom/target, message, params, zone_override, sprd, randomized_gun_spread, randomized_bonus_spread, rand_spr, iteration)
+	. = ..()
+	postfire_empty_checks(.)
+
 /obj/item/gun/ballistic/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	if(ismob(user) && dry_fire_message)
 		to_chat(user, dry_fire_message)
@@ -362,11 +384,12 @@
 		playsound(src, dry_fire_sound, 30, TRUE)
 	update_appearance()
 
-/obj/item/gun/ballistic/handle_chamber(empty_chamber, from_firing, chamber_next_round)
+/obj/item/gun/ballistic/handle_chamber(empty_chamber = FALSE, from_firing = FALSE, chamber_next_round = FALSE)
 	if((!semi_auto && from_firing) || (bolt_type == BOLT_TYPE_BREAK_ACTION))
 		return
-	var/obj/item/ammo_casing/casing = chambered //Find chambered round
-	if(istype(casing)) //there's a chambered round
+	var/obj/item/ammo_casing/casing = chambered //Get chambered round
+	//there's a chambered round
+	if(istype(casing))
 		if(QDELING(casing))
 			stack_trace("Trying to move a qdeleted casing of type [casing.type]!")
 			chambered = null
@@ -377,15 +400,28 @@
 			chambered = null
 		else if(empty_chamber)
 			chambered = null
-	if(chamber_next_round && (magazine?.max_ammo > 1))
+	if(chamber_next_round)
 		chamber_round()
 
+/obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = FALSE, replace_new_round = FALSE)
+	if((chambered && !uses_cylinder) || !magazine)
+		return
+	if(magazine.ammo_count())
+		chambered = magazine.get_round(keep_bullet || bolt_type == BOLT_TYPE_NO_BOLT)
+		if((bolt_type != BOLT_TYPE_OPEN) && !uses_cylinder)
+			chambered.forceMove(src)
+		if(replace_new_round)
+			magazine.give_round(new chambered.type)
+
 /obj/item/gun/ballistic/prefire_empty_checks()
+	var/needs_update = FALSE
 	if(!chambered && !get_ammo())
-		if(bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
-			bolt_locked = TRUE
+		if((bolt_type == BOLT_TYPE_OPEN) && !bolt_locked)
 			playsound(src, bolt_drop_sound, bolt_drop_sound_volume)
-	update_appearance()
+			bolt_locked = TRUE
+			needs_update = TRUE
+	if(needs_update)
+		update_appearance()
 
 /obj/item/gun/ballistic/postfire_empty_checks(last_shot_succeeded = FALSE)
 	var/needs_update = FALSE
@@ -401,19 +437,18 @@
 	if(needs_update)
 		update_appearance()
 
-/obj/item/gun/ballistic/process_fire(atom/target, mob/living/user, message, params, zone_override, bonus_spread)
-	prefire_empty_checks()
-	. = ..()
-	postfire_empty_checks(.)
-
 ///Toggles between open cylinder and closed cylinder
 /obj/item/gun/ballistic/proc/toggle_cylinder_open(mob/user)
 	cylinder_open = !cylinder_open
 	sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
+		if(uses_cylinder)
+			chambered = null
 	else
 		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
+		if(uses_cylinder)
+			chamber_round()
 	if(user)
 		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()
@@ -452,6 +487,10 @@
 			else
 				. += "[p_Their] [bolt_wording] is [span_red("unlocked")]."
 	if(cylinder_open)
-		. += "[p_they(TRUE)] [p_have] [get_ammo(TRUE)] round\s remaining."
-		var/live_ammo = get_ammo(TRUE, FALSE)
-		. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+		var/all_ammo = get_ammo(FALSE, FALSE)
+		. += "[p_they(TRUE)] [p_have] [all_ammo ? all_ammo : "no"] round\s remaining."
+		if(all_ammo)
+			var/live_ammo = get_ammo(TRUE, FALSE)
+			. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
+	if(uses_cylinder)
+		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"

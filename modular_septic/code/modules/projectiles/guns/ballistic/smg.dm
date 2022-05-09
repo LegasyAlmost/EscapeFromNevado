@@ -13,11 +13,15 @@
 /obj/item/gun/ballistic/automatic/remis/smg
 	worn_icon = 'modular_septic/icons/obj/items/guns/worn/back.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	skill_melee = SKILL_IMPACT_WEAPON
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	skill_ranged = SKILL_SMG
 	suppressed = SUPPRESSED_NONE
 	full_auto = TRUE
+	w_class = WEIGHT_CLASS_BULKY
+	tetris_width = 96
+	tetris_height = 96
 
 // ppsh
 /obj/item/gun/ballistic/automatic/remis/smg/ppsh
@@ -181,10 +185,9 @@
 	fire_delay = 1.4
 	burst_size = 3
 	mag_type = /obj/item/ammo_box/magazine/hksmg380
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	can_suppress = TRUE
 	can_unsuppress = FALSE
-	foldable = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	client_recoil_animation_information = list(
 		"strength" = 0.15, \
@@ -198,51 +201,3 @@
 
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed/no_mag
 	spawnwithmagazine = FALSE
-
-// macs
-/obj/item/gun/ballistic/automatic/remis/smg/mac
-	name = "Cricket R0\"NOTALENT\" submachine gun"
-	desc = "A controversially-made submachine gun, due to the design rumored to be stolen by a man without talents or any patience whatsoever, It was abandoned, and thrown in the trash, where It belongs. That's most likely where you found this."
-	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
-	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
-	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
-	rack_sound = 'modular_septic/sound/weapons/guns/smg/macs_rack.wav'
-	lock_back_sound = 'modular_septic/sound/weapons/guns/smg/macs_lockback.wav'
-	bolt_drop_sound = 'modular_septic/sound/weapons/guns/smg/macs_lockin.wav'
-	load_sound = 'modular_septic/sound/weapons/guns/smg/macs_magin.wav'
-	load_empty_sound = 'modular_septic/sound/weapons/guns/smg/macs_magin.wav'
-	eject_sound = 'modular_septic/sound/weapons/guns/smg/macs_magout.wav'
-	eject_empty_sound = 'modular_septic/sound/weapons/guns/smg/macs_magout.wav'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
-	fire_sound = 'modular_septic/sound/weapons/guns/smg/macs.wav'
-	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/macs.wav'
-	weapon_weight = WEAPON_LIGHT
-	inhand_icon_state = "macs"
-	base_icon_state = "macs"
-	icon_state = "macs"
-	actions_types = null
-	burst_size = 3
-	fire_delay = 0.8
-	select = TRUE
-	full_auto = TRUE
-	mag_type = /obj/item/ammo_box/magazine/macs
-	slot_flags = null
-	can_suppress = TRUE
-	can_unsuppress = FALSE
-	w_class = WEIGHT_CLASS_SMALL
-	wielded_inhand_state = FALSE
-	bolt_type = BOLT_TYPE_OPEN
-	bolt_locked = TRUE
-	client_recoil_animation_information = list(
-		"strength" = 0.7, \
-		"duration" = 1, \
-	)
-
-/obj/item/gun/ballistic/automatic/remis/smg/mac/Initialize(mapload)
-	. = ..()
-	var/obj/item/suppressor/suppressor = new(src)
-	install_suppressor(suppressor)
-	if(chambered)
-		QDEL_NULL(chambered)
-	update_appearance()

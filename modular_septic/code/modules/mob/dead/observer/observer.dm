@@ -5,6 +5,8 @@
 /mob/dead/observer/Initialize()
 	. = ..()
 	add_verb(src, /mob/dead/observer/proc/second_chance)
+	if(SSmapping.config?.combat_map)
+		INVOKE_ASYNC(src, .proc/combat_ressurection, src)
 
 /mob/dead/observer/proc/second_chance()
 	set name = "Reincarnation"
@@ -19,18 +21,8 @@
 	NP.key = src.key
 	qdel(src)
 
-//-Matt edit
-//Ghosts are fucking stupid and I hate them. I'll figure out another way to let people respawn.
-/mob/living/verb/ghost()
-	set category = "OOC"
-	set name = "Ghost"
-	set desc = "Relinquish your life and enter the land of the dead."
-
-	if(stat != DEAD)
-		succumb()
-	if(stat == DEAD)
-		if(check_rights(R_ADMIN))//Only admins are allowed to ghost. Players can go fuck themselves.
-			ghostize(TRUE)
-			return TRUE
-		return FALSE
-	return TRUE
+/mob/dead/observer/proc/combat_ressurection() //no observing for you nigga
+	client.screen.Cut()
+	client.screen += client.void
+	var/mob/dead/new_player/M = new /mob/dead/new_player()
+	M.key = key
