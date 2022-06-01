@@ -16,7 +16,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	var/eyeball_scale_y = 0.32
 	var/eyeball_pixel_x = 80
 	var/eyeball_pixel_y = -22
-	var/static/sound/click_sound = sound('modular_septic/sound/interface/uiclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 150)
+	var/static/sound/click_sound = sound('modular_septic/sound/interface/uiclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 220)
+	var/static/sound/ready_sound = sound('modular_septic/sound/interface/readyclick.wav', FALSE, 0, CHANNEL_CLICKITY_CLACK, 220)
 
 /atom/movable/screen/lobby/button/Initialize(mapload)
 	. = ..()
@@ -25,6 +26,13 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 		eyeball_image.transform = eyeball_image.transform.Scale(eyeball_scale_x, eyeball_scale_y)
 		eyeball_image.pixel_x = eyeball_pixel_x
 		eyeball_image.pixel_y = eyeball_pixel_y
+
+/atom/movable/screen/lobby/background/Initialize(mapload)
+	. = ..()
+	if(SSmapping.config?.combat_map)
+		icon = 'modular_septic/icons/hud/lobby/title_efn.dmi'
+		icon_state = "title"
+		screen_loc = "SOUTH+12,CENTER:-120"
 
 /atom/movable/screen/lobby/button/update_overlays()
 	. = ..()
@@ -45,6 +53,11 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby)
 	. = ..()
 	if(usr.client && click_sound)
 		SEND_SOUND(usr.client, click_sound)
+
+/atom/movable/screen/lobby/button/ready/Click(location, control, params)
+	. = ..()
+	if(usr.client && click_sound)
+		SEND_SOUND(usr.client, ready_sound)
 
 /atom/movable/screen/lobby/background
 	icon = 'modular_septic/icons/hud/lobby/title.dmi'

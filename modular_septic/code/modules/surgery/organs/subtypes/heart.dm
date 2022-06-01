@@ -4,7 +4,7 @@
 	icon_state = "heart"
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_HEART = 100)
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 	low_threshold_passed = span_info("Prickles of pain appear then die out from within my chest...")
 	high_threshold_passed = span_warning("Something inside my chest hurts, and the pain isn't subsiding. I am breathing far faster than before.")
@@ -27,6 +27,8 @@
 	var/open = FALSE
 	/// If we're not beating that is not a good sign
 	var/beating = TRUE
+	///convulsion sounds
+	var/convulsion_sound = list('modular_septic/sound/emotes/convulse1.wav', 'modular_septic/sound/emotes/convulse2.wav')
 
 /obj/item/organ/heart/Initialize()
 	. = ..()
@@ -37,6 +39,8 @@
 	if(!failed && is_failing() && owner.needs_heart()) // heart broke, stopped beating, death imminent...
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> clutches at [owner.p_their()] [parse_zone(BODY_ZONE_CHEST)]!"))
+		playsound(owner, convulsion_sound, 95, FALSE)
+		owner.sound_hint()
 		failed = TRUE
 
 /obj/item/organ/heart/is_working()

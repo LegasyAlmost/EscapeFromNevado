@@ -84,8 +84,8 @@
 	. = ..()
 	if(foldable)
 		new /datum/action/item_action/toggle_stock(src)
-
-	initialize_full_auto()
+	if(full_auto)
+		AddComponent(/datum/component/automatic_fire)
 
 /obj/item/gun/update_icon(updates)
 	. = ..()
@@ -303,11 +303,14 @@
 				user.dropItemToGround(src, TRUE)
 				return TRUE
 
-/obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget, message = TRUE)
-	if(client_recoil_animation_information)
+/obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/target, message = TRUE)
+	if(LAZYLEN(client_recoil_animation_information))
 		var/duration = client_recoil_animation_information["duration"]
 		var/strength = client_recoil_animation_information["strength"]
-		shake_camera(user, duration, strength)
+		var/easing = client_recoil_animation_information["easing"] || CUBIC_EASING|EASE_OUT
+		var/angle_to_target = SIMPLIFY_DEGREES(get_angle(user, target) + 90)
+		var/recoil_angle = SIMPLIFY_DEGREES(angle_to_target + 180)
+		recoil_camera(user, duration, recoil_angle, strength, easing)
 
 	sound_hint()
 
@@ -315,27 +318,30 @@
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	else
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
-		/*
 		if(message)
 			if(pointblank)
-				if(ismob(pbtarget))
-					user.visible_message(span_danger("<b>[user]</b> fires [src] point blank at <b>[pbtarget]</b>!"), \
-									span_danger("I fire [src] point blank at <b>[pbtarget]</b>!"), \
-									span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE, pbtarget)
-					to_chat(pbtarget, span_userdanger("<b>[user]</b> fires [src] point blank at me!"))
+				if(ismob(target))
+					user.visible_message(span_danger("<b>[user]</b> fires [src] point blank at <b>[target]</b>!"), \
+									span_danger("I fire [src] point blank at <b>[target]</b>!"), \
+									span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE, target)
+					to_chat(target, span_userdanger("<b>[user]</b> fires [src] point blank at me!"))
 				else
-					user.visible_message(span_danger("<b>[user]</b> fires [src] point blank at [pbtarget]!"), \
-									span_danger("I fire [src] point blank at [pbtarget]!"), \
-									span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE, pbtarget)
-				if(pb_knockback > 0 && ismob(pbtarget))
-					var/mob/mob_pbtarget = pbtarget
-					var/atom/throw_target = get_edge_target_turf(mob_pbtarget, user.dir)
-					mob_pbtarget.throw_at(throw_target, pb_knockback, 2)
+					user.visible_message(span_danger("<b>[user]</b> fires [src] point blank at [target]!"), \
+									span_danger("I fire [src] point blank at [target]!"), \
+									span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE, target)
+				if(pb_knockback > 0 && ismob(target))
+					var/mob/mob_target = target
+					var/atom/throw_target = get_edge_target_turf(mob_target, user.dir)
+					mob_target.throw_at(throw_target, pb_knockback, 2)
 			else
-				user.visible_message(span_danger("<b>[user]</b> fires [src]!"), \
-								span_danger("I fire [src]!"), \
-								span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE)
-		*/
+				if(ismob(target))
+					user.visible_message(span_danger("<b>[user]</b> fires [src] at <b>[target]</b>!"), \
+									span_danger("I fire [src] at <b>[target]</b>!"), \
+									span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE, target)
+				else
+					user.visible_message(span_danger("<b>[user]</b> fires [src] at [target]!"), \
+									span_danger("I fire [src] at [target]!"), \
+									span_hear("I hear a gunshot!"), COMBAT_MESSAGE_RANGE, target)
 
 	if(weapon_weight >= WEAPON_HEAVY)
 		if(!SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK) && (GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) < 20))

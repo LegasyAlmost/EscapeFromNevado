@@ -6,7 +6,9 @@
 	Input: 2 cans of beef stew - Output = Bastardo \n\
 	Input: 2 PPK Handguns - Output = Th(ump) SMG \n\
 	Input: 3 individual batteries - Output = Inverno Genocidio Rifle \n\
+	Input: 1 Chunky Battery - Output = Federson bolt-action \n\
 	Input: 1 Toobrush - Output = Combat Shotgun \n\
+	Input: 1 Head - Output = Frag Master 9mm \n\
 	Input: 1 (any) computer circuit - Output = Black Pump-action Shotgun \n\
 	Input: 10 wood tiles - Output = Abyss Rifle \n\
 	Input: 1 (any) bottle - Output = Solitario-SD \n\
@@ -14,14 +16,16 @@
 	Input: 1 Sounding Rod - Output = Bolt ACR \n\
 	Input 2 (any) hearts - Output = Industrial Glue Gun \n\
 	Input 1 (any) intestines - Output = Bolas 4 Guage Shotgun \n\
+	Input 2 (any) kidneys - Output = Aniquilador LE living pistol \n\
 	Input: 1 CCP booklet - Output = Heavy Helmet \n\
 	Input: 1 Broken LCD - Output = Heavy Vest \n\
+	Input: 3 Left legs, 3 Right legs - Output = UltraHeavy Vest \n\
 	Input: 1 Crowbar - Output = 1 Slaughter Goggles \n\
 	Input: 3 Light Bulbs - Output = 1 Satchel \n\
 	Input: 1 Black Gloves - Output = 1 Suppressor \n\
 	Input: 1 Chair - Output = 1 Military Rig (belt) \n\
-	Input: 1 Syringe + 2 Indevidual Batteries - Output = Energy Sword \n\
-	Input: 2 Right Arms - Output = Kukri \n\
+	Input: 1 Syringe + 2 Individual Batteries - Output = Energy Sword \n\
+	Input: 1 Left Arm + 1 Right Arm - Output = Kukri \n\
 	Input: 1 Wooden Chair - Output = 1 Oxygen Tank \n\
 	Input: 4 Glass Shards - Output = 1 Carbonylmethamphetamine \
     </div>"
@@ -42,7 +46,7 @@
 	)
 	var/list/tiktoklines = list('modular_septic/sound/effects/singer1.wav', 'modular_septic/sound/effects/singer2.wav')
 	var/refuse_sound_cooldown_duration = 1 SECONDS
-	var/barfsound = list('modular_septic/sound/emotes/barf1.wav', 'modular_septic/sound/emotes/barf2.wav')
+	var/barfsound = 'modular_septic/sound/emotes/vomit.wav'
 	var/crushersound = list('modular_septic/sound/effects/crusher1.wav', 'modular_septic/sound/effects/crusher2.wav', 'modular_septic/sound/effects/crusher3.wav')
 	COOLDOWN_DECLARE(refuse_cooldown)
 

@@ -3,8 +3,10 @@
     "map_name": "Thug Breaker",
     "map_path": "_septic/map_files/Breaker",
     "map_file": [
-        "BreakerZ2",
-        "BreakerZ1"
+        "BreakerZ4.dmm",
+        "BreakerZ3.dmm",
+        "BreakerZ2.dmm",
+        "BreakerZ1.dmm"
     ],
 	"station_name": "The Abandoned Warehouse",
 	"combat_map": true,
@@ -26,11 +28,24 @@
             "Up": 1,
             "Station": true,
             "Gravity": true,
+			"Baseturf": "/turf/open/openspace"
+        },
+        {
+            "Down": -1,
+            "Up": 1,
+            "Station": true,
+            "Gravity": true,
             "Baseturf": "/turf/open/openspace"
         },
         {
             "Down": -1,
             "Up": 1,
+            "Station": true,
+            "Gravity": true,
+            "Baseturf": "/turf/open/floor/grass"
+        },
+        {
+            "Down": -1,
             "Station": true,
             "Gravity": true,
             "Baseturf": "/turf/open/openspace"

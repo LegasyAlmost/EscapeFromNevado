@@ -60,7 +60,7 @@
 
 #define DRONING_LIMINALSOLAR list('modular_septic/sound/music/droning/liminalsolars.ogg')
 
-#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/liminaltrain1.ogg')
+#define DRONING_LIMINALTRAIN list('modular_septic/sound/music/droning/train.ogg')
 
 #define DRONING_DETROIT list('modular_septic/sound/music/droning/detroit.wav')
 
@@ -85,3 +85,7 @@
 #define DRONING_DENOMINATOR list('modular_septic/sound/music/droning/monotony.wav')
 
 #define DRONING_BARRACKS list('modular_septic/sound/music/droning/thirdeye.wav')
+
+#define DRONING_LIMINAL_OUTDOOR list('modular_septic/sound/music/droning/scary_wind.wav')
+
+#define DRONING_LIMINAL_INDOOR list('modular_septic/sound/music/droning/scary_wind_indoor.wav')

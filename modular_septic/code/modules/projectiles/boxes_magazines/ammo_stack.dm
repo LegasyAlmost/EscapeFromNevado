@@ -2,7 +2,7 @@
 /obj/item/ammo_box/magazine/ammo_stack
 	name = "ammo stack"
 	desc = "A stack of ammo."
-	icon = 'modular_septic/icons/obj/items/ammo/detailed_ammo.dmi'
+	icon = 'modular_septic/icons/obj/items/ammo/ammo_stacks.dmi'
 	icon_state = "c9mm"
 	base_icon_state = "c9mm"
 	item_flags = NO_PIXEL_RANDOM_DROP
@@ -31,13 +31,14 @@
 	icon_state = "[base_icon_state]-[ammo_count(TRUE)]"
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-    . = ..()
-    var/loc_before_del = loc
-    while(LAZYLEN(stored_ammo))
-        var/obj/item/ammo = get_round(FALSE)
-        ammo.forceMove(loc_before_del)
-        ammo.throw_at(loc_before_del)
-    check_for_del()
+	. = ..()
+	var/loc_before_del = loc
+	while(LAZYLEN(stored_ammo))
+		var/obj/item/ammo = get_round(FALSE)
+		ammo.forceMove(loc_before_del)
+		ammo.undo_messy()
+		ammo.do_messy(duration = 2)
+	check_for_del()
 
 /obj/item/ammo_box/magazine/ammo_stack/handle_atom_del(atom/A)
 	. = ..()
@@ -62,8 +63,8 @@
 	icon_state = ""
 	for(var/casing in stored_ammo)
 		var/image/bullet = image(world_icon, src, "[world_icon_state]-live")
-		bullet.pixel_x = rand(-8, 8)
-		bullet.pixel_y = rand(-8, 8)
+		bullet.pixel_x = rand(-12, 12)
+		bullet.pixel_y = rand(-12, 12)
 		bullet.transform = bullet.transform.Turn(rand(0, 360))
 		add_overlay(bullet)
 	return UPDATE_ICON_STATE | UPDATE_OVERLAYS

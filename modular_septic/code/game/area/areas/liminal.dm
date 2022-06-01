@@ -83,6 +83,10 @@
 /area/maintenance/liminal/intro
 	name = "Liminal Introduction"
 	droning_sound = DRONING_LIMINALINTRO
+	droning_volume = 60
+
+/area/maintenance/liminal/intro/barracks
+	name = "Liminal Introduction Barracks"
 
 /area/maintenance/liminal/intro/elevators
 	name = "Liminal Intro Elevators"
@@ -135,24 +139,58 @@
 	name = "Denominator's Barracks"
 	droning_sound = DRONING_BARRACKS
 
+/area/maintenance/liminal/outdoor
+	name = "Liminal Fake Outdoors"
+	droning_sound = DRONING_LIMINAL_OUTDOOR
+	droning_volume = 88
+	area_flags = VALID_TERRITORY | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
+	map_generator = /datum/map_generator/efn_surface_generator
+
+/area/maintenance/liminal/outdoor/explored
+	name = "Liminal Fake Outdoors no generator"
+	droning_sound = DRONING_LIMINAL_OUTDOOR
+	droning_volume = 88
+	area_flags = VALID_TERRITORY | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
+	map_generator = null
+	ambience_index = AMBIENCE_OUTDOOR
+
+/area/maintenance/liminal/outdoor/interior
+	name = "Liminal Fake Outdoors Room"
+	droning_sound = DRONING_LIMINAL_INDOOR
+	droning_volume = 85
+	map_generator = null
+	ambience_index = null
+
 /area/maintenance/liminal/intro/Entered(atom/movable/arrived, area/old_area, volume = 70)
 	. = ..()
 	var/mob/living/living_arrived = arrived
-	if(istype(living_arrived))
+	if(istype(living_arrived) && !HAS_TRAIT(living_arrived, TRAIT_PACIFISM))
 		//When a human enters the hallway, what happens?
-		to_chat(living_arrived, span_warning("<b>I feel woozy as the supression field makes me into a soyjack.</b>"))
-		living_arrived.playsound_local(living_arrived, 'modular_septic/sound/effects/soyjack.wav', volume, TRUE)
 		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
-		living_arrived.flash_pain(60)
 		//They become a soyjack
 
 /area/maintenance/liminal/intro/Exited(atom/movable/gone, direction, volume = 70)
 	. = ..()
 	var/mob/living/living_gone = gone
-	if(istype(living_gone))
+	if(istype(living_gone) && HAS_TRAIT(living_gone, TRAIT_PACIFISM))
 		//When a human exits the hallway, what happens?
-		to_chat(living_gone, span_yell("<b>I feel chad.</b>"))
-		living_gone.playsound_local(living_gone, 'modular_septic/sound/effects/chadjack.wav', volume, TRUE)
-		living_gone.flash_pain(60)
 		REMOVE_TRAIT(living_gone, TRAIT_PACIFISM, AREA_TRAIT)
 		//They become a doomerjackxx
+
+/area/maintenance/liminal/intro/barracks/Entered(atom/movable/arrived, area/old_area, volume = 70)
+	. = ..()
+	var/mob/living/living_arrived = arrived
+	if(istype(living_arrived) && !HAS_TRAIT(living_arrived, TRAIT_PACIFISM))
+		//When a human enters the hallway, what happens?
+		ADD_TRAIT(living_arrived, TRAIT_PACIFISM, AREA_TRAIT)
+		//They become a soyjack
+		//But no sound
+
+/area/maintenance/liminal/intro/barracks/Exited(atom/movable/gone, direction, volume = 70)
+	. = ..()
+	var/mob/living/living_gone = gone
+	if(istype(living_gone) && HAS_TRAIT(living_gone, TRAIT_PACIFISM))
+		//When a human exits the hallway, what happens?
+		REMOVE_TRAIT(living_gone, TRAIT_PACIFISM, AREA_TRAIT)
+		//They become a doomerjackxx
+		//But no sound

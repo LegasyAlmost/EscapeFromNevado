@@ -76,6 +76,14 @@
         /obj/item/reagent_containers = 1
     )
 
+/datum/bartering_recipe/combatmaster
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 1
+    )
+    inputs = list(
+         /obj/item/bodypart/head = 1
+    )
+
 /datum/bartering_recipe/svd
     outputs = list(
         /obj/item/gun/ballistic/automatic/remis/svd = 1
@@ -106,6 +114,14 @@
     )
     inputs = list(
         /obj/item/organ/intestines = 1
+    )
+
+/datum/bartering_recipe/aniquilador
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1
+    )
+    inputs = list(
+        /obj/item/organ/kidneys = 2
     )
 
 ///ARMOR AND CLOTHING///
@@ -139,6 +155,15 @@
     )
     inputs = list(
         /obj/item/crowbar = 1
+    )
+
+/datum/bartering_recipe/ultraheavy
+    outputs = list(
+        /obj/item/clothing/suit/armor/vest/alt/ultraheavy = 1
+    )
+    inputs = list(
+        /obj/item/bodypart/l_leg = 2,
+        /obj/item/bodypart/r_leg = 2
     )
 
 /datum/bartering_recipe/belt
@@ -179,7 +204,8 @@
         /obj/item/kukri = 1
     )
     inputs = list(
-        /obj/item/bodypart/r_arm = 2,
+        /obj/item/bodypart/r_arm = 1,
+        /obj/item/bodypart/l_arm = 1
     )
 
 //MISC//

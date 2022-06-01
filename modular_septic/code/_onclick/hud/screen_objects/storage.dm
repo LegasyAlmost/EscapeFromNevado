@@ -16,7 +16,7 @@
 		storage_master.screen_pixel_y = initial(storage_master.screen_pixel_y)
 		storage_master.orient2hud()
 		storage_master.show_to(usr)
-		testing("storage screen variables reset [screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]")
+		testing("storage screen variables reset [storage_master.screen_start_x]:[storage_master.screen_pixel_x],[storage_master.screen_start_y]:[storage_master.screen_pixel_y]")
 		to_chat(usr, span_notice("Storage window position has been reset."))
 	else if(LAZYACCESS(modifiers, CTRL_CLICK))
 		locked = !locked
@@ -111,6 +111,9 @@
 	var/screen_loc = LAZYACCESS(modifiers, SCREEN_LOC)
 	var/coordinates = storage_master.screen_loc_to_tetris_coordinates(screen_loc)
 	if(!coordinates)
+		return
+	// this looks shit and you can't create paradoxes
+	if(held_item == storage_master.parent)
 		return
 	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params = params, storage_click = TRUE))
 		hovering.color = COLOR_LIME

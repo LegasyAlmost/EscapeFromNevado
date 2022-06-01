@@ -4,6 +4,8 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 	tetris_width = 32
 	tetris_height = 32
+	var/pin_sound = 'modular_septic/sound/weapons/grenade_pin.wav'
+
 
 //This is purely to change the pin sound for ALL grenades.
 /obj/item/grenade/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
@@ -15,7 +17,7 @@
 	if(shrapnel_type && shrapnel_radius)
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
-	playsound(src, 'modular_septic/sound/weapons/grenade_pin.wav', volume, TRUE)
+	playsound(src, pin_sound, volume, TRUE)
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE

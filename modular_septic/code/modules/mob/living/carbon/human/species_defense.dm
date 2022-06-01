@@ -21,7 +21,7 @@
 	var/bite_verb = "bite"
 	var/bite_verb_continuous = "bites"
 	var/bite_sharpness = NONE
-	var/bite_sound = 'modular_septic/sound/attack/bite.ogg'
+	var/bite_sound = list('modular_septic/sound/attack/bite1.wav', 'modular_septic/sound/attack/bite2.wav', 'modular_septic/sound/attack/bite3.wav', 'modular_septic/sound/attack/bite4.wav')
 	var/bite_armor_damage_modifier = 0
 
 /datum/species/handle_fire(mob/living/carbon/human/burned, delta_time, times_fired, no_protection = FALSE)
@@ -240,11 +240,11 @@
 	user.adjustFatigueLoss(attack_fatigue_cost)
 	playsound(user, weapon.hitsound, weapon.get_clamped_volume(), TRUE, extrarange = weapon.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 	if(damage && !(weapon.item_flags & NOBLUDGEON))
-		apply_damage(damage, \
+		apply_damage(victim, \
+					damage, \
 					weapon.damtype, \
 					def_zone, \
 					armor_block, \
-					victim, \
 					wound_bonus = weapon.wound_bonus, \
 					bare_wound_bonus = weapon.bare_wound_bonus, \
 					sharpness = sharpness, \

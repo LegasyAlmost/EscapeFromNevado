@@ -798,8 +798,7 @@
 		//broken heart
 		if(owner?.getorganslotefficiency(ORGAN_SLOT_HEART) < ORGAN_FAILING_EFFICIENCY)
 			toxins = max(toxins, 1)
-	for(var/thing in injuries)
-		var/datum/injury/injury = thing
+	for(var/datum/injury/injury as anything in injuries)
 		if(injury.damage <= 0)
 			qdel(injury)
 			continue
@@ -914,7 +913,6 @@
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
 //Damage will not exceed max_damage using this proc
 //Cannot apply negative damage
-// maybe separate BRUTE_SHARP and BRUTE_OTHER eventually somehow hmm
 /obj/item/bodypart/proc/receive_damage(brute = 0, \
 									burn = 0, \
 									stamina = 0, \
@@ -929,8 +927,8 @@
 									reduced = 0, \
 									edge_protection = 0, \
 									subarmor_flags = NONE, \
-									wound_messages = TRUE, \
-									atom/used_weapon)
+									attack_direction = null, \
+									wound_messages = TRUE)
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -1612,8 +1610,7 @@
 	else
 		limb_efficiency = 100
 	// wounds decrease limb efficiency
-	for(var/thing in wounds)
-		var/datum/wound/hurty = thing
+	for(var/datum/wound/hurty as anything in wounds)
 		limb_efficiency -= hurty.limb_efficiency_reduction
 	// rotten limbs most of the time are useless
 	if(CHECK_BITFIELD(limb_flags, BODYPART_DEAD))
@@ -1644,9 +1641,9 @@
 	else if((broken_factor > 0.75) && (broken_factor - splint_factor > 0))
 		limb_efficiency = 0
 	limb_efficiency = max(0, CEILING(limb_efficiency, 1))
-	if(can_be_disabled)
-		update_disabled()
 	if(owner)
+		if(can_be_disabled)
+			update_disabled()
 		if(owner.get_active_hand() == src)
 			owner.update_handedness(held_index)
 			owner.add_or_update_variable_actionspeed_modifier(/datum/actionspeed_modifier/limb_efficiency, TRUE, multiplicative_slowdown = (1 - (limb_efficiency/LIMB_EFFICIENCY_OPTIMAL)) * LIMB_EFFICIENCY_ACTIONSPEED_MULTIPLIER)

@@ -287,16 +287,20 @@
 	name = "\improper Destruidor de Bolas 4-gauge shotgun"
 	desc = "Holy shit. That's a big fucking shotgun."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
-	icon_state = "ks23"
-	base_icon_state = "ks23"
+	icon_state = "bolas"
+	base_icon_state = "bolas"
+	inhand_icon_state = "bolas"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/bolas
 	fire_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas1.wav', 'modular_septic/sound/weapons/guns/shotgun/bolas2.wav')
+	suppressed_sound = list('modular_septic/sound/weapons/guns/shotgun/bolas_silenced1.wav', 'modular_septic/sound/weapons/guns/shotgun/bolas_silenced2.wav')
 	load_sound = list(
-		'modular_septic/sound/weapons/guns/shotgun/bolas_load.wav', \
+		'modular_septic/sound/weapons/guns/shotgun/bolas_load1.wav', \
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load2.wav', \
 		'modular_septic/sound/weapons/guns/shotgun/bolas_load3.wav', \
 	)
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lock_back.wav'
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_lockin.wav'
-	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.ogg'
-	can_suppress = FALSE
+	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/bolas_pump.wav'
+	slot_flags = null
+	can_suppress = TRUE
+	suppressor_x_offset = 11
