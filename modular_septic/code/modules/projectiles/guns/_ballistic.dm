@@ -269,11 +269,14 @@
 /obj/item/gun/ballistic/before_can_shoot_checks(mob/living/user, autofire_start = FALSE)
 	. = ..()
 	//double action revolvers should automatically get cocked when firing
-	if((bolt_type == BOLT_TYPE_BREAK_ACTION) && !cylinder_open && semi_auto && bolt_locked)
-		bolt_locked = FALSE
-		if(!autofire_start)
-			chamber_round()
-		update_appearance()
+	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
+		if(semi_auto)
+			if(rack_sound)
+				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+			bolt_locked = FALSE
+			if(!autofire_start)
+				chamber_round()
+			update_appearance()
 
 /obj/item/gun/ballistic/can_shoot()
 	. = chambered

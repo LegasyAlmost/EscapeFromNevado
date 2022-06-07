@@ -10,7 +10,7 @@
 	bolt_wording = "hammer"
 	cylinder_wording = "cylinder"
 	safety_flags = NONE
-	semi_auto = TRUE
+	semi_auto = FALSE
 	initial_caliber = CALIBER_357
 	alternative_caliber = CALIBER_38
 	alternative_ammo_misfires = FALSE
@@ -56,15 +56,17 @@
 		boolets += magazine.ammo_count(countempties)
 	return boolets
 
+
 /obj/item/gun/ballistic/revolver/remis
 
 // CATTLE REVOLVER
 /obj/item/gun/ballistic/revolver/remis/gado
-	name = "\improper Revolver de Gado"
+	name = "\improper Gado's Revolver"
 	desc = "An efficient revolver with multiple new systems in-place, if the hammer wasn't enough, there's now a safety exclusively for people who put the gun in their holster way too fast and shoot their own damn leg. \
 			It has a unique system for the hammer and cylinder. It's used for slaughtering cattle."
 	icon_state = "bladerunner"
 	base_icon_state = "bladerunner"
+	semi_auto = TRUE //It's a modern one
 	uncocked_icon_state = FALSE
 	fire_sound = list('modular_septic/sound/weapons/guns/revolver/gado1.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav', 'modular_septic/sound/weapons/guns/revolver/gado3.wav')
 	safety_on_sound = 'modular_septic/sound/weapons/guns/revolver/gado_safetyon.ogg'
@@ -92,7 +94,7 @@
 
 // NAMBU REVOLVER
 /obj/item/gun/ballistic/revolver/remis/nova
-	name = "\improper Nova Seguranca M62 revolver"
+	name = "\improper New Security M62 revolver"
 	desc = "A stained, antique revolver with an unknown insignia on the side."
 	icon_state = "newnambu"
 	base_icon_state = "newnambu"
