@@ -87,10 +87,12 @@
 				mode = PROJECTILE_PIERCE_NONE
 			else if(embed_attempt & COMPONENT_EMBED_WENT_THROUGH)
 				SEND_SIGNAL(target, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <i>\The [name] go[p_es()] through!</i>"))
+	/*
 	var/wound_message = ""
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
 		wound_message = carbon_target.wound_message
+	*/
 	SEND_SIGNAL(target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	/*
 	if(hit_text)
