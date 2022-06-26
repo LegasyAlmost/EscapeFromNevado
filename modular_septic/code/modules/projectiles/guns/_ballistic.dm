@@ -270,12 +270,12 @@
 	. = ..()
 	//double action revolvers should automatically get cocked when firing
 	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
+		if(!autofire_start)
+			chamber_round()
 		if(semi_auto)
 			if(rack_sound)
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 			bolt_locked = FALSE
-			if(!autofire_start)
-				chamber_round()
 			update_appearance()
 
 /obj/item/gun/ballistic/can_shoot()

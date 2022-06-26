@@ -2,6 +2,8 @@
 	icon = 'modular_septic/icons/obj/items/guns/revolver.dmi'
 	icon_state = "revolver"
 	base_icon_state = "revolver"
+	tetris_height = 32
+	tetris_width = 64
 	uncocked_icon_state = TRUE
 	uses_cylinder = TRUE
 	cylinder_shows_open = TRUE

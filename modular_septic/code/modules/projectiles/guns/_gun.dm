@@ -303,7 +303,7 @@
 				user.dropItemToGround(src, TRUE)
 				return TRUE
 
-/obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/target, message = TRUE)
+/obj/item/gun/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/target, message = FALSE)
 	if(LAZYLEN(client_recoil_animation_information))
 		var/duration = client_recoil_animation_information["duration"]
 		var/strength = client_recoil_animation_information["strength"]
