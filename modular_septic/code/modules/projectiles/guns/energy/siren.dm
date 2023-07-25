@@ -16,7 +16,7 @@
 	safety_on_sound = 'modular_septic/sound/weapons/guns/energy/siren_safetyon.wav'
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.wav'
 	vary_fire_sound = FALSE
-	cell_type = /obj/item/stock_parts/cell/high
+	cell_type = /obj/item/stock_parts/cell
 	charge_delay = 15
 	ammo_type = list(/obj/item/ammo_casing/energy/siren)
 	custom_materials = list(/datum/material/uranium=10000, \
