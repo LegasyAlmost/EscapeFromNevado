@@ -95,6 +95,16 @@
 		/obj/item/circuitboard = 1,
 	)
 
+/datum/bartering_recipe/shotgun/abyss
+	outputs = list(
+		/obj/item/gun/ballistic/shotgun/abyss = 1,
+		/obj/item/ammo_box/magazine/abyss12g = 2,
+	)
+	inputs = list(
+		/obj/item/gun/ballistic/automatic/remis/abyss = 1,
+		/obj/item/gun/ballistic/shotgun/bulldog = 1,
+	)
+
 /datum/bartering_recipe/abyss
 	outputs = list(
 		/obj/item/gun/ballistic/automatic/remis/abyss = 1,
