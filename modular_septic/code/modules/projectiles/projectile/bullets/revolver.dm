@@ -24,7 +24,7 @@
 
 /obj/projectile/bullet/c38/pluspee
 	name = ".38 suspicious +P bullet"
-	damage = 36
+	damage = 32
 	wound_bonus = 4
 	bare_wound_bonus = 4
 	embedding = list("embed_chance"=40, \

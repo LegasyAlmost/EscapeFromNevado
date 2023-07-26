@@ -28,6 +28,7 @@
 		/obj/item/ammo_box/magazine/ammo_stack/shotgun/slugs/loaded,
 		/obj/item/ammo_box/magazine/ammo_stack/a276/loaded,
 		/obj/item/ammo_box/magazine/ammo_stack/c38/loaded,
+		/obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded,
 		/obj/item/ammo_box/magazine/ammo_stack/a357/loaded,
 		/obj/item/ammo_box/magazine/ammo_stack/a500/loaded,
 	)
@@ -46,7 +47,7 @@
 	var/list/stack_type_to_name = list() //filed on init
 	var/list/medical_stack_type_to_name = list() //filed on init
 	var/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/captagon
-	var/shiny_gift = /obj/item/gun/ballistic/revolver/remis/gado
+	var/shiny_gift = /obj/item/gun/ballistic/revolver/remis/nova
 
 /obj/machinery/resupply_puta/Initialize(mapload)
 	. = ..()

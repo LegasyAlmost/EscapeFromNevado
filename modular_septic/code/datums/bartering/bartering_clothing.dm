@@ -68,7 +68,7 @@
 		/obj/item/storage/belt/military = 1,
 	)
 	inputs = list(
-		/obj/item/chair/wood = 1,
+		/obj/item/chair = 1,
 	)
 
 /datum/bartering_recipe/backpack
