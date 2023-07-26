@@ -73,6 +73,8 @@
 #define TRAIT_FAUCIPILLED "faucipilled"
 /// Immune to overdoses in general
 #define TRAIT_OVERDOSE_IMMUNE "overdose_immune"
+/// Immune to insults (guttersnipe)
+#define TRAIT_THICKSKIN "thickskin"
 
 // ~BODYPART TRAITS
 /// Rotten beyond salvation

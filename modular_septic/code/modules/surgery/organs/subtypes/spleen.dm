@@ -5,13 +5,13 @@
 	desc = "The most underrated organ of the human body."
 	icon = 'modular_septic/icons/obj/items/surgery.dmi'
 	icon_state = "spleen"
+	w_class = WEIGHT_CLASS_TINY
 	zone = BODY_ZONE_CHEST
 	organ_efficiency = list(ORGAN_SLOT_SPLEEN = 100)
 
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.7
 	high_threshold = STANDARD_ORGAN_THRESHOLD * 0.6
 	low_threshold = STANDARD_ORGAN_THRESHOLD * 0.2
-	w_class = WEIGHT_CLASS_SMALL
 
 	organ_volume = 0.5
 	max_blood_storage = 20
