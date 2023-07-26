@@ -33,6 +33,7 @@
 	return L
 
 /obj/item/ammo_box/magazine/internal/cylinder/give_round(obj/item/ammo_casing/R, replace_spent = 0)
+	// Boxes don't have a caliber type, magazines do. Not sure if it's intended or not, but if we fail to find a caliber, then we fall back to ammo_type.
 	if(!R || (caliber ? ((caliber != R.caliber) && (caliber != CALIBER_UNIVERSAL)) : (ammo_type != R.type)) )
 		return FALSE
 
