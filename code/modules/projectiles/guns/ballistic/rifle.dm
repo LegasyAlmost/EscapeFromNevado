@@ -17,6 +17,27 @@
 	bolt_drop_sound = 'sound/weapons/gun/rifle/bolt_in.ogg'
 	tac_reloads = FALSE
 
+/obj/item/gun/ballistic/rifle/rack(mob/user = null)
+	if (bolt_locked == FALSE)
+		to_chat(user, span_notice("You open the bolt of \the [src]."))
+		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
+		process_chamber(FALSE, FALSE, FALSE)
+		bolt_locked = TRUE
+		update_appearance()
+		return
+	drop_bolt(user)
+
+/obj/item/gun/ballistic/rifle/can_shoot()
+	if (bolt_locked)
+		return FALSE
+	return ..()
+
+/obj/item/gun/ballistic/rifle/attackby(obj/item/A, mob/user, params)
+	if (!bolt_locked && !istype(A, /obj/item/stack/sheet/cloth))
+		to_chat(user, span_notice("The bolt is closed!"))
+		return
+	return ..()
+
 ///////////////////////
 // BOLT ACTION RIFLE //
 ///////////////////////

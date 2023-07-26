@@ -56,7 +56,7 @@
 	tetris_height = 32
 
 // DOUBLE BARRELED SHOTGUN
-/obj/item/gun/ballistic/shotgun/doublebarrel
+/obj/item/gun/ballistic/shotgun/breakaction
 	pb_knockback = 0
 	empty_icon_state = FALSE
 	bolt_type = BOLT_TYPE_BREAK_ACTION
@@ -68,7 +68,7 @@
 	internal_magazine = TRUE
 
 // The legendary BOBOX
-/obj/item/gun/ballistic/shotgun/doublebarrel/bobox
+/obj/item/gun/ballistic/shotgun/breakaction/bobox
 	name = "Bobox shotgun"
 	desc = "A legendary shotgun with a simple combination of two barrels - Not ideal, but a powerful weapon in the filthiest, unskilled hands."
 	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'

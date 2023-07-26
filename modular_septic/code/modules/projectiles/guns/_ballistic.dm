@@ -416,15 +416,14 @@
 		chamber_round()
 
 /obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = TRUE, replace_new_round = FALSE)
-	if(!magazine)
-		stack_trace("[src] ([type]) tried to chamber a round without a magazine!")
+	if(!magazine?.ammo_count())
 		return
 	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
 		if(spin_cylinder)
 			chambered = magazine.get_round(TRUE)
 		else
 			chambered = magazine.stored_ammo[1]
-	else if(magazine.ammo_count())
+	else
 		chambered = magazine.get_round(keep_bullet || bolt_type == BOLT_TYPE_NO_BOLT)
 		if(bolt_type != BOLT_TYPE_OPEN)
 			chambered.forceMove(src)

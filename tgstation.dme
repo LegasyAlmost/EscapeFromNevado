@@ -5147,6 +5147,7 @@
 #include "modular_septic\code\modules\projectiles\guns\_energy.dm"
 #include "modular_septic\code\modules\projectiles\guns\_gun.dm"
 #include "modular_septic\code\modules\projectiles\guns\_pin.dm"
+#include "modular_septic\code\modules\projectiles\guns\ballistic\breakaction.dm"
 #include "modular_septic\code\modules\projectiles\guns\ballistic\gun_parts.dm"
 #include "modular_septic\code\modules\projectiles\guns\ballistic\launchers.dm"
 #include "modular_septic\code\modules\projectiles\guns\ballistic\lmg.dm"
