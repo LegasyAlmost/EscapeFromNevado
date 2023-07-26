@@ -1,3 +1,14 @@
+// gmyza...
+/mob/living/carbon/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods)
+	. = ..()
+	var/atom/movable/real_speaker = speaker
+	if(istype(speaker, /atom/movable/virtualspeaker))
+		var/atom/movable/virtualspeaker/fake_speaker = real_speaker
+		real_speaker = fake_speaker.source
+	//should be a regex i am lazy
+	if((real_speaker != src) && iscarbon(real_speaker) && !HAS_TRAIT(src, TRAIT_THICKSKIN) && findtext(raw_message, "guttersnipe"))
+		SEND_SIGNAL(human, COMSIG_ADD_MOOD_EVENT, "insult_[our_fraggot.real_name]", /datum/mood_event/insult, real_speaker)
+
 // asystole or no lung buddies cant emote proper
 /mob/living/carbon/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null)
 	var/lung_efficiency = getorganslotefficiency(ORGAN_SLOT_LUNGS)
