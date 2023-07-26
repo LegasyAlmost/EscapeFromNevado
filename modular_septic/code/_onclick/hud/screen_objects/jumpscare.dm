@@ -28,6 +28,7 @@
 		'modular_septic/sound/insanity/poopmadness/cantbreathe.ogg',
 		'modular_septic/sound/insanity/poopmadness/slopper.ogg',
 		'modular_septic/sound/insanity/poopmadness/insideyourhome.ogg',
+		'modular_septic/sound/insanity/poopmadness/diezduendesreales.ogg',
 	)
 
 /atom/movable/screen/fullscreen/jumpscare/proc/flash_scare(mob/user, scare_sound = pick(jumpscare_sounds))

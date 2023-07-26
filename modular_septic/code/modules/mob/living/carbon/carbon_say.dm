@@ -7,7 +7,8 @@
 		real_speaker = fake_speaker.source
 	var/static/regex/insult_regex = "\\b(guttersnipe)\\b"
 	if((real_speaker != src) && iscarbon(real_speaker) && !HAS_TRAIT(src, TRAIT_THICKSKIN) && findtext(raw_message, insult_regex))
-		SEND_SIGNAL(real_speaker, COMSIG_ADD_MOOD_EVENT, "insult_[real_speaker.real_name]", /datum/mood_event/insult, real_speaker)
+		var/mob/living/carbon/duende = real_speaker
+		SEND_SIGNAL(duende, COMSIG_ADD_MOOD_EVENT, "insult_[duende.real_name]", /datum/mood_event/insult, duende)
 
 // asystole or no lung buddies cant emote proper
 /mob/living/carbon/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null)
