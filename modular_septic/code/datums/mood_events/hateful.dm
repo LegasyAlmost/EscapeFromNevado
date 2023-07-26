@@ -10,7 +10,8 @@
 /datum/mood_event/fraggot/proc/fraggot_died(mob/living/fraggot)
 	SIGNAL_HANDLER
 
-	qdel(src)
+	SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, category)
+	UnregisterSignal(insulter, list(COMSIG_LIVING_DEATH, COMSIG_PARENT_QDELETING))
 
 /datum/mood_event/insult
 	description = span_userdanger("I'm not a guttersnipe!")
@@ -24,4 +25,5 @@
 /datum/mood_event/insult/proc/insulter_died(mob/living/insulter)
 	SIGNAL_HANDLER
 
-	qdel(src)
+	SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, category)
+	UnregisterSignal(insulter, list(COMSIG_LIVING_DEATH, COMSIG_PARENT_QDELETING))
