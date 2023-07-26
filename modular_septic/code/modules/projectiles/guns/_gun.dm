@@ -1,4 +1,5 @@
 /obj/item/gun
+	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
 	carry_weight = 2.5 KILOGRAMS

@@ -66,7 +66,7 @@
 	cylinder_shows_open = TRUE
 	cylinder_shows_ammo_count = TRUE
 
-// The legendary
+// The legendary BOBOX
 /obj/item/gun/ballistic/shotgun/doublebarrel/bobox
 	name = "Bobox shotgun"
 	desc = "A legendary shotgun with a simple combination of two barrels - Not ideal, but a powerful weapon in the filthiest, unskilled hands."
@@ -79,6 +79,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
 	cylinder_wording = "barrel"
+	// hammer sound
 	rack_sound = list(
 		'modular_septic/sound/weapons/guns/revolver/hammer1.ogg', \
 		'modular_septic/sound/weapons/guns/revolver/hammer2.ogg', \

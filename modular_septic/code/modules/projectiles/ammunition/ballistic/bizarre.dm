@@ -1,13 +1,13 @@
 /obj/item/ammo_casing/batteries
     name = "double ay battery"
-    desc = "Finally, I can get that fucking gas analyzer."
+    desc = "Finally, my remote controller will work."
     icon = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
     world_icon_state = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
     icon_state = "BB"
     base_icon_state = "BB"
     world_icon_state = "BB"
     caliber = CALIBER_BATTERY
-    projectile_type = /obj/projectile/bullet/p50
+    projectile_type = /obj/projectile/bullet/battery
     bounce_sound = list('modular_septic/sound/weapons/guns/pistol/pistol_shell1.ogg', 'modular_septic/sound/weapons/guns/pistol/pistol_shell2.ogg', 'modular_septic/sound/weapons/guns/pistol/pistol_shell3.ogg')
     bounce_volume = 35
     stack_type = /obj/item/ammo_box/magazine/ammo_stack/batteries
@@ -15,7 +15,7 @@
 
 /obj/item/ammo_casing/batteries/bigvolt
     name = "single ay battery"
-    desc = "that's a very chunky battery"
+    desc = "That's a very chunky battery!"
     icon = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
     world_icon_state = 'modular_septic/icons/obj/items/ammo/batteries.dmi'
     icon_state = "AA"

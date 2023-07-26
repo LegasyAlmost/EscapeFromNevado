@@ -1204,7 +1204,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		H.blood_volume = min(H.blood_volume + round(chem.volume, 0.1), BLOOD_VOLUME_MAXIMUM)
 		H.reagents.del_reagent(chem.type)
 		return TRUE
-	if(!chem.overdosed && chem.overdose_threshold && chem.volume >= chem.overdose_threshold)
+	if(!chem.overdosed && (chem.overdose_threshold && chem.volume >= chem.overdose_threshold) && !HAS_TRAIT(H, TRAIT_OVERDOSE_IMMUNE))
 		chem.overdosed = TRUE
 		chem.overdose_start(H)
 		log_game("[key_name(H)] has started overdosing on [chem.name] at [chem.volume] units.")

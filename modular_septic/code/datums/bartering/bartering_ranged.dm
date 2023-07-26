@@ -168,3 +168,11 @@
 		/obj/item/organ/ears = 4,
 		/obj/item/organ/eyes = 4,
 	)
+
+/datum/bartering_recipe/siren
+	outputs = list(
+		/obj/item/gun/ballistic/rifle/breakaction/duende = 1,
+	)
+	inputs = list(
+		/obj/item/organ/brain = 1,
+	)
