@@ -429,7 +429,7 @@
 	lock_back_sound = 'modular_septic/sound/weapons/guns/shotgun/db_in.ogg'
 	// open cylinder sound
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.ogg'
-	fire_sound = 'modular_septic/sound/weapons/guns/rifle/duende.ogg '
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/duendemaldito.ogg'
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/duende
 	slot_flags = ITEM_SLOT_BELT
