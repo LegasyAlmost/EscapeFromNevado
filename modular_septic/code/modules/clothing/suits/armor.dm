@@ -164,7 +164,7 @@
 				ORGAN = 0)
 	//VEST WITH THAT BULK
 	carry_weight = 15 KILOGRAMS
-	body_parts_covered = NECK|CHEST|VITALS|GROIN
+	body_parts_covered = NECK|ARMS|CHEST|VITALS|GROIN
 
 /obj/item/clothing/suit/armor/vest/alt/ultraheavy/Initialize(mapload)
 	. = ..()
