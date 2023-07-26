@@ -8,7 +8,7 @@
 		var/atom/movable/virtualspeaker/fake_speaker = real_speaker
 		real_speaker = fake_speaker.source
 	var/static/regex/insult_regex = regex("\\b(guttersnipe|guttersniper)\\b", "gi")
-	if((real_speaker != src) && iscarbon(real_speaker) && !HAS_TRAIT(src, TRAIT_THICKSKIN) && insult_regex.Find(message))
+	if((real_speaker != src) && iscarbon(real_speaker) && !HAS_TRAIT(src, TRAIT_THICKSKIN) && insult_regex.Find(raw_message))
 		var/mob/living/carbon/duende = real_speaker
 		var/insult = insult_regex.match || "guttersnipe"
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "insult_[duende.real_name]", /datum/mood_event/insult, duende, insult)
