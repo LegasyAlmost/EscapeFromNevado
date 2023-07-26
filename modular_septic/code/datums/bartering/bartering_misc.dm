@@ -14,14 +14,6 @@
 		/obj/item/organ/spleen = 1,
 	)
 
-/datum/bartering_recipe/oxygen
-	outputs = list(
-		/obj/item/tank/internals/oxygen = 1,
-	)
-	inputs = list(
-		/obj/item/chair = 1,
-	)
-
 /datum/bartering_recipe/suppressor
 	outputs = list(
 		/obj/item/suppressor = 1,

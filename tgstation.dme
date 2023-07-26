@@ -4334,7 +4334,7 @@
 #include "modular_septic\code\datums\augments\augment_types\limbs.dm"
 #include "modular_septic\code\datums\augments\augment_types\organs.dm"
 #include "modular_septic\code\datums\bartering\_bartering_recipe.dm"
-#include "modular_septic\code\datums\bartering\bartering_ammo.dm"
+#include "modular_septic\code\datums\bartering\bartering_AAAA.dm"
 #include "modular_septic\code\datums\bartering\bartering_clothing.dm"
 #include "modular_septic\code\datums\bartering\bartering_melee.dm"
 #include "modular_septic\code\datums\bartering\bartering_misc.dm"

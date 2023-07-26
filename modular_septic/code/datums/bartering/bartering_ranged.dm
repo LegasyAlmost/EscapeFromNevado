@@ -6,6 +6,14 @@
 		/obj/item/food/canned/beans = 1,
 	)
 
+/datum/bartering_recipe/nova
+	outputs = list(
+		/obj/item/gun/ballistic/revolver/remis/nova = 1,
+	)
+	inputs = list(
+		/obj/item/organ/appendix = 1,
+	)
+
 /datum/bartering_recipe/bolsa
 	outputs = list(
 		/obj/item/gun/ballistic/automatic/remis/smg/bolsa = 1,
@@ -75,7 +83,7 @@
 		/obj/item/storage/box/c12buckshot = 1,
 	)
 	inputs = list(
-		/obj/item/circuitboard = 1,
+		/obj/item/reagent_containers/food/drinks/soda_cans/mug = 3,
 	)
 
 /datum/bartering_recipe/shotgun/massacre
@@ -84,7 +92,17 @@
 		/obj/item/ammo_box/magazine/m12g = 2,
 	)
 	inputs = list(
-		/obj/item/reagent_containers/food/drinks/soda_cans/mug = 3,
+		/obj/item/circuitboard = 1,
+	)
+
+/datum/bartering_recipe/shotgun/abyss
+	outputs = list(
+		/obj/item/gun/ballistic/shotgun/abyss = 1,
+		/obj/item/ammo_box/magazine/abyss12g = 2,
+	)
+	inputs = list(
+		/obj/item/gun/ballistic/automatic/remis/abyss = 1,
+		/obj/item/gun/ballistic/shotgun/bulldog = 1,
 	)
 
 /datum/bartering_recipe/abyss
@@ -93,7 +111,7 @@
 		/obj/item/ammo_box/magazine/a545 = 2,
 	)
 	inputs = list(
-		/obj/item/reagent_containers/pill/carbonylmethamphetamine = 6,
+		/obj/item/reagent_containers/pill/carbonylmethamphetamine = 5,
 	)
 
 /datum/bartering_recipe/batata
@@ -148,7 +166,7 @@
 		/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded = 2,
 	)
 	inputs = list(
-		/obj/item/organ/intestines = 1,
+		/obj/item/organ/intestines = 2,
 	)
 
 /datum/bartering_recipe/aniquilador
@@ -169,7 +187,7 @@
 		/obj/item/organ/eyes = 4,
 	)
 
-/datum/bartering_recipe/siren
+/datum/bartering_recipe/duende
 	outputs = list(
 		/obj/item/gun/ballistic/rifle/breakaction/duende = 1,
 	)
