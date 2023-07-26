@@ -189,7 +189,7 @@
 
 /datum/bartering_recipe/duende
 	outputs = list(
-		/obj/item/gun/ballistic/rifle/breakaction/duende = 1,
+		/obj/item/gun/ballistic/breakaction/duende = 1,
 	)
 	inputs = list(
 		/obj/item/organ/brain = 2,
