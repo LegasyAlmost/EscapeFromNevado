@@ -407,7 +407,7 @@
 
 //DUENDE MALDITO UNIVERSAL GUN
 /obj/item/gun/ballistic/rifle/breakaction/duende
-	name = "\improper Duende Maldito all-purpose cannon"
+	name = "\improper Duende Maldito universal rifle"
 	desc = "A very high tech, low usability weapon capable of loading any kind of ammunition you throw at it. \
 			Looking at it makes you feel slightly ill."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
@@ -431,10 +431,19 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/db_out.ogg'
 	fire_sound = 'modular_septic/sound/weapons/guns/rifle/duende.ogg '
 	load_sound = 'modular_septic/sound/weapons/guns/shotgun/db_load.ogg'
-	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/bobox
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/duende
 	slot_flags = ITEM_SLOT_BELT
-	tetris_width = 64
+	tetris_width = 96
 	tetris_height = 32
+
+/obj/item/gun/ballistic/rifle/breakaction/duende/examine(mob/user)
+	. = ..()
+	//the gun is vile and disgusting
+	if(iscarbon(user))
+		var/mob/living/carbon/carbon_user = user
+		carbon_user.adjust_blurriness(1)
+		carbon_user.adjust_disgust(4)
+		carbon_user.HeadRape(4 SECONDS)
 
 //G36
 /obj/item/gun/ballistic/automatic/remis/g36
