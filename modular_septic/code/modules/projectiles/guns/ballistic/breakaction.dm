@@ -5,6 +5,7 @@
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
 	equip_sound = 'modular_septic/sound/weapons/guns/weap_away.ogg'
+	bolt_type = BOLT_TYPE_BREAK_ACTION
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	rack_sound_vary = FALSE
 	suppressed = SUPPRESSED_NONE
