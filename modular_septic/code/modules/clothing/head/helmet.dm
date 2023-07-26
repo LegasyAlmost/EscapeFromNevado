@@ -98,9 +98,9 @@
 	desc = "A type V armored heavy helmet. Specialized protection against ballistic threats, although vintage, incredibly heavy, and uncomfortable to wear. Often used by ITOBE privates who couldn't get their hands on actual gear \
 	Embuing it with the slang-term, \"Crackudo\", for crackhead."
 	icon = 'modular_septic/icons/obj/clothing/hats.dmi'
-	icon_state = "helmet_heavy_face"
+	icon_state = "helmet_ultraheavy"
 	worn_icon = 'modular_septic/icons/mob/clothing/head.dmi'
-	worn_icon_state = "helmet_heavy_face"
+	worn_icon_state = "helmet_ultraheavy"
 	max_integrity = 500
 	integrity_failure = 0.04
 	limb_integrity = 450
