@@ -412,7 +412,7 @@
 			chambered = null
 		else if(empty_chamber)
 			chambered = null
-	if(chamber_next_round)
+	if(chamber_next_round && (magazine?.max_ammo > 1))
 		chamber_round()
 
 /obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = TRUE, replace_new_round = FALSE)

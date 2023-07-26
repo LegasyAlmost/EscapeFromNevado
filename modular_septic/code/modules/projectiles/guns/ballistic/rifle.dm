@@ -404,6 +404,7 @@
 	safety_flags = NONE
 	semi_auto = TRUE
 	cylinder_shows_open = TRUE
+	internal_magazine = TRUE
 
 //DUENDE MALDITO UNIVERSAL GUN
 /obj/item/gun/ballistic/rifle/breakaction/duende

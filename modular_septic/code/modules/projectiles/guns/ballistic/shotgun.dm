@@ -65,6 +65,7 @@
 	semi_auto = TRUE
 	cylinder_shows_open = TRUE
 	cylinder_shows_ammo_count = TRUE
+	internal_magazine = TRUE
 
 // The legendary BOBOX
 /obj/item/gun/ballistic/shotgun/doublebarrel/bobox
