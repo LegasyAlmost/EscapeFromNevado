@@ -407,7 +407,7 @@
 
 //DUENDE MALDITO UNIVERSAL GUN
 /obj/item/gun/ballistic/rifle/breakaction/duende
-	name = "\improper Duende Maldito universal rifle"
+	name = "\improper Duende Maldito all-purpose rifle"
 	desc = "A very high tech, low usability weapon capable of loading any kind of ammunition you throw at it. \
 			Looking at it makes you feel slightly ill."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
