@@ -111,7 +111,7 @@
 		/obj/item/ammo_box/magazine/a545 = 2,
 	)
 	inputs = list(
-		/obj/item/reagent_containers/pill/carbonylmethamphetamine = 5,
+		/obj/item/reagent_containers/pill/carbonylmethamphetamine = 4,
 	)
 
 /datum/bartering_recipe/batata
@@ -132,7 +132,7 @@
 		/obj/item/ammo_box/magazine/combatmaster9mm = 2,
 	)
 	inputs = list(
-		 /obj/item/bodypart/head = 1,
+		 /obj/item/bodypart/head = 2,
 	)
 
 /datum/bartering_recipe/svd
@@ -192,5 +192,5 @@
 		/obj/item/gun/ballistic/rifle/breakaction/duende = 1,
 	)
 	inputs = list(
-		/obj/item/organ/brain = 1,
+		/obj/item/organ/brain = 2,
 	)

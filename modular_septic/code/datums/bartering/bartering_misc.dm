@@ -27,7 +27,7 @@
 		/obj/item/storage/pill_bottle/carbonylmethamphetamine = 1,
 	)
 	inputs = list(
-		/obj/item/shard = 4,
+		/obj/item/shard = 3,
 	)
 
 /datum/bartering_recipe/lean
