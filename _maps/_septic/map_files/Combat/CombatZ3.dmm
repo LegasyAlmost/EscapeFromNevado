@@ -331,7 +331,7 @@
 "tE" = (/obj/effect/turf_decal/stripes/corner{dir = 4},/obj/effect/turf_decal/stripes/corner{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
 "tG" = (/obj/item/clothing/mask/gas/ordinator/coordinator,/obj/item/clothing/under/misc/coordinator{armor = list("melee" = 10, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 10, "bio" = 10, "fire" = 10, "acid" = 10, "wound" = 10)},/obj/item/claymore/cutlass{name = "Coordinator's Cutlass"; force = 40},/obj/structure/closet/cabinet{name = "coordinator's stash"},/obj/item/clothing/suit/armor/vest/alt/ordinator/coordinator{armor = list("melee" = 70, "bullet" = 70, "laser" = 50, "energy" = 50, "bomb" = 40, "bio" = 0, "fire" = 50, "acid" = 50); subarmor = list("subarmor_flags" = 1, "edge_protection" = 60, "crushing" = 40, "cutting" = 30, "piercing" = 50, "impaling" = 30, "laser" = 1, "energy" = 0, "bomb" = 8, "bio" = 0, "fire" = 2, "acid" = 2, "magic" = 0, "wound" = 40, "organ" = 50)},/obj/item/clothing/head/coordinator{armor = list("melee" = 60, "bullet" = 70, "laser" = 50, "energy" = 50, "bomb" = 40, "bio" = 0, "fire" = 50, "acid" = 50); subarmor = list("subarmor_flags" = 1, "edge_protection" = 60, "crushing" = 40, "cutting" = 30, "piercing" = 50, "impaling" = 30, "laser" = 1, "energy" = 0, "bomb" = 8, "bio" = 0, "fire" = 2, "acid" = 2, "magic" = 0, "wound" = 40, "organ" = 50)},/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "tM" = (/obj/effect/turf_decal/stripes{dir = 10},/obj/machinery/status_display/ai/directional/south,/turf/open/floor/plating,/area/maintenance/liminal/beattheboss)
-"tQ" = (/obj/machinery/shower{pixel_y = 16},/turf/open/floor/iron/freezer,/area/maintenance/liminal/darkclub)
+"tQ" = (/obj/machinery/shower{pixel_y = 16},/obj/item/clothing/neck/stethoscope,/turf/open/floor/iron/freezer,/area/maintenance/liminal/darkclub)
 "tT" = (/obj/machinery/light/small/red/directional/west,/obj/item/storage/bag/trash/filled,/turf/open/floor/trapdoor,/area/maintenance/liminal/boltduel/mechanism)
 "tW" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/darkclub)
 "tX" = (/turf/open/floor/iron/dark/side,/area/maintenance/liminal/boltduel/mechanism)
@@ -728,6 +728,7 @@
 "QW" = (/obj/structure/table/reinforced/plastitaniumglass,/obj/item/toy/figure/cargotech,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/observitory)
 "QX" = (/obj/effect/decal/cleanable/dirt/dust,/obj/machinery/status_display/evac/directional/east,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/purple)
 "Rb" = (/obj/effect/decal/cleanable/greenglow,/obj/item/gun/ballistic/shotgun/bolas,/turf/open/floor/iron/white,/area/maintenance/liminal/purple)
+"Rc" = (/obj/structure/closet/crate/grief,/obj/item/clothing/neck/stethoscope,/turf/open/floor/wood,/area/maintenance/liminal/green)
 "Rd" = (/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/boltduel/mechanism)
 "Re" = (/obj/structure/lattice,/obj/machinery/camera,/turf/open/floor/plating,/area/maintenance/liminal/tensity)
 "Ri" = (/obj/effect/decal/cleanable/blood/splatter,/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
@@ -960,7 +961,7 @@ TApjGzpjVAmrHXaeTANnNnNnNnNnTAoAgabzTANnNnNnNnNnTATAoAbIrCbzIktMNUxXcexXRUIkZrZr
 TApjcopjVAxHrCpMTANnNnNnNnNnTAvcgaSeTANnNnNnNnNnTATABxCQrCapIkIkIkIkIkIkIkIkGjGjGjlGugopopGjGjGjlGugopopGjGjGjDxGjopopGjGjGjlGLVopopGjGjGjlGLVopopGjGjGjlGLVopopGjGjGjlGLVopopGjGjGjlGugopPgPgaXPgPgPgPg
 TATNKaoGTACgYxpMTANnNnNnNnBxapYxpjYxMWapNnNnNnNnGlTAYxmcrCYxopopopopopopopopZTLVGjlSOUopopZTLVaylSOUopopvphUGjGjwJopopZTugGjlSOUopopZTLVGjlSOUopopZTLVGjlSOUopopZTugGjlSOUopopZTLVGjlSOUopPgPgaXPgPgPgPg
 TAYXWDDSTACgbznwTABTNnNnNnoAemYxpjYxoAemNnNnNnNnoATAoAmcrCbzopopopopopopopoplSgSWclSLVopoplSgSWclSLVopoplSgSWcGjGjopoplSgSWclSLVopoplSgSWclSLVopoplSgSWclSLVopoplSgSWclSLVopoplSgSWclSLVopPgPgaXPgPgPgPg
-TATATATATATATATATANnNnNnNnNnTAYxpjYxTANnNnNnNnNnTATATATATATAopopopopopopopoplSiLGjqvMnopoplSGtGjqvMnopopXaGtGjqvMnopoplSiLGjqvMnopoplSiLGjqvMnopoplSiLGjqvGjopoplSiLGjqvMnopoplSiLGjqvMnopPgPgaXPgPgPgPg
+TATATATATATATATATANnNnNnNnNnTAYxpjYxTANnNnNnNnNnTATATATATATAopopopopopopopoplSiLGjqvRcopoplSGtGjqvRcopopXaGtGjqvRcopoplSiLGjqvRcopoplSiLGjqvRcopoplSiLGjqvGjopoplSiLGjqvRcopoplSiLGjqvRcopPgPgaXPgPgPgPg
 TATATATATATATATATANnNnNnNnNnTAoAgabzTANnNnNnNnNnTAopopopopopopopopopopopopopeSopiuopeSopopeSopiuopeSopopeSopiuopeSopopeSopiuopeSopopeSopiuopeSopopeSopiuopeSopopeSopiuopeSopopeSopiuopeSopPgPgaXPgPgPgPg
 iIiIiIiIiIiIiIiIiIiITATATATATAsYNSsYTATATATATATATAopopopopopopopVGsMgZTxeajUjUjUjUjUjUeajUjUjUjUjUjUeajUjUjUjUjUjUeajUjUjUjUjUjUeajUjUjUjUjUjUeajUjUjUjUjUjUeajUjUjUjUjUjUeajUjUjUjUjUjUeaYvcLgWMmOJeaop
 iIututututututututiIopopopopTArCrCrCTATATATATATATATATATATAopopopVGsMGnTxjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUjUiejUjUop
