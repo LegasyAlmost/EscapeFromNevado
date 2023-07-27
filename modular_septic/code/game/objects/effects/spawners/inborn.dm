@@ -23,7 +23,7 @@
 	. = ..()
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
 	new_spawn.attributes.add_sheet(/datum/attribute_holder/sheet/job/inborn)
-	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
+	new_spawn.fully_replace_character_name(new_spawn.real_name, inborn_name())
 
 /datum/outfit/inborn
 	name = "Inborn uniform"
