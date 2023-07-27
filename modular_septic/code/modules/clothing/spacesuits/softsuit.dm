@@ -21,19 +21,19 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS|NECK|VITALS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
-                CRUSHING = 28, \
-                CUTTING = 28, \
-                PIERCING = 50, \
-                IMPALING = 14, \
-                LASER = 1, \
+                CRUSHING = 50, \
+                CUTTING = 50, \
+                PIERCING = 60, \
+                IMPALING = 30, \
+                LASER = 20, \
                 ENERGY = 0, \
-                BOMB = 13, \
+                BOMB = 20, \
                 BIO = 100, \
                 FIRE = 2, \
                 ACID = 2, \
                 MAGIC = 0, \
                 WOUND = 0, \
-                ORGAN = 0)
+                ORGAN = 40)
 
 /obj/item/clothing/suit/space/stray/Initialize(mapload)
 	. = ..()
@@ -57,16 +57,16 @@
 	repairable_by = /obj/item/stack/kevlar/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
-                CRUSHING = 28, \
-                CUTTING = 28, \
-                PIERCING = 50, \
-                IMPALING = 14, \
-                LASER = 1, \
+                CRUSHING = 50, \
+                CUTTING = 50, \
+                PIERCING = 60, \
+                IMPALING = 30, \
+                LASER = 20, \
                 ENERGY = 0, \
-                BOMB = 13, \
+                BOMB = 20, \
                 BIO = 100, \
                 FIRE = 2, \
                 ACID = 2, \
                 MAGIC = 0, \
                 WOUND = 0, \
-                ORGAN = 0)
+                ORGAN = 40)
