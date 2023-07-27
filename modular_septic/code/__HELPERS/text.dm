@@ -65,6 +65,9 @@
 /proc/denominator_last()
 	return capitalize(pick(GLOB.denominator_last))
 
+/proc/inborn_name()
+	return capitalize(pick(GLOB.inborn_names))
+
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))
 
