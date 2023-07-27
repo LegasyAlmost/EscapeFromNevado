@@ -27,6 +27,6 @@
 
 /datum/species/denominator/random_name(gender, unique, lastname)
 	var/final_name = denominator_first()
-	if(last_name)
+	if(lastname)
 		final_name += " [denominator_last()]"
 	return final_name
