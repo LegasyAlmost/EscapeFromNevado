@@ -65,6 +65,33 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = 12
 
+/obj/machinery/cache/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(!cover_open)
+		to_chat(user, span_warning("The cover is not open."))
+		return
+	if(!locked)
+		to_chat(user, span_warning("[src] has already been successfully hacked."))
+		return
+	if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 4)
+		to_chat(user, span_danger("I literally don't know how any of this shit works."))
+		return
+	to_chat(user, span_warning("I begin hacking."))
+	if(!do_after(user, 1.2 SECONDS, src))
+		to_chat(user, span_warning(fail_msg()))
+		return
+	to_chat(user, span_warning("I take apart the stupid wires."))
+	playsound(src, firsthack, 70, FALSE)
+	do_sparks(1, FALSE, src)
+	if(!do_after(user, 1.2 SECONDS, src))
+		to_chat(user, span_warning(fail_msg()))
+		return
+	to_chat("I successfully hotwire the [src]!")
+	playsound(src, secondhack, 70, FALSE)
+	do_sparks(2, FALSE, src)
+	locked = FALSE
+	update_appearance()
+
 /obj/machinery/cache/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	playsound(src, buttonsound, 75, FALSE)
@@ -82,6 +109,7 @@
 	if(cover_open)
 		to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
 		return
+	to_chat(user, span_notice("I start ripping the cover off from [src]..."))
 	if(!do_after(user, 2 SECONDS, src))
 		to_chat(user, span_warning("[fail_msg()]"))
 		return
@@ -93,59 +121,32 @@
 		to_chat(user, span_warning("[fail_msg()] The cover is firm!"))
 	return COMPONENT_TERTIARY_CANCEL_ATTACK_CHAIN
 
-/obj/machinery/cache/attack_hand(mob/living/user, list/modifiers)
-	. = ..()
-	if(!cover_open)
-		to_chat(user, span_warning("The cover is not open."))
-		return
-	if(!locked)
-		to_chat(user, span_warning("[src] has already been successfully hacked."))
-		return
-	if(GET_MOB_SKILL_VALUE(user, SKILL_ELECTRONICS) <= 4)
-		to_chat(user, span_danger("I literally don't know how any of this shit works."))
-		return
-	to_chat(user, span_warning("I begin hacking."))
+/obj/machinery/cache/crowbar_act(mob/living/user, obj/item/tool)
+	if(cover_open)
+		to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
+		return TRUE
+	to_chat(user, span_notice("I start ripping the cover off from [src]..."))
 	if(!do_after(user, 1.2 SECONDS, src))
-		to_chat(user, span_warning("I failed."))
-		return
-	to_chat(user, span_warning("I take apart the stupid wires."))
-	playsound(src, firsthack, 70, FALSE)
-	do_sparks(1, FALSE, src)
-	if(!do_after(user, 1.2 SECONDS, src))
-		to_chat(user, span_warning("I failed."))
-		return
-	to_chat("I successfully hotwire the [src]!")
-	playsound(src, secondhack, 70, FALSE)
-	do_sparks(2, FALSE, src)
-	locked = FALSE
-
-/obj/machinery/cache/attacked_by(obj/item/weapon, mob/living/user)
-	if(weapon.tool_behaviour == TOOL_CROWBAR)
-		if(cover_open)
-			to_chat(user, span_warning("[fail_msg()] It's already fucking broken I don't need to break it!"))
-			return
-		if(!do_after(user, 1.2 SECONDS, src))
-			to_chat(user, span_warning("[fail_msg()]"))
-			return
-		if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 7)
-			user.visible_message(span_danger("[user] rips the protective cover off the [src] with the [weapon]!") , \
-				span_warning("I rip the protective cover off of the [src] with the [weapon]!"))
-			open_cover()
-		else
-			to_chat(user, span_warning("[fail_msg()] The cover is too firm for me!"))
-		return
-	return ..()
+		to_chat(user, span_warning("[fail_msg()]"))
+		return TRUE
+	if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 7)
+		user.visible_message(span_danger("[user] rips the protective cover off the [src] with the [tool]!") , \
+			span_warning("I rip the protective cover off of the [src] with the [tool]!"))
+		open_cover()
+	else
+		to_chat(user, span_warning("[fail_msg()] The cover is too firm for me!"))
+	return TRUE
 
 /obj/machinery/cache/proc/open_cover(mob/living/user)
-	if(state == CACHE_OPENING || state == CACHE_CLOSING)
+	if((state == CACHE_OPENING) || (state == CACHE_CLOSING))
 		to_chat(user, span_notice("[fail_msg()] It's doing It's thing!"))
 		return
 	cover_open = TRUE
 	playsound(src, cachecoverBreak, 35, FALSE)
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 
 /obj/machinery/cache/proc/open_cache(mob/living/user)
-	if(state == CACHE_OPENING || state == CACHE_CLOSING)
+	if((state == CACHE_OPENING) || (state == CACHE_CLOSING))
 		to_chat(user, span_notice("[fail_msg()] It's doing It's thing!"))
 		return
 	var/nice
@@ -165,17 +166,17 @@
 
 /obj/machinery/cache/proc/open()
 	state = CACHE_OPENING
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 	sleep(6)
 	state = CACHE_OPEN
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 
 /obj/machinery/cache/proc/close()
 	state = CACHE_CLOSING
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 	sleep(6)
 	state = CACHE_CLOSED
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 
 #undef CACHE_CLOSED
 #undef CACHE_CLOSING

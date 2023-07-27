@@ -11,11 +11,11 @@
 
 /obj/machinery/broken_ventilation/Initialize(mapload)
 	. = ..()
-	soundloop = new(src, FALSE)
+	START_PROCESSING(SSobj, src)
 
 /obj/machinery/broken_ventilation/process()
 	. = ..()
-	if((machine_stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE))
+	if(machine_stat & (NOPOWER|BROKEN))
 		soundloop.stop()
 	else
 		soundloop.start()
@@ -40,11 +40,7 @@
 /obj/effect/escape_noises/Initialize(mapload)
 	. = ..()
 	icon_state = null
-	soundloop = new(src, FALSE)
-
-/obj/effect/escape_noises/process()
-	. = ..()
-	soundloop.start()
+	soundloop = new(src, TRUE)
 
 /obj/effect/escape_noises/Destroy()
 	. = ..()
