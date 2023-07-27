@@ -5,7 +5,7 @@
 "ak" = (/obj/structure/lattice,/obj/machinery/light/small/red/directional/north,/obj/structure/closet/grief,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "ap" = (/turf/open/floor/iron/dark/textured_corner{dir = 8},/area/maintenance/liminal/purple)
 "av" = (/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/purple)
-"aw" = (/obj/structure/bed/double,/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar,/obj/item/reagent_containers/hypospray/medipen/stimulants,/obj/item/storage/box/medipens/utility,/obj/item/bedsheet/captain/double{name = "coordinator's bedsheet"},/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
+"aw" = (/obj/structure/bed/double,/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar,/obj/item/reagent_containers/hypospray/medipen/stimulants,/obj/item/storage/box/medipens/utility,/obj/item/bedsheet/captain/double{name = "coordinator's bedsheet"},/obj/item/toy/plush/chipraps,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "ay" = (/turf/open/floor/wood{icon_state = "wood-dereg2"},/area/maintenance/liminal/green)
 "aD" = (/obj/structure/lattice,/obj/machinery/light/small/red/directional/south,/obj/structure/closet/grief,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
 "aG" = (/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkclub)
