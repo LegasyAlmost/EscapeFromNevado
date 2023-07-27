@@ -1,5 +1,5 @@
 /datum/species/denominator
-	name = "DENOMINATOR"
+	name = "Denominator"
 	id = SPECIES_DENOMINATOR
 	default_color = "#4B4B4B"
 	sexes = TRUE
@@ -24,3 +24,9 @@
 	bite_sharpness = SHARP_POINTY
 	limbs_id = "human"
 	limbs_icon = DEFAULT_BODYPART_ICON_ORGANIC
+
+/datum/species/denominator/random_name(gender, unique, lastname)
+	var/final_name = denominator_first()
+	if(last_name)
+		final_name += " [denominator_last()]"
+	return final_name
