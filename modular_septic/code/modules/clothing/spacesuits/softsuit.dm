@@ -57,9 +57,9 @@
 	repairable_by = /obj/item/stack/kevlar/plate
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
-                CRUSHING = 50, \
-                CUTTING = 50, \
-                PIERCING = 60, \
+                CRUSHING = 40, \
+                CUTTING = 40, \
+                PIERCING = 50, \
                 IMPALING = 30, \
                 LASER = 20, \
                 ENERGY = 0, \
@@ -69,4 +69,4 @@
                 ACID = 2, \
                 MAGIC = 0, \
                 WOUND = 0, \
-                ORGAN = 40)
+                ORGAN = 30)
