@@ -1,6 +1,8 @@
 /datum/component/fraggot
 	/// Annoying fullscreen overlay
 	var/atom/movable/screen/fullscreen/buddy/buddylay
+	/// Mood event category so it can be cleared
+	var/mood_event_category
 
 /datum/component/fraggot/Initialize()
 	if(!isliving(parent))
@@ -10,7 +12,8 @@
 	var/mob/living/our_fraggot = parent
 	our_fraggot.attributes?.add_diceroll_modifier(/datum/diceroll_modifier/fraggot)
 	for(var/mob/living/carbon/human/human in (GLOB.mob_living_list - our_fraggot))
-		SEND_SIGNAL(human, COMSIG_ADD_MOOD_EVENT, "[our_fraggot.real_name]", /datum/mood_event/fraggot, our_fraggot)
+		mood_event_category = "fraggot_[our_fraggot.real_name]"
+		SEND_SIGNAL(human, COMSIG_ADD_MOOD_EVENT, mood_event_category, /datum/mood_event/fraggot, our_fraggot)
 	RegisterSignal(our_fraggot, COMSIG_PARENT_EXAMINE, .proc/fraggot_examine)
 	RegisterSignal(our_fraggot, COMSIG_LIVING_DEATH, .proc/fraggot_died)
 	RegisterSignal(our_fraggot, COMSIG_PARENT_PREQDELETED, .proc/fraggot_deleted)
@@ -25,20 +28,24 @@
 	UnregisterSignal(our_fraggot, COMSIG_PARENT_PREQDELETED)
 	UnregisterSignal(our_fraggot, COMSIG_PARENT_EXAMINE)
 	REMOVE_TRAIT(our_fraggot, TRAIT_FRAGGOT, "fraggot")
-	for(var/mob/living/carbon/human/human in (GLOB.mob_living_list - our_fraggot))
-		SEND_SIGNAL(human, COMSIG_CLEAR_MOOD_EVENT, "[our_fraggot.real_name]")
 	our_fraggot.clear_fullscreen("buddy")
 	buddylay = null
 
 /datum/component/fraggot/proc/fraggot_died(mob/living/our_fraggot)
+	SIGNAL_HANDLER
+
 	if(!QDELETED(our_fraggot))
 		our_fraggot.gib()
 
 /datum/component/fraggot/proc/fraggot_deleted(mob/living/our_fraggot)
+	SIGNAL_HANDLER
+
 	for(var/mob/living/carbon/human/human in (GLOB.mob_living_list - our_fraggot))
 		SEND_SIGNAL(human, COMSIG_CLEAR_MOOD_EVENT, "[our_fraggot.real_name]")
 
 /datum/component/fraggot/proc/fraggot_examine(mob/living/our_fraggot, mob/user, list/examine_text)
+	SIGNAL_HANDLER
+
 	examine_text += span_flashingdanger("[uppertext(our_fraggot.name)] IS A FRAGGOT! [uppertext(our_fraggot.p_they())] MUST BE KILLED!")
 	if(user.client)
 		SEND_SOUND(user.client, sound('modular_septic/sound/effects/yomai.ogg', FALSE, CHANNEL_LOBBYMUSIC, 100))

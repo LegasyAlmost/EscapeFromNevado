@@ -6,9 +6,9 @@
 	screen_start_x = 1
 	screen_start_y = 11
 	rustle_sound = list(
-		'modular_septic/sound/effects/foley1.wav',
-		'modular_septic/sound/effects/foley2.wav',
-		'modular_septic/sound/effects/foley3.wav',
+		'modular_septic/sound/effects/foley1.ogg',
+		'modular_septic/sound/effects/foley2.ogg',
+		'modular_septic/sound/effects/foley3.ogg',
 	)
 	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
 	var/tetris = FALSE
@@ -216,13 +216,15 @@
 					to_chat(user, span_warning("[storing] can't fit in [host] while [recursive_loc] is in the way!"))
 				return FALSE
 		recursive_loc = recursive_loc.loc
-	var/sum_w_class = storing.w_class
-	for(var/obj/item/stored_item in real_location)
-		sum_w_class += stored_item.w_class //Adds up the combined w_classes which will be in the storage item if the item is added to it.
-	if(sum_w_class > max_combined_w_class)
-		if(!stop_messages)
-			to_chat(user, span_warning("[storing] won't fit in [host], make some space!"))
-		return FALSE
+	//tetris inventories dont care about sum of w_class
+	if(!tetris)
+		var/sum_w_class = storing.w_class
+		for(var/obj/item/stored_item in real_location)
+			sum_w_class += stored_item.w_class //Adds up the combined w_classes which will be in the storage item if the item is added to it.
+		if(sum_w_class > max_combined_w_class)
+			if(!stop_messages)
+				to_chat(user, span_warning("[storing] won't fit in [host], make some space!"))
+			return FALSE
 	if(isitem(host))
 		var/obj/item/host_item = host
 		var/datum/component/storage/storage_internal = storing.GetComponent(/datum/component/storage)
