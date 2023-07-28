@@ -109,6 +109,7 @@
 		stored_soapdispenser.forceMove(user.loc)
 		stored_soapdispenser = null
 		take_damage(125)
+		update_appearance()
 		return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 
