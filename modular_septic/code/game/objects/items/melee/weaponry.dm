@@ -36,13 +36,13 @@
 	drop_sound = list('modular_septic/sound/weapons/melee/baton_fall1.ogg', 'modular_septic/sound/weapons/melee/baton_fall2.ogg')
 	miss_sound = list('modular_septic/sound/weapons/melee/baton_swish1.ogg', 'modular_septic/sound/weapons/melee/baton_swish2.ogg', 'modular_septic/sound/weapons/melee/baton_swish3.ogg')
 	hitsound = list('modular_septic/sound/weapons/melee/baton1.ogg', 'modular_septic/sound/weapons/melee/baton2.ogg', 'modular_septic/sound/weapons/melee/baton3.ogg')
-	min_force = 3
-	force = 5
+	min_force = 10
+	force = 15
 	min_force_strength = 1
 	force_strength = 1.5
-	wound_bonus = 3
+	wound_bonus = 5
 	bare_wound_bonus = 0
-	carry_weight = 2.5 KILOGRAMS
+	carry_weight = 2 KILOGRAMS
 	slot_flags = ITEM_SLOT_BELT
 	worn_icon_state = "classic_baton"
 	skill_melee = SKILL_IMPACT_WEAPON
