@@ -60,10 +60,13 @@
 	return capitalize(pick(GLOB.godforsaken_failure))
 
 /proc/denominator_first()
-	return capitalize(pick(GLOB.denominator_first))
+	return capitalize(pick(GLOB.first_names_denominator))
 
 /proc/denominator_last()
-	return capitalize(pick(GLOB.denominator_last))
+	return capitalize(pick(GLOB.last_names_denominator))
+
+/proc/inborn_name()
+	return capitalize(pick(GLOB.inborn_names))
 
 /proc/click_fail_msg()
 	return span_alert(pick("I'm not ready!", "No!", "I did all i could!", "I can't!", "Not yet!"))

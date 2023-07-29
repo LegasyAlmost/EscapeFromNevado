@@ -40,7 +40,6 @@
 		shuffling.volume = 20
 		shuffling.sound_falloff_exponent = 20
 
-
 /obj/item/clothing/suit/armor/denominator/shotgunner
 	name = "\"Loucura\" type IV armored shotgunner denominator suit"
 	desc = "A type IV full body armored suit for protection against unknown forces, fire, and high-powered energy firearms. This belongs to the shotgunner squad."

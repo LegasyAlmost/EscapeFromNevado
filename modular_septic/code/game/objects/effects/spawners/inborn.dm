@@ -13,7 +13,7 @@
 	outfit = /datum/outfit/inborn
 	spawner_job_path = /datum/job/inborn
 	mob_species = /datum/species/inborn
-	uses = 2
+	uses = 3
 
 /obj/effect/mob_spawn/human/inborn/equip(mob/living/carbon/human/H)
 	. = ..()
@@ -21,9 +21,9 @@
 
 /obj/effect/mob_spawn/human/inborn/special(mob/living/new_spawn)
 	. = ..()
-	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
 	new_spawn.attributes.add_sheet(/datum/attribute_holder/sheet/job/inborn)
+	new_spawn.fully_replace_character_name(new_spawn.real_name, inborn_name())
 
 /datum/outfit/inborn
 	name = "Inborn uniform"

@@ -1,5 +1,5 @@
 /obj/machinery/fusebox
-	name = "Fuse Box"
+	name = "Fuse box"
 	desc = "A large rectangular box filled with wiring, and switches that control the power in the room. Rectangular boxes are also known to contain severed human heads."
 	icon = 'modular_septic/icons/obj/structures/efn.dmi'
 	icon_state = "powerbox"
@@ -14,7 +14,7 @@
 
 /obj/machinery/fusebox/Initialize(mapload)
 	. = ..()
-	update_appearance(UPDATE_ICON)
+	update_appearance()
 
 /obj/machinery/fusebox/update_overlays()
 	. = ..()

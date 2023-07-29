@@ -287,7 +287,7 @@
 	if(C.get_chem_effect(CE_PAINKILLER) < 30)
 		to_chat(user, span_userdanger("FUCK THIS REALLY HURTS!"))
 		C.agony_scream()
-	affecting.receive_damage(10, sharpness = SHARP_EDGED | SHARP_POINTY | SHARP_IMPALING)
+	affecting.receive_damage(brute = 10, sharpness = SHARP_EDGED | SHARP_POINTY | SHARP_IMPALING)
 	affecting.adjust_germ_level(100)
 	// oh you fucking idiot NOW YOU'VE DONE IT
 	if(prob(1))
@@ -370,13 +370,13 @@
 		return
 	user.visible_message(span_warning("<b>[user]</b> begins wrapping <b>[M]</b>'s [limb.name] with [src]..."), \
 				span_warning("I begin wrapping [user == M ? "my" : "<b>[M]</b>'s"] [limb.name] with [src]..."), \
-				playsound(src, 'modular_septic/sound/effects/bandage.wav', volume, TRUE))
+				playsound(src, 'modular_septic/sound/effects/bandage.ogg', volume, TRUE))
 	if(!do_after(user, (user == M ? self_delay : other_delay), target=M))
 		return
 
 	user.visible_message(span_green("<b>[user]</b> applies [src] to <b>[M]</b>'s [limb.name]."), \
 			span_green("I bandage [user == M ? "my" : "<b>[M]</b>'s"] [limb.name]."), \
-			playsound(src, 'modular_septic/sound/effects/bandage_end.wav', volume, TRUE))
+			playsound(src, 'modular_septic/sound/effects/bandage_end.ogg', volume, TRUE))
 	limb.apply_gauze(src)
 	return TRUE
 

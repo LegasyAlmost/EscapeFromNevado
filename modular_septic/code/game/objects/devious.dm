@@ -87,11 +87,31 @@
 	. = ..()
 	if(building)
 		setDir(ndir)
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -27 : 27)
-		pixel_y = (dir & 3)? (dir ==1 ? -30 : 30) : 0
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -32 : 32)
+		pixel_y = (dir & 3)? (dir ==1 ? -32 : 32) : 0
 		icon_state = "soapmount_empty"
 	else
 		stored_soapdispenser = new /obj/item/deviouslick/soapdispenser(src)
+
+/obj/structure/soapmount/examine(mob/user)
+	. = ..()
+	if(!stored_soapdispenser)
+		. += span_warning("Oh my god, someone DEVIOUSLY licked it!")
+
+/obj/structure/soapmount/attack_hand_tertiary(mob/living/user, list/modifiers)
+	. = ..()
+	if(stored_soapdispenser)
+		to_chat(user, span_notice("I start to <b>deviously</b> rip apart the soap dispenser..."))
+		if(!do_after(user, 2 SECONDS, src))
+			to_chat(user, span_warning("[fail_msg()]"))
+			return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+		to_chat(user, span_notice("I rip the soap dispenser off!"))
+		stored_soapdispenser.forceMove(user.loc)
+		stored_soapdispenser = null
+		take_damage(125)
+		update_appearance()
+		return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return TERTIARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/soapmount/directional/north
 	dir = SOUTH

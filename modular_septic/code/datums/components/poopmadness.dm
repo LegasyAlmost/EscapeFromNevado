@@ -156,7 +156,7 @@
 	if(viscous_amount < 50)
 		madman.reagents.add_reagent(/datum/reagent/medicine/whiteviscous, viscous_amount-50)
 	if(madman.blood_volume < BLOOD_VOLUME_NORMAL)
-		madman.blood_volume += 3 * delta_time
+		madman.adjust_bloodvolume(3)
 	madman.heal_bodypart_damage(2 * delta_time, 2 * delta_time, 2 * delta_time)
 	madman.hallucination += 0.5 * delta_time
 	if(DT_PROB(2, delta_time))
@@ -178,7 +178,7 @@
 /datum/component/poopmadness/proc/violent_death(mob/living/source, gibbed)
 	SIGNAL_HANDLER
 
-	playsound(source, 'modular_septic/sound/sanity/seamonster.wav', 80, extrarange = 7, vary = FALSE)
+	playsound(source, 'modular_septic/sound/sanity/seamonster.ogg', 80, extrarange = 7, vary = FALSE)
 	if(!gibbed)
 		var/obj/item/bodypart/head = source.get_bodypart(BODY_ZONE_HEAD)
 		if(head)
