@@ -76,7 +76,7 @@
 #define BRAIN_DAMAGE_DEATH 200
 
 #undef HUMAN_MAX_OXYLOSS
-#define HUMAN_MAX_OXYLOSS 3
+#define HUMAN_MAX_OXYLOSS 4
 
 // ~CPR types
 /// Mouth to mouth - Heals oxygen deprivation

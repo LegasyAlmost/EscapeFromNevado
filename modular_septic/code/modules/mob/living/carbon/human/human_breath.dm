@@ -90,8 +90,7 @@
 	var/amount_lungs = length(lungs)
 
 	// loopity loop
-	for(var/thing in lungs)
-		var/obj/item/organ/lungs/lung = thing
+	for(var/obj/item/organ/lungs/lung as anything in lungs)
 		// "master lung" handles these variables
 		if(lungs[1] == lung)
 			oxy_damage_type = lung.oxy_damage_type

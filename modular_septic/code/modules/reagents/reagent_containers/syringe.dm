@@ -120,33 +120,38 @@
 	list_reagents = list(/datum/reagent/medicine/c2/penthrite = 15)
 
 /obj/item/reagent_containers/syringe/convermol
-	name = "syringe (formoterol)"
+	name = "formoterol syringe"
 	desc = "Contains formoterol, a bronchodilator."
 	list_reagents = list(/datum/reagent/medicine/c2/convermol = 15)
 
 /obj/item/reagent_containers/syringe/tirimol
-	name = "syringe (levalbuterol)"
+	name = "levalbuterol syringe"
 	desc = "Contains levalbuterol, a beta agonist capable of efficiently restoring blood oxygenation.."
 	list_reagents = list(/datum/reagent/medicine/c2/tirimol = 15)
 
 /obj/item/reagent_containers/syringe/antiviral
-	name = "syringe (penicillin)"
+	name = "penicillin syringe"
 	desc = "Contains a common antibiotic, penicillin."
 	list_reagents = list(/datum/reagent/medicine/spaceacillin = 15)
 
 /obj/item/reagent_containers/syringe/copium
-	name = "syringe (copium)"
+	name = "copium syringe"
 	desc = "Contains copium, a powerful but dangerous painkiller.\
 			\n<b>Do not inject more or equal to 15u at once.</b>"
 	custom_premium_price = PAYCHECK_HARD * 3
 	list_reagents = list(/datum/reagent/medicine/copium = 15)
 
 /obj/item/reagent_containers/syringe/atropine
-	name = "syringe (atropine)"
-	desc = "Contains epinephrine - Used to stabilize patients."
+	name = "atropine syringe"
+	desc = "Contains atropine - Used to stabilize patients."
 	list_reagents = list(/datum/reagent/medicine/atropine = 15)
 
+/obj/item/reagent_containers/syringe/epinephrine
+	name = "epinephrine syringe"
+	desc = "Contains epinephrine - Used to stabilize patients."
+	list_reagents = list(/datum/reagent/medicine/epinephrine = 15)
+
 /obj/item/reagent_containers/syringe/morphine
-	name = "syringe (morphine)"
+	name = "morphine syringe"
 	desc = "Contains morphine, a powerful painkiller."
 	list_reagents = list(/datum/reagent/medicine/morphine = 15)

@@ -19,11 +19,11 @@
 /datum/organ_process/kidneys/proc/handle_toxins(mob/living/carbon/human/owner, delta_time, times_fired)
 	var/list/kidneys = owner.getorganslotlist(ORGAN_SLOT_KIDNEYS)
 	var/kidney_efficiency = owner.getorganslotefficiency(ORGAN_SLOT_KIDNEYS)
+	var/toxin_lover = HAS_TRAIT(owner, TRAIT_TOXINLOVER)
 	var/filter_toxins = FALSE
 	var/collective_tox_tolerance = 0
 	var/collective_tox_lethality = 0
-	for(var/thing in kidneys)
-		var/obj/item/organ/kidneys/kidney = thing
+	for(var/obj/item/organ/kidneys/kidney as anything in kidneys)
 		if(kidney.is_failing())
 			continue
 		if(kidney.filter_toxins)
@@ -36,9 +36,9 @@
 		kidney_efficiency += antitoxin_effect
 		collective_tox_tolerance += antitoxin_effect/10
 		collective_tox_lethality -= antitoxin_effect/10
-		if(!HAS_TRAIT(owner, TRAIT_TOXINLOVER))
-			owner.adjustToxLoss(-kidney_efficiency/optimal_threshold)
-	if(!filter_toxins || (kidney_efficiency < failing_threshold) || HAS_TRAIT(owner, TRAIT_TOXINLOVER))
+		if(!toxin_lover)
+			owner.adjustToxLoss(-(kidney_efficiency/optimal_threshold))
+	if(!filter_toxins || (kidney_efficiency < failing_threshold) || toxin_lover)
 		return
 	var/list/stomachs = owner.getorganslot(ORGAN_SLOT_STOMACH)
 	// handle toxin filtration
