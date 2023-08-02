@@ -652,7 +652,7 @@
 		return 0
 	if(is_failing())
 		return max_toxins
-	return toxins
+	return round(toxins, DAMAGE_PRECISION)
 
 /obj/item/organ/proc/can_add_toxins(amount = 0)
 	return (toxins < max_toxins)

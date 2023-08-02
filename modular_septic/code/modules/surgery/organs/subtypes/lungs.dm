@@ -117,6 +117,7 @@
 		if(!is_failing())
 			failed = FALSE
 			return
+		add_oxygen_deprivation(HUMAN_MAX_OXYLOSS/2 * delta_time)
 	else if(is_failing())
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> grabs [owner.p_their()] throat, struggling for breath!"), \
@@ -142,9 +143,7 @@
 
 // Returns a percentage value for use by GetOxyloss().
 /obj/item/organ/lungs/proc/get_oxygen_deprivation()
-	if(is_failing())
-		return max_oxygen_deprivation
-	return FLOOR(oxygen_deprivation, 1)
+	return round(oxygen_deprivation, DAMAGE_PRECISION)
 
 /obj/item/organ/lungs/proc/can_oxy_deprive()
 	if(oxygen_deprivation < max_oxygen_deprivation)
