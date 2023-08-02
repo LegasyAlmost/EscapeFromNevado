@@ -151,7 +151,7 @@
 	return FALSE
 
 /obj/item/organ/lungs/proc/can_oxy_heal()
-	if(oxygen_deprivation)
+	if(oxygen_deprivation && !is_failing())
 		return TRUE
 	return FALSE
 
