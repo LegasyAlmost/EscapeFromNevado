@@ -36,24 +36,24 @@
 	var/safe_nitro_min = 0
 	var/safe_nitro_max = 0
 	var/safe_co2_min = 0
-	var/safe_co2_max = 5 // Yes it's an arbitrary value who cares?
+	var/safe_co2_max = 10 // Yes it's an arbitrary value who cares?
 	var/safe_plas_min = 0
 	///How much breath partial pressure is a safe amount of toxins. 0 means that we are immune to toxins.
-	var/safe_plas_max = 0.025
+	var/safe_plas_max = 0.05
 	///Sleeping agent
-	var/SA_para_min = 0.5
+	var/SA_para_min = 1
 	///Sleeping agent
-	var/SA_sleep_min = 2.5
+	var/SA_sleep_min = 5
 	///BZ gas
-	var/BZ_trip_balls_min = 0.5
+	var/BZ_trip_balls_min = 1
 	///Give people some room to play around without killing the station
-	var/BZ_brain_damage_min = 5
+	var/BZ_brain_damage_min = 10
 	///Nitryl, Stimulum and Freon
-	var/gas_stimulation_min = 0.001
+	var/gas_stimulation_min = 0.002
 	///Minimum amount of healium to make you unconscious for 4 seconds
-	var/healium_para_min = 1.5
+	var/healium_para_min = 3
 	///Minimum amount of healium to knock you down for good
-	var/healium_sleep_min = 3
+	var/healium_sleep_min = 6
 	///Whether these lungs react negatively to miasma
 	var/suffers_miasma = TRUE
 
