@@ -105,17 +105,17 @@
 	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 /obj/item/reagent_containers/syringe/multiver
-	name = "syringe (charcoal)"
+	name = "charcoal syringe"
 	desc = "Contains activated charcoal, an antitoxin."
 	list_reagents = list(/datum/reagent/medicine/c2/multiver = 15)
 
 /obj/item/reagent_containers/syringe/syriniver
-	name = "syringe (dylovenal)"
+	name = "dylovenal syringe"
 	desc = "Contains dylovenal, an antitoxin."
 	list_reagents = list(/datum/reagent/medicine/c2/syriniver = 15)
 
 /obj/item/reagent_containers/syringe/minoxidil
-	name = "syringe (minoxidil)"
+	name = "minoxidil syringe"
 	desc = "Contains minoxidil, a vasodilator."
 	list_reagents = list(/datum/reagent/medicine/c2/penthrite = 15)
 
