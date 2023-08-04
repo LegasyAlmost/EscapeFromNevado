@@ -448,6 +448,9 @@
 	. = 0
 	if(!safe_breath_min) //the other args are either: Ok being 0 or Specifically handled.
 		return FALSE
+	for(var/obj/item/organ/lungs/lung as anything in lungs)
+		if(reagents.has_reagent(lung.crit_stabilizing_reagent, needs_metabolizing = TRUE))
+			return FALSE
 	if(prob(20))
 		agony_gasp()
 
@@ -461,8 +464,7 @@
 	update_hud_breath(failed_last_breath, lung_efficiency, lung_process.bruised_threshold, lung_process.failing_threshold)
 
 /mob/living/carbon/human/check_failed_breath(datum/gas_mixture/breath, lung_efficiency = 0, list/lungs, datum/organ_process/lung_process)
-	for(var/thing in lungs)
-		var/obj/item/organ/lungs/lung = thing
+	for(var/obj/item/organ/lungs/lung as anything in lungs)
 		if(reagents.has_reagent(lung.crit_stabilizing_reagent, needs_metabolizing = TRUE))
 			return FALSE
 	if(prob(20))
