@@ -111,7 +111,7 @@
 		/obj/item/ammo_box/magazine/a545 = 2,
 	)
 	inputs = list(
-		/obj/item/reagent_containers/pill/carbonylmethamphetamine = 4,
+		/obj/item/reagent_containers/pill/carbonylmethamphetamine = 6,
 	)
 
 /datum/bartering_recipe/batata

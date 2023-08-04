@@ -3964,7 +3964,7 @@
 /area/maintenance/liminal/train)
 "BO" = (
 /obj/structure/closet/grief,
-/obj/item/storage/pill_bottle/carbonylmethamphetamine,
+/obj/item/storage/pill_bottle/drugs/carbonylmethamphetamine,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
