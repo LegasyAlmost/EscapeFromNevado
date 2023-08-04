@@ -26,7 +26,7 @@
 	limbs_id = "human"
 	examine_icon_state = "inborn"
 	mutantheart = /obj/item/organ/heart/inborn
-	exotic_blood = "U"
+	exotic_bloodtype = "U"
 
 /datum/species/inborn/random_name(gender, unique, lastname)
 	return pick(GLOB.inborn_names)
