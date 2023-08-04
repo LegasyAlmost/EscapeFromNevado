@@ -23,7 +23,7 @@
 		"Oh man, I been gettin' in my zone",
 		"Invested in my fucking self I need a loan, I'm alone",
 	)
-	if(DT_PROB(2.5, delta_time))
+	if(DT_PROB(2, delta_time))
 		to_chat(lean_monster, span_horny(pick(lean_quotes)))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
@@ -38,7 +38,7 @@
 		return
 
 	//Chance of Willador Afton
-	if(prob(10))
+	if(DT_PROB(2.5, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
 	var/atom/movable/screen/plane_master/rendering_plate/filter_plate = lean_monster.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
@@ -167,7 +167,7 @@
 	to_chat(crack_addict, span_achievementrare("I'm stimming!!!"))
 	stimming_overlay = crack_addict.overlay_fullscreen("stimming", /atom/movable/screen/fullscreen/stimming)
 	stimming_overlay.alpha = 0
-	animate(stimming_overlay, alpha = 80, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT, loop = -1)
+	animate(stimming_overlay, alpha = 60, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT, loop = -1)
 
 /datum/reagent/drug/methylenedioxymethamphetamine/on_mob_end_metabolize(mob/living/crack_addict)
 	. = ..()

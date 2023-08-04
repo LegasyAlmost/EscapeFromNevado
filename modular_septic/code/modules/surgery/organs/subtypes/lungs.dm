@@ -117,7 +117,6 @@
 		if(!is_failing())
 			failed = FALSE
 			return
-		add_oxygen_deprivation(HUMAN_MAX_OXYLOSS/2 * delta_time)
 	else if(is_failing())
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> grabs [owner.p_their()] throat, struggling for breath!"), \
