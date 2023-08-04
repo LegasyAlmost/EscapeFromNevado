@@ -179,6 +179,25 @@
 	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/effects/stimming_end.ogg', 100)
 	to_chat(crack_addict, span_achievementbad("NOO... I need to stim..."))
 
+/datum/reagent/drug/methylenedioxymethamphetamine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	. = ..()
+	var/static/list/waifu_quotes = list(
+		"She gives me the energy to keep going.",
+		"Do it for her.",
+		"I'm going to Belgium once I escape.",
+		"This is all for her.",
+		"I love her so much.",
+		"I want to marry her.",
+		"What would I do without her?",
+		"She is a gem.",
+		"I would do anything for her.",
+		"Life without her is pointless.",
+		"She needs me.",
+		"Must keep going. For her.",
+	)
+	if(DT_PROB(3, delta_time))
+		to_chat(M, span_horny(pick(waifu_quotes)))
+
 /datum/reagent/drug/methylenedioxymethamphetamine/proc/end_stimming(mob/living/crack_addict)
 	if(QDELETED(crack_addict))
 		return
