@@ -1,11 +1,12 @@
 /obj/item/organ/heart/inborn
 	name = "putrid heart"
 	desc = "A disgusting, barely recognizable mockery of a heart."
-	food_reagents = list(
+	food_reagents = list( //STIMMING
 		/datum/reagent/drug/methylenedioxymethamphetamine = 30,
+		/datum/reagent/drug/carbonylmethamphetamine = 10,
 		/datum/reagent/drug/lean = 20,
 	)
-	reagent_vol = 50
+	reagent_vol = 60
 
 // inborn hearts are just that good
 /obj/item/organ/heart/inborn/can_stop()
