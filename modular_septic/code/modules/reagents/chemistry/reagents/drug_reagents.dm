@@ -28,6 +28,7 @@
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
 	lean_monster.add_chem_effect(CE_STIMULANT, 2, "[type]")
+	lean_monster.add_chem_effect(CE_ENERGETIC, 1, "[type]")
 	lean_monster.attributes?.add_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
 	to_chat(lean_monster, span_warning("I feel myself stronger, so nice!"))
 	SEND_SIGNAL(lean_monster, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, lean_monster)
@@ -55,6 +56,7 @@
 	REMOVE_TRAIT(lean_monster, TRAIT_LEAN, name)
 	to_chat(lean_monster, span_love(span_big("NOOOO... I NEED MORE LEAN...")))
 	lean_monster.remove_chem_effect(CE_STIMULANT, "[type]")
+	lean_monster.remove_chem_effect(CE_ENERGETIC, "[type]")
 	lean_monster.attributes?.remove_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
 	if(!lean_monster.hud_used)
 		return
