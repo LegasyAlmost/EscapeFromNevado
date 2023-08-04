@@ -110,8 +110,8 @@
 		lean_monster.flash_pain_mental(100)
 
 /datum/reagent/drug/carbonylmethamphetamine
-	name = "carbonylmethamphetamine"
-	description = "finally some good fucking drugs."
+	name = "Carbonylmethamphetamine"
+	description = "Finally some good fucking drugs."
 	reagent_state = LIQUID
 	taste_description = "grape"
 	color = "#D3D3D3"
@@ -123,7 +123,7 @@
 	. = ..()
 	crack_addict.crack_addict()
 	crack_addict.add_chem_effect(CE_STIMULANT, 2, "[type]")
-	crack_addict.attributes?.add_attribute_modifier(/datum/attribute_modifier/crack_addict, TRUE)
+	crack_addict.attributes?.add_attribute_modifier(/datum/attribute_modifier/carbonylmethamphetamine, TRUE)
 	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/insanity/bass.ogg', 100)
 	to_chat(crack_addict, span_achievementrare("My brain swells and my muscles become faster."))
 	crack_addict.flash_pain_endorphine()
@@ -132,7 +132,8 @@
 /datum/reagent/drug/carbonylmethamphetamine/on_mob_end_metabolize(mob/living/crack_addict)
 	. = ..()
 	crack_addict.remove_chem_effect(CE_STIMULANT, "[type]")
-	crack_addict.attributes?.remove_attribute_modifier(/datum/attribute_modifier/crack_addict, TRUE)
+	to_chat(crack_addict, span_achievementbad("My brain feels smaller..."))
+	crack_addict.attributes?.remove_attribute_modifier(/datum/attribute_modifier/carbonylmethamphetamine, TRUE)
 
 /datum/reagent/drug/carbonylmethamphetamine/proc/cool_animation(mob/living/crack_addict)
 	if(!crack_addict.client)
@@ -141,3 +142,44 @@
 	sleep(4)
 	animate(crack_addict.client, pixel_y = (crack_addict.client.pixel_y - 4), time = 2)
 	sleep(4)
+
+/datum/reagent/drug/methylenedioxymethamphetamine
+	name = "Methylenedioxymethamphetamine"
+	description = "Oh god, I'm stimming!"
+	reagent_state = LIQUID
+	taste_description = "coffee"
+	color = "#ffba95"
+	overdose_threshold = 40
+	metabolization_rate = 0.1 * REAGENTS_METABOLISM
+	ph = 9
+	/// Overlay used while stimming
+	var/atom/movable/screen/fullscreen/stimming/stimming_overlay
+
+/datum/reagent/drug/methylenedioxymethamphetamine/on_mob_metabolize(mob/living/crack_addict)
+	. = ..()
+	crack_addict.emote("moan")
+	crack_addict.add_chem_effect(CE_STIMULANT, 2, "[type]")
+	crack_addict.add_chem_effect(CE_ENERGETIC, 2, "[type]")
+	crack_addict.attributes?.add_attribute_modifier(/datum/attribute_modifier/methylenedioxymethamphetamine, TRUE)
+	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/effects/stimming.ogg', 100)
+	to_chat(crack_addict, span_achievementrare("I'm stimming!!!"))
+	stimming_overlay = crack_addict.overlay_fullscreen("stimming", /atom/movable/screen/fullscreen/stimming)
+	stimming_overlay.alpha = 0
+	animate(stimming_overlay, alpha = 80, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT)
+
+/datum/reagent/drug/methylenedioxymethamphetamine/on_mob_end_metabolize(mob/living/crack_addict)
+	. = ..()
+	animate(stimming_overlay, alpha = 0, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_IN)
+	stimming_overlay = null
+	addtimer(CALLBACK(src, .proc/end_stimming, crack_addict))
+	crack_addict.emote("cry")
+	crack_addict.remove_chem_effect(CE_STIMULANT, "[type]")
+	crack_addict.remove_chem_effect(CE_ENERGETIC, "[type]")
+	crack_addict.attributes?.remove_attribute_modifier(/datum/attribute_modifier/methylenedioxymethamphetamine, TRUE)
+	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/effects/stimming_end.ogg', 100)
+	to_chat(crack_addict, span_achievementbad("NOO... I need to stim..."))
+
+/datum/reagent/drug/methylenedioxymethamphetamine/proc/end_stimming(mob/living/crack_addict)
+	if(QDELETED(crack_addict))
+		return
+	crack_addict.clear_fullscreen("poopmadness")

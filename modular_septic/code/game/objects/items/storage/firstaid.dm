@@ -217,8 +217,8 @@
 	playsound(src, 'modular_septic/sound/effects/pouch_use.ogg', 30, FALSE)
 	update_appearance()
 
-/obj/item/storage/pill_bottle/carbonylmethamphetamine
-	name = "carbonylmethamphetamine pill bottle"
+/obj/item/storage/pill_bottle/drugs
+	name = "druggy pill bottle"
 	desc = "Pills stated to increase your fervor in combat, just chew and drink water."
 	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
 	icon_state = "pep"
@@ -226,17 +226,13 @@
 	pickup_sound = 'modular_septic/sound/effects/pillsbottle_foley.ogg'
 	var/is_open = FALSE
 
-/obj/item/storage/pill_bottle/carbonylmethamphetamine/Initialize()
+/obj/item/storage/pill_bottle/drugs/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		STR.rustle_sound = null
 
-/obj/item/storage/pill_bottle/carbonylmethamphetamine/PopulateContents()
-	for(var/i in 1 to 4)
-		new /obj/item/reagent_containers/pill/carbonylmethamphetamine(src)
-
-/obj/item/storage/pill_bottle/carbonylmethamphetamine/attack_self(mob/user, modifiers, volume = 85)
+/obj/item/storage/pill_bottle/drugs/attack_self(mob/user, modifiers, volume = 85)
 	. = ..()
 	is_open = !is_open
 	if(is_open)
@@ -245,14 +241,14 @@
 		playsound(src, 'modular_septic/sound/effects/pillsbottle_close.ogg', volume, TRUE, vary = FALSE)
 	update_appearance()
 
-/obj/item/storage/pill_bottle/carbonylmethamphetamine/update_icon_state()
+/obj/item/storage/pill_bottle/drugs/update_icon_state()
 	. = ..()
 	if(is_open)
 		icon_state = "[base_icon_state]_open"
 	else
 		icon_state = base_icon_state
 
-/obj/item/storage/pill_bottle/carbonylmethamphetamine/Exited(atom/movable/gone, direction)
+/obj/item/storage/pill_bottle/drugs/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(!is_open)
 		playsound(src, 'modular_septic/sound/effects/pillsbottle_open.ogg', 30, FALSE)
@@ -260,10 +256,24 @@
 	playsound(src, 'modular_septic/sound/effects/pillsbottle_pill.ogg', 30, FALSE)
 	update_appearance()
 
-/obj/item/storage/pill_bottle/carbonylmethamphetamine/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/item/storage/pill_bottle/drugs/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	if(!is_open)
 		playsound(src, 'modular_septic/sound/effects/pillsbottle_open.ogg', 30, FALSE)
 	is_open = TRUE
 	playsound(src, 'modular_septic/sound/effects/pillsbottle_pill_put.ogg', 30, FALSE)
 	update_appearance()
+
+/obj/item/storage/pill_bottle/drugs/carbonylmethamphetamine
+	name = "carbonylmethamphetamine pill bottle"
+
+/obj/item/storage/pill_bottle/drugs/carbonylmethamphetamine/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/pill/carbonylmethamphetamine(src)
+
+/obj/item/storage/pill_bottle/drugs/methylenedioxymethamphetamine
+	name = "methylenedioxymethamphetamine pill bottle"
+
+/obj/item/storage/pill_bottle/drugs/methylenedioxymethamphetamine/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/pill/methylenedioxymethamphetamine(src)

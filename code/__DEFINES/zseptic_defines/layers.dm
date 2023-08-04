@@ -262,6 +262,7 @@
 #define BLIND_IMAGE_LAYER 9
 #define INSIGNIA_LAYER 10
 #define JUMPSCARE_LAYER 11
+#define STIM_LAYER 12
 ///--------------- FULLSCREEN IMAGES ------------
 
 ///Plane for sound hints

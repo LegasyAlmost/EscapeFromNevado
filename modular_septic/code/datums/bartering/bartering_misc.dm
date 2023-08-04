@@ -21,19 +21,3 @@
 	inputs = list(
 		/obj/item/clothing/gloves/color/black = 1,
 	)
-
-/datum/bartering_recipe/carbonyl
-	outputs = list(
-		/obj/item/storage/pill_bottle/carbonylmethamphetamine = 1,
-	)
-	inputs = list(
-		/obj/item/shard = 3,
-	)
-
-/datum/bartering_recipe/lean
-	outputs = list(
-		/obj/item/reagent_containers/food/drinks/soda_cans/lean = 1,
-	)
-	inputs = list(
-		/obj/item/organ/liver = 1,
-	)

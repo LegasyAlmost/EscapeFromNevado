@@ -32,9 +32,17 @@
 	list_reagents = list(/datum/reagent/medicine/c2/probital = 10)
 
 /obj/item/reagent_containers/pill/carbonylmethamphetamine
-	name = "white tablet"
+	name = "carbonylmethamphetamine tablet"
 	desc = "Tasty, chewable flintstones vitamens, clearly."
 	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
 	icon_state = "pep-pill"
 	list_reagents = list(/datum/reagent/drug/carbonylmethamphetamine = 20)
+	apply_method = "chew"
+
+/obj/item/reagent_containers/pill/methylenedioxymethamphetamine
+	name = "methylenedioxymethamphetamine tablet"
+	desc = "Tasty, chewable flintstones vitamens, clearly."
+	icon = 'modular_septic/icons/obj/items/firstaid.dmi'
+	icon_state = "pep-pill"
+	list_reagents = list(/datum/reagent/drug/methylenedioxymethamphetamine = 20)
 	apply_method = "chew"
