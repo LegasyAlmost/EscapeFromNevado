@@ -23,7 +23,7 @@
 		"Oh man, I been gettin' in my zone",
 		"Invested in my fucking self I need a loan, I'm alone",
 	)
-	if(DT_PROB(2.5, delta_time))
+	if(DT_PROB(2, delta_time))
 		to_chat(lean_monster, span_horny(pick(lean_quotes)))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
