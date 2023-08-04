@@ -167,7 +167,7 @@
 	to_chat(crack_addict, span_achievementrare("I'm stimming!!!"))
 	stimming_overlay = crack_addict.overlay_fullscreen("stimming", /atom/movable/screen/fullscreen/stimming)
 	stimming_overlay.alpha = 0
-	animate(stimming_overlay, alpha = 80, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT, loop = -1)
+	animate(stimming_overlay, alpha = 60, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT, loop = -1)
 
 /datum/reagent/drug/methylenedioxymethamphetamine/on_mob_end_metabolize(mob/living/crack_addict)
 	. = ..()
