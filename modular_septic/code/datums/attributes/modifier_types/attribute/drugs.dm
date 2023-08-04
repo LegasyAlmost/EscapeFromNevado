@@ -8,4 +8,4 @@
 
 /datum/attribute_modifier/methylenedioxymethamphetamine
 	variable = FALSE
-	attribute_list = list(STAT_DEXTERITY = 3, STAT_INTELLIGENCE = 6, STAT_ENDURANCE = 3)
+	attribute_list = list(STAT_DEXTERITY = 6, STAT_INTELLIGENCE = 10, STAT_ENDURANCE = 10)
