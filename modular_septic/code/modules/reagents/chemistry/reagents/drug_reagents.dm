@@ -151,7 +151,7 @@
 	color = "#ffba95"
 	overdose_threshold = 40
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
-	ph = 9
+	ph = 4.5
 	/// Overlay used while stimming
 	var/atom/movable/screen/fullscreen/stimming/stimming_overlay
 
@@ -165,7 +165,7 @@
 	to_chat(crack_addict, span_achievementrare("I'm stimming!!!"))
 	stimming_overlay = crack_addict.overlay_fullscreen("stimming", /atom/movable/screen/fullscreen/stimming)
 	stimming_overlay.alpha = 0
-	animate(stimming_overlay, alpha = 80, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT)
+	animate(stimming_overlay, alpha = 80, time = 1 SECONDS, flags = BOUNCE_EASING|EASE_OUT, loop = -1)
 
 /datum/reagent/drug/methylenedioxymethamphetamine/on_mob_end_metabolize(mob/living/crack_addict)
 	. = ..()
