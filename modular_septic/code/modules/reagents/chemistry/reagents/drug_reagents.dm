@@ -38,7 +38,7 @@
 		return
 
 	//Chance of Willador Afton
-	if(prob(10))
+	if(DT_PROB(2.5, delta_time))
 		INVOKE_ASYNC(src, .proc/handle_lean_monster_hallucinations, lean_monster)
 
 	var/atom/movable/screen/plane_master/rendering_plate/filter_plate = lean_monster.hud_used.plane_masters["[RENDER_PLANE_GAME]"]
