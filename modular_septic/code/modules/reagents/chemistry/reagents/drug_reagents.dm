@@ -5,7 +5,7 @@
 	taste_description = "purple"
 	color = "#7E3990"
 	overdose_threshold = 35
-	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	metabolization_rate = 0.3 * REAGENTS_METABOLISM
 	ph = 3
 	addiction_types = list(/datum/addiction/maintenance_drugs = 20)
 
@@ -27,8 +27,8 @@
 		to_chat(lean_monster, span_horny(pick(lean_quotes)))
 	to_chat(lean_monster, span_horny(span_big("Lean... I LOVE LEAAAANNNNNNN!!!")))
 	ADD_TRAIT(lean_monster, TRAIT_LEAN, name)
-	lean_monster.add_chem_effect(CE_STIMULANT, 2, "[type]")
-	lean_monster.add_chem_effect(CE_ENERGETIC, 1, "[type]")
+	lean_monster.add_chem_effect(CE_STIMULANT, 6, "[type]")
+	lean_monster.add_chem_effect(CE_ENERGETIC, 6, "[type]")
 	lean_monster.attributes?.add_attribute_modifier(/datum/attribute_modifier/lean, TRUE)
 	to_chat(lean_monster, span_warning("I feel myself stronger, so nice!"))
 	SEND_SIGNAL(lean_monster, COMSIG_ADD_MOOD_EVENT, "forbidden_sizzup", /datum/mood_event/lean, lean_monster)
@@ -160,8 +160,8 @@
 /datum/reagent/drug/methylenedioxymethamphetamine/on_mob_metabolize(mob/living/crack_addict)
 	. = ..()
 	crack_addict.emote("moan")
-	crack_addict.add_chem_effect(CE_STIMULANT, 2, "[type]")
-	crack_addict.add_chem_effect(CE_ENERGETIC, 2, "[type]")
+	crack_addict.add_chem_effect(CE_STIMULANT, 4, "[type]")
+	crack_addict.add_chem_effect(CE_ENERGETIC, 4, "[type]")
 	crack_addict.attributes?.add_attribute_modifier(/datum/attribute_modifier/methylenedioxymethamphetamine, TRUE)
 	crack_addict.playsound_local(crack_addict, 'modular_septic/sound/effects/stimming.ogg', 100)
 	to_chat(crack_addict, span_achievementrare("I'm stimming!!!"))
