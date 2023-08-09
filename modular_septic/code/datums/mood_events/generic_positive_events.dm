@@ -38,8 +38,8 @@
 //Tricky moodlet
 /datum/mood_event/tricky
 	description = span_colossus("I've cursed myself to a life of fragging.")
-	mood_change = 4
-	timeout = 5 MINUTES
+	mood_change = 6
+	timeout = 8 MINUTES
 
 /datum/mood_event/tricky/add_effects(mob/living/madman)
 	var/list/tricky_messages = list("WHO WANTS TO F'F'F'F'FIGHT ME'E'E?", "YOU ARE D'D'D'DEAD STU'UPID!", "WHO WANTS TO F'F'F'FIGHT M'ME'E'E'E", "MUAHHAHAHAHAHAHAH!", "WHERE IS H'H'HE?!", "MAUHAHAHAHAHAHA!", "YOU ARE D'D'DEAD STUPID!", "MUHAHAAHAHA!!")

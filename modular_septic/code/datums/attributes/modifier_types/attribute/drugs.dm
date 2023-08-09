@@ -1,6 +1,6 @@
 /datum/attribute_modifier/lean
 	variable = FALSE
-	attribute_list = list(STAT_STRENGTH = 3, STAT_ENDURANCE = 3)
+	attribute_list = list(STAT_STRENGTH = 9, STAT_ENDURANCE = 9)
 
 /datum/attribute_modifier/carbonylmethamphetamine
 	variable = FALSE
