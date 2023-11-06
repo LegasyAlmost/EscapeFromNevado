@@ -1,9 +1,8 @@
-/*
 /datum/preference/toggle/filmgrain
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
 	savefile_key = "filmgrainpref"
 	savefile_identifier = PREFERENCE_PLAYER
-	default_value = TRUE
+	default_value = FALSE
 
 /datum/preference/toggle/filmgrain/apply_to_client(client/client, value)
 	if(client.mob?.hud_used)
@@ -18,4 +17,3 @@
 			client.screen -= hud_used.noise
 			hud_used.screenoverlays -= hud_used.noise
 			QDEL_NULL(hud_used.noise)
-*/

@@ -10,21 +10,20 @@
 	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/food/chocolate, 5, 3 MINUTES)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/coke
-	name = "Conk"
-	desc = "Sippy sippy on that good shit!\n\
-			<span class='warning'>WARNING: Do not shake!</span>"
+	name = "Coca Cola"
+	desc = "An abandoned beverage. Only found deep within the Abandoned Warehouse, could be useful for <b>bartering.</b>"
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "coke"
 	list_reagents = list(/datum/reagent/consumable/coke = 30)
 	foodtype = SUGAR
 
-/obj/item/reagent_containers/food/drinks/soda_cans/coke/open_soda(mob/user)
-	. = ..()
-	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES)
+//obj/item/reagent_containers/food/drinks/soda_cans/coke/open_soda(mob/user)
+//	. = ..()
+//	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES) Never do this
 
 /obj/item/reagent_containers/food/drinks/soda_cans/pepsi
-	name = "Shlorp Bepis"
-	desc = "A fitting name for a drink, and your serious character!"
+	name = "Pepsi"
+	desc = "A plentiful soda found within the surface areas of the Abandoned Warehouse."
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "pepsi"
 	list_reagents = list(/datum/reagent/consumable/pepsi = 30)
@@ -35,13 +34,14 @@
 	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/pepsi/diet
-	name = "Diet Shlorp Bepis"
-	desc = "Replacing the sugar in the original drink with a concentrated \"Baphomet\" essence.\n\
+	name = "Diet Pepsi"
+	desc = "A refreshing cola that tastes like water and doesn't offer any benefits."
+	//desc = "Replacing the sugar in the original drink with a concentrated \"Baphomet\" essence.\n\
 			<span class='dead'>WARNING: Excessive consumption of this product is linked with:\n\
 			Depression, anhedonia, autism, gynecomastia, tumor growth around the pubic region, erectile dysfunction, \
 			premature ejaculation, retrograde ejaculation, wet dreams, infertility, elevated libido, compulsive sexual behavior, \
 			post-coital tristesse, dyspareunia, vaginismus, vulvodynia, vulvar vestibulitis, peyronie's disease, priapism, \
-			pelvic floor dysfunctions, urinary incontinence, pelvic organ prolapse, menopause, male periods.</span>"
+			pelvic floor dysfunctions, urinary incontinence, pelvic organ prolapse, menopause, male periods.</span>" NEVER do this.
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "pepsi_diet"
 	list_reagents = list(/datum/reagent/consumable/pepsi/diet = 30)
@@ -57,7 +57,7 @@
 
 /obj/item/reagent_containers/food/drinks/soda_cans/lean
 	name = "Lean"
-	desc = "w"
+	desc = "doubleyou"
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "lean"
 	list_reagents = list(/datum/reagent/drug/lean = 30)

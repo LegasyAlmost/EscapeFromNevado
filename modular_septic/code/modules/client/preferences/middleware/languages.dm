@@ -159,6 +159,8 @@
 			target.language_holder.understood_languages[language_type] = list(LANGUAGE_ATOM)
 		if(LAZYACCESS(preferences.languages, language_type) >= LANGUAGE_SPOKEN)
 			target.language_holder.spoken_languages[language_type] = list(LANGUAGE_ATOM)
+	target.language_holder.understood_languages += list(/datum/language/common = list(LANGUAGE_MIND))
+	target.language_holder.spoken_languages += list(/datum/language/common = list(LANGUAGE_ATOM))
 
 /datum/preference_middleware/languages/proc/give_language(list/params, mob/user)
 	var/language_name = params["language_name"]

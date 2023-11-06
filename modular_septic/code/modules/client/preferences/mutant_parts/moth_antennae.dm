@@ -8,8 +8,7 @@
 	relevant_mutant_bodypart = "moth_antennae"
 	can_randomize = FALSE
 	should_generate_icons = TRUE
-/datum/preference/choiced/moth_antennae/is_accessible(datum/preferences/preferences)
-	return FALSE
+
 /datum/preference/choiced/moth_antennae/create_informed_default_value(datum/preferences/preferences)
 	. = ..()
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)

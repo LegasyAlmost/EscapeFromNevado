@@ -657,6 +657,7 @@ em {
   color: #c51e1e;
   font-weight: bold;
   text-shadow: 0 0 3px #ff4444;
+  animation: flashdanger 1000ms infinite;
 }
 
 .flashingbigdanger {
@@ -664,6 +665,7 @@ em {
   font-size: 140%;
   font-weight: bold;
   text-shadow: 0 0 6px #ff4444;
+  animation: flashdanger 1000ms infinite;
 }
 
 @keyframes flashdanger {

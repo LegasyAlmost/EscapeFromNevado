@@ -44,9 +44,6 @@
 	limbs_id = "mammal"
 	examine_icon_state = "werewolf"
 
-/datum/species/werewolf/check_roundstart_eligible()
-	return FALSE
-
 /datum/species/werewolf/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	var/main_color

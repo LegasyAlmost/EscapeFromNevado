@@ -39,7 +39,3 @@
 	limbs_icon = 'modular_septic/icons/mob/human/species/lizard/lizard_parts_greyscale.dmi'
 	limbs_id = "lizard"
 	examine_icon_state = "werelizard"
-
-
-/datum/species/lizard/check_roundstart_eligible()
-	return FALSE

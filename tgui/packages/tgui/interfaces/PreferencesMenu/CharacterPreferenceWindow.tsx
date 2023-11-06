@@ -4,24 +4,24 @@ import { Button, Stack } from "../../components";
 import { Window } from "../../layouts";
 import { PreferencesMenuData } from "./data";
 import { PageButton } from "./PageButton";
-import { AntagsPage } from "./AntagsPage";
-import { JobsPage } from "./JobsPage";
+//import { AntagsPage } from "./AntagsPage";
+//import { JobsPage } from "./JobsPage";
 import { MainPage } from "./MainPage";
 import { SpeciesPage } from "./SpeciesPage";
 import { QuirksPage } from "./QuirksPage";
-import { LanguagesPage } from "./LanguagesPage";
-import { MarkingsPage } from "./MarkingsPage";
+//import { LanguagesPage } from "./LanguagesPage";
+//import { MarkingsPage } from "./MarkingsPage";
 import { AugmentsPage } from "./AugmentsPage";
 import { BackgroundPage } from "./BackgroundPage";
 
 enum Page {
   Main,
-  Markings,
+  //Markings,
   Augments,
-  Languages,
+  //Languages,
   Background,
-  Jobs,
-  Antags,
+  //Jobs,
+  //Antags,
   Species,
   Quirks,
 }
@@ -57,12 +57,12 @@ export const CharacterPreferenceWindow = (props, context) => {
   let pageContents;
 
   switch (currentPage) {
-    case Page.Antags:
-      pageContents = <AntagsPage />;
-      break;
-    case Page.Jobs:
-      pageContents = <JobsPage />;
-      break;
+    //case Page.Antags:
+      //pageContents = <AntagsPage />;
+      //break;
+    //case Page.Jobs:
+      //pageContents = <JobsPage />;
+     // break;
     case Page.Main:
       pageContents = (<MainPage
         openSpecies={() => setCurrentPage(Page.Species)}
@@ -76,12 +76,12 @@ export const CharacterPreferenceWindow = (props, context) => {
     case Page.Quirks:
       pageContents = <QuirksPage />;
       break;
-    case Page.Languages:
-      pageContents = <LanguagesPage />;
-      break;
-    case Page.Markings:
-      pageContents = <MarkingsPage />;
-      break;
+    //case Page.Languages:
+      //pageContents = <LanguagesPage />;
+      //break;
+    //case Page.Markings:
+    //  pageContents = <MarkingsPage />;
+    //  break;
     case Page.Augments:
       pageContents = <AugmentsPage />;
       break;
@@ -113,7 +113,7 @@ export const CharacterPreferenceWindow = (props, context) => {
             />
           </Stack.Item>
 
-          {!data.content_unlocked && (
+          {/* {!data.content_unlocked && (
             <Stack.Item align="center">
               Buy BYOND premium for an extra 5 slots!
             </Stack.Item>
@@ -122,7 +122,7 @@ export const CharacterPreferenceWindow = (props, context) => {
             <Stack.Item align="center">
               Support Septic Shock on patreon for an extra 5 slots!
             </Stack.Item>
-          )}
+          )} */}
 
           <Stack.Divider />
 
@@ -139,7 +139,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                 </PageButton>
               </Stack.Item>
 
-              <Stack.Item grow>
+              {/* <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Markings}
@@ -147,7 +147,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                 >
                   Markings
                 </PageButton>
-              </Stack.Item>
+              </Stack.Item> */}
 
               <Stack.Item grow>
                 <PageButton
@@ -159,7 +159,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                 </PageButton>
               </Stack.Item>
 
-              <Stack.Item grow>
+              {/* <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Languages}
@@ -167,7 +167,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                 >
                   Languages
                 </PageButton>
-              </Stack.Item>
+              </Stack.Item> */}
 
               <Stack.Item grow>
                 <PageButton
@@ -179,7 +179,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                 </PageButton>
               </Stack.Item>
 
-              <Stack.Item grow>
+              {/* <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Jobs}
@@ -187,9 +187,9 @@ export const CharacterPreferenceWindow = (props, context) => {
                 >
                   Occupations
                 </PageButton>
-              </Stack.Item>
+              </Stack.Item> */}
 
-              <Stack.Item grow>
+              {/* <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Antags}
@@ -197,7 +197,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                 >
                   Antagonism
                 </PageButton>
-              </Stack.Item>
+              </Stack.Item>*/}
             </Stack>
           </Stack.Item>
 

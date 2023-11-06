@@ -1,4 +1,3 @@
-/*
 import { CheckboxInput, FeatureToggle } from "../base";
 
 export const filmgrainpref: FeatureToggle = {
@@ -7,4 +6,3 @@ export const filmgrainpref: FeatureToggle = {
   description: "Enable film grain, the optical effect that resembles tiny particles of dust on the screen.",
   component: CheckboxInput,
 };
-*/

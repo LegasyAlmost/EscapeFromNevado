@@ -671,6 +671,7 @@ h1.alert, h2.alert {
   color: #c51e1e;
   font-weight: bold;
   text-shadow: 0 0 3px #ff4444;
+  animation: flashdanger 1000ms infinite;
 }
 
 .flashingbigdanger {
@@ -678,6 +679,7 @@ h1.alert, h2.alert {
   font-size: 140%;
   font-weight: bold;
   text-shadow: 0 0 6px #ff4444;
+  animation: flashdanger 1000ms infinite;
 }
 
 @keyframes flashdanger {

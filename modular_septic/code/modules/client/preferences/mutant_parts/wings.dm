@@ -8,8 +8,7 @@
 	relevant_mutant_bodypart = "wings"
 	can_randomize = FALSE
 	should_generate_icons = TRUE
-/datum/preference/choiced/wings/is_accessible(datum/preferences/preferences)
-	return FALSE
+
 /datum/preference/choiced/wings/create_informed_default_value(datum/preferences/preferences)
 	. = ..()
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
@@ -37,7 +36,7 @@
 	data[SUPPLEMENTAL_FEATURE_KEY] = "wings_color"
 
 	return data
-
+/*
 // Wings color
 /datum/preference/tri_color/wings
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
@@ -65,3 +64,4 @@
 		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", \
 												MUTANT_INDEX_COLOR = list("FFFFFF", "FFFFFF", "FFFFFF"))
 	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR] = list(sanitize_hexcolor(value[1], 6), sanitize_hexcolor(value[2], 6), sanitize_hexcolor(value[3], 6))
+*/

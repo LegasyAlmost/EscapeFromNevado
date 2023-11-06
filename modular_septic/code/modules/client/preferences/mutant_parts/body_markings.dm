@@ -29,7 +29,7 @@
 		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", \
 											MUTANT_INDEX_COLOR = list("FFFFFF", "FFFFFF", "FFFFFF"))
 	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_NAME] = value
-
+/*
 // Lizard body markings color
 /datum/preference/tri_color/full_body_markings
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
@@ -57,3 +57,4 @@
 		target.dna.mutant_bodyparts[relevant_mutant_bodypart] = list(MUTANT_INDEX_NAME = "None", \
 												MUTANT_INDEX_COLOR = list("FFFFFF", "FFFFFF", "FFFFFF"))
 	target.dna.mutant_bodyparts[relevant_mutant_bodypart][MUTANT_INDEX_COLOR] = list(sanitize_hexcolor(value[1], 6), sanitize_hexcolor(value[2], 6), sanitize_hexcolor(value[3], 6))
+*/

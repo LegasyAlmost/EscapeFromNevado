@@ -8,8 +8,7 @@
 	relevant_mutant_bodypart = "moth_markings"
 	can_randomize = FALSE
 	should_generate_icons = TRUE
-/datum/preference/choiced/moth_markings/is_accessible(datum/preferences/preferences)
-	return FALSE
+
 /datum/preference/choiced/moth_markings/create_informed_default_value(datum/preferences/preferences)
 	. = ..()
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)

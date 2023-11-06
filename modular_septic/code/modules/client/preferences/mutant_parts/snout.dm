@@ -8,8 +8,7 @@
 	relevant_mutant_bodypart = "snout"
 	can_randomize = FALSE
 	should_generate_icons = TRUE
-/datum/preference/choiced/snout/is_accessible(datum/preferences/preferences)
-	return FALSE
+
 /datum/preference/choiced/snout/create_informed_default_value(datum/preferences/preferences)
 	. = ..()
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)

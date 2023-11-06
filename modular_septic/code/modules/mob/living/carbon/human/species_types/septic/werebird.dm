@@ -25,6 +25,7 @@
 		"tail" = "Hawk",
 		"wings" = "Feathery (alt 1)"
 	)
+	//barbed, knotted pp
 	// Parotin are feathered and can stand lower temperatures than humans
 	heatmod = 2
 	coldmod = 0.5
@@ -40,9 +41,6 @@
 	limbs_icon = 'modular_septic/icons/mob/human/species/mammal/mammal_parts_greyscale.dmi'
 	limbs_id = "mammal"
 	examine_icon_state = "werebird"
-
-/datum/species/werebird/check_roundstart_eligible()
-	return FALSE
 
 /datum/species/werebird/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST

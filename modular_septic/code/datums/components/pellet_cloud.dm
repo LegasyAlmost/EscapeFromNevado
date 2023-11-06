@@ -162,6 +162,7 @@
 				else if(actual_through_count)
 					wound_text += span_danger(" <i>A [proj_name] goes through!</i>")
 
+		/*
 		if(ismob(target))
 			if(num_hits > 1)
 				if(suppressed < SUPPRESSED_QUIET)
@@ -184,6 +185,7 @@
 			else
 				target.visible_message(span_danger("[target] is hit by [prefix_a_or_an(proj_name)] [proj_name][did_damage ? ", which doesn't leave a mark" : ""]!"), \
 								vision_distance = COMBAT_MESSAGE_RANGE)
+		*/
 		if(carbon_target)
 			SEND_SIGNAL(carbon_target, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 

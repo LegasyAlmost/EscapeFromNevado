@@ -195,7 +195,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/lighting_text = W.ignition_effect(src, user)
 	if(lighting_text)
 		light(lighting_text)
-		playsound(src, 'modular_septic/sound/effects/cig_light.ogg', 100, FALSE)
 
 /obj/item/clothing/mask/cigarette/afterattack(obj/item/reagent_containers/glass/glass, mob/user, proximity)
 	. = ..()
@@ -270,7 +269,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	STOP_PROCESSING(SSobj, src)
 	reagents.flags |= NO_REACT
 	lit = FALSE
-	playsound(src, 'modular_septic/sound/effects/cig_snuff.ogg', 100, FALSE)
 	if(ismob(loc))
 		var/mob/living/M = loc
 		to_chat(M, span_notice("Your [name] goes out."))
@@ -291,9 +289,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	reagents.expose(smoker, INGEST, min(to_smoke / reagents.total_volume, 1))
-	//var/obj/item/organ/lungs/lungs = smoker.getorganslot(ORGAN_SLOT_LUNGS)
-	//if(lungs && !(lungs.organ_flags & ORGAN_SYNTHETIC))
-	//	smoker.adjustOrganLoss(ORGAN_SLOT_LUNGS, lung_harm)
+	var/obj/item/organ/lungs/lungs = smoker.getorganslot(ORGAN_SLOT_LUNGS)
+	if(lungs && !(lungs.organ_flags & ORGAN_SYNTHETIC))
+		smoker.adjustOrganLoss(ORGAN_SLOT_LUNGS, lung_harm)
 	if(!reagents.trans_to(smoker, to_smoke, methods = INGEST, ignore_stomach = TRUE))
 		reagents.remove_any(to_smoke)
 
@@ -325,7 +323,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/attack_self(mob/user)
 	if(lit)
 		user.visible_message(span_notice("[user] calmly drops and treads on \the [src], putting it out instantly."))
-		playsound(src, 'modular_septic/sound/effects/cig_snuff.ogg', 100, FALSE)
 		new type_butt(user.loc)
 		new /obj/effect/decal/cleanable/ash(user.loc)
 		qdel(src)
@@ -337,13 +334,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(M.on_fire && !lit)
 		light(span_notice("[user] lights [src] with [M]'s burning body. What a cold-blooded badass."))
 		return
-	if(user == M)
-		user.visible_message("<span class='notice'>[user.name] takes a drag of their [name].</span>")
-		playsound(src, 'modular_septic/sound/effects/inhale.ogg', 100, FALSE)
-		handle_reagents()
-		new /obj/effect/cig_smoke(get_turf(src)) //Cool little cigarette smoke fwoosh when you take a drag.
-		user.changeNext_move(CLICK_CD_RANGE)
-		return 1
 	var/obj/item/clothing/mask/cigarette/cig = help_light_cig(M)
 	/* SEPTIC EDIT REMOVAL
 	if(!lit || !cig || user.combat_mode)

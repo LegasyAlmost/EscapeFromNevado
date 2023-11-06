@@ -301,8 +301,6 @@ Works together with spawning an observer, noted above.
 /*
 This is the proc mobs get to turn into a ghost. Forked from ghostize due to compatibility issues.
 */
-/*
-Fuck ghosts
 /mob/living/verb/ghost()
 	set category = "OOC"
 	set name = "Ghost"
@@ -318,7 +316,7 @@ Fuck ghosts
 		return FALSE//didn't want to ghost after-all
 	ghostize(FALSE) // FALSE parameter is so we can never re-enter our body. U ded.
 	return TRUE
-*/
+
 /mob/camera/verb/ghost()
 	set category = "OOC"
 	set name = "Ghost"
