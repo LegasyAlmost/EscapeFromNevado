@@ -186,9 +186,9 @@
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_location, hitx, hity)
 
-		var/organ_hit_text = ""
-		if(zone_hit)
-			organ_hit_text = " in \the [parse_zone(zone_hit)]"
+		//var/organ_hit_text = ""
+		//if(zone_hit)
+		//	organ_hit_text = " in \the [parse_zone(zone_hit)]"
 		if(suppressed == SUPPRESSED_VERY)
 			if(final_hitsound)
 				playsound(target, final_hitsound, 5, TRUE, -1)

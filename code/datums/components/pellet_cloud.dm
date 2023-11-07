@@ -303,11 +303,11 @@
 ///All of our pellets are accounted for, time to go target by target and tell them how many things they got hit by.
 /datum/component/pellet_cloud/proc/finalize()
 	var/obj/projectile/P = projectile_type
-	var/proj_name = initial(P.name)
+	//var/proj_name = initial(P.name)
 
 	for(var/atom/target in targets_hit)
-		var/num_hits = targets_hit[target]["hits"]
-		var/did_damage = targets_hit[target]["no damage"]
+		//var/num_hits = targets_hit[target]["hits"]
+		//var/did_damage = targets_hit[target]["no damage"]
 		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 		var/obj/item/bodypart/hit_part
 		if(isbodypart(target))

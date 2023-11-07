@@ -113,8 +113,8 @@
 	var/proj_name = initial(projectile.name)
 
 	for(var/atom/target in targets_hit)
-		var/num_hits = targets_hit[target]["hits"]
-		var/did_damage = targets_hit[target]["no damage"]
+		//var/num_hits = targets_hit[target]["hits"]
+		//var/did_damage = targets_hit[target]["no damage"]
 		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 		var/mob/living/carbon/carbon_target
 		if(iscarbon(target))
