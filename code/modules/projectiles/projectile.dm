@@ -271,7 +271,7 @@
 			new impact_effect_type(target_loca, hitx, hity)
 
 		//var/organ_hit_text = ""
-		var/limb_hit = hit_limb
+		//var/limb_hit = hit_limb
 		//if(limb_hit)
 		//	organ_hit_text = " in \the [parse_zone(limb_hit)]"
 		if(suppressed==SUPPRESSED_VERY)
