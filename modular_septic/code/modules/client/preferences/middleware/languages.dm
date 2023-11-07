@@ -161,6 +161,7 @@
 			target.language_holder.spoken_languages[language_type] = list(LANGUAGE_ATOM)
 	target.language_holder.understood_languages += list(/datum/language/common = list(LANGUAGE_MIND))
 	target.language_holder.spoken_languages += list(/datum/language/common = list(LANGUAGE_ATOM))
+	target.language_holder.selected_language = /datum/language/common //This doesn't get set sometimes. Not sure why.
 
 /datum/preference_middleware/languages/proc/give_language(list/params, mob/user)
 	var/language_name = params["language_name"]
