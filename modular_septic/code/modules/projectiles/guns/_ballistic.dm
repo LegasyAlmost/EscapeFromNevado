@@ -309,7 +309,7 @@
 			chamber_round(TRUE)
 			if(user)
 				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
-			sound_hint()
+			//sound_hint()
 			update_appearance()
 		//Break actions only need racking if they are well, single action revolvers
 		if(BOLT_TYPE_BREAK_ACTION)
@@ -319,7 +319,7 @@
 				chamber_round()
 			else if(user)
 				to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
-			sound_hint()
+			//sound_hint()
 			if(bolt_locked)
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 			else
@@ -330,7 +330,7 @@
 			if(user)
 				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
 			process_chamber(!chambered, FALSE)
-			sound_hint()
+			//sound_hint()
 			if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
 				bolt_locked = TRUE
 				playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
@@ -344,7 +344,7 @@
 									hand_index = null)
 	if(bolt_type == BOLT_TYPE_OPEN)
 		chambered = null
-	sound_hint()
+	//sound_hint()
 	if(magazine.ammo_count())
 		playsound(src, eject_sound, eject_sound_volume, eject_sound_vary)
 	else
@@ -391,7 +391,7 @@
 /obj/item/gun/ballistic/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	if(ismob(user) && dry_fire_message)
 		to_chat(user, dry_fire_message)
-	sound_hint()
+	//sound_hint()
 	if(dry_fire_sound)
 		playsound(src, dry_fire_sound, 30, TRUE)
 	update_appearance()
@@ -458,7 +458,7 @@
 ///Toggles between open cylinder and closed cylinder
 /obj/item/gun/ballistic/proc/toggle_cylinder_open(mob/user)
 	cylinder_open = !cylinder_open
-	sound_hint()
+	//sound_hint()
 	if(cylinder_open)
 		playsound(src, bolt_drop_sound, lock_back_sound_volume, lock_back_sound_vary)
 		chambered = null

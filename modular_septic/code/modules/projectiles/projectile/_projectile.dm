@@ -133,6 +133,8 @@
 	var/final_hitsound
 	var/final_hitsound_volume = vol_by_damage()
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
+		if(target_location)
+			target_location.visual_effect(src)
 		if(iswallturf(target_location) && ((target == target_location) || prob(50)) )
 			var/turf/closed/wall/wall = target_location
 			if(impact_effect_type)
@@ -140,7 +142,7 @@
 
 			wall.add_dent(WALL_DENT_SHOT, hitx, hity)
 
-			wall.sound_hint()
+			//wall.sound_hint()
 			final_hitsound = wall.get_projectile_hitsound(src)
 			if(final_hitsound)
 				playsound(wall, final_hitsound, final_hitsound_volume, TRUE, -1)
@@ -153,7 +155,7 @@
 
 			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
 
-			floor.sound_hint()
+			//floor.sound_hint()
 			final_hitsound = floor.get_projectile_hitsound(src)
 			if(final_hitsound)
 				playsound(floor, final_hitsound, final_hitsound_volume, TRUE, -1)
@@ -167,7 +169,7 @@
 	if(!isliving(target))
 		if(impact_effect_type)
 			new impact_effect_type(target_location, hitx, hity)
-		target.sound_hint()
+		//target.sound_hint()
 		if(final_hitsound)
 			playsound(target, final_hitsound, final_hitsound_volume, TRUE, -1)
 		return BULLET_ACT_HIT
@@ -193,12 +195,12 @@
 			if(final_hitsound)
 				playsound(target, final_hitsound, 5, TRUE, -1)
 		else if(suppressed)
-			sound_hint()
+			//sound_hint()
 			if(final_hitsound)
 				playsound(target, final_hitsound, 5, TRUE, -1)
 			//target_hit_text = span_userdanger("I'm hit by \the [src][organ_hit_text]!")
 		else
-			sound_hint()
+			//sound_hint()
 			if(final_hitsound)
 				playsound(target, final_hitsound, final_hitsound_volume, TRUE, -1)
 			//hit_text = span_danger("<b>[living_target]</b> is hit by \the [src][organ_hit_text]!")

@@ -18,7 +18,7 @@
 /atom/hitby(atom/movable/thrown_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	SEND_SIGNAL(src, COMSIG_ATOM_HITBY, thrown_atom, skipcatch, hitpush, blocked, throwingdatum)
 	if(density)
-		sound_hint()
+		//sound_hint()
 		addtimer(CALLBACK(src, .proc/hitby_react, thrown_atom, throwingdatum.speed), 2)
 
 /atom/hitby_react(atom/movable/thrown_atom, speed = 0)

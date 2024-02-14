@@ -685,6 +685,11 @@
 		var/matrix/matrix = new
 		matrix.Turn(Angle)
 		transform = matrix
+	var/x_component = sin(Angle) * 40
+	var/y_component = cos(Angle) * 40
+	var/obj/effect/abstract/particle_holder/gun_smoke = new(get_turf(src), /particles/firing_smoke)
+	gun_smoke.particles.velocity = list(x_component, y_component)
+	QDEL_IN(gun_smoke, 0.4 SECONDS)
 	trajectory_ignore_forcemove = TRUE
 	forceMove(starting)
 	trajectory_ignore_forcemove = FALSE

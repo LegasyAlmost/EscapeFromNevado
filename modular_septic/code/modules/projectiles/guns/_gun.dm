@@ -1,3 +1,92 @@
+#define DEBRIS_SPARKS "spark"
+#define DEBRIS_WOOD "wood"
+#define DEBRIS_ROCK "rock"
+#define DEBRIS_GLASS "glass"
+#define DEBRIS_LEAF "leaf"
+#define DEBRIS_SNOW "snow"
+
+/particles/firing_smoke
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "smoke5"
+	//icon_state = "smallsmoke"
+	//icon = 'icons/effects/effects.dmi'
+	width = 500
+	height = 500
+	count = 5
+	spawning = 15
+	lifespan = 0.5 SECONDS
+	fade = 2.4 SECONDS
+	grow = 0.12
+	drift = generator(GEN_CIRCLE, 8, 8)
+	scale = 0.1
+	spin = generator(GEN_NUM, -20, 20)
+	velocity = list(50, 0)
+	friction = generator(GEN_NUM, 0.3, 0.6)
+
+/particles/debris
+	icon = 'icons/effects/particles/generic_particles.dmi'
+	width = 500
+	height = 500
+	count = 10
+	spawning = 10
+	lifespan = 0.7 SECONDS
+	fade = 0.4 SECONDS
+	drift = generator(GEN_CIRCLE, 0, 7)
+	scale = 0.7
+	velocity = list(50, 0)
+	friction = generator(GEN_NUM, 0.1, 0.15)
+	spin = generator(GEN_NUM, -20, 20)
+
+/particles/impact_smoke
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "smoke"
+	width = 500
+	height = 500
+	count = 20
+	spawning = 20
+	lifespan = 0.7 SECONDS
+	fade = 8 SECONDS
+	grow = 0.1
+	scale = 0.2
+	spin = generator(GEN_NUM, -20, 20)
+	velocity = list(50, 0)
+	friction = generator(GEN_NUM, 0.1, 0.5)
+
+
+/atom/proc/visual_effect(var/obj/projectile/P)
+	var/debris = DEBRIS_SPARKS
+	var/debris_velocity = -15
+	var/debris_amount = 8
+	var/debris_scale = 0.7
+	var/x_component = sin(P.Angle) * debris_velocity
+	var/y_component = cos(P.Angle) * debris_velocity
+	var/x_component_smoke = sin(P.Angle) * -15
+	var/y_component_smoke = cos(P.Angle) * -15
+	var/obj/effect/abstract/particle_holder/debris_visuals
+	var/obj/effect/abstract/particle_holder/smoke_visuals
+	var/position_offset = rand(-6,6)
+	smoke_visuals = new(src, /particles/impact_smoke)
+	smoke_visuals.particles.position = list(position_offset, position_offset)
+	smoke_visuals.particles.velocity = list(x_component_smoke, y_component_smoke)
+	//smoke_visuals.plane = ABOVE_HUMAN_PLANE
+
+	debris_visuals = new(src, /particles/debris)
+	debris_visuals.particles.position = generator(GEN_CIRCLE, position_offset, position_offset)
+	debris_visuals.particles.velocity = list(x_component, y_component)
+	debris_visuals.layer = ABOVE_OBJ_LAYER + 0.02
+	//debris_visuals.plane = ABOVE_HUMAN_PLANE
+	debris_visuals.particles.icon_state = debris
+	debris_visuals.particles.count = debris_amount
+	debris_visuals.particles.spawning = debris_amount
+	debris_visuals.particles.scale = debris_scale
+	smoke_visuals.layer = ABOVE_OBJ_LAYER + 0.01
+	addtimer(CALLBACK(src, .proc/remove_ping, smoke_visuals, debris_visuals), 0.7 SECONDS)
+
+/atom/proc/remove_ping(obj/effect/abstract/particle_holder/smoke_visuals, obj/effect/abstract/particle_holder/debris_visuals)
+	QDEL_NULL(smoke_visuals)
+	if(debris_visuals)
+		QDEL_NULL(debris_visuals)
+
 /obj/item/gun
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
@@ -312,7 +401,7 @@
 		var/recoil_angle = SIMPLIFY_DEGREES(angle_to_target + 180)
 		recoil_camera(user, duration, recoil_angle, strength, easing)
 
-	sound_hint()
+	//sound_hint()
 
 	if(suppressed)
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)

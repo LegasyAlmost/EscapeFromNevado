@@ -6,6 +6,7 @@
 	pickup_sound = 'modular_septic/sound/armor/equip/backpack_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/backpack_drop.wav'
 	equip_sound = 'modular_septic/sound/armor/equip/backpack_wear.wav'
+	max_items = INFINITY
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()

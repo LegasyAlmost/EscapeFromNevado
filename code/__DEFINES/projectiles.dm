@@ -1,6 +1,16 @@
 
 GLOBAL_LIST_EMPTY_TYPED(proj_by_path_key, /obj/projectile) // A list of projectile objects, which are keyed by their path
 
+//generator types
+#define GEN_NUM "num"
+#define GEN_VECTOR "vector"
+#define GEN_BOX "box"
+#define GEN_COLOR "color"
+#define GEN_CIRCLE "circle"
+#define GEN_SPHERE "sphere"
+#define GEN_SQUARE "square"
+#define GEN_CUBE "cube"
+
 // check_pierce() return values
 /// Default behavior: hit and delete self
 #define PROJECTILE_PIERCE_NONE 0

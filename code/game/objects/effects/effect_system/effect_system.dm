@@ -79,3 +79,22 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	total_effects--
 	if(autocleanup && total_effects <= 0)
 		qdel(src)
+
+
+///objects can only have one particle on them at a time, so we use these abstract effects to hold and display the effects. You know, so multiple particle effects can exist at once.
+///also because some objects do not display particles due to how their visuals are built
+/obj/effect/abstract/particle_holder
+	anchored = TRUE
+	mouse_opacity = 0
+	appearance_flags = KEEP_APART|TILE_BOUND
+
+/obj/effect/abstract/particle_holder/Initialize(mapload, particle_path = null)
+	. = ..()
+	if(!loc)
+		//to_world("particle holder was created with no loc!")
+		return INITIALIZE_HINT_QDEL
+	particles = new particle_path
+
+/obj/effect/abstract/particle_holder/Destroy(force)
+	QDEL_NULL(particles)
+	return ..()

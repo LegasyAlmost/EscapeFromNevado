@@ -88,7 +88,7 @@
 
 /obj/item/after_throw(datum/callback/callback)
 	. = ..()
-	sound_hint()
+	//sound_hint()
 	undo_messy()
 	do_messy(duration = 2)
 

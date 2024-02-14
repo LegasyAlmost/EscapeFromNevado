@@ -179,29 +179,29 @@
 							COMBAT_MESSAGE_RANGE, \
 							user)
 			to_chat(user, span_userdanger("<b>[victim]</b> blocks my [attack_message] with my [weapon]!"))
-			user.sound_hint()
-			victim.sound_hint()
+			//user.sound_hint()
+			//victim.sound_hint()
 			return FALSE
 		if(victim.check_shields(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			victim.sound_hint()
+			//user.sound_hint()
+			//victim.sound_hint()
 			return FALSE
 		if(victim.check_parry(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			victim.sound_hint()
+			//user.sound_hint()
+			//victim.sound_hint()
 			return FALSE
 		if(victim.check_dodge(user, damage, "<b>[user]</b>'s [weapon.name]", "my [weapon.name]", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(victim, used_item = weapon, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			victim.sound_hint()
+			//user.sound_hint()
+			//victim.sound_hint()
 			return FALSE
 	//No bodypart? That means we missed - Theoretically, we should never miss attacking ourselves
 	if(!affecting)
@@ -265,8 +265,8 @@
 					subarmor_flags = subarmor_flags)
 		victim.damage_armor(damage+weapon.armor_damage_modifier, MELEE, weapon.damtype, sharpness, def_zone)
 		post_hit_effects(victim, user, affecting, weapon, damage, MELEE, weapon.damtype, sharpness, def_zone, intended_zone, modifiers)
-	user.sound_hint()
-	victim.sound_hint()
+	//user.sound_hint()
+	//victim.sound_hint()
 	victim.send_item_attack_message(weapon, user, hit_area, affecting)
 	SEND_SIGNAL(victim, COMSIG_CARBON_CLEAR_WOUND_MESSAGE)
 	if(!(weapon.item_flags & NOBLUDGEON))
@@ -371,8 +371,8 @@
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			target.visible_message(span_warning("<b>[user]</b>'s shove is blocked by [target]!"), \
 							span_userdanger("I block <b>[user]</b>'s shove!"), \
 							span_hear("I hear a swoosh!"), \
@@ -385,22 +385,22 @@
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			return FALSE
 		if(target.check_parry(user, 10, "<b>[user]</b>'s shove", "my shove", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
+			//user.sound_hint()
 			target.sound_hint()
 			return FALSE
 		if(target.check_dodge(user, 10, "<b>[user]</b>'s shove", "my shove", attacking_flags = BLOCK_FLAG_MELEE) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			return FALSE
 	if(attacker_style?.disarm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -529,8 +529,8 @@
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			target.visible_message(span_warning("<b>[target]</b> blocks <b>[user]</b>'s [attack_verb]!"), \
 							span_userdanger("I block <b>[user]</b>'s [attack_verb]!"), \
 							span_hear("I hear a swoosh!"), \
@@ -544,22 +544,22 @@
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			return FALSE
 		if(target.check_parry(user, attack_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			return FALSE
 		if(target.check_dodge(user, attack_damage, "<b>[user]</b>'s [attack_verb]", "my [attack_verb]", BLOCK_FLAG_UNARMED) & COMPONENT_HIT_REACTION_BLOCK)
 			user.do_attack_animation(target, no_effect = TRUE)
 			user.changeNext_move(attack_delay)
 			user.adjustFatigueLoss(attack_fatigue_cost)
-			user.sound_hint()
-			target.sound_hint()
+			//user.sound_hint()
+			//target.sound_hint()
 			return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -671,7 +671,7 @@
 			real_attack_sound = user.dna.species.kick_sound
 
 	playsound(target.loc, real_attack_sound, 60, TRUE, -1)
-	target.sound_hint()
+	//target.sound_hint()
 	if(attack_damage < 0)
 		if(user != target)
 			target.visible_message(span_danger("<b>[user]</b> tries to [attack_verb] <b>[target]</b>'s [hit_area], with no effect!"), \
