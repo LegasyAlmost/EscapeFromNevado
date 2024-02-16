@@ -183,6 +183,11 @@
 		return JOB_UNAVAILABLE_GENERIC
 	return JOB_AVAILABLE
 
+
+/mob/dead/new_player/proc/close_spawn_windows()
+	src << browse(null, "window=latechoices") //closes late choices window
+	src << browse(null, "window=playersetup")
+
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
 	var/error = IsJobUnavailable(rank)
 	if(error != JOB_AVAILABLE)
@@ -212,6 +217,7 @@
 	var/mob/living/character = create_character(destination)
 	if(!character)
 		CRASH("Failed to create a character for latejoin.")
+	close_spawn_windows()
 	transfer_character()
 
 	SSjob.EquipRank(character, job, character.client)
@@ -271,6 +277,7 @@
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CREWMEMBER_JOINED, character, rank)
+
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.
