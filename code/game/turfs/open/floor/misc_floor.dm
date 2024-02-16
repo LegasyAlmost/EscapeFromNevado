@@ -170,9 +170,26 @@
 	icon_state = "black"
 
 /turf/open/floor/black/abyss
-	name = "black"
+	name = "endless abyss"
 	icon = 'modular_septic/icons/turf/floors.dmi'
 	icon_state = "abyss"
+	desc = "Best not to see if it truly is endless."
+	density = TRUE //This will prevent hostile mobs from pathing into chasms, while the canpass override will still let it function like an open turf
+	bullet_bounce_sound = null //abandon all hope ye who enter
+
+/turf/open/floor/black/abyss/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/chasm, SSmapping.get_turf_below(src))
+
+/turf/open/floor/black/abyss/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	return TRUE
+
+/turf/open/floor/black/abyss/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
+	return
+
+/turf/open/floor/black/abyss/MakeDry()
+	return
 
 /turf/open/floor/plastic
 	name = "plastic floor"

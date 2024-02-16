@@ -6,13 +6,15 @@
 	pickup_sound = 'modular_septic/sound/armor/equip/backpack_pickup.wav'
 	drop_sound = 'modular_septic/sound/armor/equip/backpack_drop.wav'
 	equip_sound = 'modular_septic/sound/armor/equip/backpack_wear.wav'
-	max_items = INFINITY
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		STR.rustle_sound = 'modular_septic/sound/armor/equip/backpack_use.wav'
+		STR.max_items = INFINITY
+		STR.screen_max_columns = 6
+		STR.screen_max_rows = 6
 
 /obj/item/storage/backpack/satchel
 	slowdown = 0
@@ -24,6 +26,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
+		STR.screen_max_columns = 4
+		STR.screen_max_rows = 4
 		STR.max_combined_w_class = 12
 
 /obj/item/storage/backpack/duffelbag
@@ -35,7 +39,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 32
-
+	STR.screen_max_columns = 8
+	STR.screen_max_rows = 8
 /obj/item/storage/backpack/satchel/flat/Initialize(mapload)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)

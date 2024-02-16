@@ -5,9 +5,9 @@
 	JUST DO. \
 	WHAT COMES NATURAL."
 	icon = 'modular_septic/icons/obj/clothing/glasses.dmi'
-	icon_state = "glownigger"
+	icon_state = "glowing"
 	worn_icon = 'modular_septic/icons/mob/clothing/eyes.dmi'
-	worn_icon_state = "glownigger"
+	worn_icon_state = "glowing"
 	glass_colour_type = /datum/client_colour/glass_colour/red
 
 /obj/item/clothing/glasses/sunglasses/slaughter/equipped(mob/living/carbon/human/user, slot)

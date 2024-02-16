@@ -192,10 +192,10 @@
 		if(!stop_messages)
 			to_chat(user, span_warning("[host] cannot hold [storing]!"))
 		return FALSE
-	if((storing.w_class > max_w_class) && !is_type_in_typecache(storing, exception_hold))
-		if(!stop_messages)
-			to_chat(user, span_warning("[storing] is too big for [host]!"))
-		return FALSE
+	//if((storing.w_class > max_w_class) && !is_type_in_typecache(storing, exception_hold))
+	//	if(!stop_messages)
+	//		to_chat(user, span_warning("[storing] is too big for [host]!"))
+	//	return FALSE
 	var/atom/recursive_loc = real_location?.loc
 	var/depth = 0
 	while(ismovable(recursive_loc))
