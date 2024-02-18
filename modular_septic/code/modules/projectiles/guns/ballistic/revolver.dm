@@ -59,10 +59,8 @@
 		boolets += magazine.ammo_count(countempties)
 	return boolets
 
-/obj/item/gun/ballistic/revolver/remis
-
 // CATTLE REVOLVER
-/obj/item/gun/ballistic/revolver/remis/gado
+/obj/item/gun/ballistic/revolver/gado
 	name = "\improper Revolver de Gado"
 	desc = "An efficient revolver with multiple new systems in-place, if the hammer wasn't enough, there's now a safety exclusively for people who put the gun in their holster way too fast and shoot their own damn leg. \
 			It has a unique system for the hammer and cylinder. It's used for slaughtering cattle."
@@ -94,7 +92,7 @@
 	carry_weight = 2 KILOGRAMS
 
 // NAMBU REVOLVER
-/obj/item/gun/ballistic/revolver/remis/nova
+/obj/item/gun/ballistic/revolver/nova
 	name = "\improper Nova Seguranca M62 revolver"
 	desc = "A stained, antique revolver with an unknown insignia on the side."
 	icon_state = "newnambu"
@@ -118,11 +116,11 @@
 	initial_caliber = CALIBER_38
 	carry_weight = 1.5 KILOGRAMS
 
-/obj/item/gun/ballistic/revolver/remis/nova/pluspee
+/obj/item/gun/ballistic/revolver/nova/pluspee
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/nova/pluspee
 
 // Poppy
-/obj/item/gun/ballistic/revolver/remis/poppy
+/obj/item/gun/ballistic/revolver/poppy
 	name = "\improper .500 Poppy Revolver"
 	desc = "A revolver used in a notorius game of random deathmatch."
 	icon_state = "500"
@@ -148,6 +146,27 @@
 		"strength" = 0.8,
 		"duration" = 3,
 	)
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
+	carry_weight = 3 KILOGRAMS
+	tetris_width = 64
+	tetris_height = 64
+
+
+// CHIAPPA RHINO
+/obj/item/gun/ballistic/revolver/rhino
+	name = "\improper Chappa Rhyno"
+	desc = "A large, powerful .357 revolver with a very blocky design."
+	icon_state = "rhino"
+	semi_auto = FALSE
+	base_icon_state = "rhino"
+	lock_back_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_in.wav'
+	bolt_drop_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_out.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy_hammer.wav'
+	fire_sound = 'modular_septic/sound/weapons/guns/revolver/bigboy.wav'
+	gunshot_animation_information = list("pixel_x" = 13, \
+										"pixel_y" = 3)
+	recoil_animation_information = list("recoil_angle_upper" = -25,
+										"recoil_angle_lower" = -50)
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
 	carry_weight = 3 KILOGRAMS
 	tetris_width = 64

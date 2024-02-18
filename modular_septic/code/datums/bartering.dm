@@ -57,7 +57,7 @@
         /obj/item/toothbrush = 1
     )
 
-/datum/bartering_recipe/niggergun
+/datum/bartering_recipe/ithaca
     outputs = list(
         /obj/item/gun/ballistic/shotgun/ithaca = 1,
 		/obj/item/storage/box/c12buckshot = 1

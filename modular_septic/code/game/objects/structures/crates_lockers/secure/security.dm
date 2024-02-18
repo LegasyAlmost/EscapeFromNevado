@@ -14,7 +14,7 @@
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/shield/riot/tele(src)
 	new /obj/item/storage/belt/security/full(src)
-	new /obj/item/gun/ballistic/revolver/remis/nova/pluspee(src)
+	new /obj/item/gun/ballistic/revolver/nova/pluspee(src)
 	new /obj/item/ammo_box/magazine/ammo_stack/c38/pluspee/loaded(src)
 	new /obj/item/pinpointer/nuke(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)

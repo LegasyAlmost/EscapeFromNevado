@@ -144,7 +144,7 @@
 /datum/uplink_item/dangerous/revolver
 	name = "Nova Seguranca M62 Revolver"
 	desc = "A criminal revolver without any serial number that fires .38 suspicious rounds. Can also be loaded with more powerful +P rounds"
-	item = /obj/item/gun/ballistic/revolver/remis/nova
+	item = /obj/item/gun/ballistic/revolver/nova
 	cost = 6
 	purchasable_from = ALL
 

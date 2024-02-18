@@ -21,7 +21,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/reinforced,
-/obj/item/gun/ballistic/revolver/remis/nova,
+/obj/item/gun/ballistic/revolver/nova,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
 "ak" = (
@@ -1678,7 +1678,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/structure/sign/poster/contraband/niqqer{
+/obj/structure/sign/poster/contraband/annoying{
 	pixel_y = 32
 	},
 /turf/open/floor/iron/dark,
@@ -6046,7 +6046,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/item/ammo_casing,
 /obj/effect/mob_spawn/human/corpse,
-/obj/item/gun/ballistic/revolver/remis,
+/obj/item/gun/ballistic/revolver,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkclub)
 "PZ" = (

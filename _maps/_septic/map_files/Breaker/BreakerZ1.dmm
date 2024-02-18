@@ -475,7 +475,7 @@
 /area/maintenance/liminal/intro)
 "Po" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/ballistic/revolver/remis/poppy,
+/obj/item/gun/ballistic/revolver/poppy,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
 "Qg" = (

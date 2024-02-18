@@ -1,6 +1,6 @@
 /datum/objective_item/steal/caplaser
 	name = "the mayor's revolver."
-	targetitem = /obj/item/gun/ballistic/revolver/remis/gado
+	targetitem = /obj/item/gun/ballistic/revolver/gado
 	excludefromjob = list("Mayor")
 
 /datum/objective_item/steal/hoslaser

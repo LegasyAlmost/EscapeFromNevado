@@ -1104,7 +1104,7 @@
 "PQ" = (/obj/structure/table/wood,/obj/item/paper_bin,/obj/item/pen,/obj/item/key/dorm{id_tag = "Dorm 6-2"},/turf/open/floor/iron/dark,/area/commons/dorms/lower)
 "PR" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
 "PS" = (/obj/structure/cable,/obj/structure/cable,/turf/open/floor/iron/dark,/area/construction/mining/aux_base)
-"PT" = (/obj/structure/sign/poster/contraband/niqqer{pixel_y = 32},/obj/structure/toilet{name = "throne"; pixel_y = 5},/obj/item/cane{desc = "Septer for the king of beggers."; force = 10; name = "septic cane"; pixel_x = 6; pixel_y = -10},/obj/effect/decal/cleanable/dirt,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
+"PT" = (/obj/structure/sign/poster/contraband/annoying{pixel_y = 32},/obj/structure/toilet{name = "throne"; pixel_y = 5},/obj/item/cane{desc = "Septer for the king of beggers."; force = 10; name = "septic cane"; pixel_x = 6; pixel_y = -10},/obj/effect/decal/cleanable/dirt,/turf/open/floor/iron/freezer,/area/maintenance/liminal/red)
 "PU" = (/obj/effect/turf_decal/trimline/purple/filled/line{dir = 4},/obj/structure/disposalpipe/segment{dir = 10},/turf/open/floor/iron/dark,/area/maintenance/liminal/purple)
 "PW" = (/turf/open/floor/iron,/area/maintenance/liminal/red)
 "Qd" = (/obj/structure/chair/sofa/bench/right{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)

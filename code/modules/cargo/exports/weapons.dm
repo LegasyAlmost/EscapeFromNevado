@@ -66,12 +66,12 @@
 /datum/export/weapon/revolver/newambu
 	cost = 21 DOLLARS
 	unit_name = ".38 Nova Seguranca M62 Revolver"
-	export_types = list(/obj/item/gun/ballistic/revolver/remis/nova)
+	export_types = list(/obj/item/gun/ballistic/revolver/nova)
 
 /datum/export/weapon/revolver/poppy
 	cost = 55 DOLLARS
 	unit_name = ".500 Poppy Revolver"
-	export_types = list(/obj/item/gun/ballistic/revolver/remis/poppy)
+	export_types = list(/obj/item/gun/ballistic/revolver/poppy)
 
 /datum/export/weapon/solitario
 	cost = 65 DOLLARS

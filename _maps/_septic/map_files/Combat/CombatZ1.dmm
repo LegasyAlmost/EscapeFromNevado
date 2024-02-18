@@ -735,7 +735,7 @@
 /area/maintenance/liminal/denominator)
 "HJ" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/ballistic/revolver/remis/poppy,
+/obj/item/gun/ballistic/revolver/poppy,
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
 "HW" = (
@@ -755,7 +755,7 @@
 /area/maintenance/liminal/denominator/barracks)
 "Ih" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/revolver/remis/nova/pluspee,
+/obj/item/gun/ballistic/revolver/nova/pluspee,
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator)
 "Ix" = (

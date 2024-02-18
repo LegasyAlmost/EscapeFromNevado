@@ -10,7 +10,7 @@
 	icon_state = "brain-x-d"
 	var/obj/effect/proc_holder/spell/targeted/shadowwalk/shadowwalk
 
-/obj/item/organ/brain/nightmare/Insert(mob/living/carbon/M, special = FALSE)
+/obj/item/organ/brain/nightmare/Insert(mob/living/carbon/M, special = FALSE, no_id_transfer = FALSE)
 	. = ..()
 	if(M.dna.species.id != SPECIES_NIGHTMARE)
 		M.set_species(/datum/species/shadow/nightmare)
@@ -19,7 +19,7 @@
 	M.AddSpell(SW)
 	shadowwalk = SW
 
-/obj/item/organ/brain/nightmare/Remove(mob/living/carbon/M, special = FALSE)
+/obj/item/organ/brain/nightmare/Remove(mob/living/carbon/M, special = FALSE, no_id_transfer = FALSE)
 	if(shadowwalk)
 		M.RemoveSpell(shadowwalk)
 	return ..()

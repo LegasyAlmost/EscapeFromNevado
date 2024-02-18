@@ -39,7 +39,7 @@
 	var/list/stack_type_to_name = list()
 	var/list/medical_stack_type_to_name = list()
 	var/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/captagon
-	var/obj/item/gun/ballistic/revolver/remis/nova/pluspee/nova = /obj/item/gun/ballistic/revolver/remis/nova
+	var/obj/item/gun/ballistic/revolver/nova/pluspee/nova = /obj/item/gun/ballistic/revolver/nova
 
 /obj/machinery/resupply_puta/Initialize(mapload)
 	. = ..()
@@ -226,8 +226,8 @@
 		playsound(src, 'modular_septic/sound/efn/resupply/failure.ogg', 65, FALSE)
 		return
 	if(!do_after(user, 0.2 SECONDS, target = src))
-		var/retarded = pick("Retarded.", "Fucking stupid.", "Fucked up.", "I'm a fucking lawyer.")
-		to_chat(user, span_bolddanger("[retarded]"))
+		var/dumbass = pick("Fucking stupid.", "Fucked up.")
+		to_chat(user, span_bolddanger("[dumbass]"))
 		return
 	if(captagon)
 		user.transferItemToLoc(user, captagon)

@@ -1,6 +1,6 @@
 /datum/component/fraggot
 	/// Annoying fullscreen overlay
-	var/atom/movable/screen/fullscreen/niqqer/niqqerlay
+	var/atom/movable/screen/fullscreen/annoying/annoyinglay
 
 /datum/component/fraggot/Initialize()
 	if(!isliving(parent))
@@ -16,7 +16,7 @@
 	RegisterSignal(our_fraggot, COMSIG_PARENT_PREQDELETED, .proc/fraggot_deleted)
 	ADD_TRAIT(our_fraggot, TRAIT_FRAGGOT, "fraggot")
 	START_PROCESSING(SSfraggots, src)
-	niqqerlay = our_fraggot.overlay_fullscreen("niqqer", /atom/movable/screen/fullscreen/niqqer)
+	annoyinglay = our_fraggot.overlay_fullscreen("annoying", /atom/movable/screen/fullscreen/annoying)
 
 /datum/component/fraggot/UnregisterFromParent()
 	var/mob/living/our_fraggot = parent
@@ -27,8 +27,8 @@
 	REMOVE_TRAIT(our_fraggot, TRAIT_FRAGGOT, "fraggot")
 	for(var/mob/living/carbon/human/human in (GLOB.mob_living_list - our_fraggot))
 		SEND_SIGNAL(human, COMSIG_CLEAR_MOOD_EVENT, "[our_fraggot.real_name]")
-	our_fraggot.clear_fullscreen("niqqer")
-	niqqerlay = null
+	our_fraggot.clear_fullscreen("annoying")
+	annoyinglay = null
 
 /datum/component/fraggot/proc/fraggot_died(mob/living/our_fraggot)
 	if(!QDELETED(our_fraggot))
@@ -63,10 +63,6 @@
 		to_chat(our_fraggot, span_horny(span_big(message)))
 		var/static/list/fraggot_sounds = list(
 			'modular_septic/sound/memeshit/pigdeath.ogg',
-			'modular_septic/sound/memeshit/naggers.ogg',
-			'modular_septic/sound/memeshit/nigger.ogg',
-			'modular_septic/sound/memeshit/niggers.ogg',
-			'modular_septic/sound/memeshit/nigger_alarm.ogg',
 			'modular_septic/sound/memeshit/augh.ogg',
 			'modular_septic/sound/memeshit/loudnigra.ogg',
 			'modular_septic/sound/memeshit/socialcreditsdeducted.ogg',

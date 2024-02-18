@@ -47,7 +47,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 0.8,
 		/obj/item/gun/energy/remis/bolt_acr = 0.4,
 		/obj/item/gun/energy/remis/siren = 0.5,
-		/obj/item/gun/ballistic/revolver/remis/poppy = 1,
+		/obj/item/gun/ballistic/revolver/poppy = 1,
 	)
 
 /obj/effect/spawner/random/lootshoot/clothing
