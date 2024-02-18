@@ -5,7 +5,7 @@
 ///BALLSITICS///
 /datum/bartering_recipe/ppk
     outputs = list(
-        /obj/item/gun/ballistic/automatic/pistol/remis/ppk = 1
+        /obj/item/gun/ballistic/automatic/pistol/ppk = 1
     )
     inputs = list(
         /obj/item/stack/cable_coil = 1,
@@ -27,7 +27,7 @@
 		/obj/item/ammo_box/magazine/thump45 = 2
     )
     inputs = list(
-        /obj/item/gun/ballistic/automatic/pistol/remis/ppk = 2
+        /obj/item/gun/ballistic/automatic/pistol/ppk = 2
     )
 
 /datum/bartering_recipe/winter
@@ -102,7 +102,7 @@
 
 /datum/bartering_recipe/combatmaster
     outputs = list(
-        /obj/item/gun/ballistic/automatic/pistol/remis/combatmaster = 1,
+        /obj/item/gun/ballistic/automatic/pistol/combatmaster = 1,
 		/obj/item/ammo_box/magazine/combatmaster9mm = 2
     )
     inputs = list(
@@ -120,7 +120,7 @@
 
 /datum/bartering_recipe/boltacr
     outputs = list(
-        /obj/item/gun/energy/remis/bolt_acr = 1
+        /obj/item/gun/energy/bolt_acr = 1
     )
     inputs = list(
         /obj/item/deviouslick/sounding = 1
@@ -128,7 +128,7 @@
 
 /datum/bartering_recipe/nasr
     outputs = list(
-        /obj/item/gun/energy/remis/nasr = 1
+        /obj/item/gun/energy/nasr = 1
     )
     inputs = list(
         /obj/item/organ/heart = 2
@@ -145,7 +145,7 @@
 
 /datum/bartering_recipe/aniquilador
     outputs = list(
-        /obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 1,
+        /obj/item/gun/ballistic/automatic/pistol/aniquilador = 1,
 		/obj/item/ammo_box/magazine/aniquilador = 2
     )
     inputs = list(

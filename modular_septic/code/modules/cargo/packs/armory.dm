@@ -66,7 +66,7 @@
 	desc = "A popular brand of 9mm handgun for self-defense and law enforcement."
 	cost = 60 DOLLARS
 	contains = list(
-		/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
+		/obj/item/gun/ballistic/automatic/pistol/glock17,
 	)
 	crate_name = "9mm gosma-17"
 
@@ -75,7 +75,7 @@
 	desc = "A professional, target-shooting handgun with a comfortable and ergonomic grip, comes with and is compatible with 20-round magazines of the same name."
 	cost = 75 DOLLARS
 	contains = list(
-		/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster
+		/obj/item/gun/ballistic/automatic/pistol/combatmaster
 	)
 	crate_name = ".9mm frag master 2511"
 
@@ -130,7 +130,7 @@
 	desc = "A .22lr handgun, compact, and affordable."
 	cost = 26 DOLLARS
 	contains = list(
-		/obj/item/gun/ballistic/automatic/pistol/remis/ppk
+		/obj/item/gun/ballistic/automatic/pistol/ppk
 	)
 	crate_name = ".22lr Walter"
 

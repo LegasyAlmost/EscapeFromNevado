@@ -17,7 +17,7 @@
 "Kk" = (/obj/structure/lattice/catwalk,/turf/open/floor/plating,/area/maintenance/pitofdespair)
 "KU" = (/turf/open/openspace,/area/maintenance/pitofdespair)
 "Lc" = (/obj/effect/spawner/random/trash/mopbucket,/obj/item/mop,/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/pitofdespair)
-"Lr" = (/obj/structure/railing{dir = 1},/obj/structure/railing{dir = 8},/obj/item/gun/ballistic/automatic/pistol/remis/glock17,/turf/open/floor/iron/dark/corner,/area/maintenance/pitofdespair)
+"Lr" = (/obj/structure/railing{dir = 1},/obj/structure/railing{dir = 8},/obj/item/gun/ballistic/automatic/pistol/glock17,/turf/open/floor/iron/dark/corner,/area/maintenance/pitofdespair)
 "Mx" = (/obj/structure/railing{dir = 8},/obj/structure/railing,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/pitofdespair)
 "Ng" = (/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/pitofdespair)
 "NT" = (/turf/open/floor/iron/dark/corner{dir = 1},/area/maintenance/pitofdespair)

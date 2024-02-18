@@ -44,9 +44,9 @@
 		/obj/item/gun/ballistic/shotgun/abyss = 0.5,
 		//Rare
 		/obj/item/gun/ballistic/shotgun/bolas = 1,
-		/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador = 0.8,
-		/obj/item/gun/energy/remis/bolt_acr = 0.4,
-		/obj/item/gun/energy/remis/siren = 0.5,
+		/obj/item/gun/ballistic/automatic/pistol/aniquilador = 0.8,
+		/obj/item/gun/energy/bolt_acr = 0.4,
+		/obj/item/gun/energy/siren = 0.5,
 		/obj/item/gun/ballistic/revolver/poppy = 1,
 	)
 

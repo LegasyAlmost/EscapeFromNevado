@@ -744,7 +744,7 @@
 /turf/open/chasm,
 /area/maintenance/liminal/deep)
 "Ve" = (
-/obj/item/gun/ballistic/automatic/pistol/remis/john,
+/obj/item/gun/ballistic/automatic/pistol/john,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
 "Wt" = (

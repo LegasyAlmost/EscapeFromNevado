@@ -14,10 +14,6 @@
 	var/obj/item/card/id/inserted_id
 	/// Data disk currently inserted, for naughty purposes
 	var/obj/item/computer_hardware/hard_drive/portable/inserted_data
-	/**
-	 * Why Remis?
-	 * Tough love
-	 */
 	var/withdraw_timer
 	/// Cooldown for inserting cash
 	var/cash_cooldown_duration = 1.8 SECONDS

@@ -51,12 +51,12 @@
 /datum/export/weapon/glock
 	cost = 25 DOLLARS
 	unit_name = "Gosma-17"
-	export_types = list(/obj/item/gun/ballistic/automatic/pistol/remis/glock17)
+	export_types = list(/obj/item/gun/ballistic/automatic/pistol/glock17)
 
 /datum/export/weapon/combatmaster
 	cost = 35 DOLLARS
 	unit_name = "Tactical Frag Master"
-	export_types = list(/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster)
+	export_types = list(/obj/item/gun/ballistic/automatic/pistol/combatmaster)
 
 /datum/export/weapon/revolver
 	cost = 42 DOLLARS
@@ -81,7 +81,7 @@
 /datum/export/weapon/walter
 	cost = 9 DOLLARS
 	unit_name = "Bombeiro 22lr Handgun"
-	export_types = list(/obj/item/gun/ballistic/automatic/pistol/remis/ppk)
+	export_types = list(/obj/item/gun/ballistic/automatic/pistol/ppk)
 
 /datum/export/weapon/m1911
 	cost = 15 DOLLARS

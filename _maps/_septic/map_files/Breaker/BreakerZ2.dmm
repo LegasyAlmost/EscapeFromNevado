@@ -2560,7 +2560,7 @@
 "rn" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/closet/grief,
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador,
+/obj/item/gun/ballistic/automatic/pistol/aniquilador,
 /obj/item/ammo_box/magazine/aniquilador,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
@@ -6005,7 +6005,7 @@
 /area/maintenance/liminal/darkclub)
 "PO" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster,
+/obj/item/gun/ballistic/automatic/pistol/combatmaster,
 /obj/item/ammo_box/magazine/combatmaster9mm,
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
@@ -6422,7 +6422,7 @@
 	},
 /area/maintenance/liminal/darkgreen)
 "Tc" = (
-/obj/item/gun/ballistic/automatic/pistol/remis/ppk,
+/obj/item/gun/ballistic/automatic/pistol/ppk,
 /obj/item/ammo_box/magazine/ppk22lr,
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
@@ -7155,7 +7155,7 @@
 /turf/open/floor/plating,
 /area/maintenance/liminal/deep)
 "XI" = (
-/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
+/obj/item/gun/ballistic/automatic/pistol/glock17,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "XL" = (

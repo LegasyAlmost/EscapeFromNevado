@@ -21,7 +21,6 @@
 	tetris_width = 128
 	tetris_height = 64
 
-// Winter Genocide Nigga Killer-49
 /obj/item/gun/ballistic/automatic/remis/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
 	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 5.56. Used by Ordin- Ordinat... ORDINATORS KILL THIS BASTARD!"

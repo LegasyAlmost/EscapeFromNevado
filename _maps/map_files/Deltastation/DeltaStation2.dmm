@@ -10239,7 +10239,7 @@
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/north,
-/obj/item/gun/ballistic/automatic/pistol/remis/glock17,
+/obj/item/gun/ballistic/automatic/pistol/glock17,
 /obj/item/ammo_box/magazine/glock9mm,
 /obj/item/ammo_box/magazine/glock9mm{
 	pixel_x = 6

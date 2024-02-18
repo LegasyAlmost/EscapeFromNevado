@@ -8,10 +8,6 @@
 	var/cash_cooldown_duration = 1.5 SECONDS
 	/// Cargo's greedy
 	var/coin_cooldown_duration = 0.25 SECONDS
-	/**
-	 * Why Remis?
-	 * Tough love
-	 */
 	var/withdraw_timer
 
 /obj/machinery/computer/cargo/attackby(obj/item/weapon, mob/user, params)

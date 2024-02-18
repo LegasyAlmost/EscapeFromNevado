@@ -1,4 +1,4 @@
-/obj/item/gun/energy/remis/nasr
+/obj/item/gun/energy/nasr
 	name = "Nasr"
 	desc = "A handheld, industrial device meant to melt glue at low-voltages. It has been powered wirelessly by the hatred and blatent racism of a certain egyption indevidual with terroristic intentions."
 	icon = 'modular_septic/icons/obj/items/guns/energy.dmi'
@@ -48,7 +48,7 @@
 	tetris_width = 64
 	tetris_height = 64
 
-/obj/item/gun/energy/remis/nasr/process(delta_time)
+/obj/item/gun/energy/nasr/process(delta_time)
 	if(selfcharge && cell && cell.percent() < 100)
 		charge_timer += delta_time
 		if(charge_timer < charge_delay)

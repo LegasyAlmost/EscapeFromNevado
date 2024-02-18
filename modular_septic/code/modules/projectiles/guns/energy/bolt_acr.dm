@@ -1,6 +1,4 @@
-/obj/item/gun/energy/remis
-
-/obj/item/gun/energy/remis/bolt_acr
+/obj/item/gun/energy/bolt_acr
 	name = "\improper nuclear fission reactor"
 	desc = "What the fuck is this shit?"
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
@@ -47,7 +45,7 @@
 	tetris_width = 128
 	tetris_height = 96
 
-/obj/item/gun/energy/remis/bolt_acr/gunshot_animation(mob/user, burst_fire)
+/obj/item/gun/energy/bolt_acr/gunshot_animation(mob/user, burst_fire)
 	flick("boltacr_firing", src)
 	return ..()
 

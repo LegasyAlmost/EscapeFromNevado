@@ -82,8 +82,6 @@
 	custom_price = 4500
 	full_auto = TRUE
 
-/obj/item/gun/ballistic/automatic/pistol/remis
-
 // M1911
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	name = "\improper M1911"
@@ -177,7 +175,7 @@
 		playsound(user, corrupted_shot_sound, 70, FALSE)
 
 // STI 2011 COMBAT MASTER
-/obj/item/gun/ballistic/automatic/pistol/remis/combatmaster
+/obj/item/gun/ballistic/automatic/pistol/combatmaster
 	name = "\improper Frag Master 2511"
 	desc = "An expensive, reliable handgun with a large magazine capacity. \
 			Very similar to the Cold 1911, but chambered in 9mm and made with modern materials such as a polymer handle and titanium frame."
@@ -203,7 +201,7 @@
 	custom_price = 4500
 
 // GLOCK-17
-/obj/item/gun/ballistic/automatic/pistol/remis/glock17
+/obj/item/gun/ballistic/automatic/pistol/glock17
 	name = "\improper Gosma-17 9mm pistol"
 	desc = "A chunky pistol often accompanied with the screams of thugs."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
@@ -231,7 +229,7 @@
 	suppressor_x_offset = 10
 
 // WALTHER PPK
-/obj/item/gun/ballistic/automatic/pistol/remis/ppk
+/obj/item/gun/ballistic/automatic/pistol/ppk
 	name = "\improper Bombeiro 22lr pistol"
 	desc = "The Walter Bomberio pistol is a reliable, easily concealable 22lr pistol. \
 			Doesn't pack too much of a punch, but was famously used by a british secret agent."
@@ -265,7 +263,7 @@
 	custom_price = 900
 
 // "DEAGLE"
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
+/obj/item/gun/ballistic/automatic/pistol/aniquilador
 	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
 	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE, Living Exterminator rounds. \
 		Feeling the gun in your hand, he never stops nervously shaking and vibrating until you aim down the sights at a living being."
@@ -296,15 +294,15 @@
 	carry_weight = 2 KILOGRAMS
 	custom_price = 5500
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Initialize(mapload)
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Destroy()
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/Destroy()
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
 	return ..()
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
 	var/voice_line = "FUCK!"
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
@@ -315,14 +313,14 @@
 		say(voice_line)
 	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
 	for(var/i in 1 to loops)
 		animate(src, pixel_x = pixel_x + intensity, time = time_in)
 		sleep(time_in)
 		animate(src, pixel_x = pixel_x - intensity, time = time_out)
 		sleep(time_out)
 
-/obj/item/gun/ballistic/automatic/pistol/remis/john
+/obj/item/gun/ballistic/automatic/pistol/john
 	name = "\improper John .50 AE Pistol"
 	desc = "Who's that? Oh It's just John, don't worry. It's a plinking pistol."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
@@ -348,7 +346,7 @@
 	carry_weight = 2 KILOGRAMS
 	custom_price = 5500
 
-/obj/item/gun/ballistic/automatic/pistol/remis/pm9
+/obj/item/gun/ballistic/automatic/pistol/pm9
 	name = "\improper PM9 Evil Gun"
 	desc = "This is a strown together pack of metal that has just enough things touching eachother in the certain way to not burst in your hands when you fire. \
 	A unholy abomination, a devious, godforsaken handgun. Use it with care."
@@ -384,13 +382,13 @@
 	carry_weight = 2
 	custom_price = 5500
 
-/obj/item/gun/ballistic/automatic/pistol/remis/pm9/desc_chaser(mob/user)
+/obj/item/gun/ballistic/automatic/pistol/pm9/desc_chaser(mob/user)
 	. = list()
 	var/image_src = image2html('modular_septic/images/pm9.gif', user, format = "gif", sourceonly = TRUE)
 	. += "<img src='[image_src]' width=128 height=96>"
 	. += ..()
 
-/obj/item/gun/ballistic/automatic/pistol/remis/pm9/attackby(obj/item/A, mob/user, params)
+/obj/item/gun/ballistic/automatic/pistol/pm9/attackby(obj/item/A, mob/user, params)
 	if(istype(A, /obj/item/suppressor))
 		return
 	. = ..()

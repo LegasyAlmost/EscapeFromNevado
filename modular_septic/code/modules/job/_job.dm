@@ -47,7 +47,7 @@
 			spawned.put_in_hands(new /obj/item/cellphone/sponge(spawned.drop_location()), FALSE)
 		//thug hunter equipment
 		if(player_client?.ckey == "Glennerbean")
-			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/remis/glock17(spawned.drop_location()), FALSE)
+			spawned.put_in_hands(new /obj/item/gun/ballistic/automatic/pistol/glock17(spawned.drop_location()), FALSE)
 			spawned.put_in_hands(new /obj/item/ammo_box/magazine/glock9mm(spawned.drop_location()), FALSE)
 		//mugmoment
 		if(player_client?.ckey == "GarfieldLives")
