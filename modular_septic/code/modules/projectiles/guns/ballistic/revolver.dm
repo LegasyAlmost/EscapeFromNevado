@@ -47,7 +47,7 @@
 	skill_melee = SKILL_IMPACT_WEAPON
 	skill_ranged = SKILL_PISTOL
 	tetris_width = 64
-	tetris_height = 64
+	tetris_height = 32
 
 /obj/item/gun/ballistic/revolver/chamber_examine(mob/user)
 	. = ..()
@@ -150,3 +150,5 @@
 	)
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/poppy
 	carry_weight = 3 KILOGRAMS
+	tetris_width = 64
+	tetris_height = 64

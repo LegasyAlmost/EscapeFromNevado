@@ -118,9 +118,9 @@
 			failed = FALSE
 			return
 	else if(is_failing())
-		if(owner.stat == CONSCIOUS)
-			owner.visible_message(span_danger("<b>[owner]</b> grabs [owner.p_their()] throat, struggling for breath!"), \
-						span_userdanger("I CAN'T BREATHE!"))
+		//if(owner.stat == CONSCIOUS)
+		//	owner.visible_message(span_danger("<b>[owner]</b> grabs [owner.p_their()] throat, struggling for breath!"),
+		to_chat(owner, span_userdanger("I CAN'T BREATHE!"))
 		failed = TRUE
 	if(damage >= low_threshold)
 		var/do_i_cough = DT_PROB((damage < high_threshold) ? 2.5 : 5, delta_time) // between : past high

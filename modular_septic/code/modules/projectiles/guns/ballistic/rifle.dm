@@ -120,6 +120,7 @@
 	full_auto = TRUE
 	foldable = TRUE
 	folded = FALSE
+
 //donator gun
 /obj/item/gun/ballistic/automatic/remis/abyss/donator
 	name = "\improper AN-95 5.4539mm Abyss Armaments Paypig Assault Rifle"

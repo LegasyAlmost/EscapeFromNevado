@@ -125,8 +125,8 @@
 			owner.bleed(amount)
 			if(limb.current_gauze)
 				limb.seep_gauze(amount * limb.current_gauze.absorption_rate)
-			owner.visible_message(span_danger("<b>[owner]</b>'s [limb.name]'s [name] squirts blood!"), \
-							span_userdanger("Blood squirts from my [limb.name]'s [name]!"))
+			//owner.visible_message(span_danger("<b>[owner]</b>'s [limb.name]'s [name] squirts blood!"), \
+			//				span_userdanger("Blood squirts from my [limb.name]'s [name]!"))
 			owner.do_arterygush()
 			COOLDOWN_START(src, next_squirt, rand(squirt_delay_min_seconds, squirt_delay_max_seconds) SECONDS)
 		else
