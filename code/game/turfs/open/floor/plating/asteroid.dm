@@ -158,6 +158,7 @@
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 	digResult = /obj/item/stack/sheet/mineral/snow
+	floor_variance = 4
 
 /turf/open/floor/plating/asteroid/snow/setup_broken_states()
 	return list("snow_dug")

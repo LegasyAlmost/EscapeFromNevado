@@ -21,6 +21,53 @@
 	tetris_width = 128
 	tetris_height = 64
 
+
+/obj/item/gun/ballistic/automatic/remis/abyss/warfare
+	icon = 'modular_zebtic/icons/obj/items/guns/48x32.dmi'
+	worn_icon = 'modular_zebtic/icons/obj/items/guns/worn/back.dmi'
+	lefthand_file = 'modular_zebtic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
+	righthand_file = 'modular_zebtic/icons/obj/items/guns/inhands/rifle_righthand.dmi'
+	equip_sound = list('modular_septic/sound/weapons/guns/rifle_holster1.ogg', 'modular_septic/sound/weapons/guns/rifle_holster2.ogg')
+
+/obj/item/gun/ballistic/automatic/remis/abyss/warfare/m545
+	name = "\improper Peacekeeper 545"
+	desc = "Named nicknamed for the type of PMC armies that are generally found carrying them."
+	worn_icon_state = "inverno"
+	inhand_icon_state = "m4"
+	icon_state = "m4"
+	base_icon_state = "m4"
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/g3.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/mmagout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/msafety.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/mrack.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+
+
+/obj/item/gun/ballistic/automatic/remis/abyss/warfare/m545/ak
+	name = "\improper Eclipse 545"
+	desc = "Often found on... less than scrupulous PMC groups."
+	inhand_icon_state = "ak"
+	icon_state = "ak"
+	base_icon_state = "ak"
+	fire_sound = 'modular_septic/sound/weapons/guns/rifle/ak.wav'
+	suppressed_sound = 'modular_septic/sound/weapons/guns/rifle/ak_silenced.wav'
+	load_sound = 'modular_septic/sound/weapons/guns/rifle/akmagin.wav'
+	load_empty_sound = 'modular_septic/sound/weapons/guns/rifle/akmagin.wav'
+	eject_sound = 'modular_septic/sound/weapons/guns/rifle/akmagout.wav'
+	eject_empty_sound = 'modular_septic/sound/weapons/guns/rifle/akmagout.wav'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+	rack_sound = 'modular_septic/sound/weapons/guns/rifle/akrack.wav'
+	fireselector_auto = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_burst = 'modular_septic/sound/weapons/guns/rifle/aksafety2.wav'
+	fireselector_semi = 'modular_septic/sound/weapons/guns/rifle/aksafety1.wav'
+
 /obj/item/gun/ballistic/automatic/remis/winter
 	name = "\improper Inverno Genocídio NK-49 Assault Rifle"
 	desc = "Inverno Genocídio, 'Winter Genocide' Assault Rifle firing in 5.56. Used by Ordin- Ordinat... ORDINATORS KILL THIS BASTARD!"

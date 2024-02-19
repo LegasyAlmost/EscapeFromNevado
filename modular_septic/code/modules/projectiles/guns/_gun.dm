@@ -624,11 +624,13 @@
 		folded = TRUE
 		playsound(src, fold_close_sound, 80, FALSE)
 		to_chat(user, span_notice("I fold [src]'s stock."))
+		tetris_width -= 32
 	else
 		w_class++
 		folded = FALSE
 		playsound(src, fold_open_sound, 80, FALSE)
 		to_chat(user, span_notice("I unfold [src]'s stock."))
+		tetris_width += 32
 	update_appearance()
 
 /datum/action/item_action/toggle_stock

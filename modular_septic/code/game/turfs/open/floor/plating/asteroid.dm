@@ -4,6 +4,7 @@
 	baseturfs = /turf/open/floor/plating/asteroid/snow/nevado_surface
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
+	floor_variance = 4
 
 /turf/open/floor/plating/asteroid/snow/ice/nevado_surface
 	name = "ice"

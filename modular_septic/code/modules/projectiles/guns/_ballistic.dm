@@ -294,7 +294,7 @@
 	bolt_locked = FALSE
 	update_appearance()
 
-/obj/item/gun/ballistic/rack(mob/user)
+/obj/item/gun/ballistic/rack(mob/user, silent_rack = FALSE)
 	switch(bolt_type)
 		//If there's no bolt, nothing to rack
 		if(BOLT_TYPE_NO_BOLT)
@@ -334,7 +334,7 @@
 			if(bolt_type == BOLT_TYPE_LOCKING && !chambered)
 				bolt_locked = TRUE
 				playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
-			else
+			else if(!silent_rack)
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 			update_appearance()
 
@@ -417,7 +417,7 @@
 
 /obj/item/gun/ballistic/chamber_round(keep_bullet = FALSE, spin_cylinder = TRUE, replace_new_round = FALSE)
 	if(!magazine)
-		stack_trace("[src] ([type]) tried to chamber a round without a magazine!")
+		//stack_trace("[src] ([type]) tried to chamber a round without a magazine!") Why is this here?
 		return
 	if(bolt_type == BOLT_TYPE_BREAK_ACTION)
 		if(spin_cylinder)
