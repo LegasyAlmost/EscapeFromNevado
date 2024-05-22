@@ -109,7 +109,6 @@
 		smoke_visuals.particles.position = list(position_offset, position_offset)
 		smoke_visuals.particles.velocity = list(x_component_smoke, y_component_smoke)
 		smoke_visuals.layer = ABOVE_OBJ_LAYER + 0.01
-	//smoke_visuals.plane = ABOVE_HUMAN_PLANE
 
 	debris_visuals = new(src, /particles/debris)
 	if(debris == "drip")
@@ -117,7 +116,6 @@
 	debris_visuals.particles.position = generator(GEN_CIRCLE, position_offset, position_offset)
 	debris_visuals.particles.velocity = list(x_component, y_component)
 	debris_visuals.layer = ABOVE_OBJ_LAYER + 0.02
-	//debris_visuals.plane = ABOVE_HUMAN_PLANE
 	debris_visuals.particles.icon_state = debris
 	debris_visuals.particles.count = debris_amount
 	debris_visuals.particles.spawning = debris_amount
