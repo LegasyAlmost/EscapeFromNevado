@@ -7,7 +7,9 @@
 	//hehe horny //FUCK YOURSELF
 	AddComponent(/datum/component/fixeye)
 	AddComponent(/datum/component/interactable)
-	AddComponent(/datum/component/babble)
+	//AddComponent(/datum/component/babble)
+	AddComponent(/datum/component/mumbleboop)
+	voice_type = random_voice_type(gender)
 
 /mob/living/carbon/human/set_stat(new_stat)
 	if(new_stat == stat)

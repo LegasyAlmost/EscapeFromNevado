@@ -158,10 +158,10 @@
 	suppressor_x_offset = 8
 	custom_price = 900
 
-/obj/item/gun/ballistic/automatic/pistol/remis
+/obj/item/gun/ballistic/automatic/pistol
 
 // Shrimp
-/obj/item/gun/ballistic/automatic/pistol/remis/shrimp
+/obj/item/gun/ballistic/automatic/pistol/shrimp
 	name = "\improper Camarao 1"
 	desc = "A utility handgun used for the utility of shooting heavily armored targets multiple times in the eyes and face. \
 	Sometimes in the groin, too..."
@@ -182,7 +182,7 @@
 	custom_price = 4500
 
 // Five-Seven
-/obj/item/gun/ballistic/automatic/pistol/remis/fiveseven
+/obj/item/gun/ballistic/automatic/pistol/fiveseven
 	name = "\improper Cinquenta e Sete"
 	desc = "A premium firearm shooting a miniature rifle cartridge to combat intermediate ballistic protection."
 	icon = 'modular_septic/icons/obj/items/guns/pistol.dmi'
@@ -202,7 +202,7 @@
 	custom_price = 5500
 
 	// Five-Seven
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador
+/obj/item/gun/ballistic/automatic/pistol/aniquilador
 	name = "\improper Aniquilador .50 LE Anti-Personnel Firearm"
 	desc = "A very rare firearm that can be found within experimental military bases, comes loaded with .50 LE, Living Exterminator rounds. \
 		Feeling the gun in your hand, he never stops nervously shaking and vibrating until you aim down the sights at a living being."
@@ -231,15 +231,15 @@
 	carry_weight = 2
 	custom_price = 5500
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Initialize(mapload)
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/Destroy()
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/Destroy()
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
 	return ..()
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
 	var/voice_line = ""
 	switch(sounding)
 		if('modular_septic/sound/weapons/guns/pistol/voice_anaquilador/anaquilador_getout.wav')
@@ -250,7 +250,7 @@
 		say(voice_line)
 	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
 
-/obj/item/gun/ballistic/automatic/pistol/remis/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
+/obj/item/gun/ballistic/automatic/pistol/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
 	for(var/i in 1 to loops)
 		animate(src, pixel_x = pixel_x + intensity, time = time_in)
 		sleep(time_in)

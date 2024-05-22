@@ -206,7 +206,7 @@
 				chambered = null
 			var/num_loaded = magazine?.attackby(A, user, params, TRUE)
 			if(num_loaded)
-				to_chat(user, span_notice("I load [num_loaded] [cartridge_wording]\s into [src]."))
+				//to_chat(user, span_notice("I load [num_loaded] [cartridge_wording]\s into [src]."))
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
 				if(isnull(chambered) && (bolt_type == BOLT_TYPE_NO_BOLT))
 					chamber_round()

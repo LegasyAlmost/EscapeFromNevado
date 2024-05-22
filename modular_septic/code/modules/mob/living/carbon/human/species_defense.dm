@@ -800,6 +800,24 @@
 									def_zone = BODY_ZONE_CHEST, \
 									intended_zone = BODY_ZONE_CHEST, \
 									list/modifiers)
+
+	if(affected.status == BODYPART_ORGANIC)
+		var/turf/T = get_turf(victim)
+		if(T)
+			T.blood_particles(user)
+			var/turf/target_loca = get_step(T, user.dir)
+			if(target_loca)
+				victim.add_splatter_floor(target_loca)
+
+		if(weapon.force && prob(25 + (weapon.force * 2)))
+			weapon.add_mob_blood(victim) //Make the weapon bloody, not the person.
+			if(prob(weapon.force * 2)) //blood spatter!
+				var/turf/location = victim.loc
+				if(istype(location))
+					victim.add_splatter_floor(location)
+				if(get_dist(user, victim) <= 1) //people with TK won't get smeared with blood
+					user.add_mob_blood(victim)
+
 	var/victim_end = GET_MOB_ATTRIBUTE_VALUE(victim, STAT_ENDURANCE)
 	if(!sharpness)
 		var/knockback_tiles = 0

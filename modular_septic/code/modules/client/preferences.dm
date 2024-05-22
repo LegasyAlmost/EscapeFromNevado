@@ -283,3 +283,36 @@
 		antagonists += initial(ruleset.antag_flag)
 	for(var/antag_flag in antagonists)
 		be_special |= antag_flag
+
+
+/mob/living
+	var/voice_type
+
+/proc/random_voice_type(gender)
+	switch(gender)
+		if(MALE)
+			return pick(GLOB.male_voice_type_list)
+		if(FEMALE)
+			return pick(GLOB.female_voice_type_list)
+
+GLOBAL_LIST_INIT(male_voice_type_list, sort_list(list(
+	"male_01",
+	"male_02",
+	"male_03",
+	"male_04",
+	"male_05",
+	"male_06",
+	"male_07",
+	"male_08",
+	"male_09",
+	)))
+
+GLOBAL_LIST_INIT(female_voice_type_list, sort_list(list(
+	"female_01",
+	"female_02",
+	"female_03",
+	"female_04",
+	"female_05",
+	"female_06",
+	"female_07",
+	)))

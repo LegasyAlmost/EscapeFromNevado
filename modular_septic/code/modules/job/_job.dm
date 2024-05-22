@@ -193,6 +193,7 @@
 		if(birthsign)
 			birthsign.apply(spawned_human)
 	//Combat map moment
+	/*
 	if(SSmapping.config?.combat_map)
 		spawned_human.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
 		var/datum/component/babble/babble = spawned_human.GetComponent(/datum/component/babble)
@@ -202,7 +203,7 @@
 			babble.babble_sound_override = 'modular_septic/sound/voice/babble/gakster.wav'
 			babble.volume = BABBLE_DEFAULT_VOLUME
 			babble.duration = BABBLE_DEFAULT_DURATION
-
+	*/
 /datum/job/proc/has_banned_quirks(datum/preferences/pref)
 	if(!pref) //No preferences? We'll let you pass, this time (just a precautionary check, you dont wanna mess up gamemode setting logic)
 		return FALSE

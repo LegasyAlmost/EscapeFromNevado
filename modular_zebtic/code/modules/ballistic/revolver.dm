@@ -43,24 +43,10 @@
 	if(current_skin || !length(unique_reskin))
 		. += "The [cylinder_wording] can be spun with <b>alt+click</b>"
 
-// CHIAPPA RHINO
-/obj/item/gun/ballistic/revolver/chiappa
-	name = "\improper Chiprappa Retardo"
-	desc = "A large, powerful .357 revolver with a very blocky design."
-	icon_state = "rhino"
-	base_icon_state = "rhino"
-	gunshot_animation_information = list("pixel_x" = 13, \
-										"pixel_y" = 3)
-	recoil_animation_information = list("recoil_angle_upper" = -25,
-										"recoil_angle_lower" = -50)
-	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/chiappa
-	w_class = WEIGHT_CLASS_NORMAL
-	carry_weight = 2
-
-/obj/item/gun/ballistic/revolver/remis
+/obj/item/gun/ballistic/revolver
 
 // .38 suspicious
-/obj/item/gun/ballistic/revolver/remis/nova
+/obj/item/gun/ballistic/revolver/nova
 	name = "\improper Nova Seguranca M62 revolver"
 	desc = "A stained, antique revolver with an unknown insignia on the side."
 	icon_state = "newnambu"

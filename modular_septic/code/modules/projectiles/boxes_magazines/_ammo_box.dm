@@ -47,7 +47,7 @@
 	if(num_loaded)
 		TIMER_COOLDOWN_START(src, COOLDOWN_AMMO_BOX_LOAD, loading_cooldown_duration)
 		if(!silent)
-			to_chat(user, span_notice("I load [num_loaded] shell\s into \the [src]!"))
+			//to_chat(user, span_notice("I load [num_loaded] shell\s into \the [src]!"))
 			playsound(src, bullet_load, 60, TRUE)
 		update_ammo_count()
 

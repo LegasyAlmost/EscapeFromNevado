@@ -134,7 +134,10 @@
 	var/final_hitsound_volume = vol_by_damage()
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
 		if(target_location)
-			target_location.visual_effect(src)
+			if(!ismob(target))//Mobs don't make sparks.
+				target_location.visual_effect(src)
+			else
+				target_location.visual_effect(src, "drip")
 		if(iswallturf(target_location) && ((target == target_location) || prob(50)) )
 			var/turf/closed/wall/wall = target_location
 			if(impact_effect_type)

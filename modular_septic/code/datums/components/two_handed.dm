@@ -93,12 +93,12 @@
 	parent_item.name = "wielded [parent_item.name]"
 	parent_item.update_appearance()
 
-	if(iscyborg(user))
-		to_chat(user, span_notice("I dedicate your module to [parent]."))
-	else
-		to_chat(user, span_notice("I grab [parent] with both hands."))
-		playsound(user, wieldnoise, wieldvolume, FALSE)
-		user.changeNext_move(CLICK_CD_RAPID)
+	//if(iscyborg(user))
+	//	to_chat(user, span_notice("I dedicate your module to [parent]."))
+	//else
+	//to_chat(user, span_notice("I grab [parent] with both hands."))
+	playsound(user, wieldnoise, wieldvolume, FALSE)
+	user.changeNext_move(CLICK_CD_RAPID)
 
 	// Play sound if one is set
 //	if(wieldsound)

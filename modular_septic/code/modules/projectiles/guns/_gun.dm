@@ -5,6 +5,46 @@
 #define DEBRIS_LEAF "leaf"
 #define DEBRIS_SNOW "snow"
 
+/particles/debris
+	icon = 'icons/effects/particles/generic_particles.dmi'
+	width = 500
+	height = 500
+	count = 10
+	spawning = 10
+	lifespan = 0.7 SECONDS
+	fade = 0.4 SECONDS
+	drift = generator(GEN_CIRCLE, 0, 7)
+	scale = 0.7
+	velocity = list(50, 0)
+	friction = generator(GEN_NUM, 0.1, 0.15)
+	spin = generator(GEN_NUM, -20, 20)
+
+/atom/proc/blood_particles(mob/living/carbon/H)
+	var/debris = "drip"
+	var/debris_velocity = rand(5,10)
+	var/debris_amount = 10
+	var/debris_scale = 0.7
+	var/new_direction = dir2angle(H.dir)
+	var/x_component = sin(new_direction) * debris_velocity
+	var/y_component = cos(new_direction) * debris_velocity
+	var/obj/effect/abstract/particle_holder/blood_visuals
+	var/position_offset = rand(-1,1)
+
+	blood_visuals = new(src, /particles/debris)
+	blood_visuals.particles.icon_state = debris
+	blood_visuals.particles.position = generator(GEN_CIRCLE, position_offset, position_offset)
+	blood_visuals.particles.velocity = list(x_component, y_component)
+	blood_visuals.color ="#770000"
+	blood_visuals.layer = CHAT_LAYER
+	blood_visuals.particles.count = debris_amount
+	blood_visuals.particles.spawning = debris_amount
+	blood_visuals.particles.scale = debris_scale
+	addtimer(CALLBACK(src, .proc/remove_blood_particles, blood_visuals), 0.7 SECONDS)
+
+/atom/proc/remove_blood_particles(obj/effect/abstract/particle_holder/blood_visuals)
+	if(blood_visuals)
+		QDEL_NULL(blood_visuals)
+
 /particles/firing_smoke
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "smoke5"
@@ -53,8 +93,7 @@
 	friction = generator(GEN_NUM, 0.1, 0.5)
 
 
-/atom/proc/visual_effect(var/obj/projectile/P)
-	var/debris = DEBRIS_SPARKS
+/atom/proc/visual_effect(var/obj/projectile/P, var/debris = DEBRIS_SPARKS)
 	var/debris_velocity = -15
 	var/debris_amount = 8
 	var/debris_scale = 0.7
@@ -65,12 +104,16 @@
 	var/obj/effect/abstract/particle_holder/debris_visuals
 	var/obj/effect/abstract/particle_holder/smoke_visuals
 	var/position_offset = rand(-6,6)
-	smoke_visuals = new(src, /particles/impact_smoke)
-	smoke_visuals.particles.position = list(position_offset, position_offset)
-	smoke_visuals.particles.velocity = list(x_component_smoke, y_component_smoke)
+	if(debris != "drip")
+		smoke_visuals = new(src, /particles/impact_smoke)
+		smoke_visuals.particles.position = list(position_offset, position_offset)
+		smoke_visuals.particles.velocity = list(x_component_smoke, y_component_smoke)
+		smoke_visuals.layer = ABOVE_OBJ_LAYER + 0.01
 	//smoke_visuals.plane = ABOVE_HUMAN_PLANE
 
 	debris_visuals = new(src, /particles/debris)
+	if(debris == "drip")
+		debris_visuals.color ="#770000"
 	debris_visuals.particles.position = generator(GEN_CIRCLE, position_offset, position_offset)
 	debris_visuals.particles.velocity = list(x_component, y_component)
 	debris_visuals.layer = ABOVE_OBJ_LAYER + 0.02
@@ -79,7 +122,6 @@
 	debris_visuals.particles.count = debris_amount
 	debris_visuals.particles.spawning = debris_amount
 	debris_visuals.particles.scale = debris_scale
-	smoke_visuals.layer = ABOVE_OBJ_LAYER + 0.01
 	addtimer(CALLBACK(src, .proc/remove_ping, smoke_visuals, debris_visuals), 0.7 SECONDS)
 
 /atom/proc/remove_ping(obj/effect/abstract/particle_holder/smoke_visuals, obj/effect/abstract/particle_holder/debris_visuals)
@@ -168,6 +210,10 @@
 	var/fold_close_sound = 'modular_septic/sound/weapons/guns/stock_close.wav'
 	/// Every time you fiddle with the stock
 	var/fiddle = 'modular_septic/sound/effects/fiddle.wav'
+
+/obj/item/gun/New()
+	. = ..()
+	appearance_flags |= KEEP_TOGETHER
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
