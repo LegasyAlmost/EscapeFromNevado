@@ -179,6 +179,7 @@
 
 	var/mob/living/living_target = target
 	if(blocked != 100) // not completely blocked
+		/*
 		var/damage_dealt = damage - (damage * (blocked/100)) - reduced
 		if((damage_dealt > edge_protection) && (damage_type == BRUTE) && sharpness && living_target.blood_volume && (living_target.mob_biotypes & MOB_ORGANIC))
 			var/splatter_dir = dir
@@ -188,6 +189,7 @@
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_location, splatter_dir)
 			else
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(target_location, splatter_dir)
+		*/
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_location, hitx, hity)
 

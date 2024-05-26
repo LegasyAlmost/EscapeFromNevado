@@ -95,6 +95,8 @@
 
 /atom/proc/visual_effect(var/obj/projectile/P, var/debris = DEBRIS_SPARKS)
 	var/debris_velocity = -15
+	if(debris == "drip")
+		debris_velocity = 15
 	var/debris_amount = 8
 	var/debris_scale = 0.7
 	var/x_component = sin(P.Angle) * debris_velocity
