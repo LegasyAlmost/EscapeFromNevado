@@ -1,4 +1,5 @@
 /datum/job/chief_medical_officer
+	title = "Verina's Body"
 	outfit = /datum/outfit/job/cmo/zoomtech
 
 /datum/outfit/job/cmo/zoomtech

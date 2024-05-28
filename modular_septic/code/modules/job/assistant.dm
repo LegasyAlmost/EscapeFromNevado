@@ -1,4 +1,5 @@
 /datum/job/assistant
+	title = "Chattel Laborer"
 	required_languages = null
 
 	outfit = /datum/outfit/job/assistant/zoomtech
@@ -8,7 +9,7 @@
 	ADD_TRAIT(spawned, TRAIT_ILLITERATE, "[type]")
 
 /datum/outfit/job/assistant/zoomtech
-	name = "Stowaway"
+	name = "Chattel Laborer"
 
 	uniform = /obj/item/clothing/under/color/grey/ancient
 	id = null

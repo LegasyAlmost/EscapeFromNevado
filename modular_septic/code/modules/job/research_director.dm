@@ -1,4 +1,5 @@
 /datum/job/research_director
+	title = "Verina's Mind"
 	outfit = /datum/outfit/job/rd/zoomtech
 
 /datum/outfit/job/rd/zoomtech

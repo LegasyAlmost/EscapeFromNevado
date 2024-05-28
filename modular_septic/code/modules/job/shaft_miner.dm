@@ -1,4 +1,5 @@
 /datum/job/shaft_miner
+	title = "Chattel Miner"
 	outfit = /datum/outfit/job/miner/zoomtech
 
 /datum/outfit/job/miner/zoomtech

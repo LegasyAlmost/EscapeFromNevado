@@ -1,4 +1,5 @@
 /datum/job/security_officer
+	title = "Arbiter"
 	outfit = /datum/outfit/job/security/zoomtech
 
 /datum/job/security_officer/setup_department(mob/living/carbon/human/spawning, client/player_client)
