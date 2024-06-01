@@ -32,6 +32,9 @@
 		M.mind.special_role = ROLE_TRAITOR
 		M.mind.restricted_roles = restricted_roles
 		GLOB.pre_setup_antags += M.mind
+	var/soundfile = "modular_septic/sound/voice/valario/valario[rand(1,11)].ogg"
+	var/sound/valario = sound(soundfile, FALSE, 0, CHANNEL_ADMIN, 100)
+	SEND_SOUND(world, valario)
 	return TRUE
 
 /datum/dynamic_ruleset/roundstart/concordia/traitor/rule_process()

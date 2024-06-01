@@ -40,7 +40,9 @@
 	greyscale_colors = "#3e7bc1#3e7bc1#2a5b94#2a5b94#369de5#6d6565#2c5280"
 
 /obj/machinery/door/airlock/security
-	greyscale_colors = "#9f2828#9f2828#a51c1c#a51c1c#d27428#6d6565#8e2222"
+	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/department/security.dmi'
+	overlays_file = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/overlays.dmi'
+	//greyscale_colors = "#9f2828#9f2828#a51c1c#a51c1c#d27428#6d6565#8e2222"
 
 /obj/machinery/door/airlock/engineering
 	greyscale_colors = "#d8a81b#d8a81b#c2940d#c2940d#7f292f#6d6565#997715"

@@ -71,7 +71,7 @@
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
 	playsound(src, pin_sound, volume, FALSE)
-	sound_hint()
+	//sound_hint()
 	if(istype(user))
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
@@ -128,7 +128,7 @@
 		to_chat(user, span_danger("[message]"))
 		if(grenade_flags & GRENADE_BUTTONED)
 			playsound(user, 'modular_septic/sound/weapons/bomb_toolate.wav', 25, FALSE)
-			sound_hint()
+			//sound_hint()
 
 /obj/item/grenade/proc/pressing_button(mob/user)
 	if(grenade_flags & GRENADE_BUTTONED && !pressing)
@@ -188,7 +188,7 @@
 				return
 	grenade_spooned = TRUE
 	if(spoon_loud)
-		sound_hint()
+		//sound_hint()
 		playsound(src, spoon_sound, 60, FALSE)
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time)
 	det_timer = addtimer(CALLBACK(src, .proc/detonate), det_time, TIMER_STOPPABLE)
@@ -203,8 +203,8 @@
 	if(visible)
 		src.visible_message(span_warning("[src] <b>disarms itself!</b>"))
 		new /obj/effect/temp_visual/annoyed(get_turf(src))
-	if(loud)
-		sound_hint()
+	//if(loud)
+		//sound_hint()
 	if(grenade_flags & GRENADE_PINNED)
 		if(loud)
 			playsound(src, grenade_disarm_sound, 65, FALSE)
@@ -213,7 +213,7 @@
 			sleep(1 SECONDS) //OMG. IT'S INITIAL_PIN <3 <3 <3
 			if(loud)
 				playsound(src, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
-				sound_hint()
+				//sound_hint()
 			for(var/mob/living/carbon/inborn in range(7, src))
 				if(inborn.dna?.species?.id == SPECIES_INBORN)
 					inborn.emote("smile") // :3

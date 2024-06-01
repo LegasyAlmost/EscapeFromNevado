@@ -187,7 +187,7 @@
 			to_chat(user, span_notice("I carefully install [icon2html(simpsons_card, user)] <b>[simpsons_card]</b> into [src]'s sim card slot."))
 			playsound(src, 'modular_septic/sound/efn/phone_simcard_insert.ogg', 65, FALSE)
 			install_simcard(simpsons_card, user)
-			sound_hint()
+			//sound_hint()
 	if(istype(attacking_item, /obj/item/cellphone))
 		var/obj/item/cellphone/attacker_cellphone = attacking_item
 		var/datum/simcard_application/hacking/hacking_application = locate(/datum/simcard_application/hacking) in attacker_cellphone.simcard?.applications
@@ -217,7 +217,7 @@
 		to_chat(user, span_notice("I carefully take out [simpsons_card] from [src]'s sim card slot."))
 		playsound(src, 'modular_septic/sound/efn/phone_simcard_desert.ogg', 65, FALSE)
 		uninstall_simcard(user)
-		sound_hint()
+		//sound_hint()
 
 /obj/item/cellphone/CtrlClick(mob/user)
 	. = ..()
@@ -620,7 +620,7 @@
 	glitch_soundloop.start()
 	phone_flags |= PHONE_GLITCHING
 	update_appearance()
-	sound_hint()
+	//sound_hint()
 	return TRUE
 
 /obj/item/cellphone/proc/stop_glitching()
@@ -628,7 +628,7 @@
 	glitch_soundloop.stop()
 	phone_flags &= ~PHONE_GLITCHING
 	update_appearance()
-	sound_hint()
+	//sound_hint()
 
 /obj/item/cellphone/proc/disable_parental_controls(mob/living/user)
 	var/mob/living/carbon/human/human_user = user
@@ -758,8 +758,8 @@
 	if(user)
 		to_chat(user, span_notice("I [flipped ? "flip" : "unflip"] \the [src]."))
 	update_appearance()
-	if(!silent)
-		sound_hint()
+	//if(!silent)
+		//sound_hint()
 
 /obj/item/cellphone/proc/begin_selfdestruct(silent = FALSE)
 	phone_flags |= PHONE_GLITCHING
