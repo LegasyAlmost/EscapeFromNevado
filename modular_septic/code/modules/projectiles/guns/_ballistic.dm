@@ -465,8 +465,8 @@
 	else
 		playsound(src, lock_back_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
 		chamber_round()
-	if(user)
-		to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
+	//if(user)
+	//	to_chat(user, span_notice("I [cylinder_open ? "open" : "close"] [src]'s [cylinder_wording]"))
 	update_appearance()
 
 ///Gives us info about ammo count, open cylinder, etc
