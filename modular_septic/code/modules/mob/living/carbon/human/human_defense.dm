@@ -659,12 +659,15 @@
 		if(!critical_hit && (hitting_projectile.firer != src))
 			if(check_shields(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
 				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
+				new /obj/effect/temp_visual/damage_numbers(src.loc, hitting_projectile.damage)
 				return BULLET_ACT_HIT
 			if(check_parry(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
 				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
+				new /obj/effect/temp_visual/damage_numbers(src.loc, hitting_projectile.damage)
 				return BULLET_ACT_HIT
 			if(check_dodge(hitting_projectile, hitting_projectile.damage, "\the [hitting_projectile]", BLOCK_FLAG_PROJECTILE) & COMPONENT_HIT_REACTION_BLOCK)
 				hitting_projectile.on_hit(src, 100, def_zone, piercing_hit)
+				new /obj/effect/temp_visual/damage_numbers(src.loc, hitting_projectile.damage)
 				return BULLET_ACT_HIT
 
 	return ..()
