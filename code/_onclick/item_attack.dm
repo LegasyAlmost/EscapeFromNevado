@@ -250,6 +250,7 @@
 	send_item_attack_message(I, user)
 	if(I.force)
 		apply_damage(I.force, I.damtype)
+		new /obj/effect/temp_visual/damage_numbers(src.loc, I.force)
 		if(I.damtype == BRUTE)
 			if(prob(33))
 				I.add_mob_blood(src)

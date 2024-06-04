@@ -537,3 +537,21 @@
 	icon_state = "thunderbolt"
 	icon = 'icons/effects/32x96.dmi'
 	duration = 0.6 SECONDS
+
+/obj/effect/temp_visual/damage_numbers
+	icon = null
+	icon_state = ""
+	duration = 4 SECONDS
+	plane = BALLOON_CHAT_PLANE
+
+/obj/effect/temp_visual/damage_numbers/Initialize(mapload, damage_amount)
+	. = ..()
+	maptext = MAPTEXT_PEEPER_NOT_SMALL(damage_amount)
+	maptext_y = 16
+	maptext_x = 16
+	maptext_width = 96
+	var/xofs = rand(32, 78) * (prob(50) ? 1 : -1)
+	var/yofs = rand(60, 100)
+	animate(src, maptext_y = yofs, time = 8, easing = EASE_OUT | QUAD_EASING, flags = ANIMATION_RELATIVE)
+	animate(alpha = -255, maptext_y = yofs * -1, time = 8, easing = EASE_IN | QUAD_EASING, flags = ANIMATION_RELATIVE)
+	animate(maptext_x = xofs * 1.5, time = 16, flags = ANIMATION_PARALLEL | ANIMATION_RELATIVE)

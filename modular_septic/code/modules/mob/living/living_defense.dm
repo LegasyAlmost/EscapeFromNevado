@@ -42,6 +42,7 @@
 		edge_protection = max(0, edge_protection - thrown_item.edge_protection_penetration)
 		var/subarmor_flags = get_subarmor_flags(def_zone)
 		var/damage = thrown_item.get_throwforce()
+		new /obj/effect/temp_visual/damage_numbers(src.loc, damage)
 		apply_damage(damage, \
 					thrown_item.damtype, \
 					def_zone, \
@@ -90,6 +91,7 @@
 	var/subarmor_flags = get_subarmor_flags(def_zone)
 	var/on_hit_state = hitting_projectile.on_hit(src, armor, piercing_hit, subarmor, edge_protection)
 	if(!hitting_projectile.nodamage && (on_hit_state != BULLET_ACT_BLOCK))
+		new /obj/effect/temp_visual/damage_numbers(src.loc, hitting_projectile.damage)
 		apply_damage(hitting_projectile.damage, \
 					hitting_projectile.damage_type, \
 					def_zone, \

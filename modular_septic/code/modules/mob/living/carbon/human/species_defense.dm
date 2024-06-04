@@ -265,6 +265,7 @@
 					subarmor_flags = subarmor_flags)
 		victim.damage_armor(damage+weapon.armor_damage_modifier, MELEE, weapon.damtype, sharpness, def_zone)
 		post_hit_effects(victim, user, affecting, weapon, damage, MELEE, weapon.damtype, sharpness, def_zone, intended_zone, modifiers)
+		new /obj/effect/temp_visual/damage_numbers(victim.loc, damage)
 	//user.sound_hint()
 	//victim.sound_hint()
 	victim.send_item_attack_message(weapon, user, hit_area, affecting)
