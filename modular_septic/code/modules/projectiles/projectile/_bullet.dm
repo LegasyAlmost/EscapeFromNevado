@@ -13,3 +13,12 @@
 	ricochet_chance = 20
 	ricochet_incidence_leeway = 45
 	sharpness = SHARP_POINTY
+
+/obj/projectile/bullet/Initialize(mapload)
+	. = ..()
+	if(prob(15))
+		damage += rand(5,10)
+	else if (prob(15))
+		damage -= rand(1,10)
+		if(damage <= 0)
+			damage = initial(damage)

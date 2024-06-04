@@ -31,7 +31,7 @@
 	name = "Liminal Hallways"
 	icon_state = "engine"
 	droning_sound = DRONING_LIMINALHALL
-	mood_message = "<span class='bloody'>This area is pretty nice!</span>\n"
+	mood_message = "<span class='bloody'>I feel unnerved being here.</span>\n"
 	mood_bonus = -1
 
 /area/maintenance/liminal/labs

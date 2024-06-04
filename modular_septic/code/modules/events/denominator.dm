@@ -97,7 +97,6 @@
 
 /obj/machinery/door/keycard/denominator/inborn
 	name = "yellow airlock"
-	desc = "This door only opens when a keycard is swiped. It looks like It's been heavily armored."
 	icon = 'modular_septic/icons/obj/machinery/tall/doors/airlocks/secretdoor_yellow.dmi'
 	icon_state = "door_closed"
 	base_icon_state = "door"

@@ -21,12 +21,14 @@
 
 	uniform = /obj/item/clothing/under/itobe
 	id = /obj/item/cellphone
-	belt = /obj/item/crowbar
+	belt = /obj/item/gun/ballistic/automatic/pistol/glock17
 	l_pocket = /obj/item/simcard
+	r_pocket = /obj/item/ammo_box/magazine/glock9mm
 	back = /obj/item/storage/backpack/satchel/itobe
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1,
 		/obj/item/flashlight/seclite = 1,
+		/obj/item/crowbar = 1,
 	)
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots

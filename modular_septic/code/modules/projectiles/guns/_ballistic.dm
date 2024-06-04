@@ -288,8 +288,8 @@
 
 /obj/item/gun/ballistic/drop_bolt(mob/user)
 	playsound(src, bolt_drop_sound, bolt_drop_sound_volume, bolt_drop_sound_vary)
-	if(user)
-		to_chat(user, span_notice("I drop the [bolt_wording] of [src]."))
+	//if(user)
+	//	to_chat(user, span_notice("I drop the [bolt_wording] of [src]."))
 	chamber_round()
 	bolt_locked = FALSE
 	update_appearance()
@@ -307,18 +307,18 @@
 				return
 			bolt_locked = FALSE
 			chamber_round(TRUE)
-			if(user)
-				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
+			//if(user)
+			//	to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
 			//sound_hint()
 			update_appearance()
 		//Break actions only need racking if they are well, single action revolvers
 		if(BOLT_TYPE_BREAK_ACTION)
 			if(bolt_locked)
-				if(user)
-					to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
+				//if(user)
+				//	to_chat(user, span_notice("I cock the [bolt_wording] of [src]."))
 				chamber_round()
-			else if(user)
-				to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
+			//else if(user)
+			//	to_chat(user, span_notice("I decock the [bolt_wording] of [src]."))
 			//sound_hint()
 			if(bolt_locked)
 				playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
@@ -327,8 +327,8 @@
 			bolt_locked = !bolt_locked
 			update_appearance()
 		else
-			if(user)
-				to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
+			//if(user)
+			//	to_chat(user, span_notice("I rack the [bolt_wording] of [src]."))
 			process_chamber(!chambered, FALSE)
 			//sound_hint()
 			if(bolt_type == BOLT_TYPE_LOCKING && !chambered)

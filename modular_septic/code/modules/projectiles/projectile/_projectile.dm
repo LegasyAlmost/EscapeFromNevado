@@ -135,7 +135,8 @@
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
 		if(target_location)
 			if(!ismob(target))//Mobs don't make sparks.
-				target_location.visual_effect(src)
+				if(!istype(target_location, /turf/open/openspace))//Open spaces don't have impact particles either.
+					target_location.visual_effect(src)
 			else
 				target_location.visual_effect(src, "drip")
 		if(iswallturf(target_location) && ((target == target_location) || prob(50)) )

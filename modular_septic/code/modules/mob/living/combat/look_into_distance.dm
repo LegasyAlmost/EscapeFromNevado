@@ -5,7 +5,7 @@
 	if(HAS_TRAIT_FROM(src, TRAIT_LOOKING_INTO_DISTANCE, VERB_TRAIT))
 		unperform_zoom(A, params)
 		to_chat(src, span_notice("I stop looking into the distance."))
-	else if((A in fov_view(world.view, src)) && (get_dist(src, A) <= world.view))
+	else if((A in fov_view(world.view, src)))// && (get_dist(src, A) <= world.view))
 		perform_zoom(A, params)
 		to_chat(src, span_notice("I start looking into the distance."))
 
@@ -29,8 +29,8 @@
 		x_offset = distance*world.icon_size
 	if(direction & WEST)
 		x_offset = -distance*world.icon_size
-	client.pixel_x += x_offset
-	client.pixel_y += y_offset
+	animate(client, pixel_x = x_offset, pixel_y = y_offset, time = 2, easing = SINE_EASING)
+	//client.pixel_y += y_offset
 	hud_used?.fov_holder?.screen_loc = "WEST+4:[-x_offset],SOUTH+1:[-y_offset]"
 	if(!silent)
 		playsound_local(src, 'modular_septic/sound/interface/zoom_in.wav', 25, FALSE, pressure_affected = FALSE)
@@ -41,8 +41,9 @@
 	SEND_SIGNAL(src, COMSIG_FIXEYE_DISABLE, TRUE, TRUE)
 	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 	if(client)
-		client.pixel_x = initial(client.pixel_x)
-		client.pixel_y = initial(client.pixel_y)
+		animate(client, pixel_x = 0, pixel_y = 0, time = 2, easing = SINE_EASING)
+		//client.pixel_x = initial(client.pixel_x)
+		//client.pixel_y = initial(client.pixel_y)
 	hud_used?.fov_holder?.screen_loc = ui_fov
 	if(!silent)
 		playsound_local(src, 'modular_septic/sound/interface/zoom_out.wav', 25, FALSE, pressure_affected = FALSE)
