@@ -574,7 +574,342 @@
 
 	return ..()
 
+/obj/projectile/proc/istargetloc(mob/living/target_mob)
+	if(target_mob && original)
+		var/turf/originalloc
+		if(!istype(original, /turf))
+			originalloc = original.loc
+		else
+			originalloc = original
+		if(originalloc == target_mob.loc)
+			return 1
+		else
+			return 0
+	else
+		return 0
+
 /mob/living/carbon/human/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
+	if(def_zone)
+		switch(src.dir)
+			if(2)
+				if(hitting_projectile.p_y <= 10) //legs level
+					if(hitting_projectile.p_x >= 17)
+						if(def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_L_ARM \
+						|| def_zone == BODY_ZONE_CHEST)
+							def_zone = BODY_ZONE_L_LEG
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_ARM)
+							def_zone = BODY_ZONE_CHEST
+						//lleg
+					else
+						if(def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST)
+							def_zone = BODY_ZONE_R_LEG
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_ARM)
+							def_zone = BODY_ZONE_CHEST
+						//rleg
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+
+				if(hitting_projectile.p_y > 10 && hitting_projectile.p_y <= 13) //groin level
+					if(hitting_projectile.p_x<= 12)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_R_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//rarm
+					if(hitting_projectile.p_x> 12 && hitting_projectile.p_x< 21)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_PRECISE_GROIN
+						if(def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						//groin
+					if(hitting_projectile.p_x>= 21 && hitting_projectile.p_x< 24)
+						//larm
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_L_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_LEG)
+							def_zone = BODY_ZONE_CHEST
+
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
+
+				if(hitting_projectile.p_y > 13 && hitting_projectile.p_y <= 22)
+					if(hitting_projectile.p_x<= 12)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_R_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//rarm
+					if(hitting_projectile.p_x> 12 && hitting_projectile.p_x< 21)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						//chest
+
+					if(hitting_projectile.p_x>= 21 && hitting_projectile.p_x< 24)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_HEAD\
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_L_ARM
+						//larm
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_LEG)
+							def_zone = BODY_ZONE_CHEST
+
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST)
+
+				if(hitting_projectile.p_y > 22 && hitting_projectile.p_y <= 32)
+					if(def_zone == BODY_ZONE_L_ARM \
+					|| def_zone == BODY_ZONE_R_ARM \
+					|| def_zone == BODY_ZONE_CHEST)
+						def_zone = BODY_ZONE_HEAD
+					//head
+					if(def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_LEG || \
+					def_zone == BODY_ZONE_L_LEG)
+						def_zone = BODY_ZONE_CHEST
+
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_HEAD, BODY_ZONE_CHEST)
+			if(1)
+				if(hitting_projectile.p_y <= 10) //legs level
+					if(hitting_projectile.p_x >= 17)
+						if(def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST)
+							def_zone = BODY_ZONE_R_LEG
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_ARM)
+							def_zone = BODY_ZONE_CHEST
+						//rleg
+
+					else
+						if(def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_L_ARM \
+						|| def_zone == BODY_ZONE_CHEST)
+							def_zone = BODY_ZONE_L_LEG
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_ARM)
+							def_zone = BODY_ZONE_CHEST
+						//lleg
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_CHEST)
+
+				if(hitting_projectile.p_y > 10 && hitting_projectile.p_y <= 13) //groin level
+					if(hitting_projectile.p_x<= 12)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_L_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//larm
+					if(hitting_projectile.p_x> 12 && hitting_projectile.p_x< 21)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_PRECISE_GROIN
+						if(def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						//groin
+					if(hitting_projectile.p_x>= 21 && hitting_projectile.p_x< 24)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_R_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//rarm
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
+				if(hitting_projectile.p_y > 13 && hitting_projectile.p_y <= 22)
+					if(hitting_projectile.p_x<= 12)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_L_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//larm
+					if(hitting_projectile.p_x> 12 && hitting_projectile.p_x< 21)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//chest
+					if(hitting_projectile.p_x>= 21 && hitting_projectile.p_x< 24)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_R_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_CHEST
+						//rarm
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST)
+
+				if(hitting_projectile.p_y > 22 && hitting_projectile.p_y <= 32)
+					if(def_zone == BODY_ZONE_L_ARM \
+					|| def_zone == BODY_ZONE_R_ARM \
+					|| def_zone == BODY_ZONE_CHEST)
+						def_zone = BODY_ZONE_HEAD
+					if(def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_L_LEG || \
+					def_zone == BODY_ZONE_R_LEG)
+						def_zone = BODY_ZONE_CHEST
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_HEAD)
+					//head
+			if(4)
+				if(hitting_projectile.p_y <= 10) //legs level
+					if(def_zone == BODY_ZONE_R_LEG \
+					|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+					|| def_zone == BODY_ZONE_CHEST)
+						def_zone = BODY_ZONE_R_LEG
+					if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_ARM)
+						def_zone = BODY_ZONE_CHEST
+					if(def_zone == BODY_ZONE_L_LEG)
+						def_zone = BODY_ZONE_L_LEG
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_CHEST)
+					//rleg
+
+				if(hitting_projectile.p_y > 10 && hitting_projectile.p_y <= 13) //groin level
+					if(hitting_projectile.p_x< 16)
+						if(def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_R_ARM
+						if(def_zone == HEAD || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_CHEST
+						if(def_zone == BODY_ZONE_L_ARM)
+							def_zone = BODY_ZONE_L_ARM
+						//rarm
+					if(hitting_projectile.p_x>= 16)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_PRECISE_GROIN
+						if(def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
+						//groin
+
+				if(hitting_projectile.p_y > 13 && hitting_projectile.p_y <= 22)
+					if(hitting_projectile.p_x>= 16)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == HEAD)
+							def_zone = BODY_ZONE_CHEST
+						//chest
+					if(hitting_projectile.p_x< 16)
+						if(def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_R_ARM
+						//rarm
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_CHEST
+						if(def_zone == BODY_ZONE_L_ARM)
+							def_zone = BODY_ZONE_L_ARM
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST)
+
+				if(hitting_projectile.p_y > 22 && hitting_projectile.p_y <= 32)
+					if(def_zone == BODY_ZONE_L_ARM \
+					|| def_zone == BODY_ZONE_R_ARM \
+					|| def_zone == BODY_ZONE_CHEST)
+						def_zone = BODY_ZONE_HEAD
+					if(def_zone ==  BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG)
+						def_zone = BODY_ZONE_CHEST
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_HEAD)
+					//head
+
+			if(8)
+				if(hitting_projectile.p_y <= 10) //legs level
+					//lleg
+					if(def_zone == BODY_ZONE_L_LEG \
+					|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_L_ARM \
+					|| def_zone == BODY_ZONE_CHEST)
+						def_zone = BODY_ZONE_L_LEG
+
+					if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_ARM)
+						def_zone = BODY_ZONE_CHEST
+
+					if(def_zone == BODY_ZONE_R_LEG)
+						def_zone = BODY_ZONE_R_LEG
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_CHEST)
+
+				if(hitting_projectile.p_y > 10 && hitting_projectile.p_y <= 13) //groin level
+					if(hitting_projectile.p_x< 16)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG)
+							def_zone = BODY_ZONE_PRECISE_GROIN
+						if(def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						//groin
+					if(hitting_projectile.p_x>= 16)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_L_ARM
+						if(def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_R_LEG)
+							def_zone = BODY_ZONE_CHEST
+						if(def_zone == BODY_ZONE_R_ARM)
+							def_zone = BODY_ZONE_R_ARM
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
+						//left_arm
+
+				if(hitting_projectile.p_y > 13 && hitting_projectile.p_y <= 22)
+					if(hitting_projectile.p_x< 16)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_R_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_R_ARM \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						//chest
+					if(hitting_projectile.p_x>= 16)
+						if(def_zone == BODY_ZONE_L_ARM || def_zone == BODY_ZONE_L_LEG \
+						|| def_zone == BODY_ZONE_PRECISE_GROIN \
+						|| def_zone == BODY_ZONE_CHEST || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_L_ARM
+						if(def_zone == BODY_ZONE_R_LEG || def_zone == BODY_ZONE_HEAD)
+							def_zone = BODY_ZONE_CHEST
+						if(def_zone == BODY_ZONE_R_ARM)
+							def_zone = BODY_ZONE_R_ARM
+						//larm
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST)
+
+				if(hitting_projectile.p_y > 22 && hitting_projectile.p_y <= 32)
+					if(def_zone == BODY_ZONE_L_ARM \
+					|| def_zone == BODY_ZONE_R_ARM \
+					|| def_zone == BODY_ZONE_CHEST)
+						def_zone = BODY_ZONE_HEAD
+					if(def_zone ==  BODY_ZONE_PRECISE_GROIN || def_zone == BODY_ZONE_L_LEG || def_zone == BODY_ZONE_R_LEG)
+						def_zone = BODY_ZONE_CHEST
+					if(hitting_projectile.istargetloc(src) == 0)
+						def_zone = pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST, BODY_ZONE_HEAD)
+					//head
+
 	//SPECIES STUFF
 	if(dna?.species)
 		var/spec_return = dna.species.bullet_act(hitting_projectile, src)
