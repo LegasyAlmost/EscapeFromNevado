@@ -47,3 +47,6 @@ endmap
 
 map breaker
 endmap
+
+map verina
+endmap
