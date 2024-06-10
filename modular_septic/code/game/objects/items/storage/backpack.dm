@@ -30,6 +30,25 @@
 		STR.screen_max_rows = 4
 		STR.max_combined_w_class = 12
 
+/obj/item/storage/backpack/satchel/chestrig
+	name = "Chestrig"
+	icon = 'modular_septic/icons/obj/clothing/back.dmi'
+	icon_state = "chestrig"
+	worn_icon = 'modular_septic/icons/mob/clothing/back.dmi'
+	worn_icon_state = "chestrig"
+	lefthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_lefthand.dmi'
+	righthand_file = 'modular_septic/icons/mob/inhands/clothing/clothing_righthand.dmi'
+	inhand_icon_state = "itobe_satchel"
+
+/obj/item/storage/backpack/satchel/chestrig/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.screen_max_columns = 4
+		STR.screen_max_rows = 3
+		STR.max_combined_w_class = 12
+
+
 /obj/item/storage/backpack/duffelbag
 	slowdown = 0
 	storage_flags = STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS
