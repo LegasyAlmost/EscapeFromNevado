@@ -3,6 +3,11 @@
 	if(notransform)
 		return
 
+	if(recoil_buildup > 0)
+		recoil_buildup -= 2
+	if(recoil_buildup < 0)
+		recoil_buildup = 0
+
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
 		update_damage_hud()

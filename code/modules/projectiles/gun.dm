@@ -2,6 +2,10 @@
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.4
 #define FIRING_PIN_REMOVAL_DELAY 50
 
+/mob
+	///Recoil buildup
+	var/recoil_buildup = 0
+
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
@@ -78,6 +82,9 @@
 	var/zoom_out_amt = 0
 	var/datum/action/toggle_scope_zoom/azoom
 	var/pb_knockback = 0
+	///Recoil buildup
+	var/wielded_recoil_buildup = 0.5
+	var/unwielded_recoil_buildup = 1
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -353,13 +360,20 @@
 	var/base_bonus_spread = 0
 	var/sprd = 0
 	var/randomized_gun_spread = 0
-	var/rand_spr = rand()
+	var/rand_spr = rand(5,25)
 	if(user && HAS_TRAIT(user, TRAIT_POOR_AIM)) //Nice job hotshot
 		bonus_spread += 35
 		base_bonus_spread += 10
 
 	if(spread)
 		randomized_gun_spread =	rand(0,spread)
+	if(user.recoil_buildup)
+		randomized_gun_spread += user.recoil_buildup
+
+	var/new_buildup = unwielded_recoil_buildup
+	if(SEND_SIGNAL(src, COMSIG_TWOHANDED_WIELD_CHECK))
+		new_buildup = wielded_recoil_buildup
+	user.recoil_buildup += new_buildup
 	var/randomized_bonus_spread = rand(base_bonus_spread, bonus_spread)
 
 	if(burst_size > 1)

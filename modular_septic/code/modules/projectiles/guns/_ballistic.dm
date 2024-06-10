@@ -193,7 +193,8 @@
 			insert_magazine(user, new_magazine)
 		else
 			if(tac_reloads)
-				eject_magazine(user, FALSE, new_magazine)
+				if(do_after(user, 5, timed_action_flags = IGNORE_USER_LOC_CHANGE))
+					eject_magazine(user, FALSE, new_magazine)
 			else
 				to_chat(user, span_notice("There's already a [magazine_wording] in [src]."))
 		return
