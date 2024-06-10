@@ -102,6 +102,7 @@
 	icon_state = "ithaca"
 	base_icon_state = "ithaca"
 	empty_indicator = FALSE
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
 
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
