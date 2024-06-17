@@ -536,8 +536,8 @@
 	name = "reinforced table"
 	desc = "A reinforced version of the four legged table."
 	icon = 'icons/obj/smooth_structures/reinforced_table.dmi'
-	icon_state = "reinforced_table-0"
-	base_icon_state = "reinforced_table"
+	icon_state = "table-0"
+	base_icon_state = "table"
 	deconstruction_ready = 0
 	buildstack = /obj/item/stack/sheet/plasteel
 	max_integrity = 200

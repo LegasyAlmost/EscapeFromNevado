@@ -598,6 +598,7 @@
 /obj/machinery/computer/security/mining{
 	dir = 4
 	},
+/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/derelict)
 "aCa" = (
@@ -1509,6 +1510,7 @@
 /area/maintenance/liminal/darkgreen)
 "byN" = (
 /obj/machinery/modular_computer/console/preset/id,
+/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/derelict)
 "bzn" = (
@@ -1710,6 +1712,15 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/liminal/hallways)
+"bJj" = (
+/obj/structure/lattice/catwalk/efn_safezone,
+/obj/structure/fans/tiny/invisible,
+/obj/machinery/infocom/north{
+	voice_lines = list("You can leave whenever you want, and you can come back anytime you want","The only penalty is that It'll take some time","Stand on the purple squares below to proceed into the warehouse.","Oh and be safe","I love you.");
+	name = "Escape from Nevado Infocom"
+	},
+/turf/open/openspace,
+/area/maintenance/liminal/intro)
 "bJk" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/lootshoot/clothing,
@@ -1739,6 +1750,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "bJZ" = (
@@ -1945,6 +1957,7 @@
 /obj/machinery/modular_computer/console/preset/cargochat{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/waitroom)
 "bWh" = (
@@ -3064,6 +3077,7 @@
 /obj/machinery/computer/secure_data{
 	dir = 4
 	},
+/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/derelict)
 "doY" = (
@@ -3499,6 +3513,7 @@
 	dir = 4
 	},
 /obj/machinery/light/small/directional/east,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "dIl" = (
@@ -4030,6 +4045,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small/directional/west,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/darkgreen)
 "esN" = (
@@ -4425,6 +4441,7 @@
 /area/maintenance/liminal/boltduel)
 "eOw" = (
 /obj/machinery/computer/camera_advanced,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/mineral/plastitanium/red,
 /area/maintenance/liminal/darkclub)
 "eOT" = (
@@ -5012,6 +5029,7 @@
 /obj/item/paper{
 	info = "I've already figured out what I want to be, I want to be a superstar, I want to be praised, I want recognition. Nothing else in the world would fufill me more then pride in my belly and another's love in my heart. But this place doesn't have any of that. It's just money, sex, drugs, vandalism, thugs, and hunters. It's just lava as long as the eye can see. There's nothing waiting for me here, not anywhere, I can't escape this place or myself, fuck this place, fuck these bastards, I hate dumb bastards."
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/windowclub)
 "ftY" = (
@@ -8268,6 +8286,7 @@
 /obj/machinery/computer/camera_advanced/syndie,
 /obj/structure/lattice,
 /obj/machinery/light/small/blacklight/directional/north,
+/obj/structure/table/reinforced/plasmarglass,
 /turf/open/floor/plating,
 /area/maintenance/liminal/purple)
 "jct" = (
@@ -9275,6 +9294,7 @@
 	req_access = null;
 	dir = 8
 	},
+/obj/structure/table,
 /turf/open/floor/iron{
 	heat_capacity = 1e+006
 	},
@@ -11530,6 +11550,7 @@
 	},
 /obj/machinery/light/red/directional/north,
 /obj/machinery/computer/communications,
+/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron,
 /area/maintenance/liminal/deep)
 "mue" = (
@@ -14660,6 +14681,7 @@
 /obj/machinery/computer/communications{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/windowclub)
 "pAS" = (
@@ -15684,6 +15706,7 @@
 /obj/machinery/computer/cargo/request{
 	dir = 4
 	},
+/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron/checker,
 /area/maintenance/liminal/derelict)
 "qDU" = (
@@ -16093,6 +16116,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron,
 /area/maintenance/liminal/labs)
 "qYG" = (
@@ -17342,6 +17366,7 @@
 	},
 /obj/machinery/light/small/blacklight/directional/west,
 /obj/structure/lattice,
+/obj/structure/table/reinforced/plasmarglass,
 /turf/open/floor/plating,
 /area/maintenance/liminal/purple)
 "sjL" = (
@@ -19291,6 +19316,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
 "ujO" = (
@@ -19500,6 +19526,7 @@
 /obj/machinery/modular_computer/console/preset/cargochat{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},
@@ -20165,6 +20192,7 @@
 /obj/machinery/modular_computer/console/preset/cargochat{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/cafeteria{
 	dir = 5;
 	heat_capacity = 1e+006
@@ -21784,6 +21812,7 @@
 /obj/machinery/computer/security{
 	dir = 1
 	},
+/obj/structure/table,
 /turf/open/floor/iron/smooth,
 /area/maintenance/liminal/darkgreen)
 "wXN" = (
@@ -22444,6 +22473,7 @@
 /obj/item/paper{
 	info = "do you like the stand up desk? lol fuck you retard"
 	},
+/obj/structure/table/reinforced/plastitaniumglass,
 /turf/open/floor/iron,
 /area/maintenance/liminal/deep)
 "xJM" = (
@@ -22570,6 +22600,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
 "xSd" = (
@@ -22804,6 +22835,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/green)
 "yci" = (
@@ -281368,7 +281400,7 @@ gAa
 xhB
 wtL
 wtL
-wtL
+bJj
 wtL
 cZA
 lAa
@@ -282175,7 +282207,7 @@ lAa
 umR
 iHj
 wtL
-wtL
+bJj
 wtL
 wtL
 iHj
