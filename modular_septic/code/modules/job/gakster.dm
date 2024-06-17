@@ -8,15 +8,17 @@
 
 /datum/job/gakster/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	if(ishuman(spawned))
-		spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
-	if(!prob(10))
+	//if(ishuman(spawned))
+	//	spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
+	if(!prob(5))
 		return
 	qdel(spawned.get_item_by_slot(ITEM_SLOT_ID))
 	qdel(spawned.get_item_by_slot(ITEM_SLOT_LPOCKET))
 	spawned.equip_to_slot(new /obj/item/cellphone/hacker(spawned.loc), ITEM_SLOT_ID)
-	//It is time to equip our warriors...
+	//to_chat(spawned, "")
 
+
+//It is time to equip our warriors...
 /datum/outfit/gakster/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	//Gun
@@ -53,6 +55,9 @@
 	if(prob(50))//random chance for the colt instead of the glock
 		belt = /obj/item/gun/ballistic/automatic/pistol/m1911
 		r_pocket = /obj/item/ammo_box/magazine/m45
+	else if(prob(1))
+		belt = /obj/item/gun/ballistic/revolver/poppy
+		r_pocket = /obj/item/ammo_box/magazine/ammo_stack/a500
 
 	//Armor
 	if(prob(50))

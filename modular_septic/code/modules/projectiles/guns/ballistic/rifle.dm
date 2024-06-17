@@ -20,6 +20,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	tetris_width = 128
 	tetris_height = 64
+	wielded_recoil_buildup = 0.7
 
 
 /obj/item/gun/ballistic/automatic/remis/abyss/warfare
@@ -435,7 +436,7 @@
 	load_sound = list('modular_septic/sound/weapons/guns/rifle/bolties/federson_load1.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load2.wav', 'modular_septic/sound/weapons/guns/rifle/bolties/federson_load3.wav')
 	can_suppress = FALSE
 	mag_type = /obj/item/ammo_box/magazine/internal/federson
-	rack_delay = 4
+	rack_delay = 1
 
 //G36
 /obj/item/gun/ballistic/automatic/remis/g36
