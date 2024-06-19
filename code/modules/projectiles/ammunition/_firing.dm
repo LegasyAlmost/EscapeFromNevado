@@ -5,7 +5,7 @@
 	if(pellets == 1)
 		if(distro) //We have to spread a pixel-precision bullet. throw_proj was called before so angles should exist by now...
 			if(randomspread)
-				spread = round((rand(0,1) - 0.5) * distro)
+				spread = round((rand(-1,1) - 0.5) * distro)
 			else //Smart spread
 				/* SEPTIC EDIT REMOVAL
 				spread = round(1 - 0.5) * distro
