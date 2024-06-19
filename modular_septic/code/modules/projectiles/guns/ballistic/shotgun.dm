@@ -68,8 +68,8 @@
 
 // The legendary
 /obj/item/gun/ballistic/shotgun/doublebarrel/bobox
-	name = "Bobox shotgun"
-	desc = "A legendary shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
+	name = "\the \"Early Retirement\""
+	desc = "A \"legendary\" shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
 	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
 	inhand_icon_state = "bobox"
 	base_icon_state = "bobox"
@@ -106,7 +106,7 @@
 
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
-	name = "\improper Peneloppe Sit-Down shotgun"
+	name = "\improper Shottex Sit-Down shotgun"
 	desc = "A sturdy shotgun with a longer magazine and a fixed tactical stock designed for \"non-lethal\" riot control."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "riot"
@@ -133,7 +133,7 @@
 
 // BENELLI M4 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/combat
-	name = "\improper Peneloppe CYM shotgun"
+	name = "\improper Shottex CKY shotgun"
 	desc = "A semi automatic shotgun with tactical furniture and a six-shell(+1) capacity underneath."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "combat"
@@ -160,8 +160,8 @@
 
 // BROWNING 2000 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2000
-	name = "\improper Bowling 3000 shotgun"
-	desc = "The Bowling 3000 is a gas operated, semi automatic shotgun. \
+	name = "\improper \the KILLEDBY™️ Shotgun 3000"
+	desc = "The original classic by KILLEDBY™️, known for their slogan \"No Shotgun, No Peace\". It is a gas operated, semi automatic shotgun. \
 		It has a 4(+1) shell capacity."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "b2000"
@@ -185,8 +185,8 @@
 
 // BELADOR 2021 SILENCED SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2021
-	name = "\improper Belador 2021 shotgun"
-	desc = "The Belador 2021 is a gas operated, semi automatic special-operations shotgun developed by the DEATH SEC Unit \
+	name = "\improper \the FiringFreak™️ 2021 shotgun"
+	desc = "The FiringFreak 2021 is a gas operated, semi automatic special-operations shotgun developed by the DEATH SEC Unit \
 		It has a 9(+1) shell capacity."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "b2021"
@@ -261,8 +261,8 @@
 
 // SAIGA-12 AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/abyss
-	name = "\improper AN-12 Abyss automatic shotgun"
-	desc = "An odd-looking shotgun manufactured by Godheavy Industries"
+	name = "\improper AN-12 KILLEDBY™️ automatic shotgun"
+	desc = "An odd-looking shotgun manufactured by KILLEDBY™️ Industries"
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
@@ -305,7 +305,7 @@
 
 // BALLS DESTROYER
 /obj/item/gun/ballistic/shotgun/bolas
-	name = "\improper Destruidor de Bolas 4-gauge shotgun"
+	name = "\improper 3Shot™️ 4-gauge shotgun"
 	desc = "Holy shit. That's a big fucking shotgun."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	icon_state = "bolas"
@@ -353,9 +353,9 @@
 
 /obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
-	if(bolt_locked || (!safety_flags & GUN_SAFETY_ENABLED))
+	if(bolt_locked || (!(safety_flags & GUN_SAFETY_ENABLED)))
 		var/wontbudge = "The switch won't budge."
-		if(!safety_flags & GUN_SAFETY_ENABLED)
+		if(!(safety_flags & GUN_SAFETY_ENABLED))
 			wontbudge += span_warning(" The safety has to be off.")
 		if(bolt_locked)
 			wontbudge += span_danger(" The pump has to be forward.")

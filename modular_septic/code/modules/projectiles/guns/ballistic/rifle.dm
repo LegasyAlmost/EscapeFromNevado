@@ -119,8 +119,8 @@
 
 //Darkworld Gun
 /obj/item/gun/ballistic/automatic/remis/abyss
-	name = "\improper AN-94 5.4539mm Abyss Armaments Assault Rifle"
-	desc = "A mysterious bolshevik rifle that was produced as a result of a need for a fully-automatic standard rifle for the red's finest. \
+	name = "\improper Abyss Armaments Due Diligence"
+	desc = "The double D as it's sometimes caused. Produced before the great war, but very resiliant. \
 		The muzzle brake seems to be compatable with noise suppressors! So good."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
@@ -344,8 +344,8 @@
 
 // 7.62x54R Lampiao sniper-rifle
 /obj/item/gun/ballistic/automatic/remis/svd
-	name = "\proper Lampiao semi-automatic designated marksman rifle"
-	desc = "A Lampiao sniper-rifle firing in 7.62x54R, the design allows for comfortable medium and long range combat, and unconventional, but effective CQC against armored targets. \
+	name = "\proper Judgement semi-automatic designated marksman rifle"
+	desc = "A Judgement sniper-rifle firing in 7.62x54R, the design allows for comfortable medium and long range combat, and unconventional, but effective CQC against armored targets. \
 	 Has a dovetail mount for a PSO-1M2-1 4x24 scope and a threaded barrel for a sound-suppressor. "
 	icon = 'modular_septic/icons/obj/items/guns/64x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/rifle_lefthand.dmi'
@@ -421,8 +421,8 @@
 	tetris_height = 128
 
 /obj/item/gun/ballistic/rifle/boltaction/remis/federson
-	name = "\improper Federson \"Osaco Chuckster\" bolt-action rifle"
-	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Federson."
+	name = "\improper Dreaderson \"Brass Rain\" bolt-action rifle"
+	desc = "A bolt-action rifle capable of piercing through armor, and making accurate shots even at a range. It's cursed by having It's own cartridge unfortunately, .276 Dreaderson."
 	icon_state = "pedersen"
 	base_icon_state = "pedersen"
 	inhand_icon_state = "pedersen"

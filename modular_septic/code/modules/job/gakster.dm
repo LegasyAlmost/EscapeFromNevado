@@ -33,7 +33,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else if (prob(25))
-		suit_store = /obj/item/gun/ballistic/shotgun/ithaca
+		suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat
 		backpack_contents = list(/obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded = 6,
 		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
@@ -77,8 +77,7 @@
 		mask = /obj/item/clothing/mask/balaclava
 
 /datum/outfit/gakster
-	name = "Gakster Uniform"
-
+	name = "Gakster Scavenger"
 	uniform = /obj/item/clothing/under/itobe
 	id = /obj/item/cellphone
 	belt = /obj/item/gun/ballistic/automatic/pistol/glock17

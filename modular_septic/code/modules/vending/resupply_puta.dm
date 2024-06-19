@@ -4,7 +4,7 @@
 #define SPENDILIZER_EXTENDING 4
 
 /obj/machinery/resupply_puta
-	name = "\improper Atire-Putas"
+	name = "\improper Verina's Heartbeat"
 	desc = "A machine with coursing wires filled with a red substance, containing all you need to keep you going. Has a label explaining everything you need to know about the functions. <span_class='boldwarning'>Just look twice.</span>"
 	icon = 'modular_septic/icons/obj/machinery/resupply_puta.dmi'
 	icon_state = "new_wallputa"
