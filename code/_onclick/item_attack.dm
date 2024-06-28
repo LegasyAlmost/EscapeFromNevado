@@ -261,12 +261,14 @@
 		return TRUE //successful attack
 
 /mob/living/simple_animal/attacked_by(obj/item/I, mob/living/user)
+	new /obj/effect/temp_visual/damage_numbers(src.loc, I.force)
 	if(!attack_threshold_check(I.force, I.damtype, MELEE, FALSE))
 		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), TRUE, -1)
 	else
 		return ..()
 
 /mob/living/basic/attacked_by(obj/item/I, mob/living/user)
+	new /obj/effect/temp_visual/damage_numbers(src.loc, I.force)
 	if(!attack_threshold_check(I.force, I.damtype, MELEE, FALSE))
 		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), TRUE, -1)
 	else

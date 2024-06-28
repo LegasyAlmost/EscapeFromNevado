@@ -47,7 +47,7 @@
 	SSjob.joinable_departments += denominator_department
 	SSjob.joinable_departments_by_type[denominator_department.type] = denominator_department
 	for(var/datum/job/job as anything in SSjob.all_occupations)
-		if(istype(job, /datum/job/gakster))
+		if(istype(job, /datum/job/gakster))///datum/job/tutorial))
 			SSjob.name_occupations[job.title] = job
 			gakster_department.add_job(job)
 			gakster_department.department_head = job.type
@@ -56,6 +56,7 @@
 			job.spawn_positions = 64
 			SSjob.joinable_occupations += job
 			SSjob.set_overflow_role(job.title)
+		/*
 		else if(istype(job, /datum/job/denominator))
 			SSjob.name_occupations[job.title] = job
 			denominator_department.add_job(job)
@@ -80,5 +81,6 @@
 			job.total_positions = 0
 			job.spawn_positions = 0
 			SSjob.joinable_occupations += job
+		*/
 		else
 			SSjob.joinable_occupations -= job

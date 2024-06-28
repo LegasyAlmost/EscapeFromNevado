@@ -11,7 +11,7 @@
 	equip_sound = 'modular_septic/sound/weapons/guns/pistol/pistol_holster.wav'
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_lightgun.wav'
 	tetris_width = 64
-	tetris_height = 64
+	tetris_height = 32
 
 // RUGER MKIV
 /obj/item/gun/ballistic/automatic/pistol

@@ -21,6 +21,10 @@
 //It is time to equip our warriors...
 /datum/outfit/gakster/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
+
+	if(!get_guns)
+		return
+
 	//Gun
 	if(prob(10))
 		suit_store = /obj/item/gun/ballistic/automatic/remis/abyss
@@ -77,6 +81,7 @@
 		mask = /obj/item/clothing/mask/balaclava
 
 /datum/outfit/gakster
+	var/get_guns = TRUE
 	name = "Gakster Scavenger"
 	uniform = /obj/item/clothing/under/itobe
 	id = /obj/item/cellphone
@@ -86,3 +91,33 @@
 	back = /obj/item/storage/backpack/satchel/chestrig
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
+
+
+/datum/outfit/gakster/tutorial
+	get_guns = FALSE
+	back = /obj/item/storage/backpack/satchel/itobe
+	backpack_contents = list(/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+	belt = null
+	r_pocket = null
+
+/datum/job/tutorial
+	title = "Tutorial"
+	department_head = list("pain")
+	supervisors = "no-one"
+
+	outfit = /datum/outfit/gakster/tutorial
+	attribute_sheet = /datum/attribute_holder/sheet/job/gakster
+
+/datum/job/tutorial/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(ishuman(spawned))
+		spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
+		//spawned.AddElement(/datum/element/waddling)
+	/*
+	if(!prob(5))
+		return
+	qdel(spawned.get_item_by_slot(ITEM_SLOT_ID))
+	qdel(spawned.get_item_by_slot(ITEM_SLOT_LPOCKET))
+	spawned.equip_to_slot(new /obj/item/cellphone/hacker(spawned.loc), ITEM_SLOT_ID)
+	//to_chat(spawned, "")
+	*/

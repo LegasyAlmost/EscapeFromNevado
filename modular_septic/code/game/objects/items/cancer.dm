@@ -104,7 +104,7 @@
 /obj/item/clothing/mask/cigarette/space_cigarette
 	name = "asbestos stick"
 	desc = "A very low quality cigarette. Smoking this can't do you any good."
-	lung_harm = 1
+	lung_harm = 0
 
 /obj/item/clothing/mask/cigarette/rollie
 	name = "cancer roll"

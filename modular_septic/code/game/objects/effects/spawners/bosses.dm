@@ -11,7 +11,7 @@
 //You shall not commit adultery                                 //
 //You shall not steal                                           //
 //You shall not bear false witness against your neighbor        //
-//You shall not covet your neighbor’s house                     // 
+//You shall not covet your neighbor’s house                     //
 //You shall not covet your neighbor’s wife                      //
 //////////////////////////////////////////////////////////////////
 
@@ -23,6 +23,7 @@
     icon_state = "raginggorrilla"
 
 /obj/effect/mob_spawn/human/emoney/special(mob/living/new_spawn, name)
-    if(ishuman(new_spawn))
-        var/mob/living/carbon/human/H = new_spawn
-        H.ai_controller = /datum/ai_controller/monkey/angry
+	. = ..()
+	if(ishuman(new_spawn))
+		var/mob/living/carbon/human/H = new_spawn
+		H.ai_controller = /datum/ai_controller/monkey/angry

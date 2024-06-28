@@ -350,7 +350,7 @@
 			icon_file = initial(D.research_icon)
 			icon_state = initial(D.research_icon_state)
 			if(!(icon_state in icon_states(icon_file)))
-				warning("design [D] with icon '[icon_file]' missing state '[icon_state]'")
+				//warning("design [D] with icon '[icon_file]' missing state '[icon_state]'")
 				continue
 			I = icon(icon_file, icon_state, SOUTH)
 
@@ -381,7 +381,7 @@
 
 			icon_state = initial(item.icon_state)
 			if(!(icon_state in icon_states(icon_file)))
-				warning("design [D] with icon '[icon_file]' missing state '[icon_state]'")
+				//warning("design [D] with icon '[icon_file]' missing state '[icon_state]'")
 				continue
 			I = icon(icon_file, icon_state, SOUTH)
 
