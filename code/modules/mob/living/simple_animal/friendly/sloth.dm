@@ -38,6 +38,15 @@
 	. = ..()
 	AddElement(/datum/element/pet_bonus, "slowly smiles!")
 
+/mob/living/simple_animal/sloth/creacher
+	name = "the creacher"
+	desc = "The creacher, do not look behind it."
+	icon_state = "creacher"
+	icon_living = "creacher"
+	icon_dead = "creacher_dead"
+	health = 100
+	maxHealth = 100
+
 //Cargo Sloth
 /mob/living/simple_animal/sloth/paperwork
 	name = "Paperwork"

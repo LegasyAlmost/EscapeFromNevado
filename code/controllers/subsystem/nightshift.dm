@@ -9,6 +9,7 @@ SUBSYSTEM_DEF(nightshift)
 
 	var/high_security_mode = FALSE
 	var/list/currentrun
+	can_fire = FALSE
 
 /datum/controller/subsystem/nightshift/Initialize()
 	if(!CONFIG_GET(flag/enable_night_shifts))

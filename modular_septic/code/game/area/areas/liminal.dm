@@ -5,6 +5,22 @@
 	droning_sound = DRONING_LIMINAL
 	requires_power = FALSE
 
+
+/obj/structure/ms_trash
+	name = "garbage"
+	icon = 'modular_septic/icons/obj/structures/ms_trash2.dmi'
+	anchored = TRUE
+	density = FALSE
+	mouse_opacity = 0
+
+/obj/structure/ms_trash/Initialize(mapload)
+	. = ..()
+	var/base_icon_pick = pick("trashbags", "foodstuff", "glass")
+	icon_state = "[base_icon_pick]_[rand(1,6)]"
+	pixel_x = rand(-16, 16)
+	pixel_y = rand(-16, 16)
+
+
 /area/maintenance/liminal/red
 	name = "Liminal Red"
 	icon_state = "red"

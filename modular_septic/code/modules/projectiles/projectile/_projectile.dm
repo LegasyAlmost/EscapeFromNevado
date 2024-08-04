@@ -30,6 +30,7 @@
 	var/hit_text = ""
 	/// Stored target message
 	var/target_hit_text = ""
+	var/no_effect = FALSE
 
 /obj/projectile/Initialize(mapload)
 	. = ..()
@@ -134,35 +135,38 @@
 	var/final_hitsound_volume = vol_by_damage()
 	if(!nodamage && (damage_type == BRUTE || damage_type == BURN))
 		if(target_location)
-			if(!ismob(target))//Mobs don't make sparks.
-				if(!istype(target_location, /turf/open/openspace))//Open spaces don't have impact particles either.
-					target_location.visual_effect(src)
-			else
-				target_location.visual_effect(src, "drip")
+			if(!no_effect)//This stops blood sprays from making hit effects.
+				if(!ismob(target))//Mobs don't make sparks.
+					if(!istype(target_location, /turf/open/openspace))//Open spaces don't have impact particles either.
+						target_location.visual_effect(src)
+				else
+					target_location.visual_effect(src, "drip")
 		if(iswallturf(target_location) && ((target == target_location) || prob(50)) )
-			var/turf/closed/wall/wall = target_location
-			if(impact_effect_type)
-				new impact_effect_type(target_location, hitx, hity)
+			if(!no_effect)
+				var/turf/closed/wall/wall = target_location
+				if(impact_effect_type)
+					new impact_effect_type(target_location, hitx, hity)
 
-			wall.add_dent(WALL_DENT_SHOT, hitx, hity)
+				wall.add_dent(WALL_DENT_SHOT, hitx, hity)
 
-			//wall.sound_hint()
-			final_hitsound = wall.get_projectile_hitsound(src)
-			if(final_hitsound)
-				playsound(wall, final_hitsound, final_hitsound_volume, TRUE, -1)
+				//wall.sound_hint()
+				final_hitsound = wall.get_projectile_hitsound(src)
+				if(final_hitsound)
+					playsound(wall, final_hitsound, final_hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 		else if(isfloorturf(target_location) && (target == target_location))
-			var/turf/open/floor/floor = target_location
-			if(impact_effect_type)
-				new impact_effect_type(target_location, hitx, hity)
+			if(!no_effect)
+				var/turf/open/floor/floor = target_location
+				if(impact_effect_type)
+					new impact_effect_type(target_location, hitx, hity)
 
-			floor.add_dent(WALL_DENT_SHOT, hitx, hity)
+				floor.add_dent(WALL_DENT_SHOT, hitx, hity)
 
-			//floor.sound_hint()
-			final_hitsound = floor.get_projectile_hitsound(src)
-			if(final_hitsound)
-				playsound(floor, final_hitsound, final_hitsound_volume, TRUE, -1)
+				//floor.sound_hint()
+				final_hitsound = floor.get_projectile_hitsound(src)
+				if(final_hitsound)
+					playsound(floor, final_hitsound, final_hitsound_volume, TRUE, -1)
 
 			return BULLET_ACT_HIT
 
