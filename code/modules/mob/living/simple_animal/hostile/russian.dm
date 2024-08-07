@@ -9,8 +9,8 @@
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	sentience_type = SENTIENCE_HUMANOID
 	speak_chance = 0
-	turns_per_move = 5
-	speed = 0
+	turns_per_move = 2
+	speed = 2
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5
@@ -20,6 +20,7 @@
 	attack_verb_simple = "punch"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	combat_mode = TRUE
+	var/list/secondary_loot = list()
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian,
 				/obj/item/knife/kitchen)
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
@@ -27,35 +28,50 @@
 	faction = list("russian")
 	status_flags = CANPUSH
 	del_on_death = 1
-
+	wander = TRUE
 	footstep_type = FOOTSTEP_MOB_SHOE
+
+/mob/living/simple_animal/hostile/russian/drop_loot()
+	..()
+	if(secondary_loot.len)
+		for(var/i in secondary_loot)
+			if(prob(50))
+				new i(loc)
 
 
 /mob/living/simple_animal/hostile/russian/ranged
 	icon_state = "russianranged"
 	icon_living = "russianranged"
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian/ranged,
-				/obj/item/gun/ballistic/revolver/nagant)
-	ranged = 1
-	retreat_distance = 5
-	minimum_distance = 5
-	projectilesound = 'sound/weapons/gun/revolver/shot.ogg'
-	casingtype = /obj/item/ammo_casing/n762
+				/obj/item/gun/ballistic/revolver/nova)
+	ranged = TRUE
+	retreat_distance = 3
+	minimum_distance = 3
+	check_friendly_fire = TRUE
+	projectilesound = 'modular_septic/sound/weapons/guns/revolver/nova.wav'
+	casingtype = /obj/item/ammo_casing/c38
+	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/c38/loaded, /obj/item/ammo_box/magazine/ammo_stack/c38/loaded)
 
 
 /mob/living/simple_animal/hostile/russian/ranged/mosin
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian/ranged,
-				/obj/item/gun/ballistic/rifle/boltaction)
+				/obj/item/gun/ballistic/rifle/boltaction/remis/federson)
 	casingtype = /obj/item/ammo_casing/a762
+	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/a276/loaded, /obj/item/ammo_box/magazine/ammo_stack/a276/loaded)
+	projectilesound = 'modular_septic/sound/weapons/guns/rifle/bolties/federson.wav'
 
 /mob/living/simple_animal/hostile/russian/ranged/trooper
 	icon_state = "russianrangedelite"
 	icon_living = "russianrangedelite"
 	maxHealth = 150
 	health = 150
-	casingtype = /obj/item/ammo_casing/shotgun/buckshot
+	retreat_distance = 3
+	minimum_distance = 3
+	projectilesound = 'modular_septic/sound/weapons/guns/shotgun/bolas1.wav'
+	casingtype = /obj/item/ammo_casing/shotgun/bolas/buckshot
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian/ranged/trooper,
-				/obj/item/gun/ballistic/shotgun/lethal)
+				/obj/item/gun/ballistic/shotgun/bolas)
+	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded, /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded)
 
 /mob/living/simple_animal/hostile/russian/ranged/officer
 	name = "Russian Officer"
@@ -71,4 +87,4 @@
 /mob/living/simple_animal/hostile/russian/ranged/officer/Aggro()
 	..()
 	summon_backup(15)
-	say("V BOJ!!")
+	//say("V BOJ!!")

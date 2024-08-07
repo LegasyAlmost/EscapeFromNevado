@@ -56,6 +56,9 @@
 		backpack_contents = list(/obj/item/ammo_box/magazine/ammo_stack/a276/loaded = 6,
 		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
+	else
+		backpack_contents = list(/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+
 	if(prob(50))//random chance for the colt instead of the glock
 		belt = /obj/item/gun/ballistic/automatic/pistol/m1911
 		r_pocket = /obj/item/ammo_box/magazine/m45

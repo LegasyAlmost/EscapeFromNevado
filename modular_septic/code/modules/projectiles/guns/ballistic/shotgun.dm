@@ -104,6 +104,13 @@
 	empty_indicator = FALSE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lethal
 
+
+/obj/item/gun/ballistic/shotgun/hunting
+	name = "Hunting Shotgun"
+	icon_state = "huntingshot"
+	base_icon_state = "huntingshot"
+	empty_icon_state = TRUE
+
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
 	name = "\improper Shottex Sit-Down shotgun"

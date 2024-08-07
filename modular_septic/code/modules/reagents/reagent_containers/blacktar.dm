@@ -21,8 +21,8 @@
 	var/datum/reagents/reagent_holder_left
 	var/datum/reagents/reagent_holder_right
 	reagent_flags = OPENCONTAINER | TRANSPARENT
-	list_reagents = list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 25)
-	var/list/list_reagents_left = list(/datum/reagent/medicine/blacktar = 50, /datum/reagent/medicine/c2/helbital = 25)
+	list_reagents = list(/datum/reagent/medicine/blacktar = 25, /datum/reagent/medicine/c2/helbital = 50)
+	var/list/list_reagents_left = list(/datum/reagent/medicine/blacktar = 25, /datum/reagent/medicine/c2/helbital = 50)
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/Initialize(mapload, vol)
 	. = ..()

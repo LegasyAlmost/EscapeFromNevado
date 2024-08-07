@@ -247,7 +247,7 @@
 /datum/emote/living/gargle
 	key = "gargle"
 	key_third_person = "gargles"
-	message = "gargles their throat!"
+	message = "gargles!"
 	emote_type = EMOTE_AUDIBLE
 	muzzle_ignore = TRUE
 	hands_use_check = FALSE

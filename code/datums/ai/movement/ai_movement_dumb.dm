@@ -19,6 +19,11 @@
 		if(!isturf(movable_pawn.loc)) //No moving if not on a turf
 			can_move = FALSE
 
+		if(isliving(controller.pawn))//Holy shit please stop fucking trying to have these fuckers come after me after I knocked them over I beg you.
+			var/mob/living/living_pawn = movable_pawn
+			if(living_pawn.body_position == LYING_DOWN)
+				can_move = FALSE
+
 		var/current_loc = get_turf(movable_pawn)
 
 		var/turf/target_turf = get_step_towards(movable_pawn, controller.current_movement_target)

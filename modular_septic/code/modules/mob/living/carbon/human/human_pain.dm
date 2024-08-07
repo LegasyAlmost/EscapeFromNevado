@@ -103,11 +103,12 @@
 				status = "<a href='?src=[REF(hurted)];'>[woundmsg]</a>"
 
 		if(LB.embedded_objects)
-			for(var/obj/item/item in LB.embedded_objects)
-				if(item.isEmbedHarmless())
-					status += "<span class='notice'><b>[uppertext(item.name)]</b></span>"
-				else
-					status += "<span class='warning'><b>[uppertext(item.name)]</b></span>"
+			status += "<span class='warning'><b>SHARPNEL</b></span>"
+			//for(var/obj/item/item in LB.embedded_objects)
+			//	if(item.isEmbedHarmless())
+			//		status += "<span class='notice'><b>[uppertext(item.name)]</b></span>"
+			//	else
+			//		status += "<span class='warning'><b>[uppertext(item.name)]</b></span>"
 
 		if(LB.get_bleed_rate())
 			if(LB.get_bleed_rate() > 1) //Totally arbitrary value

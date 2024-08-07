@@ -14,7 +14,10 @@
 	///Used to make sure someone doesn't get spammed with messages if they're ineligible for roles.
 	var/ineligible_for_roles = FALSE
 
-
+/mob/dead/new_player/Login()
+	..()
+	if(SSticker.current_state == GAME_STATE_PREGAME)
+		SSticker.start_immediately = TRUE
 
 /mob/dead/new_player/Initialize(mapload)
 	if(client && SSticker.state == GAME_STATE_STARTUP)

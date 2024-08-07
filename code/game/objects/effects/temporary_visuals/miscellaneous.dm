@@ -64,13 +64,13 @@
 		if(NORTH)
 			layer = BELOW_MOB_LAYER
 			pixel_x = rand(-3,3)
-			pixel_y = rand(4,6)
+			pixel_y = rand(14,18)
 		if(SOUTH)
 			pixel_x = rand(-3,3)
-			pixel_y = rand(-1,1)
+			pixel_y = rand(6,8)
 		else
 			pixel_x = rand(-1,1)
-			pixel_y = rand(-1,1)
+			pixel_y = rand(6,8)
 	..()
 
 /obj/effect/temp_visual/dir_setting/firing_effect/energy
