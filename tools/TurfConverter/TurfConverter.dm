@@ -90,7 +90,7 @@
 		output.Insert(state_icon, replaced_state)
 	//Give the output
 	usr << ftp(output, "[inputfile]")
-
+/*
 /client/verb/turfconverter()
 	set name = "Convert Turfs"
 	set desc = "Convert them up nice."
@@ -173,3 +173,4 @@
 		output.Insert(state_icon, replaced_state)
 	//Give the output
 	usr << ftp(output, "[inputfile]")
+*/
