@@ -97,4 +97,8 @@
 	if (client)
 		client.move_delay = initial(client.move_delay)
 
+	//if(src in SSturnbasedcombat.enemies)//Remove them from the enemies list, if they're there.
+	//	SSturnbasedcombat.enemies -= src
+
+
 	return TRUE
