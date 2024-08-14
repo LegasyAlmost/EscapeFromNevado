@@ -293,13 +293,13 @@
 		// Apply cold slow down
 		humi.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/cold, multiplicative_slowdown = ((bodytemp_cold_damage_limit - humi.bodytemperature) / COLD_SLOWDOWN_FACTOR))
 		// Display alerts based how cold it is
-		switch(humi.bodytemperature)
-			if(201 to bodytemp_cold_damage_limit)
-				humi.update_hud_bodytemperature(2)
-			if(120 to 200)
-				humi.update_hud_bodytemperature(1)
-			else
-				humi.update_hud_bodytemperature(0)
+		//switch(humi.bodytemperature)
+		if(clamp(humi.bodytemperature, 201, bodytemp_cold_damage_limit))
+			humi.update_hud_bodytemperature(2)
+		if(clamp(humi.bodytemperature, 120, 200))
+			humi.update_hud_bodytemperature(1)
+		else
+			humi.update_hud_bodytemperature(0)
 	// We are not too hot nor cold, remove status and modifiers
 	else
 		humi.update_hud_bodytemperature(3)
@@ -330,13 +330,13 @@
 	// Body temperature is too cold, and we do not have resist traits
 	else if(area_temp < bodytemp_cold_damage_limit && !HAS_TRAIT(humi, TRAIT_RESISTCOLD))
 		// Display alerts based how cold it is
-		switch(area_temp)
-			if(201 to bodytemp_cold_damage_limit)
-				humi.update_hud_temperature(2)
-			if(120 to 200)
-				humi.update_hud_temperature(1)
-			else
-				humi.update_hud_temperature(0)
+		//switch()
+		if(clamp(area_temp, 201, bodytemp_cold_damage_limit))
+			humi.update_hud_temperature(2)
+		if(clamp(area_temp, 120, 200))
+			humi.update_hud_temperature(1)
+		else
+			humi.update_hud_temperature(0)
 	// We are not too hot nor cold, remove status and modifiers
 	else
 		humi.update_hud_temperature(3)

@@ -247,7 +247,7 @@
 "ik" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/termination_centre)
 "il" = (/obj/effect/turf_decal/trimline/red/filled/corner,/obj/effect/turf_decal/trimline/red/filled/corner{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/termination_centre)
 "im" = (/obj/structure/chair,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/labs)
-"in" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/structure/table,/obj/item/kitchen/fork,/turf/open/floor/iron{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen{anchored = nulls})
+"in" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/structure/table,/obj/item/kitchen/fork,/turf/open/floor/iron{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "iq" = (/turf/open/floor/iron/dark/smooth_corner{dir = 1},/area/maintenance/liminal/red)
 "is" = (/obj/structure/table/wood,/obj/effect/turf_decal/siding/thinplating/dark{dir = 6},/turf/open/floor/wood,/area/maintenance/liminal/termination_centre)
 "it" = (/obj/machinery/status_display/ai/directional/north,/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/termination_centre)

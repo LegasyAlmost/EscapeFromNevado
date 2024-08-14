@@ -215,7 +215,7 @@ export const ServerTarget = new Juke.Target({
   dependsOn: [BuildTarget],
   executes: async ({ get }) => {
     const port = get(PortParameter) || '1337';
-    await DreamDaemon(`${DME_NAME}.dmb`, port, '-trusted');
+    await DreamDaemon(`${DME_NAME}.dmb`, port, '-verbose');
   },
 });
 

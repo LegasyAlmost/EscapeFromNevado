@@ -10,8 +10,8 @@
 	src.gas_amount = gas_amount
 	src.temp_amount = temp_amount
 
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/attackby_react)
-	RegisterSignal(parent, COMSIG_ATOM_FIRE_ACT, .proc/flame_react)
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(attackby_react))
+	RegisterSignal(parent, COMSIG_ATOM_FIRE_ACT, PROC_REF(flame_react))
 
 /datum/component/combustible_flooder/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_PARENT_ATTACKBY)
@@ -21,7 +21,7 @@
 /datum/component/combustible_flooder/proc/flood(mob/user, temp_amount)
 	var/turf/open/flooded_turf = get_turf(parent)
 	flooded_turf.atmos_spawn_air("[gas_id]=[gas_amount];TEMP=[temp_amount]")
-	
+
 	// Logging-related
 	var/admin_message = "[parent] ignited in [ADMIN_VERBOSEJMP(flooded_turf)]"
 	var/log_message = "[parent] ignited in [AREACOORD(flooded_turf)]"
@@ -33,7 +33,7 @@
 		log_message += " by fire"
 	message_admins(admin_message)
 	log_game(log_message)
-	
+
 	// For floors
 	if(isturf(parent))
 		var/turf/K = parent

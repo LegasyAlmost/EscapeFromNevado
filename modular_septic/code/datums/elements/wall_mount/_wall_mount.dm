@@ -11,7 +11,7 @@
 	src.plane_lower = plane_lower
 	var/atom/movable/real_target = target
 	on_dir_changed(real_target, real_target.dir, real_target.dir)
-	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_changed)
+	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_changed))
 
 /datum/element/wall_mount/Detach(datum/source)
 	. = ..()

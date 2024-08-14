@@ -11,6 +11,7 @@ import { ChatPanel, ChatTabs } from './chat';
 import { useGame } from './game';
 import { Notifications } from './Notifications';
 import { PingIndicator } from './ping';
+import { ReconnectButton } from './reconnect';
 import { SettingsPanel, useSettings } from './settings';
 
 export const Panel = (props, context) => {
@@ -46,8 +47,9 @@ export const Panel = (props, context) => {
               </Stack.Item>
               <Stack.Item>
                 <Button
+                  color="grey"
+                  selected={audio.visible}
                   icon="music"
-                  color={audio.visible ? 'quake-light' : 'quake'}
                   tooltip="Music player"
                   tooltipPosition="bottom-start"
                   onClick={() => audio.toggle()} />
@@ -55,7 +57,7 @@ export const Panel = (props, context) => {
               <Stack.Item>
                 <Button
                   icon={settings.visible ? 'times' : 'cog'}
-                  color={settings.visible ? 'quake-light' : 'quake'}
+                  selected={settings.visible}
                   tooltip={settings.visible
                     ? 'Close settings'
                     : 'Open settings'}
@@ -80,21 +82,12 @@ export const Panel = (props, context) => {
         <Stack.Item grow>
           <Section fill fitted position="relative">
             <Pane.Content scrollable>
-              {(!settings.visible && !audio.visible) && (
-                <img class="topimg" />
-              )}
               <ChatPanel lineHeight={settings.lineHeight} />
             </Pane.Content>
             <Notifications>
               {game.connectionLostAt && (
                 <Notifications.Item
-                  rightSlot={(
-                    <Button
-                      color="white"
-                      onClick={() => Byond.command('.reconnect')}>
-                      Reconnect
-                    </Button>
-                  )}>
+                  rightSlot={<ReconnectButton />}>
                   You are either AFK, experiencing lag or the connection
                   has closed.
                 </Notifications.Item>

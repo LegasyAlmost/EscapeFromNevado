@@ -311,13 +311,13 @@
 
 /obj/machinery/computer/security/telescreen/entertainment/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_CLICK, .proc/BigClick)
+	RegisterSignal(src, COMSIG_CLICK, PROC_REF(BigClick))
 
 // Bypass clickchain to allow humans to use the telescreen from a distance
 /obj/machinery/computer/security/telescreen/entertainment/proc/BigClick()
 	SIGNAL_HANDLER
 
-	INVOKE_ASYNC(src, /atom.proc/interact, usr)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, interact), usr)
 
 /obj/machinery/computer/security/telescreen/entertainment/proc/notify(on)
 	if(on)

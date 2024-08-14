@@ -360,7 +360,7 @@
 		return
 	var/mob/living/carbon/C = M
 	C.HeadRape(4 SECONDS)
-	addtimer(CALLBACK(C, /mob/living.proc/Stun, 10, TRUE, TRUE), 10)
+	addtimer(CALLBACK(C, TYPE_PROC_REF(/mob/living, Stun), 10, TRUE, TRUE), 10)
 
 /datum/reagent/medicine/pinkturbid/expose_mob(mob/living/carbon/exposed_mob, methods=INJECT, reac_volume)
 	if(exposed_mob.stat != DEAD && exposed_mob.pulse > 0)
@@ -373,7 +373,7 @@
 	playsound(exposed_mob, 'modular_septic/sound/effects/revival.ogg', 45, FALSE)
 	exposed_mob.do_jitter_animation(10)
 	exposed_mob.cure_all_traumas(TRAUMA_RESILIENCE_ABSOLUTE)
-	addtimer(CALLBACK(exposed_mob, /mob/living.proc/revive, FALSE, FALSE, excess_healing), 79)
+	addtimer(CALLBACK(exposed_mob, TYPE_PROC_REF(/mob/living, revive), FALSE, FALSE, excess_healing), 79)
 
 /datum/reagent/medicine/pinkturbid/on_mob_life(mob/living/carbon/M, delta_time, times_fired) // same thing as strange reagent
 	var/damage_at_random = rand(0, 250)/100 //0 to 2.5

@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 /obj/structure/gptdfm/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -124,5 +124,5 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	if(!istype(child_victim))
 		return
 	if(child_victim.pulling && isliving(child_victim.pulling))
-		INVOKE_ASYNC(src, .proc/teleportation, child_victim.pulling)
-	INVOKE_ASYNC(src, .proc/teleportation, child_victim)
+		INVOKE_ASYNC(src, PROC_REF(teleportation), child_victim.pulling)
+	INVOKE_ASYNC(src, PROC_REF(teleportation), child_victim)

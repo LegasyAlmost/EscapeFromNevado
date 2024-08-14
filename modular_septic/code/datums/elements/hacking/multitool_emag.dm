@@ -5,7 +5,7 @@
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
 	. = ..()
-	RegisterSignal(target, COMSIG_ATOM_TERTIARY_TOOL_ACT(TOOL_MULTITOOL), .proc/try_hacking)
+	RegisterSignal(target, COMSIG_ATOM_TERTIARY_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(try_hacking))
 
 /datum/element/multitool_emaggable/Detach(datum/source, force)
 	. = ..()

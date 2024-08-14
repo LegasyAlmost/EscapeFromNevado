@@ -11,8 +11,8 @@
 
 /obj/item/organ/stomach/ethereal/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
-	RegisterSignal(new_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, .proc/charge)
-	RegisterSignal(new_owner, COMSIG_LIVING_ELECTROCUTE_ACT, .proc/on_electrocute)
+	RegisterSignal(new_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, PROC_REF(charge))
+	RegisterSignal(new_owner, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_electrocute))
 
 /obj/item/organ/stomach/ethereal/Remove(mob/living/carbon/old_owner, special = FALSE)
 	UnregisterSignal(old_owner, COMSIG_PROCESS_BORGCHARGER_OCCUPANT)

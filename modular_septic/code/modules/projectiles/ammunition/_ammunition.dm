@@ -21,7 +21,7 @@
 /obj/item/ammo_casing/Initialize(mapload)
 	. = ..()
 	if(world_icon)
-		AddElement(/datum/element/world_icon, .proc/update_icon_world)
+		AddElement(/datum/element/world_icon, PROC_REF(update_icon_world))
 
 /obj/item/ammo_casing/update_icon(updates)
 	icon = initial(icon)
@@ -40,9 +40,9 @@
 	SpinAnimation(10, 1)
 	var/turf/bouncer = drop_location()
 	if(still_warm && bouncer?.bullet_sizzle)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 20, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, 'sound/items/welder.ogg', 20, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
 	else
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, pick(bounce_sound), bounce_volume, bounce_vary), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, pick(bounce_sound), bounce_volume, bounce_vary), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
 
 /obj/item/ammo_casing/add_notes_ammo()
 	var/list/readout = list()

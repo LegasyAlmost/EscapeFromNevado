@@ -30,7 +30,7 @@
 
 /mob/living/simple_animal/hostile/asteroid/curseblob/Initialize(mapload)
 	. = ..()
-	timerid = QDEL_IN(src, 600)
+	timerid = QDEL_IN_STOPPABLE(src, 600)
 	AddElement(/datum/element/simple_flying)
 	playsound(src, 'sound/effects/curse1.ogg', 100, TRUE, -1)
 

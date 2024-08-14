@@ -21,6 +21,7 @@
 
 /datum/component/temporary_pollution_emission/process(delta_time = SSOBJ_DT)
 	var/turf/my_turf = get_turf(parent)
-	my_turf.pollute_turf(pollutant_type, pollutant_amount * delta_time)
-	if(world.time >= expiry_time)
-		qdel(src)
+	if(my_turf)
+		my_turf.pollute_turf(pollutant_type, pollutant_amount * delta_time)
+		if(world.time >= expiry_time)
+			qdel(src)

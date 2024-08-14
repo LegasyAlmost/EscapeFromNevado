@@ -15,7 +15,7 @@
 
 /obj/item/money/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/world_icon, .proc/update_icon_world)
+	AddElement(/datum/element/world_icon, PROC_REF(update_icon_world))
 
 /obj/item/money/examine(mob/user)
 	. = ..()

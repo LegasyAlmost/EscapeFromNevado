@@ -36,9 +36,9 @@
 		if(allow_thrust(0.01))
 			on = TRUE
 			ion_trail.start()
-			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, .proc/move_react)
+			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(move_react))
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
-			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
+			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(pre_move_react))
 			if(!silent)
 				to_chat(owner, span_notice("You turn your thrusters set on."))
 	else

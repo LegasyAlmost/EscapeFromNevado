@@ -123,9 +123,9 @@
 	if(stage <= 1)
 		to_chat(affected_mob, "I have become a lost soul!")
 	update_stage(2)
-	RegisterSignal(affected_mob, COMSIG_MOB_SAY, .proc/handle_speech)
-	RegisterSignal(affected_mob, COMSIG_LIVING_REVIVE, .proc/mob_revived)
-	RegisterSignal(affected_mob, COMSIG_LIVING_TRY_PUT_IN_HAND, .proc/deny_put_in_hand)
+	RegisterSignal(affected_mob, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	RegisterSignal(affected_mob, COMSIG_LIVING_REVIVE, PROC_REF(mob_revived))
+	RegisterSignal(affected_mob, COMSIG_LIVING_TRY_PUT_IN_HAND, PROC_REF(deny_put_in_hand))
 	if(!(affected_mob.mob_biotypes & MOB_UNDEAD))
 		was_undead = TRUE
 		affected_mob.mob_biotypes |= MOB_UNDEAD

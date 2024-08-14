@@ -139,8 +139,8 @@
 	var/mouseObject = null
 	//Middle-mouse-button click dragtime control for aimbot exploit detection.
 	var/middragtime = 0
-	//Middle-mouse-button clicked object control for aimbot exploit detection.
-	var/atom/middragatom
+	//Middle-mouse-button clicked object control for aimbot exploit detection. Weakref
+	var/datum/weakref/middle_drag_atom_ref
 
 	/// Messages currently seen by this client
 	var/list/seen_messages

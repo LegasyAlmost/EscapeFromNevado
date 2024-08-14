@@ -11,7 +11,7 @@
 		return
 
 	spawned.mind?.add_memory(MEMORY_BUDGET, list(DETAIL_ACCOUNT_ID = master_budget.account_id), story_value = STORY_VALUE_NONE, memory_flags = MEMORY_FLAG_NOLOCATION)
-	addtimer(CALLBACK(src, .proc/friendly_reminder, spawned, master_budget), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(friendly_reminder), spawned, master_budget), 3 SECONDS)
 
 /datum/job/captain/proc/friendly_reminder(mob/living/reminded, datum/bank_account/master_budget)
 	if(QDELETED(reminded))

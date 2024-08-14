@@ -14,7 +14,7 @@
 /datum/action/item_action/organ_action/statue/New(Target)
 	. = ..()
 	statue = new
-	RegisterSignal(statue, COMSIG_PARENT_QDELETING, .proc/statue_destroyed)
+	RegisterSignal(statue, COMSIG_PARENT_QDELETING, PROC_REF(statue_destroyed))
 
 /datum/action/item_action/organ_action/statue/Destroy()
 	UnregisterSignal(statue, COMSIG_PARENT_QDELETING)
@@ -59,7 +59,7 @@
 		becoming_statue.forceMove(statue)
 		statue.max_integrity = becoming_statue.health
 		statue.repair_damage(statue.max_integrity)
-		RegisterSignal(becoming_statue, COMSIG_MOVABLE_MOVED, .proc/human_left_statue)
+		RegisterSignal(becoming_statue, COMSIG_MOVABLE_MOVED, PROC_REF(human_left_statue))
 
 //somehow they used an exploit/teleportation to leave statue, lets clean up
 /datum/action/item_action/organ_action/statue/proc/human_left_statue(atom/movable/mover, atom/oldloc, direction)

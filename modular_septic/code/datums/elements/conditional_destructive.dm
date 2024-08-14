@@ -14,7 +14,7 @@
 	src.destruction_flag = destruction_flag
 	src.wield_needed = wield_needed
 	src.proximity_needed = proximity_needed
-	RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, .proc/item_afterattack)
+	RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, PROC_REF(item_afterattack))
 
 /datum/element/conditional_destructive/Detach(datum/source)
 	. = ..()

@@ -1,16 +1,13 @@
 import { sortBy } from 'common/collections';
 import { useBackend } from '../backend';
-import { Box, Button, ColorBox, Section, Table } from '../components';
+import { Button, Section, Table, Icon } from '../components';
 import { COLORS } from '../constants';
 import { Window } from '../layouts';
 
-const HEALTH_COLOR_BY_LEVEL = [
-  '#17d568',
-  '#2ecc71',
-  '#e67e22',
-  '#ed5100',
-  '#e74c3c',
-  '#ed2814',
+const HEALTH_ICON_BY_LEVEL = [
+  'heart',
+  'heartbeat',
+  'skull',
 ];
 
 const jobIsHead = jobId => jobId % 10 === 0;
@@ -40,23 +37,30 @@ const jobToColor = jobId => {
   return COLORS.department.other;
 };
 
-const healthToColor = (oxy, tox, burn, brute) => {
-  const healthSum = oxy + tox + burn + brute;
-  const level = Math.min(Math.max(Math.ceil(healthSum / 25), 0), 5);
-  return HEALTH_COLOR_BY_LEVEL[level];
+const statusToImage = life_status => {
+  switch (life_status) {
+    case 0:
+      return <Icon name="heart" color="#17d568" size={1} />;
+    case 1:
+    case 2:
+    case 3:
+      return <Icon name="heartbeat" color="#801308" size={1} />;
+    case 4:
+      return <Icon name="skull" color="#801308" size={1} />;
+  }
 };
 
-const HealthStat = props => {
-  const { type, value } = props;
-  return (
-    <Box
-      inline
-      width={2}
-      color={COLORS.damageType[type]}
-      textAlign="center">
-      {value}
-    </Box>
-  );
+const statusToText = life_status => {
+  switch (life_status) {
+    case 0:
+      return "Alive";
+    case 1:
+    case 2:
+    case 3:
+      return "Critical Condition";
+    case 4:
+      return "Dead";
+  }
 };
 
 export const CrewConsole = () => {
@@ -82,18 +86,18 @@ const CrewTable = (props, context) => {
   return (
     <Table>
       <Table.Row>
-        <Table.Cell bold>
+        <Table.Cell width="50%" bold>
           Name
         </Table.Cell>
-        <Table.Cell bold collapsing />
-        <Table.Cell bold collapsing textAlign="center">
+        <Table.Cell width="5%" bold collapsing />
+        <Table.Cell width="15%" bold collapsing textAlign="center">
           Vitals
         </Table.Cell>
-        <Table.Cell bold>
+        <Table.Cell width="15%" bold collapsing textAlign="center">
           Position
         </Table.Cell>
         {!!data.link_allowed && (
-          <Table.Cell bold collapsing>
+          <Table.Cell bold collapsing textAlign="center">
             Tracking
           </Table.Cell>
         )}
@@ -114,49 +118,32 @@ const CrewTableEntry = (props, context) => {
     assignment,
     ijob,
     life_status,
-    oxydam,
-    toxdam,
-    burndam,
-    brutedam,
     area,
     can_track,
   } = sensor_data;
 
   return (
     <Table.Row>
-      <Table.Cell
+      <Table.Cell width="50%"
         bold={jobIsHead(ijob)}
         color={jobToColor(ijob)}>
         {name}{assignment !== undefined ? ` (${assignment})` : ""}
       </Table.Cell>
-      <Table.Cell collapsing textAlign="center">
-        <ColorBox
-          color={healthToColor(
-            oxydam,
-            toxdam,
-            burndam,
-            brutedam)} />
+      <Table.Cell width="5%" collapsing textAlign="center">
+        {
+          statusToImage(life_status)
+        }
       </Table.Cell>
-      <Table.Cell collapsing textAlign="center">
-        {oxydam !== undefined ? (
-          <Box inline>
-            <HealthStat type="oxy" value={oxydam} />
-            {'/'}
-            <HealthStat type="toxin" value={toxdam} />
-            {'/'}
-            <HealthStat type="burn" value={burndam} />
-            {'/'}
-            <HealthStat type="brute" value={brutedam} />
-          </Box>
-        ) : (
-          life_status ? 'Alive' : 'Dead'
-        )}
+      <Table.Cell width="15%" collapsing textAlign="center">
+        {
+          statusToText(life_status)
+        }
       </Table.Cell>
-      <Table.Cell>
-        {area !== undefined ? area : 'N/A'}
+      <Table.Cell width="15%" collapsing textAlign="center">
+        {area !== undefined ? area : <Icon name="question" color="#ffffff" size={1} />}
       </Table.Cell>
       {!!link_allowed && (
-        <Table.Cell collapsing>
+        <Table.Cell collapsing textAlign="center">
           <Button
             content="Track"
             disabled={!can_track}

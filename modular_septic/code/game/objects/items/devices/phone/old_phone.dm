@@ -219,7 +219,7 @@
 /obj/item/sim_card/proc/start_dormant_timer()
 	if(!virus || !virus.can_progress)
 		return
-	addtimer(CALLBACK(src, .proc/progress_virus), virus.dormancy_timer)
+	addtimer(CALLBACK(src, PROC_REF(progress_virus)), virus.dormancy_timer)
 
 /obj/item/sim_card/proc/progress_virus(mob/living/user)
 	if(isnull(owner_phone))
@@ -557,7 +557,7 @@
 /obj/item/cellular_phone/proc/do_random_bug(mob/living/user, list/modifiers)
 	if((!sim_card.bugged || !sim_card.virus) && !stalling || !resetting)
 		return
-	var/action	= pick(.proc/eject_sim_card, .proc/self_status, .proc/change_public_status, .proc/call_prompt)
+	var/action	= pick(PROC_REF(eject_sim_card), PROC_REF(self_status), PROC_REF(change_public_status), PROC_REF(call_prompt))
 	INVOKE_ASYNC(src, action, user)
 
 /obj/item/cellular_phone/proc/self_status(mob/living/user)
@@ -619,7 +619,7 @@
 		if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
 			to_chat(user, span_flashingbigdanger("[icon2html(src, user)]DONOSED!"))
 			user.emote("scream")
-			INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+			INVOKE_ASYNC(src, PROC_REF(gib_them_with_a_delay), user)
 			return
 		if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
 			to_chat(user, span_bolddanger("[icon2html(src, user)]You're a terrible person."))
@@ -677,7 +677,7 @@
 		to_chat(user, span_notice("[icon2html(src, user)]Binary Integrity Restored"))
 	playsound(src, beginreset_noise, 65, FALSE)
 	to_chat(user, span_boldnotice("[icon2html(src, user)]I begin a automated factory reset on the [src]"))
-	addtimer(CALLBACK(src, .proc/finalize_factory_reset), reset_time)
+	addtimer(CALLBACK(src, PROC_REF(finalize_factory_reset)), reset_time)
 
 /obj/item/cellular_phone/proc/finalize_factory_reset(mob/living/user)
 	visible_message(span_notice("[icon2html(src, user)][src] has successfully factory reset!"))
@@ -738,7 +738,7 @@
 	if(input == lowertext("BITCHKILLA555") || input == lowertext("BITCHKILLER555"))
 		to_chat(user, span_flashingbigdanger("[icon2html(src, user)]DONOSED!"))
 		user.emote("scream")
-		INVOKE_ASYNC(src, .proc/gib_them_with_a_delay, user)
+		INVOKE_ASYNC(src, PROC_REF(gib_them_with_a_delay), user)
 		return
 	if(input == lowertext("agent_ronaldo") || input == lowertext("agent ronaldo"))
 		to_chat(user, span_bolddanger("[icon2html(src, user)]You're a terrible person."))
@@ -866,7 +866,7 @@
 	calling_someone = TRUE
 	call_soundloop.start()
 	update_appearance(UPDATE_ICON)
-	addtimer(CALLBACK(connecting_phone, .proc/start_ringing), calling_time)
+	addtimer(CALLBACK(connecting_phone, PROC_REF(start_ringing)), calling_time)
 
 /obj/item/cellular_phone/proc/accept_call(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	var/sim_card_icon = /obj/item/sim_card
@@ -882,7 +882,7 @@
 /obj/item/cellular_phone/proc/start_ringing(mob/living/user, list/modifiers, obj/item/cellular_phone/connecting_phone)
 	ringtone_soundloop.start()
 	ringring = TRUE
-	addtimer(CALLBACK(src, .proc/check_for_no_ringing), 35)
+	addtimer(CALLBACK(src, PROC_REF(check_for_no_ringing)), 35)
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cellular_phone/proc/check_for_no_ringing()
@@ -953,7 +953,7 @@
 			audible_message(span_danger("[icon2html(src, user)][struggle_msg]"))
 			playsound(src, defend_noise, 30, FALSE)
 			return
-	addtimer(CALLBACK(src, .proc/unstall, stalling_phone), rand(20 SECONDS))
+	addtimer(CALLBACK(src, PROC_REF(unstall), stalling_phone), rand(20 SECONDS))
 	visible_message(span_boldwarning("[icon2html(src, user)][src]'s screen freezes, and then suddenly glitches, [src] vibrating and making nonsensical noises."))
 	stall_soundloop.start()
 	stalling = TRUE
@@ -972,7 +972,7 @@
 	playsound(src, self_destruct_noise, 90, FALSE)
 	stalling = TRUE
 	update_appearance(UPDATE_ICON)
-	addtimer(CALLBACK(src, .proc/self_destruct, exploding_phone), 1.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(self_destruct), exploding_phone), 1.5 SECONDS)
 
 /obj/item/cellular_phone/proc/self_destruct(obj/item/cellular_phone/exploding_phone, mob/living/user)
 	if(!sim_card)

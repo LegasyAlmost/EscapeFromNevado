@@ -1,5 +1,5 @@
 import { useBackend, useSharedState } from '../backend';
-import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
+import { AnimatedNumber, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
 import { Window } from '../layouts';
 
 const damageTypes = [
@@ -22,7 +22,9 @@ const damageTypes = [
 ];
 
 export const OperatingComputer = (props, context) => {
+  const { act } = useBackend(context);
   const [tab, setTab] = useSharedState(context, 'tab', 1);
+
   return (
     <Window
       width={350}
@@ -38,6 +40,10 @@ export const OperatingComputer = (props, context) => {
             selected={tab === 2}
             onClick={() => setTab(2)}>
             Surgery Procedures
+          </Tabs.Tab>
+          <Tabs.Tab
+            onClick={() => act("open_experiments")}>
+            Experiments
           </Tabs.Tab>
         </Tabs>
         {tab === 1 && (
@@ -147,10 +153,6 @@ const SurgeryProceduresView = (props, context) => {
   } = data;
   return (
     <Section title="Advanced Surgery Procedures">
-      <Button
-        icon="download"
-        content="Sync Research Database"
-        onClick={() => act('sync')} />
       {surgeries.map(surgery => (
         <Section
           title={surgery.name}

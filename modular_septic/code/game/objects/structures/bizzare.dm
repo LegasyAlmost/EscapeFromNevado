@@ -39,7 +39,7 @@
 	user.visible_message(span_danger("[user] rip the [src] straight out of the ground!"), \
 					span_danger("I rip the [src] straight out of the ground."))
 	if(!HAS_TRAIT(user, TRAIT_TRICKY))
-		addtimer(CALLBACK(src, .proc/prick, user), prickone_time)
+		addtimer(CALLBACK(src, PROC_REF(prick), user), prickone_time)
 		ADD_TRAIT(user, TRAIT_TRICKY, MEGALOMANIAC_TRAIT)
 
 /obj/structure/trickysign/proc/prick(mob/user)

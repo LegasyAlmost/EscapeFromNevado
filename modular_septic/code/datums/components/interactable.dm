@@ -31,9 +31,9 @@
 		clear_target_interaction_timer = null
 
 /datum/component/interactable/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, .proc/mousedrop)
-	RegisterSignal(parent, COMSIG_INTERACTABLE_TRY_INTERACT, .proc/try_interact)
-	RegisterSignal(parent, COMSIG_INTERACTABLE_COOLDOWN, .proc/on_cooldown)
+	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(mousedrop))
+	RegisterSignal(parent, COMSIG_INTERACTABLE_TRY_INTERACT, PROC_REF(try_interact))
+	RegisterSignal(parent, COMSIG_INTERACTABLE_COOLDOWN, PROC_REF(on_cooldown))
 
 /datum/component/interactable/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOUSEDROP_ONTO)
@@ -118,7 +118,7 @@
 	var/datum/component/interactable/user_interactable = user.GetComponent(/datum/component/interactable)
 	if(!user_interactable)
 		return FALSE
-	INVOKE_ASYNC(src, .proc/ui_interact, user)
+	INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 
 /datum/component/interactable/proc/on_cooldown()
 	SIGNAL_HANDLER

@@ -30,7 +30,7 @@
 	else
 		sound_to_play = 'modular_septic/sound/memeshit/auuu.ogg'
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "sounding[flip_count]", /datum/mood_event/sounding_au)
-	INVOKE_ASYNC(src, .proc/do_sounding, user, sound_to_play)
+	INVOKE_ASYNC(src, PROC_REF(do_sounding), user, sound_to_play)
 
 /obj/item/deviouslick/sounding/proc/do_sounding(mob/user, sound_to_play = 'modular_septic/sound/memeshit/uuua.ogg')
 	doing_animation = TRUE

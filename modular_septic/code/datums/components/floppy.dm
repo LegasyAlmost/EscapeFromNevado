@@ -15,7 +15,7 @@
 	src.flop_duration = flop_duration
 
 /datum/component/floppy/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/got_touched)
+	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, PROC_REF(got_touched))
 
 /datum/component/floppy/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ATOM_ATTACK_HAND)
@@ -34,9 +34,9 @@
 	if(flop_timer)
 		deltimer(flop_timer)
 		flop_timer = null
-	RegisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE, .proc/icon_state_updated)
+	RegisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE, PROC_REF(icon_state_updated))
 	source.update_appearance(UPDATE_ICON_STATE)
-	flop_timer = addtimer(CALLBACK(src, .proc/stop_flopping, source), flop_duration, TIMER_STOPPABLE)
+	flop_timer = addtimer(CALLBACK(src, PROC_REF(stop_flopping), source), flop_duration, TIMER_STOPPABLE)
 
 /datum/component/floppy/proc/stop_flopping(mob/living/source)
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE)

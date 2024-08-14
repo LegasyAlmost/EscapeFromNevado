@@ -1,7 +1,7 @@
 /// Middleware to handle birthsign
 /datum/preference_middleware/birthsign
 	action_delegations = list(
-		"select_birthsign" = .proc/select_birthsign,
+		"select_birthsign" = PROC_REF(select_birthsign),
 	)
 
 /datum/preference_middleware/birthsign/New(datum/preferences)

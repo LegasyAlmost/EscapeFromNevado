@@ -16,7 +16,7 @@
 		synthesizing = TRUE
 		to_chat(owner, span_notice("You feel less hungry..."))
 		owner.adjust_nutrition(25 * delta_time)
-		addtimer(CALLBACK(src, .proc/synth_cool), 50)
+		addtimer(CALLBACK(src, PROC_REF(synth_cool)), 50)
 
 /obj/item/organ/cyberimp/chest/nutriment/proc/synth_cool()
 	synthesizing = FALSE

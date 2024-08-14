@@ -5,11 +5,11 @@
 
 /datum/hacking/airlock/generate_hacking_actions()
 	GLOB.hacking_actions_by_key[hacking_actions] = list(
-		"Scan" = .proc/scan_wires,
-		"Scramble" = .proc/scramble_lock,
-		"Bolts" = .proc/bolt_airlock,
-		"Open" = .proc/open_airlock,
-		"Destroy" = .proc/destroy_holder,
+		"Scan" = PROC_REF(scan_wires),
+		"Scramble" = PROC_REF(scramble_lock),
+		"Bolts" = PROC_REF(bolt_airlock),
+		"Open" = PROC_REF(open_airlock),
+		"Destroy" = PROC_REF(destroy_holder),
 	)
 	return GLOB.hacking_actions_by_key[hacking_actions]
 

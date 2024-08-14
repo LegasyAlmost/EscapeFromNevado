@@ -1,2 +1,2 @@
 /datum/config_entry/string/overflow_job
-	default = "Beggar"
+	default = "Gakster Scavenger"

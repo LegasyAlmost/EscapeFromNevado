@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 /datum/summon_magic_controller/New(survivor_probability)
 	. = ..()
 	src.survivor_probability = survivor_probability
-	RegisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, .proc/magic_up_new_crew)
+	RegisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, PROC_REF(magic_up_new_crew))
 
 	for(var/mob/living/carbon/human/unarmed_human in GLOB.player_list)
 		var/turf/turf_check = get_turf(unarmed_human)
@@ -207,7 +207,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 /datum/summon_magic_controller/proc/magic_up_new_crew(datum/source, mob/living/new_crewmember, rank)
 	SIGNAL_HANDLER
 	if(ishuman(new_crewmember))
-		INVOKE_ASYNC(GLOB.summon_magic, .proc/give_magic, new_crewmember)
+		INVOKE_ASYNC(GLOB.summon_magic, PROC_REF(give_magic), new_crewmember)
 
 /**
  * The guns controller handles the summon guns event.
@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 /datum/summon_guns_controller/New(survivor_probability)
 	. = ..()
 	src.survivor_probability = survivor_probability
-	RegisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, .proc/arm_up_new_crew)
+	RegisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, PROC_REF(arm_up_new_crew))
 
 	for(var/mob/living/carbon/human/unarmed_human in GLOB.player_list)
 		var/turf/turf_check = get_turf(unarmed_human)
@@ -236,5 +236,5 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 /datum/summon_guns_controller/proc/arm_up_new_crew(datum/source, mob/living/new_crewmember, rank)
 	SIGNAL_HANDLER
 	if(ishuman(new_crewmember))
-		INVOKE_ASYNC(GLOB.summon_guns, .proc/give_guns, new_crewmember)
+		INVOKE_ASYNC(GLOB.summon_guns, PROC_REF(give_guns), new_crewmember)
 

@@ -293,10 +293,10 @@
 	if(isnull(max_limb_integrity))
 		max_limb_integrity = max_damage
 	if(can_be_disabled)
-		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_gain)
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_loss)
-	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_ROTTEN), .proc/on_rotten_trait_gain)
-	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_ROTTEN), .proc/on_rotten_trait_loss)
+		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
+		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_ROTTEN), PROC_REF(on_rotten_trait_gain))
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_ROTTEN), PROC_REF(on_rotten_trait_loss))
 	limb_integrity = max_limb_integrity
 	if(is_robotic_limb())
 		grind_results = list(/datum/reagent/iron = 20)
@@ -307,13 +307,13 @@
 				initial_reagents = food_reagents_organic, \
 				foodtypes = RAW | MEAT | GROSS,\
 				volume = reagent_vol, \
-				after_eat = CALLBACK(src, .proc/on_eat_from))
+				after_eat = CALLBACK(src, PROC_REF(on_eat_from)))
 		else if(is_robotic_limb() && LAZYLEN(food_reagents_robotic))
 			AddComponent(/datum/component/edible, \
 				initial_reagents = food_reagents_robotic, \
 				foodtypes = RAW | MEAT | GROSS,\
 				volume = reagent_vol, \
-				after_eat = CALLBACK(src, .proc/on_eat_from))
+				after_eat = CALLBACK(src, PROC_REF(on_eat_from)))
 	/// Runs decay when outside of a person AND ONLY WHEN OUTSIDE (i.e. long obj).
 	START_PROCESSING(SSobj, src)
 
@@ -1581,7 +1581,7 @@
 		deltimer(cripple_timer)
 		cripple_timer = null
 	ADD_TRAIT(src, TRAIT_PARALYSIS, BODYPART_TRAIT)
-	cripple_timer = addtimer(CALLBACK(src, .proc/remove_cripple), duration, TIMER_STOPPABLE)
+	cripple_timer = addtimer(CALLBACK(src, PROC_REF(remove_cripple)), duration, TIMER_STOPPABLE)
 
 /obj/item/bodypart/proc/remove_cripple()
 	REMOVE_TRAIT(src, TRAIT_PARALYSIS, BODYPART_TRAIT)
@@ -1697,7 +1697,7 @@
 	// check if pain is disabling the limb
 	if(pain_disability_threshold && (get_shock(TRUE, TRUE) >= pain_disability_threshold))
 		if(!last_maxed && (owner.stat < UNCONSCIOUS))
-			INVOKE_ASYNC(owner, /mob/living.proc/agony_scream)
+			INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob/living, agony_scream))
 		last_maxed = TRUE
 		set_disabled(TRUE)
 		return
@@ -1778,8 +1778,8 @@
 			if(HAS_TRAIT(owner, TRAIT_NOLIMBDISABLE))
 				set_can_be_disabled(FALSE)
 				needs_update_disabled = FALSE
-			RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_NOLIMBDISABLE), .proc/on_owner_nolimbdisable_trait_loss)
-			RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_NOLIMBDISABLE), .proc/on_owner_nolimbdisable_trait_gain)
+			RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_NOLIMBDISABLE), PROC_REF(on_owner_nolimbdisable_trait_loss))
+			RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_NOLIMBDISABLE), PROC_REF(on_owner_nolimbdisable_trait_gain))
 		if(needs_update_disabled && !no_update)
 			update_disabled()
 
@@ -1793,8 +1793,8 @@
 		if(owner)
 			if(HAS_TRAIT(owner, TRAIT_NOLIMBDISABLE))
 				CRASH("set_can_be_disabled to TRUE with for limb whose owner has TRAIT_NOLIMBDISABLE")
-			RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_gain)
-			RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_loss)
+			RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
+			RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
 		update_disabled()
 	else if(.)
 		if(owner)

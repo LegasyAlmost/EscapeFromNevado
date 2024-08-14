@@ -7,8 +7,8 @@
 
 /datum/hacking/vending/generate_hacking_actions()
 	GLOB.hacking_actions_by_key[hacking_actions] = list(
-		"Virus" = .proc/infection,
-		"Destroy" = .proc/destroy_holder,
+		"Virus" = PROC_REF(infection),
+		"Destroy" = PROC_REF(destroy_holder),
 	)
 	return GLOB.hacking_actions_by_key[hacking_actions]
 

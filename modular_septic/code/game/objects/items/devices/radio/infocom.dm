@@ -44,7 +44,7 @@
 			playsound(src, tip_sound, 65, FALSE)
 			tipped = TRUE
 			update_appearance(UPDATE_ICON)
-			INVOKE_ASYNC(src, .proc/start_spitting_fax, usr)
+			INVOKE_ASYNC(src, PROC_REF(start_spitting_fax), usr)
 
 		if("nowwhat")
 			if(tipped)
@@ -54,7 +54,7 @@
 			playsound(src, tip_sound, 65, FALSE)
 			tipped = TRUE
 			update_appearance(UPDATE_ICON)
-			INVOKE_ASYNC(src, .proc/start_spitting_fax, usr)
+			INVOKE_ASYNC(src, PROC_REF(start_spitting_fax), usr)
 
 		if("outofammo")
 			if(tipped)
@@ -64,7 +64,7 @@
 			playsound(src, tip_sound, 65, FALSE)
 			tipped = TRUE
 			update_appearance(UPDATE_ICON)
-			INVOKE_ASYNC(src, .proc/start_spitting_fax, usr)
+			INVOKE_ASYNC(src, PROC_REF(start_spitting_fax), usr)
 
 
 		if("killedit")
@@ -78,7 +78,7 @@
 				playsound(src, tip_sound, 65, FALSE)
 				tipped = TRUE
 				update_appearance(UPDATE_ICON)
-				INVOKE_ASYNC(src, .proc/start_spitting_fax, usr)
+				INVOKE_ASYNC(src, PROC_REF(start_spitting_fax), usr)
 				voice_lines = list("Make sure your safety is off.", "Once you've done that, go to the east, and shoot the little creacher. I put him there for you to target practice on.")
 				choice = div_infobox("<span class='notice'><a href='?src=[REF(src)];action=outofammo'>I'm out of ammo...</a></span>\n<span class='notice'><a href='?src=[REF(src)];action=killedit'>I killed it now what?</a></span>")
 				return
@@ -87,7 +87,7 @@
 			playsound(src, tip_sound, 65, FALSE)
 			tipped = TRUE
 			update_appearance(UPDATE_ICON)
-			INVOKE_ASYNC(src, .proc/start_spitting_fax, usr)
+			INVOKE_ASYNC(src, PROC_REF(start_spitting_fax), usr)
 
 /obj/machinery/infocom/tutorial/two
 	dir = SOUTH
@@ -159,7 +159,7 @@
 	playsound(src, tip_sound, 65, FALSE)
 	tipped = TRUE
 	update_appearance(UPDATE_ICON)
-	INVOKE_ASYNC(src, .proc/start_spitting_fax, user, modifiers)
+	INVOKE_ASYNC(src, PROC_REF(start_spitting_fax), user, modifiers)
 
 /obj/machinery/infocom/proc/start_spitting_fax(mob/living/user, list/modifiers)
 	beep()

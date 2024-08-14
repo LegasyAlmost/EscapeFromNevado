@@ -32,7 +32,7 @@
 
 /obj/item/organ/heart/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/stop_if_unowned), 8 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(stop_if_unowned)), 8 SECONDS)
 
 /obj/item/organ/heart/on_life(delta_time, times_fired)
 	. = ..()
@@ -56,7 +56,7 @@
 /obj/item/organ/heart/Remove(mob/living/carbon/old_owner, special = FALSE)
 	. = ..()
 	if(!special)
-		addtimer(CALLBACK(src, .proc/stop_if_unowned), 12 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(stop_if_unowned)), 12 SECONDS)
 
 /obj/item/organ/heart/attack_self(mob/user)
 	. = ..()
@@ -64,7 +64,7 @@
 		user.visible_message(span_notice("[user] squeezes [src] to make it beat again!"), \
 					span_notice("You squeeze [src] to make it beat again!"))
 		Restart()
-		addtimer(CALLBACK(src, .proc/stop_if_unowned), 8 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(stop_if_unowned)), 8 SECONDS)
 
 /obj/item/organ/heart/proc/can_stop()
 	if(beating)

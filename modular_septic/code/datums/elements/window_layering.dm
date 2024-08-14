@@ -10,9 +10,9 @@
 	src.has_top = has_top
 	var/atom/movable/real_target = target
 	on_dir_changed(real_target, real_target.dir, real_target.dir)
-	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_changed)
+	RegisterSignal(real_target, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_changed))
 	if(has_top)
-		RegisterSignal(real_target, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/update_overlays)
+		RegisterSignal(real_target, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(update_overlays))
 	real_target.update_appearance(UPDATE_ICON)
 
 /datum/element/window_layering/Detach(datum/source)

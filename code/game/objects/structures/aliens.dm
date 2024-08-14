@@ -284,7 +284,7 @@
 	if(status == GROWING || status == GROWN)
 		child = new(src)
 	if(status == GROWING)
-		addtimer(CALLBACK(src, .proc/Grow), rand(MIN_GROWTH_TIME, MAX_GROWTH_TIME))
+		addtimer(CALLBACK(src, PROC_REF(Grow)), rand(MIN_GROWTH_TIME, MAX_GROWTH_TIME))
 	proximity_monitor = new(src, status == GROWN ? 1 : 0)
 	if(status == BURST)
 		atom_integrity = integrity_failure * max_integrity
@@ -345,7 +345,7 @@
 		proximity_monitor.SetRange(0)
 		update_appearance()
 		flick("egg_opening", src)
-		addtimer(CALLBACK(src, .proc/finish_bursting, kill), 15)
+		addtimer(CALLBACK(src, PROC_REF(finish_bursting), kill), 15)
 
 /obj/structure/alien/egg/proc/finish_bursting(kill = TRUE)
 	status = BURST

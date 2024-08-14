@@ -26,7 +26,7 @@
 	if(AM in lift_load)
 		return
 	LAZYADD(lift_load, AM)
-	RegisterSignal(AM, COMSIG_PARENT_QDELETING, .proc/RemoveItemFromLift)
+	RegisterSignal(AM, COMSIG_PARENT_QDELETING, PROC_REF(RemoveItemFromLift))
 
 /obj/structure/industrial_lift
 	icon = 'modular_septic/icons/turf/floors.dmi'

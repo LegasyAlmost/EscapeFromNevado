@@ -7,8 +7,8 @@
 /datum/plant_gene/trait/pollutant_production/on_new_seed(obj/item/seeds/new_seed)
 	if(!..())
 		return
-	RegisterSignal(new_seed, COMSIG_SEED_ON_GROW, .proc/try_pollute)
-	RegisterSignal(new_seed, COMSIG_PARENT_PREQDELETED, .proc/stop_polluting)
+	RegisterSignal(new_seed, COMSIG_SEED_ON_GROW, PROC_REF(try_pollute))
+	RegisterSignal(new_seed, COMSIG_PARENT_PREQDELETED, PROC_REF(stop_polluting))
 
 /datum/plant_gene/trait/pollutant_production/proc/try_pollute(obj/item/seeds/our_seed, obj/machinery/hydroponics/grown_tray)
 	SIGNAL_HANDLER

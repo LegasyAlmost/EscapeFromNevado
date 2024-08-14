@@ -1,50 +1,21 @@
-import { binaryInsertWith } from "common/collections";
+import { sortBy } from "common/collections";
 import { classes } from "common/react";
-import { InfernoNode } from "inferno";
+import { InfernoNode, SFC } from "inferno";
 import { useBackend } from "../../backend";
 import { Box, Button, Dropdown, Stack, Tooltip } from "../../components";
-import { createSetPreference, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
-import { Job } from "./jobs/base";
-import * as Departments from "./jobs/departments";
+import { logger } from "../../logging";
+import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
+import { ServerPreferencesFetcher } from "./ServerPreferencesFetcher";
 
-const requireJob = require.context("./jobs/jobs", false, /.ts$/);
-const jobsByDepartment = new Map<Departments.Department, {
-  jobs: Job[],
-  head?: Job,
-}>();
-
-const binaryInsertJob = binaryInsertWith((job: Job) => {
-  return job.name;
-});
+const sortJobs = (
+  entries: [string, Job][],
+  head?: string,
+) => sortBy<[string, Job]>(
+  ([key, _]) => key === head ? -1 : 1,
+  ([key, _]) => key,
+)(entries);
 
 const PRIORITY_BUTTON_SIZE = "18px";
-
-for (const jobKey of requireJob.keys()) {
-  const job = requireJob<{
-    default?: Job,
-  }>(jobKey).default;
-
-  if (!job) {
-    continue;
-  }
-
-
-  let departmentInfo = jobsByDepartment.get(job.department);
-  if (departmentInfo === undefined) {
-    departmentInfo = {
-      jobs: [],
-      head: undefined,
-    };
-
-    jobsByDepartment.set(job.department, departmentInfo);
-  }
-
-  if (job.department.head === job.name) {
-    departmentInfo.head = job;
-  } else {
-    departmentInfo.jobs = binaryInsertJob(departmentInfo.jobs, job);
-  }
-}
 
 const PriorityButton = (props: {
   name: string,
@@ -56,21 +27,21 @@ const PriorityButton = (props: {
   const className = `PreferencesMenu__Jobs__departments__priority`;
 
   return (
-    <Stack.Item height={PRIORITY_BUTTON_SIZE}>
-      <Button
-        className={classes([
-          className,
-          props.modifier && `${className}--${props.modifier}`,
-        ])}
-        color={props.enabled ? props.color : "null"}
-        circular
-        onClick={props.onClick}
-        tooltip={props.name}
-        tooltipPosition="bottom"
-        height={PRIORITY_BUTTON_SIZE}
-        width={PRIORITY_BUTTON_SIZE}
-      />
-    </Stack.Item>
+    // PARIAH EDIT START
+    <Button
+      className={classes([
+        className,
+        props.modifier && `${className}--${props.modifier}`,
+      ])}
+      color={props.enabled ? props.color : "white"}
+      circular
+      onClick={props.onClick}
+      tooltip={props.name}
+      tooltipPosition="bottom"
+      height={PRIORITY_BUTTON_SIZE}
+      width={PRIORITY_BUTTON_SIZE}
+    />
+    // PARIAH EDIT END
   );
 };
 
@@ -144,13 +115,12 @@ const PriorityButtons = (props: {
   const { createSetPriority, isOverflow, priority } = props;
 
   return (
-    <Stack
+    <Box inline // PARIAH EDIT
       style={{
         "align-items": "center",
         "height": "100%",
-        "justify-content": "flex-end",
-        "padding-left": "0.3em",
-        "padding-right": "0.3em",
+        "textAlign": "end", // PARIAH EDIT
+        "padding": "0.3em", // PARIAH EDIT
       }}
     >
       {isOverflow
@@ -159,14 +129,14 @@ const PriorityButtons = (props: {
             <PriorityButton
               name="Off"
               modifier="off"
-              color="paperplease"
+              color="light-grey"
               enabled={!priority}
               onClick={createSetPriority(null)}
             />
 
             <PriorityButton
               name="On"
-              color="paperplease"
+              color="green"
               enabled={!!priority}
               onClick={createSetPriority(JobPriority.High)}
             />
@@ -177,52 +147,61 @@ const PriorityButtons = (props: {
             <PriorityButton
               name="Off"
               modifier="off"
-              color="paperplease"
+              color="light-grey"
               enabled={!priority}
               onClick={createSetPriority(null)}
             />
 
             <PriorityButton
               name="Low"
-              color="paperplease"
+              color="red"
               enabled={priority === JobPriority.Low}
               onClick={createSetPriority(JobPriority.Low)}
             />
 
             <PriorityButton
               name="Medium"
-              color="paperplease"
+              color="yellow"
               enabled={priority === JobPriority.Medium}
               onClick={createSetPriority(JobPriority.Medium)}
             />
 
             <PriorityButton
               name="High"
-              color="paperplease"
+              color="green"
               enabled={priority === JobPriority.High}
               onClick={createSetPriority(JobPriority.High)}
             />
           </>
         )}
-    </Stack>
+    </Box> // PARIAH EDIT
   );
 };
 
 const JobRow = (props: {
   className?: string,
   job: Job,
+  name: string,
 }, context) => {
   const { data } = useBackend<PreferencesMenuData>(context);
-  const { job } = props;
+  const { className, job, name } = props;
 
-  const isOverflow = data.overflow_role === job.name;
-  const priority = data.job_preferences[job.name];
+  const isOverflow = data.overflow_role === name;
+  const priority = data.job_preferences[name];
 
-  const createSetPriority = createCreateSetPriorityFromName(context, job.name);
+  const createSetPriority = createCreateSetPriorityFromName(context, name);
+  // PARIAH EDIT
+  const { act } = useBackend<PreferencesMenuData>(context);
+  // PARIAH EDIT END
 
   const experienceNeeded = data.job_required_experience
-    && data.job_required_experience[job.name];
-  const daysLeft = data.job_days_left ? data.job_days_left[job.name] : 0;
+    && data.job_required_experience[name];
+  const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
+
+  // PARIAH EDIT
+  const alt_title_selected = data.job_alt_titles[name]
+    ? data.job_alt_titles[name] : name;
+  // PARIAH EDIT END
 
   let rightSide: InfernoNode;
 
@@ -245,7 +224,7 @@ const JobRow = (props: {
         </Stack.Item>
       </Stack>
     );
-  } else if (data.job_bans && data.job_bans.indexOf(job.name) !== -1) {
+  } else if (data.job_bans && data.job_bans.indexOf(name) !== -1) {
     rightSide = (
       <Stack align="center" height="100%" pr={1}>
         <Stack.Item grow textAlign="right">
@@ -260,64 +239,85 @@ const JobRow = (props: {
       priority={priority}
     />);
   }
-
   return (
-    <Stack.Item className={props.className} height="100%" style={{
+    <Box className={className} style={{ // PARIAH EDIT
       "margin-top": 0,
     }}>
-      <Stack fill align="center">
+      <Stack align="center" /* PARIAH EDIT */>
         <Tooltip
           content={job.description}
-          position="bottom-start"
+          position="right"// PARIAH EDIT bottom-start->right
         >
           <Stack.Item className="job-name" width="50%" style={{
             "padding-left": "0.3em",
-          }}>
-
-            {props.job.name}
+          }}> { // PARIAH EDIT
+              (!job.alt_titles ? name : <Dropdown
+                width="100%"
+                options={job.alt_titles}
+                displayText={alt_title_selected}
+                onSelected={(value) => act("set_job_title", { job: name, new_title: value })}
+              />)
+            // PARIAH EDIT END
+            }
           </Stack.Item>
         </Tooltip>
 
-        <Stack.Item grow className="options">
+        <Stack.Item width="50%" className="options" /* PARIAH EDIT */>
           {rightSide}
         </Stack.Item>
       </Stack>
-    </Stack.Item>
+    </Box> // PARIAH EDIT
   );
 };
 
-const Department = (props: {
-  department: Departments.Department,
-  name: string,
-}) => {
-  const { department, name } = props;
-  const jobs = jobsByDepartment.get(department);
+const Department: SFC<{ department: string}> = (props) => {
+  const { children, department: name } = props;
   const className = `PreferencesMenu__Jobs__departments--${name}`;
-
-  if (!jobs) {
-    return (
-      <Box color="red">
-        <b>ERROR: Department {name} could not be found!</b>
-      </Box>
-    );
-  }
+  logger.log(name + ": " + className);
 
   return (
-    <Box>
-      <Stack
-        vertical
-        fill>
-        {jobs.head
-          && <JobRow className={`${className} head`} job={jobs.head} />}
-        {jobs.jobs.map((job) => {
-          if (job === jobs.head) {
-            return null;
-          }
+    <ServerPreferencesFetcher
+      render={(data) => {
+        if (!data) {
+          return null;
+        }
 
-          return <JobRow className={className} key={job.name} job={job} />;
-        })}
-      </Stack>
-    </Box>
+        const { departments, jobs } = data.jobs;
+        const department = departments[name];
+
+        // This isn't necessarily a bug, it's like this
+        // so that you can remove entire departments without
+        // having to edit the UI.
+        // This is used in events, for instance.
+        if (!department) {
+          return null;
+        }
+
+        const jobsForDepartment = sortJobs(
+          Object.entries(jobs).filter(
+            ([_, job]) => job.department === name
+          ),
+          department.head
+        );
+
+        logger.log(className);
+        return (
+          <Box>
+            {jobsForDepartment.map(([name, job]) => {
+              logger.log(name);
+              return (<JobRow /* PARIAH EDIT START - Fixing alt titles */
+                className={classes([className, name === department.head && "head"])}
+                key={name}
+                job={job}
+                name={name}
+              />);
+            })/* PARIAH EDIT END */}
+
+            {children}
+          </Box>
+        );
+      }}
+    />
   );
 };
 
@@ -353,13 +353,11 @@ const JoblessRoleDropdown = (props, context) => {
 
   return (
     <Box
-      className="PreferencesMenu__Jobs__joblessdropdown"
       position="absolute"
-      right={1}
-      width="25%"
+      right={0}
+      width="30%"
     >
       <Dropdown
-        color="quake"
         width="100%"
         selected={selected}
         onSelected={createSetPreference(act, "joblessrole")}
@@ -374,109 +372,68 @@ const JoblessRoleDropdown = (props, context) => {
   );
 };
 
-const FancyText = (props: {
-  text: string,
-  fontsize: string,
-}) => {
-  return (
-    <Box
-      textAlign="center"
-      style={{
-        "font-size": props.fontsize,
-      }}>
-      {props.text}
-    </Box>
-  );
-};
-
 export const JobsPage = () => {
   return (
-    <Box>
-      <Gap amount={12} />
+    <>
       <JoblessRoleDropdown />
+
       <Stack vertical fill>
-        <Gap amount={24} />
+        <Gap amount={22} />
 
         <Stack.Item>
           <Stack fill className="PreferencesMenu__Jobs">
-            <Stack.Item
-              height="100%"
-              width="50%"
-              overflowY="scroll"
-              mr={0}>
-              <Box
-                height="100%"
-                className="PreferencesMenu__papersplease__left">
-                <FancyText
-                  text="Command"
-                  fontsize="400%" />
+            <Stack.Item mr={1}>
+              <Gap amount={36} />
 
-                <Department
-                  department={Departments.Captain}
-                  name="Command" />
+              <PriorityHeaders />
 
+              <Department department="Engineering">
+                <Gap amount={6} />
+              </Department>
+
+              <Department department="Science">
+                <Gap amount={6} />
+              </Department>
+
+              <Department department="Silicon">
                 <Gap amount={12} />
+              </Department>
 
-                <FancyText
-                  text="Security"
-                  fontsize="400%" />
-
-                <Gap amount={12} />
-
-                <Department
-                  department={Departments.Security}
-                  name="Security" />
-
-                <Gap amount={12} />
-
-                <FancyText
-                  text="Cargo"
-                  fontsize="400%" />
-
-                <Gap amount={12} />
-
-                <Department
-                  department={Departments.Cargo}
-                  name="Cargo" />
-
-              </Box>
-
+              <Department
+                department="Assistant"
+              />
             </Stack.Item>
 
-            <Stack.Item
-              height="100%"
-              width="50%"
-              overflowY="scroll"
-              ml={0}>
-              <Box
-                height="100%"
-                className="PreferencesMenu__papersplease__right">
-                <FancyText
-                  text="Medical"
-                  fontsize="400%" />
+            <Stack.Item mr={1}>
+              <PriorityHeaders />
 
-                <Department
-                  department={Departments.Medical}
-                  name="Medical" />
+              <Department department="Captain">
+                <Gap amount={6} />
+              </Department>
 
-                <Gap amount={12} />
+              <Department department="Service">
+                <Gap amount={6} />
+              </Department>
 
-                <FancyText
-                  text="Service"
-                  fontsize="400%" />
-
-                <Department
-                  department={Departments.Service}
-                  name="Service" />
-
-                <Gap amount={12} />
-              </Box>
-
+              <Department department="Cargo" />
             </Stack.Item>
 
+            <Stack.Item>
+              <Gap amount={36} />
+
+              <PriorityHeaders />
+
+              <Department department="Security">
+                <Gap amount={6} />
+              </Department>
+
+              <Department
+                department="Medical"
+              />
+            </Stack.Item>
           </Stack>
         </Stack.Item>
       </Stack>
-    </Box>
+    </>
   );
 };

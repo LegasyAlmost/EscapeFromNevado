@@ -1,6 +1,6 @@
 /datum/preference_middleware/character_preview_type
 	action_delegations = list(
-		"select_preview_type" = .proc/select_preview_type,
+		"select_preview_type" = PROC_REF(select_preview_type),
 	)
 
 /datum/preference_middleware/character_preview_type/get_ui_data(mob/user)

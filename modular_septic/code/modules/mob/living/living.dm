@@ -21,13 +21,13 @@
 		var/msg = span_smallnotice("I make eye contact with [examined_mob].")
 		if(HAS_TRAIT(src, TRAIT_FLUORIDE_STARE))
 			msg = span_flashinguserdanger("I make eye contact with [examined_mob].")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, src, msg), 3) // so the examine signal has time to fire and this will print after
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, msg), 3) // so the examine signal has time to fire and this will print after
 
 	if(is_face_visible() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
 		var/msg = span_smallnotice("<b>[src]</b> makes eye contact with you.")
 		if(HAS_TRAIT(src, TRAIT_FLUORIDE_STARE))
 			msg = span_flashinguserdanger("<b>[src]</b> makes eye contact with you.")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, examined_mob, msg), 3)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), examined_mob, msg), 3)
 
 // Update the hud smoothly
 /mob/living/changeNext_move(num)

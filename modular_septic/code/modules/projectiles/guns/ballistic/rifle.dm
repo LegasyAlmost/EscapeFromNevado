@@ -299,7 +299,7 @@
 
 /obj/item/gun/ballistic/automatic/remis/steyr/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
+	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, PROC_REF(aimed_sounding))
 
 /obj/item/gun/ballistic/automatic/remis/steyr/Destroy()
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
@@ -317,7 +317,7 @@
 			monologue = "I hate the feds."
 	if(monologue)
 		say(monologue)
-	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+	INVOKE_ASYNC(src, PROC_REF(we_do_a_little_shaking))
 
 
 /obj/item/gun/ballistic/automatic/remis/steyr/proc/aimed_sounding(datum/component/gunpoint/gunpoint, sounding)
@@ -333,7 +333,7 @@
 			voice_line = "Run, pig."
 	if(voice_line)
 		say(voice_line)
-	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+	INVOKE_ASYNC(src, PROC_REF(we_do_a_little_shaking))
 
 /obj/item/gun/ballistic/automatic/remis/steyr/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
 	for(var/i in 1 to loops)

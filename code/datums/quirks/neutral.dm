@@ -66,7 +66,7 @@
 	var/datum/species/species = human_holder.dna.species
 	species.liked_food &= ~MEAT
 	species.disliked_food |= MEAT
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/vegetarian/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	SIGNAL_HANDLER
@@ -106,7 +106,7 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/species/species = human_holder.dna.species
 	species.liked_food |= PINEAPPLE
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/pineapple_liker/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	SIGNAL_HANDLER
@@ -131,7 +131,7 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/species/species = human_holder.dna.species
 	species.disliked_food |= PINEAPPLE
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/pineapple_hater/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	SIGNAL_HANDLER
@@ -158,7 +158,7 @@
 	var/liked = species.liked_food
 	species.liked_food = species.disliked_food
 	species.disliked_food = liked
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/deviant_tastes/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	SIGNAL_HANDLER
@@ -260,8 +260,8 @@
 	old_hair = human_holder.hairstyle
 	human_holder.hairstyle = "Bald"
 	human_holder.update_hair()
-	RegisterSignal(human_holder, COMSIG_CARBON_EQUIP_HAT, .proc/equip_hat)
-	RegisterSignal(human_holder, COMSIG_CARBON_UNEQUIP_HAT, .proc/unequip_hat)
+	RegisterSignal(human_holder, COMSIG_CARBON_EQUIP_HAT, PROC_REF(equip_hat))
+	RegisterSignal(human_holder, COMSIG_CARBON_UNEQUIP_HAT, PROC_REF(unequip_hat))
 
 /datum/quirk/item_quirk/bald/add_unique()
 	var/obj/item/clothing/head/wig/natural/baldie_wig = new(get_turf(quirk_holder))

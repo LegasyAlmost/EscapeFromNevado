@@ -93,7 +93,7 @@
 
 /obj/item/organ/eyes/robotic/glow/Insert(mob/living/carbon/new_owner, special = FALSE, drop_if_replaced = TRUE, new_zone = null)
 	. = ..()
-	RegisterSignal(new_owner, COMSIG_ATOM_DIR_CHANGE, .proc/update_visuals)
+	RegisterSignal(new_owner, COMSIG_ATOM_DIR_CHANGE, PROC_REF(update_visuals))
 
 /obj/item/organ/eyes/robotic/glow/Remove(mob/living/carbon/old_owner, special = FALSE)
 	. = ..()

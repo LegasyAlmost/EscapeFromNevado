@@ -37,10 +37,10 @@
 	src.target = target
 	src.weapon = weapon
 
-	RegisterSignal(target, COMSIG_MOB_FIRED_GUN, .proc/trigger_reaction)
+	RegisterSignal(target, COMSIG_MOB_FIRED_GUN, PROC_REF(trigger_reaction))
 
 	LAZYSET(weapon.target_specific_diceroll, target, diceroll_modifier)
-	RegisterSignal(weapon, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED), .proc/cancel)
+	RegisterSignal(weapon, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED), PROC_REF(cancel))
 
 	shooter.visible_message(span_danger("<b>[shooter]</b> aims [weapon] at <b>[target]</b>!"), \
 		span_danger("I aim [weapon]  at <b>[target]</b>!"), ignored_mobs = target)
@@ -68,14 +68,14 @@
 	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "gunpoint", /datum/mood_event/gunpoint)
 	if(steady_aim_timer)
 		deltimer(steady_aim_timer)
-	steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 2), GUNPOINT_DELAY_STAGE_2, TIMER_STOPPABLE)
+	steady_aim_timer = addtimer(CALLBACK(src, PROC_REF(update_stage), 2), GUNPOINT_DELAY_STAGE_2, TIMER_STOPPABLE)
 
 /datum/component/gunpoint/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/check_deescalate)
-	RegisterSignal(parent, COMSIG_MOB_APPLY_DAMAGE, .proc/flinch)
-	RegisterSignal(parent, COMSIG_MOB_ATTACK_HAND, .proc/check_shove)
-	RegisterSignal(parent, COMSIG_MOB_FIRED_GUN, .proc/gun_fired)
-	RegisterSignal(parent, list(COMSIG_LIVING_START_PULL, COMSIG_MOVABLE_BUMP), .proc/check_bump)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(check_deescalate))
+	RegisterSignal(parent, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(flinch))
+	RegisterSignal(parent, COMSIG_MOB_ATTACK_HAND, PROC_REF(check_shove))
+	RegisterSignal(parent, COMSIG_MOB_FIRED_GUN, PROC_REF(gun_fired))
+	RegisterSignal(parent, list(COMSIG_LIVING_START_PULL, COMSIG_MOVABLE_BUMP), PROC_REF(check_bump))
 
 /datum/component/gunpoint/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
@@ -96,7 +96,7 @@
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
 				steady_aim_timer = null
-			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 1), GUNPOINT_DELAY_STAGE_1, TIMER_STOPPABLE)
+			steady_aim_timer = addtimer(CALLBACK(src, PROC_REF(update_stage), 1), GUNPOINT_DELAY_STAGE_1, TIMER_STOPPABLE)
 		if(1)
 			diceroll_modifier = GUNPOINT_STAGE_1_MODIFIER
 			if(weapon.stage_one_aim_bonus)
@@ -105,7 +105,7 @@
 			if(steady_aim_timer && (last_stage < stage))
 				deltimer(steady_aim_timer)
 				steady_aim_timer = null
-			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 2), GUNPOINT_DELAY_STAGE_2, TIMER_STOPPABLE)
+			steady_aim_timer = addtimer(CALLBACK(src, PROC_REF(update_stage), 2), GUNPOINT_DELAY_STAGE_2, TIMER_STOPPABLE)
 		if(2)
 			if(!silent && (last_stage < stage))
 				to_chat(parent, span_danger("I steady [weapon] on <b>[target]</b>."))
@@ -117,7 +117,7 @@
 			if(steady_aim_timer)
 				deltimer(steady_aim_timer)
 				steady_aim_timer = null
-			steady_aim_timer = addtimer(CALLBACK(src, .proc/update_stage, 3), GUNPOINT_DELAY_STAGE_3, TIMER_STOPPABLE)
+			steady_aim_timer = addtimer(CALLBACK(src, PROC_REF(update_stage), 3), GUNPOINT_DELAY_STAGE_3, TIMER_STOPPABLE)
 		if(3)
 			if(!silent && (last_stage < stage))
 				to_chat(parent, span_danger("I have fully steadied [weapon] on <b>[target]</b>."))
@@ -199,7 +199,7 @@
 	if(prob(flinch_chance))
 		shooter.visible_message(span_danger("<b>[shooter]</b> flinches!"), \
 			span_danger("I flinch!"))
-		INVOKE_ASYNC(src, .proc/async_trigger_reaction)
+		INVOKE_ASYNC(src, PROC_REF(async_trigger_reaction))
 
 /datum/component/gunpoint/cancel()
 	var/mob/living/shooter = parent

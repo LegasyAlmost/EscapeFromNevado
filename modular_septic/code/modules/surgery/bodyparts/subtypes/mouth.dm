@@ -161,8 +161,8 @@
 		if(final_throw_range == -1)
 			final_throw_range = rand(0, 1)
 		var/turf/target_turf = get_ranged_target_turf(dropped_teeth, final_throw_dir, final_throw_range)
-		INVOKE_ASYNC(dropped_teeth, /atom/movable.proc/throw_at, target_turf, final_throw_range, rand(1,3))
-		INVOKE_ASYNC(dropped_teeth, /obj/item/stack/teeth.proc/do_knock_out_animation)
+		INVOKE_ASYNC(dropped_teeth, TYPE_PROC_REF(/atom/movable, throw_at), target_turf, final_throw_range, rand(1,3))
+		INVOKE_ASYNC(dropped_teeth, TYPE_PROC_REF(/obj/item/stack/teeth, do_knock_out_animation))
 	if(teeth_mod)
 		teeth_mod.update_lisp()
 	else

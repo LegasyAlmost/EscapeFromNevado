@@ -233,7 +233,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/aniquilador/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, .proc/aimed_sounding)
+	RegisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED, PROC_REF(aimed_sounding))
 
 /obj/item/gun/ballistic/automatic/pistol/aniquilador/Destroy()
 	UnregisterSignal(src, COMSIG_GUNPOINT_GUN_AIM_STRESS_SOUNDED)
@@ -248,7 +248,7 @@
 			voice_line = "THERE IS NO ESCAPE."
 	if(voice_line)
 		say(voice_line)
-	INVOKE_ASYNC(src, .proc/we_do_a_little_shaking)
+	INVOKE_ASYNC(src, PROC_REF(we_do_a_little_shaking))
 
 /obj/item/gun/ballistic/automatic/pistol/aniquilador/proc/we_do_a_little_shaking(intensity = 4, time_in = 2, time_out = 2, loops = 3)
 	for(var/i in 1 to loops)

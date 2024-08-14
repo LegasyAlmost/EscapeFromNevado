@@ -19,7 +19,7 @@
 	tick()
 
 /datum/status_effect/gakster_dissociative_identity_disorder/tick(delta_time, times_fired)
-	INVOKE_ASYNC(src, .proc/handle_gakster_talk)
+	INVOKE_ASYNC(src, PROC_REF(handle_gakster_talk))
 
 /datum/status_effect/gakster_dissociative_identity_disorder/proc/handle_gakster_talk()
 	var/list/objects = list()

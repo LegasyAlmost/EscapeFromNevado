@@ -1,9 +1,9 @@
 /// Middleware to handle augmentations
 /datum/preference_middleware/augments
 	action_delegations = list(
-		"add_augment" = .proc/add_augment,
-		"remove_augment" = .proc/remove_augment,
-		"set_augment_style" = .proc/set_augment_style,
+		"add_augment" = PROC_REF(add_augment),
+		"remove_augment" = PROC_REF(remove_augment),
+		"set_augment_style" = PROC_REF(set_augment_style),
 	)
 
 /datum/preference_middleware/augments/New(datum/preferences)

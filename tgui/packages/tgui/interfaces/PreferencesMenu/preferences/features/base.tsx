@@ -3,7 +3,7 @@ import { BooleanLike, classes } from "common/react";
 import { ComponentType, createComponentVNode, InfernoNode } from "inferno";
 import { VNodeFlags } from "inferno-vnode-flags";
 import { sendAct, useBackend, useLocalState } from "../../../../backend";
-import { Box, Button, Dropdown, NumberInput, Stack } from "../../../../components";
+import { Box, Button, Dropdown, NumberInput, Stack, TextArea, Input } from "../../../../components";
 import { createSetPreference, PreferencesMenuData } from "../../data";
 import { ServerPreferencesFetcher } from "../../ServerPreferencesFetcher";
 
@@ -54,228 +54,36 @@ export type FeatureValueProps<
   value: TReceiving,
 };
 
-export const FeatureColorInputNoMutant = (props: FeatureValueProps<string>) => {
-  return (
-    <Stack>
-      <Stack.Item>
-        <Button
-          tooltipPosition="top"
-          tooltip={props.value.startsWith("#")
-            ? props.value
-            : `#${props.value}`}
-          onClick={() => {
-            props.act("set_color_preference", {
-              preference: props.featureId,
-            });
-          }}>
-          <Stack align="center" fill>
-            <Stack.Item>
-              <Box style={{
-                background: props.value.startsWith("#")
-                  ? props.value
-                  : `#${props.value}`,
-                border: "2px solid white",
-                "box-sizing": "content-box",
-                height: "11px",
-                width: "11px",
-                ...(props.shrink ? {
-                  "margin": "1px",
-                } : {}),
-              }} />
-            </Stack.Item>
-
-            {!props.shrink && (
-              <Stack.Item>
-                {props.value.startsWith("#")
-                  ? props.value
-                  : `#${props.value}`}
-              </Stack.Item>
-            )}
-          </Stack>
-        </Button>
-      </Stack.Item>
-    </Stack>
-  );
-};
-
 export const FeatureColorInput = (props: FeatureValueProps<string>) => {
   return (
-    <Stack>
-      <Stack.Item>
-        <Button
-          tooltipPosition="top"
-          tooltip={props.value.startsWith("#")
-            ? props.value
-            : `#${props.value}`}
-          onClick={() => {
-            props.act("set_color_preference", {
-              preference: props.featureId,
-            });
-          }}>
-          <Stack align="center" fill>
-            <Stack.Item>
-              <Box style={{
-                background: props.value.startsWith("#")
-                  ? props.value
-                  : `#${props.value}`,
-                border: "2px solid white",
-                "box-sizing": "content-box",
-                height: "11px",
-                width: "11px",
-                ...(props.shrink ? {
-                  "margin": "1px",
-                } : {}),
-              }} />
-            </Stack.Item>
-
-            {!props.shrink && (
-              <Stack.Item>
-                {props.value.startsWith("#")
-                  ? props.value
-                  : `#${props.value}`}
-              </Stack.Item>
-            )}
-          </Stack>
-        </Button>
-      </Stack.Item>
-      <Stack.Item>
-        <Button
-          tooltipPosition="top"
-          tooltip="Set default colors"
-          onClick={() => {
-            props.act("set_tricolor_default_colors", {
-              preference: props.featureId,
-            });
-          }}>
-          {!props.shrink && (
-            <Box>
-              Set default
-            </Box>
-          ) || (
-            <Box>
-              D
-            </Box>
-          )}
-        </Button>
-      </Stack.Item>
-      <Stack.Item>
-        <Button
-          tooltipPosition="top"
-          tooltip="Set mutant colors"
-          onClick={() => {
-            props.act("set_color_mutant_colors", {
-              preference: props.featureId,
-            });
-          }}>
-          {!props.shrink && (
-            <Box>
-              Set mutant
-            </Box>
-          ) || (
-            <Box>
-              M
-            </Box>
-          )}
-        </Button>
-      </Stack.Item>
-    </Stack>
-  );
-};
-
-export const FeatureTriColorInput = (props: FeatureValueProps<string[]>) => {
-  const stackItemFromValue = (index) => {
-    return (
-      <Stack.Item>
-        <Button
-          tooltipPosition="top"
-          tooltip={props.value[index].startsWith("#")
-            ? props.value[index]
-            : `#${props.value[index]}`}
-          onClick={() => {
-            props.act("set_tricolor_preference", {
-              preference: props.featureId,
-              preferenceindex: index+1,
-            });
-          }}>
-          <Stack align="center" fill>
-            <Stack.Item>
-              <Box style={{
-                background: props.value[index].startsWith("#")
-                  ? props.value[index]
-                  : `#${props.value[index]}`,
-                border: "2px solid white",
-                "box-sizing": "content-box",
-                height: "11px",
-                width: "11px",
-                ...(props.shrink ? {
-                  "margin": "1px",
-                } : {}),
-              }} />
-            </Stack.Item>
-
-            {!props.shrink && (
-              <Stack.Item>
-                {props.value[index].startsWith("#")
-                  ? props.value[index]
-                  : `#${props.value[index]}`}
-              </Stack.Item>
-            )}
-          </Stack>
-        </Button>
-      </Stack.Item>
-    );
-  };
-  return (
-    <Stack
-      vertical={false}>
-      {stackItemFromValue(0)}
-      {stackItemFromValue(1)}
-      {stackItemFromValue(2)}
-      {props.featureId !== "mutant_colors" && (
+    <Button onClick={() => {
+      props.act("set_color_preference", {
+        preference: props.featureId,
+      });
+    }}>
+      <Stack align="center" fill>
         <Stack.Item>
-          <Button
-            tooltipPosition="top"
-            tooltip="Set default colors"
-            onClick={() => {
-              props.act("set_tricolor_default_colors", {
-                preference: props.featureId,
-              });
-            }}>
-            {!props.shrink && (
-              <Box>
-                Set default
-              </Box>
-            ) || (
-              <Box>
-                D
-              </Box>
-            )}
-          </Button>
+          <Box style={{
+            background: props.value.startsWith("#")
+              ? props.value
+              : `#${props.value}`,
+            border: "2px solid white",
+            "box-sizing": "content-box",
+            height: "11px",
+            width: "11px",
+            ...(props.shrink ? {
+              "margin": "1px",
+            } : {}),
+          }} />
         </Stack.Item>
-      )}
-      {props.featureId !== "mutant_colors" && (
-        <Stack.Item>
-          <Button
-            tooltipPosition="top"
-            tooltip="Set mutant colors"
-            onClick={() => {
-              props.act("set_tricolor_mutant_colors", {
-                preference: props.featureId,
-              });
-            }}>
-            {!props.shrink && (
-              <Box>
-                Set mutant
-              </Box>
-            ) || (
-              <Box>
-                M
-              </Box>
-            )}
-          </Button>
-        </Stack.Item>
-      )}
-    </Stack>
+
+        {!props.shrink && (
+          <Stack.Item>
+            Change
+          </Stack.Item>
+        )}
+      </Stack>
+    </Button>
   );
 };
 
@@ -521,5 +329,72 @@ export const FeatureValueInput = (props: {
           });
       }}
     />
+  );
+};
+
+// PARIAH FEATURES
+
+export const FeatureTextInput = (
+  props: FeatureValueProps<string>
+) => {
+  return (<TextArea
+    height="100px"
+    value={props.value}
+    onChange={(_, value) => props.handleSetValue(value)}
+  />);
+};
+
+export const FeatureShortTextInput = (
+  props: FeatureValueProps<string>
+) => {
+  return (<Input
+    width="100%"
+    value={props.value}
+    onChange={(_, value) => props.handleSetValue(value)}
+  />);
+};
+
+export const FeatureTriColorInput = (props: FeatureValueProps<string[]>) => {
+  const buttonFromValue = (index) => {
+    return (
+      <Stack.Item>
+        <Button onClick={() => {
+          props.act("set_tricolor_preference", {
+            preference: props.featureId,
+            value: index+1,
+          });
+        }}>
+          <Stack align="center" fill>
+            <Stack.Item>
+              <Box style={{
+                background: props.value[index].startsWith("#")
+                  ? props.value[index]
+                  : `#${props.value[index]}`,
+                border: "2px solid white",
+                "box-sizing": "content-box",
+                height: "11px",
+                width: "11px",
+                ...(props.shrink ? {
+                  "margin": "1px",
+                } : {}),
+              }} />
+            </Stack.Item>
+
+            {!props.shrink && (
+              <Stack.Item>
+                Change
+              </Stack.Item>
+            )}
+          </Stack>
+        </Button>
+      </Stack.Item>
+    );
+  };
+  return (
+    <Stack align="center" fill>
+      {buttonFromValue(0)}
+      {buttonFromValue(1)}
+      {buttonFromValue(2)}
+    </Stack>
   );
 };

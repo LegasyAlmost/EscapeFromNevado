@@ -48,7 +48,7 @@
 	var/mob/living/carbon/victim = parent
 	LAZYADD(limb.embedded_objects, weapon)
 	weapon.forceMove(victim)
-	RegisterSignal(weapon, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_QDELETING), .proc/weaponDeleted)
+	RegisterSignal(weapon, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_QDELETING), PROC_REF(weaponDeleted))
 	if(!silence_message)
 		victim.visible_message(span_danger("[weapon] [harmful ? "embeds" : "sticks"] itself [harmful ? "in" : "on"] <b>[victim]</b>'s [limb.name]!"), \
 					span_userdanger("[weapon] [harmful ? "embeds" : "sticks"] itself [harmful ? "in" : "on"] my [limb.name]!"))
@@ -177,13 +177,13 @@
 		if(!victim_human.try_inject(user, limb.body_zone, INJECT_CHECK_IGNORE_SPECIES | INJECT_TRY_SHOW_ERROR_MESSAGE))
 			return TRUE
 
-	INVOKE_ASYNC(src, .proc/tweezePluck, possible_tweezers, user)
+	INVOKE_ASYNC(src, PROC_REF(tweezePluck), possible_tweezers, user)
 	return COMPONENT_NO_AFTERATTACK
 
 /datum/component/embedded/ripOut(datum/source, obj/item/ripped_out, obj/item/bodypart/limb, mob/living/user)
 	if((ripped_out != weapon) || (src.limb != limb))
 		return
-	INVOKE_ASYNC(src, .proc/complete_rip_out, source, ripped_out, limb, user)
+	INVOKE_ASYNC(src, PROC_REF(complete_rip_out), source, ripped_out, limb, user)
 
 /datum/component/embedded/complete_rip_out(mob/living/carbon/victim, obj/item/I, obj/item/bodypart/limb, mob/living/remover)
 	var/time_taken = rip_time * weapon.w_class * (victim == remover ? 2 : 1)
@@ -249,5 +249,5 @@
 	if(!weapon.unembedded(victim, limb))
 		weapon.forceMove(victim.loc)
 		if(to_hands)
-			INVOKE_ASYNC(to_hands, /mob.proc/put_in_hands, weapon)
+			INVOKE_ASYNC(to_hands, TYPE_PROC_REF(/mob, put_in_hands), weapon)
 	qdel(src)

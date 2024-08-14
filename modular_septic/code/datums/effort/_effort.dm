@@ -31,7 +31,7 @@
 	ADD_TRAIT(user, TRAIT_EFFORT_ACTIVE, EFFORT_TRAIT)
 	on_activation(user, silent)
 	if(duration)
-		addtimer(CALLBACK(src, .proc/deactivate, user, silent), duration)
+		addtimer(CALLBACK(src, PROC_REF(deactivate), user, silent), duration)
 	user.hud_used?.stat_viewer?.update_appearance()
 	return TRUE
 

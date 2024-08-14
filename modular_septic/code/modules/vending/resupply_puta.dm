@@ -214,9 +214,9 @@
 	//if(istype(weapon, /obj/item/gun/ballistic)) Never do this
 	//	var/obj/item/gun/ballistic/ballistic_gun = weapon Never do this
 	//	if(ballistic_gun.magazine) Never do this
-	//		INVOKE_ASYNC(src, .proc/spendilize, user, ballistic_gun.magazine) Never do this
+	//		INVOKE_ASYNC(src, PROC_REF(spendilize), user, ballistic_gun.magazine) Never do this
 	if(istype(weapon, /obj/item/ammo_box/magazine))
-		INVOKE_ASYNC(src, .proc/spendilize, user, weapon)
+		INVOKE_ASYNC(src, PROC_REF(spendilize), user, weapon)
 		return
 	. = ..()
 
@@ -279,7 +279,7 @@
 		playsound(src, AM.bullet_load, 60, TRUE)
 	needles_out()
 	playsound(src, 'modular_septic/sound/efn/resupply/ticking.ogg', 65, FALSE)
-	addtimer(CALLBACK(src, .proc/donehere), 6)
+	addtimer(CALLBACK(src, PROC_REF(donehere)), 6)
 
 /obj/machinery/resupply_puta/proc/begin_refill_captagon(mob/user)
 	if(!captagon) // NO CAPTAGON?
@@ -312,7 +312,7 @@
 			playsound(src, 'modular_septic/sound/efn/resupply/buttonpress.ogg', 65, FALSE)
 	if(!input)
 		to_chat(user, span_warning("Nevermind."))
-	addtimer(CALLBACK(src, .proc/finalize_refill_captagon, liquid_option), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finalize_refill_captagon), liquid_option), 3 SECONDS)
 	state_flags &= ~RESUPPLY_READY
 
 /obj/machinery/resupply_puta/proc/finalize_refill_captagon(datum/reagent/reagent_option = /datum/reagent/medicine/blacktar)

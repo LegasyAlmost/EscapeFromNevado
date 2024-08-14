@@ -48,7 +48,7 @@
 		owner.flash_pain(100)
 		to_chat(owner, span_bigdanger("NEURAL ENTANGLEMENT!"))
 		playsound(owner, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
-		addtimer(CALLBACK(owner, /mob/living/carbon.proc/neural_entanglement), 1.67 SECONDS)
+		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon, neural_entanglement)), 1.67 SECONDS)
 		return
 	if(control <= 0)
 		if(!(original_stranger.key || original_stranger.mind))
@@ -228,13 +228,13 @@
 				var/rapid_hangover = pick("DYING", "SEIZING", "FRANTICALLY GASPING", "PERISHING")
 				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
 				original_stranger.emote(act = "agonyscream", intentional = FALSE)
-				INVOKE_ASYNC(original_stranger, /mob/living/carbon.proc/sexual_vomit) // Don't ask
+				INVOKE_ASYNC(original_stranger, TYPE_PROC_REF(/mob/living/carbon, sexual_vomit)) // Don't ask
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream", intentional = FALSE)
 				original_stranger.flash_pain(100)
 				to_chat(original_stranger, span_bigdanger("NEURAL DEGRADATION!"))
 				playsound(original_stranger, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
-				addtimer(CALLBACK(original_stranger, /mob/living/carbon.proc/neural_entanglement), 1.67 SECONDS)
+				addtimer(CALLBACK(original_stranger, TYPE_PROC_REF(/mob/living/carbon, neural_entanglement)), 1.67 SECONDS)
 				return
 		if(violence > 0)
 			if(!silent && (original_stranger.stat == CONSCIOUS) || (violence < 75))

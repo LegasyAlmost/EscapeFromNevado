@@ -9,7 +9,7 @@
 		return ELEMENT_INCOMPATIBLE
 	. = ..()
 	src.brittle_condition = brittle_condition
-	RegisterSignal(target, COMSIG_CONDITIONAL_DESTRUCTIVE_BREAK, .proc/check_break)
+	RegisterSignal(target, COMSIG_CONDITIONAL_DESTRUCTIVE_BREAK, PROC_REF(check_break))
 
 /datum/element/conditional_brittle/Detach(datum/source)
 	. = ..()

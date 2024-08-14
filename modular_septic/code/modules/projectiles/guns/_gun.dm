@@ -39,7 +39,7 @@
 	blood_visuals.particles.count = debris_amount
 	blood_visuals.particles.spawning = debris_amount
 	blood_visuals.particles.scale = debris_scale
-	addtimer(CALLBACK(src, .proc/remove_blood_particles, blood_visuals), 0.7 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(remove_blood_particles), blood_visuals), 0.7 SECONDS)
 
 /atom/proc/remove_blood_particles(obj/effect/abstract/particle_holder/blood_visuals)
 	if(blood_visuals)
@@ -122,7 +122,7 @@
 	debris_visuals.particles.count = debris_amount
 	debris_visuals.particles.spawning = debris_amount
 	debris_visuals.particles.scale = debris_scale
-	addtimer(CALLBACK(src, .proc/remove_ping, smoke_visuals, debris_visuals), 0.7 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(remove_ping), smoke_visuals, debris_visuals), 0.7 SECONDS)
 
 /atom/proc/remove_ping(obj/effect/abstract/particle_holder/smoke_visuals, obj/effect/abstract/particle_holder/debris_visuals)
 	QDEL_NULL(smoke_visuals)
@@ -278,7 +278,7 @@
 		. += safety_examine
 
 /obj/item/gun/add_weapon_description()
-	AddElement(/datum/element/weapon_description, .proc/add_notes_gun)
+	AddElement(/datum/element/weapon_description, PROC_REF(add_notes_gun))
 
 /obj/item/gun/get_carry_weight()
 	. = ..()
@@ -417,7 +417,7 @@
 			else if(other_gun.can_trigger_gun(user))
 				bonus_spread += dual_wield_spread
 				loop_counter++
-				addtimer(CALLBACK(other_gun, /obj/item/gun.proc/process_fire, target, user, TRUE, params, null, bonus_spread), loop_counter)
+				addtimer(CALLBACK(other_gun, TYPE_PROC_REF(/obj/item/gun, process_fire), target, user, TRUE, params, null, bonus_spread), loop_counter)
 
 	return process_fire(target, user, TRUE, params, null, bonus_spread)
 
@@ -525,7 +525,7 @@
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return NONE
-	INVOKE_ASYNC(src, .proc/do_autofire_shot, source, target, shooter, params)
+	INVOKE_ASYNC(src, PROC_REF(do_autofire_shot), source, target, shooter, params)
 	return COMPONENT_AUTOFIRE_SHOT_SUCCESS //All is well, we can continue shooting
 
 /obj/item/gun/shoot_with_empty_chamber(mob/living/user as mob|obj)
@@ -582,9 +582,9 @@
 
 /obj/item/gun/proc/firing_animation(mob/user, burst_fire = FALSE)
 	if(gunshot_animation_information)
-		INVOKE_ASYNC(src, .proc/gunshot_animation, user, burst_fire)
+		INVOKE_ASYNC(src, PROC_REF(gunshot_animation), user, burst_fire)
 	if(recoil_animation_information)
-		INVOKE_ASYNC(src, .proc/recoil_animation, user, burst_fire)
+		INVOKE_ASYNC(src, PROC_REF(recoil_animation), user, burst_fire)
 
 // wARNING: For some god forsaken reason, the recoil animation conflicts pretty badly with the gunshot, as the gunshot refuses to get angled
 /obj/item/gun/proc/gunshot_animation(mob/user, burst_fire = FALSE)

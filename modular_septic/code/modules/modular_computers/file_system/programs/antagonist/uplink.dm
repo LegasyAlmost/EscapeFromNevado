@@ -50,7 +50,7 @@
 	else
 		uplink = existing_uplink
 	if(uplink)
-		RegisterSignal(uplink, COMSIG_PARENT_QDELETING, .proc/uplink_deleted, TRUE)
+		RegisterSignal(uplink, COMSIG_PARENT_QDELETING, PROC_REF(uplink_deleted), TRUE)
 		if(holder?.holder)
 			uplink.RegisterSignal(holder.holder, COMSIG_PARENT_ATTACKBY, /datum/component/uplink/proc/OnAttackBy)
 

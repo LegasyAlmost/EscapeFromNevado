@@ -273,7 +273,7 @@
 
 /datum/hacking/proc/generate_hacking_actions()
 	GLOB.hacking_actions_by_key[hacking_actions] = list(
-		"Destroy" = .proc/destroy_holder,
+		"Destroy" = PROC_REF(destroy_holder),
 	)
 	return GLOB.hacking_actions_by_key[hacking_actions]
 
@@ -281,7 +281,7 @@
 	if(!istype(new_holder, holder_type))
 		CRASH("Hacking holder is not of the expected type! ([new_holder.type], should be [holder_type])")
 	holder = new_holder
-	RegisterSignal(new_holder, COMSIG_PARENT_QDELETING, .proc/on_holder_qdel)
+	RegisterSignal(new_holder, COMSIG_PARENT_QDELETING, PROC_REF(on_holder_qdel))
 
 /datum/hacking/proc/unset_holder(atom/previous_holder)
 	holder = null
@@ -290,7 +290,7 @@
 
 /datum/hacking/proc/set_hacker(atom/new_hacker)
 	hacker = new_hacker
-	RegisterSignal(new_hacker, COMSIG_PARENT_QDELETING, .proc/on_hacker_qdel)
+	RegisterSignal(new_hacker, COMSIG_PARENT_QDELETING, PROC_REF(on_hacker_qdel))
 
 /datum/hacking/proc/unset_hacker(atom/previous_holder)
 	hacker = null

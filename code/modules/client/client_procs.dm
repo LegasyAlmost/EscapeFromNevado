@@ -336,7 +336,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	//SEPTIC EDIT END
 	// Initialize tgui panel
 	src << browse(file('html/statbrowser.html'), "window=statbrowser")
-	addtimer(CALLBACK(src, .proc/check_panel_loaded), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 	tgui_panel.initialize()
 
 	if(alert_mob_dupe_login && !holder)
@@ -876,10 +876,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/list/modifiers = params2list(params)
 
 	var/dragged = LAZYACCESS(modifiers, DRAG)
-	if(dragged && !LAZYACCESS(modifiers, dragged)) //I don't know what's going on here, but I don't trust it
+	var/button_clicked = LAZYACCESS(modifiers, "button")
+
+	if(dragged && button_clicked != dragged)  //I don't know what's going on here, but I don't trust it
 		return
 
-	if (object && object == middragatom && LAZYACCESS(modifiers, LEFT_CLICK))
+	if (object && IS_WEAKREF_OF(object, middle_drag_atom_ref) && button_clicked == LEFT_CLICK)
 		ab = max(0, 5 SECONDS-(world.time-middragtime)*0.1)
 
 	var/mcl = CONFIG_GET(number/minute_click_limit)
@@ -966,7 +968,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
 		if (CONFIG_GET(flag/asset_simple_preload))
-			addtimer(CALLBACK(SSassets.transport, /datum/asset_transport.proc/send_assets_slow, src, SSassets.transport.preload), 5 SECONDS)
+			addtimer(CALLBACK(SSassets.transport, TYPE_PROC_REF(/datum/asset_transport, send_assets_slow), src, SSassets.transport.preload), 5 SECONDS)
 
 		//SEPTIC EDIT BEGIN
 		var/datum/asset/music = get_asset_datum(/datum/asset/simple/music)
@@ -1054,7 +1056,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		var/mob/living/M = mob
 		M.update_damage_hud()
 	if (prefs.read_preference(/datum/preference/toggle/auto_fit_viewport))
-		addtimer(CALLBACK(src,.verb/fit_viewport,10)) //Delayed to avoid wingets from Login calls.
+		addtimer(CALLBACK(src, nameof(.verb/fit_viewport)), 10) //Delayed to avoid wingets from Login calls.
 	//SEPTIC EDIT BEGIN
 	SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_CHANGE_VIEW, src, getviewsize(old_view), getviewsize(view))
 	//SEPTIC EDIT END

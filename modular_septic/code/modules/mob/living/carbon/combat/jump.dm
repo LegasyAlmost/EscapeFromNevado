@@ -28,7 +28,7 @@
 					span_userdanger("I jump at [jump_target]!"))
 	jump_grunt()
 	sound_hint()
-	safe_throw_at(jump_target, range, throw_speed, src, FALSE, callback = CALLBACK(src, .proc/jump_callback))
+	safe_throw_at(jump_target, range, throw_speed, src, FALSE, callback = CALLBACK(src, PROC_REF(jump_callback)))
 
 /mob/living/carbon/proc/jump_callback()
 	sound_hint()

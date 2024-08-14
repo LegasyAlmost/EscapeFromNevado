@@ -64,7 +64,7 @@
 	if(user.transferItemToLoc(I, src))
 		sound_hint()
 		playsound(src, crushersound, 70, vary = FALSE)
-		INVOKE_ASYNC(src, .proc/crushing_animation)
+		INVOKE_ASYNC(src, PROC_REF(crushing_animation))
 		check_bartering()
 
 /obj/machinery/vending/tiktok/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)

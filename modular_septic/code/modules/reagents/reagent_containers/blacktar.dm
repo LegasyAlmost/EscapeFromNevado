@@ -91,10 +91,10 @@
 		return
 	if(state == BLACKTAR_RETRACTED)
 		playsound(src, needle_out_sound, 65, FALSE)
-		INVOKE_ASYNC(src, .proc/extend)
+		INVOKE_ASYNC(src, PROC_REF(extend))
 	else
 		playsound(src, needle_in_sound, 65, FALSE)
-		INVOKE_ASYNC(src, .proc/retract)
+		INVOKE_ASYNC(src, PROC_REF(retract))
 
 /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar/proc/extend()
 	state = BLACKTAR_EXTENDING

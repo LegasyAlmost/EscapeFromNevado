@@ -144,7 +144,7 @@
 			return
 	if(phone_flags & PHONE_RECEIVING_INPUT)
 		return
-	INVOKE_ASYNC(src, .proc/dial_menu, user)
+	INVOKE_ASYNC(src, PROC_REF(dial_menu), user)
 
 /obj/item/cellphone/attack_self_secondary(mob/user, modifiers)
 	. = ..()
@@ -174,7 +174,7 @@
 			return
 	if(phone_flags & PHONE_RECEIVING_INPUT)
 		return
-	INVOKE_ASYNC(src, .proc/options_menu, user)
+	INVOKE_ASYNC(src, PROC_REF(options_menu), user)
 
 /obj/item/cellphone/attackby(obj/item/attacking_item, mob/living/user, params)
 	. = ..()
@@ -429,7 +429,7 @@
 			earfuck.assign_earfucker(mindjack_user) // Successful earfucking
 			mindjack_user.flash_screen_flash(100)
 			poor_sod.flash_screen_flash(100)
-			addtimer(CALLBACK(earfuck, /datum/brain_trauma/severe/earfuck.proc/switch_minds), 0.4 SECONDS)
+			addtimer(CALLBACK(earfuck, TYPE_PROC_REF(/datum/brain_trauma/severe/earfuck, switch_minds)), 0.4 SECONDS)
 		else
 			connected_phone.audible_message("[icon2html(connected_phone, world)] OPERATION EARFUCK FAILED!", hearing_distance = 1)
 			playsound(connected_phone, 'modular_septic/sound/efn/phone_subtlealert.ogg', 25, FALSE)
@@ -491,7 +491,7 @@
 	connection_state = CONNECTION_CALLING
 	call_soundloop.start()
 	update_appearance()
-	stop_calling_timer = addtimer(CALLBACK(src, .proc/delayed_stop_calling), 1 MINUTES, TIMER_STOPPABLE)
+	stop_calling_timer = addtimer(CALLBACK(src, PROC_REF(delayed_stop_calling)), 1 MINUTES, TIMER_STOPPABLE)
 
 /obj/item/cellphone/proc/stop_calling(mob/living/user, silent = FALSE)
 	connected_phone.audible_message(span_notice("[icon2html(connected_phone, world)] [simcard.username] has hung up the call."), hearing_distance = 1)
@@ -614,7 +614,7 @@
 		playsound(src, 'modular_septic/sound/efn/phone_query_master.ogg', 30, FALSE)
 		return FALSE
 	terminate_connection()
-	addtimer(CALLBACK(src, .proc/stop_glitching), rand(10, 30) SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(stop_glitching)), rand(10, 30) SECONDS)
 	audible_message(span_warning("[icon2html(src, world)] [src] starts blasting an ear piercing noise! \
 								Sounds like a Sewerslvt album!"))
 	glitch_soundloop.start()
@@ -765,7 +765,7 @@
 	phone_flags |= PHONE_GLITCHING
 	audible_message(span_bigdanger("[icon2html(src, world)] [src] makes an unnatural whirring and buzzing noise, vibrating uncontrollably!"))
 	playsound(src, 'modular_septic/sound/efn/virus_explode_buildup.ogg', 90, FALSE)
-	addtimer(CALLBACK(src, .proc/selfdestruct, src), 1.8 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(selfdestruct), src), 1.8 SECONDS)
 	update_appearance()
 
 /obj/item/cellphone/proc/selfdestruct(silent = FALSE)

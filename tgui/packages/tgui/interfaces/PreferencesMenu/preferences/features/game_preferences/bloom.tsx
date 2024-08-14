@@ -1,8 +1,8 @@
 import { CheckboxInput, FeatureToggle } from "../base";
 
-export const bloom: FeatureToggle = {
-  name: "Enable bloom",
+export const seebloom: FeatureToggle = {
+  name: "See Bloom",
   category: "GAMEPLAY",
-  description: "Enable bloom.",
+  description: "Enable Bloom",
   component: CheckboxInput,
 };

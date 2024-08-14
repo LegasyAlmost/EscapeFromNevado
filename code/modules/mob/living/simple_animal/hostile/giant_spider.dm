@@ -199,7 +199,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/tarantula/ranged_secondary_attack(atom/target, modifiers)
 	if(COOLDOWN_FINISHED(src, charge_cooldown))
-		INVOKE_ASYNC(src, /mob/living/simple_animal/hostile/.proc/enter_charge, target)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/simple_animal/hostile, enter_charge), target)
 	else
 		to_chat(src, span_notice("Your charge is still on cooldown!"))
 
@@ -427,7 +427,7 @@
 		if(target_atom.anchored)
 			return
 		user.cocoon_target = target_atom
-		INVOKE_ASYNC(user, /mob/living/simple_animal/hostile/giant_spider/midwife/.proc/cocoon)
+		INVOKE_ASYNC(user, TYPE_PROC_REF(/mob/living/simple_animal/hostile/giant_spider/midwife, cocoon))
 		remove_ranged_ability()
 		return TRUE
 

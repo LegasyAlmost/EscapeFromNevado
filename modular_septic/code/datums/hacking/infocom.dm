@@ -5,14 +5,14 @@
 
 /datum/hacking/infocom/generate_hacking_actions()
 	GLOB.hacking_actions_by_key[hacking_actions] = list(
-		"Virus" = .proc/virus,
-		"Destroy" = .proc/destroy_holder,
+		"Virus" = PROC_REF(virus),
+		"Destroy" = PROC_REF(destroy_holder),
 	)
 	return GLOB.hacking_actions_by_key[hacking_actions]
 
 /datum/hacking/infocom/destroy_holder(mob/living/hackerman)
 	//We have to return immediately
-	INVOKE_ASYNC(src, .proc/infocom_destruction)
+	INVOKE_ASYNC(src, PROC_REF(infocom_destruction))
 
 /datum/hacking/infocom/proc/infocom_destruction(mob/living/hackerman)
 	var/obj/machinery/infocom/infocom = holder

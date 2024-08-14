@@ -41,7 +41,7 @@
 		if(owner.stat == CONSCIOUS)
 			owner.visible_message(span_danger("<b>[owner]</b> clutches at [owner.p_their()] [parse_zone(BODY_ZONE_CHEST)]!"))
 		failed = TRUE
-		addtimer(CALLBACK(src, .proc/Restart), 10 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(Restart)), 10 SECONDS)
 
 /obj/item/organ/heart/cybernetic/on_life(delta_time, times_fired)
 	. = ..()

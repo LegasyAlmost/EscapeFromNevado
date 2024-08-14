@@ -47,7 +47,7 @@
 	var/obj/item/bodypart/affecting = was_owner.get_bodypart(parent_body_zone)
 	affecting.receive_damage(clamp(brute_dam/2, 15, 50), clamp(burn_dam/2, 0, 50), wound_bonus = CANT_WOUND) //Damage the parent based on limb's existing damage
 
-	INVOKE_ASYNC(was_owner, /mob/living.proc/death_scream)
+	INVOKE_ASYNC(was_owner, TYPE_PROC_REF(/mob/living, death_scream))
 	SEND_SIGNAL(was_owner, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
 	if(max_teeth && teeth_object)
 		knock_out_teeth(max_teeth)

@@ -165,7 +165,7 @@
 			initial_reagents = food_reagents, \
 			foodtypes = RAW|MEAT|GROSS, \
 			volume = reagent_vol, \
-			after_eat = CALLBACK(src, .proc/on_eat_from))
+			after_eat = CALLBACK(src, PROC_REF(on_eat_from)))
 	update_appearance()
 
 /obj/item/organ/Destroy()
@@ -226,7 +226,7 @@
 		LAZYADD(new_owner.internal_organs_slot[slot], src)
 	var/checked_zone = check_zone(current_zone)
 	LAZYADD(new_owner.organs_by_zone[checked_zone], src)
-	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
+	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, PROC_REF(on_owner_examine))
 	var/datum/action/action
 	for(var/thing in actions)
 		action = thing

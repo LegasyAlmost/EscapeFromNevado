@@ -164,11 +164,11 @@
 	if(user.clear_user_interaction_timer)
 		deltimer(user.clear_user_interaction_timer)
 		user.clear_user_interaction_timer = null
-	user.clear_user_interaction_timer = addtimer(CALLBACK(user, /datum/component/interactable/.proc/clear_user_interaction), 30 SECONDS, TIMER_STOPPABLE)
+	user.clear_user_interaction_timer = addtimer(CALLBACK(user, TYPE_PROC_REF(/datum/component/interactable, clear_user_interaction)), 30 SECONDS, TIMER_STOPPABLE)
 	target.last_interaction_as_target = src
 	target.last_interaction_as_target_time = world.time
 	if(target.clear_target_interaction_timer)
 		deltimer(target.clear_target_interaction_timer)
 		target.clear_target_interaction_timer = null
-	target.clear_target_interaction_timer = addtimer(CALLBACK(user, /datum/component/interactable/.proc/clear_target_interaction), 30 SECONDS, TIMER_STOPPABLE)
+	target.clear_target_interaction_timer = addtimer(CALLBACK(user, TYPE_PROC_REF(/datum/component/interactable, clear_target_interaction)), 30 SECONDS, TIMER_STOPPABLE)
 	return TRUE

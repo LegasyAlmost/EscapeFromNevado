@@ -155,13 +155,13 @@
 		visible_message(span_achievementgood("[src] slides open with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
 		playsound(src, cacheOpen, 85, FALSE)
-		INVOKE_ASYNC(src, .proc/open)
+		INVOKE_ASYNC(src, PROC_REF(open))
 	else
 		visible_message(span_danger("[src] slides closed with a [nice] hiss!"))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
 		playsound(src, cacheClose, 85, FALSE)
-		INVOKE_ASYNC(src, .proc/close)
+		INVOKE_ASYNC(src, PROC_REF(close))
 
 /obj/machinery/cache/proc/open()
 	state = CACHE_OPENING

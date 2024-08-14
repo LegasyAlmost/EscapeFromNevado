@@ -9,7 +9,7 @@
 	// Screentips
 	if(screentip_flags & SCREENTIP_ON_MOUSE_CLICK)
 		// This is VERY dumb
-		addtimer(CALLBACK(src, .proc/update_screentip, usr, params, SCREENTIP_ON_MOUSE_CLICK), 1)
+		addtimer(CALLBACK(src, PROC_REF(update_screentip), usr, params, SCREENTIP_ON_MOUSE_CLICK), 1)
 
 //terrible but it has to be done like this, i guess
 /atom/movable/screen/examine_more(mob/user)

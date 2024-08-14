@@ -52,10 +52,10 @@
 	return ..()
 
 /datum/component/irradiated/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, .proc/on_clean)
-	RegisterSignal(parent, COMSIG_GEIGER_COUNTER_SCAN, .proc/on_geiger_counter_scan)
+	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(on_clean))
+	RegisterSignal(parent, COMSIG_GEIGER_COUNTER_SCAN, PROC_REF(on_geiger_counter_scan))
 	if(isitem(parent))
-		RegisterSignal(parent, COMSIG_RADIOACTIVE_PULSE_SENT, .proc/pulse_sent)
+		RegisterSignal(parent, COMSIG_RADIOACTIVE_PULSE_SENT, PROC_REF(pulse_sent))
 
 /datum/component/irradiated/process(delta_time)
 	if(!CAN_IRRADIATE(parent))
@@ -88,7 +88,7 @@
 	// Based on cherenkov glow
 	parent_item.add_filter("rad_glow", 2, list("type" = "outline", "color" = "#14f7ff30", "size" = 2))
 	// Things should look uneven
-	addtimer(CALLBACK(src, .proc/start_glow_loop, parent_item), rand(0.1, 1.9) SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_glow_loop), parent_item), rand(0.1, 1.9) SECONDS)
 
 /datum/component/irradiated/on_clean(datum/source, clean_types)
 	if(!(clean_types & CLEAN_TYPE_RADIATION))

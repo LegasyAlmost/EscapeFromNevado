@@ -36,7 +36,7 @@
 		return
 	playsound(src, 'modular_septic/sound/machinery/cardreader_read.wav', 70, FALSE)
 	to_chat(user, span_notice("I withdraw $[amount] from [src]."))
-	withdraw_timer = addtimer(CALLBACK(src, .proc/finalize_withdraw_money, amount, user), 1.25 SECONDS, TIMER_STOPPABLE)
+	withdraw_timer = addtimer(CALLBACK(src, PROC_REF(finalize_withdraw_money), amount, user), 1.25 SECONDS, TIMER_STOPPABLE)
 
 /obj/machinery/computer/cargo/proc/finalize_withdraw_money(amount, mob/user)
 	if(withdraw_timer)

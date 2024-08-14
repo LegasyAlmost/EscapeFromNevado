@@ -93,10 +93,10 @@
 	if (LAZYACCESS(modifiers, MIDDLE_CLICK))
 		if (src_object && src_location != over_location)
 			middragtime = world.time
-			middragatom = src_object
+			middle_drag_atom_ref = WEAKREF(src_object)
 		else
 			middragtime = 0
-			middragatom = null
+			middle_drag_atom_ref = null
 	mouseParams = params
 	mouseLocation = over_location
 	mouseObject = over_object
@@ -112,7 +112,7 @@
 	return
 
 /client/MouseDrop(src_object, over_object, src_location, over_location, src_control, over_control, params)
-	if (middragatom == src_object)
+	if (middle_drag_atom_ref == src_object)
 		middragtime = 0
-		middragatom = null
+		middle_drag_atom_ref = null
 	..()

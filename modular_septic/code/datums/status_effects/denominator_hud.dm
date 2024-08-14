@@ -7,7 +7,7 @@
 /datum/status_effect/denominator_hud/on_apply()
 	. = ..()
 	apply_blues()
-	RegisterSignal(owner, COMSIG_LIVING_SET_COMBAT_MODE, .proc/check_rage)
+	RegisterSignal(owner, COMSIG_LIVING_SET_COMBAT_MODE, PROC_REF(check_rage))
 	if(HAS_TRAIT(owner, TRAIT_DENOMINATOR_REDSCREEN))
 		check_rage()
 

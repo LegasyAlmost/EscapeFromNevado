@@ -1,8 +1,8 @@
 /// Middleware to handle languages
 /datum/preference_middleware/languages
 	action_delegations = list(
-		"give_language" = .proc/give_language,
-		"remove_language" = .proc/remove_language,
+		"give_language" = PROC_REF(give_language),
+		"remove_language" = PROC_REF(remove_language),
 	)
 
 /datum/preference_middleware/languages/New(datum/preferences)

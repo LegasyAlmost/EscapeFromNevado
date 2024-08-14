@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/Initialize(mapload, vol)
 	. = ..()
-	AddElement(/datum/element/liquids_interaction, on_interaction_callback = /obj/item/reagent_containers/.proc/attack_on_liquids_turf)
+	AddElement(/datum/element/liquids_interaction, on_interaction_callback = TYPE_PROC_REF(/obj/item/reagent_containers, attack_on_liquids_turf))
 
 /obj/item/reagent_containers/try_splash(mob/user, atom/target)
 	if (!spillable)

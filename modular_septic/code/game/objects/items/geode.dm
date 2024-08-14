@@ -64,7 +64,7 @@
 							It might take a while until [homie_in_geod.p_they()] regain consciousness..."))
 	homie_in_geod.Unconscious(40 SECONDS)
 	homie_in_geod.forceMove(homie_release)
-	INVOKE_ASYNC(src, .proc/offer_homie_to_ghosts, homie_in_geod, user)
+	INVOKE_ASYNC(src, PROC_REF(offer_homie_to_ghosts), homie_in_geod, user)
 	homie_in_geod = null
 	update_appearance()
 

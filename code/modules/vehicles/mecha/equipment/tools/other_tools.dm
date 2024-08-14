@@ -59,7 +59,7 @@
 	var/list/obj/effect/portal/created = create_portal_pair(ourturf, target_turf, 300, 1, /obj/effect/portal/anom)
 	message_admins("[ADMIN_LOOKUPFLW(source)] used a Wormhole Generator in [ADMIN_VERBOSEJMP(ourturf)]")
 	log_game("[key_name(source)] used a Wormhole Generator in [AREACOORD(ourturf)]")
-	QDEL_LIST_IN(created, rand(150,300))
+	//QDEL_LIST_IN(created, rand(150,300))
 	return ..()
 
 
@@ -124,7 +124,7 @@
 					var/mob/M = A
 					if(M.mob_negates_gravity())
 						continue
-				INVOKE_ASYNC(src, .proc/do_scatter, A, target)
+				INVOKE_ASYNC(src, PROC_REF(do_scatter), A, target)
 			var/turf/targetturf = get_turf(target)
 			log_game("[key_name(source)] used a Gravitational Catapult repulse wave on [AREACOORD(targetturf)]")
 			return ..()

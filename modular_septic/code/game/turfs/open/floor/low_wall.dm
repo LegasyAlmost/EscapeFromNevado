@@ -44,7 +44,7 @@
 /turf/open/floor/low_wall/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CLIMBABLE, INNATE_TRAIT)
-	RegisterSignal(src, COMSIG_OBJ_PAINTED, .proc/on_painted)
+	RegisterSignal(src, COMSIG_OBJ_PAINTED, PROC_REF(on_painted))
 	if(start_with_window)
 		create_structure_window(window_type, TRUE)
 	if(start_with_grille)

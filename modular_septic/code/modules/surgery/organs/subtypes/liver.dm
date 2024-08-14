@@ -36,7 +36,7 @@
 	. = ..()
 	// If the liver handles foods like a clown, it honks like a bike horn
 	// Don't think about it too much.
-	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_COMEDY_METABOLISM), .proc/on_add_comedy_metabolism)
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_COMEDY_METABOLISM), PROC_REF(on_add_comedy_metabolism))
 
 /obj/item/organ/liver/surgical_examine(mob/user)
 	. = ..()

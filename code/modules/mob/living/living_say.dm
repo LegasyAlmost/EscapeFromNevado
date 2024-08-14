@@ -360,14 +360,14 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	/* SEPTIC EDIT REMOVAL
 	var/image/I = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_recipients, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, TYPE_PROC_REF(/, flick_overlay), I, speech_bubble_recipients, 30)
 	*/
 	//SEPTIC EDIT BEGIN
 	var/image/speech_bubble = image('modular_septic/icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]")
 	speech_bubble.plane = ABOVE_GAME_PLANE
 	speech_bubble.layer = ABOVE_MOB_LAYER
 	speech_bubble.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, speech_bubble_recipients, 3 SECONDS)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, speech_bubble_recipients, 3 SECONDS)
 	//SEPTIC EDIT END
 
 /mob/proc/binarycheck()
