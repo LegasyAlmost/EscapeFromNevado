@@ -10,7 +10,7 @@
 	. = "its"
 	*/
 	//SEPTIC EDIT BEGIN
-	. = "it's"
+	. = "its"
 	//SEPTIC EDIT END
 	if(capitalized)
 		. = capitalize(.)
@@ -152,7 +152,7 @@
 	. = "its"
 	*/
 	//SEPTIC EDIT BEGIN
-	. = "it's"
+	. = "its"
 	//SEPTIC EDIT END
 	switch(temp_gender)
 		if(FEMALE)

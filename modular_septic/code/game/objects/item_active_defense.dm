@@ -1,4 +1,4 @@
-//this is a stupid fucking name for a proc but i can't really change it now, can i?
+//this is a stupid fucking name for a proc but i can't really change it now, can i? //Yeah, yeah you can, but what would you change it to though?
 /obj/item/proc/item_block(mob/living/carbon/human/user, \
 						atom/movable/attacker, \
 						attack_text = "the attack", \
