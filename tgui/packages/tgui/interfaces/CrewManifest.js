@@ -8,11 +8,9 @@ const commandJobs = [
   "Head of Security",
   "Chief Engineer",
   "Research Director",
-  "Medical Director",
+  "Chief Medical Officer",
 ];
 
-// PARIAH EDIT
-// Any instance of crewMember.trim was originally crewMember.rank
 export const CrewManifest = (props, context) => {
   const { data: { manifest, positions } } = useBackend(context);
 
@@ -41,7 +39,8 @@ export const CrewManifest = (props, context) => {
                     ])}
                     collapsing
                   >
-                    {positions[dept].exceptions.includes(crewMember.trim) && (
+                    {positions[dept].exceptions.includes(crewMember.rank) && (
+
                       <Tooltip
                         content="No position limit"
                         position="bottom"
@@ -49,7 +48,7 @@ export const CrewManifest = (props, context) => {
                         <Icon className="CrewManifest__Icon" name="infinity" />
                       </Tooltip>
                     )}
-                    {crewMember.trim === "Captain" && (
+                    {crewMember.rank === "Captain" && (
                       <Tooltip
                         content="Captain"
                         position="bottom"
@@ -63,7 +62,7 @@ export const CrewManifest = (props, context) => {
                         />
                       </Tooltip>
                     )}
-                    {commandJobs.includes(crewMember.trim) && (
+                    {commandJobs.includes(crewMember.rank) && (
                       <Tooltip
                         content="Member of command"
                         position="bottom"
@@ -97,4 +96,3 @@ export const CrewManifest = (props, context) => {
     </Window>
   );
 };
-// PARIAH EDIT END

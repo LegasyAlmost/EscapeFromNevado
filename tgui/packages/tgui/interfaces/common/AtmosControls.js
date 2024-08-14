@@ -37,7 +37,7 @@ export const Vent = (props, context) => {
         <LabeledList.Item label="Mode">
           <Button
             icon="sign-in-alt"
-            content={direction ? 'Pressurizing' : 'Siphoning'}
+            content={direction ? 'Pressurizing' : 'Scrubbing'}
             color={!direction && 'danger'}
             onClick={() => act('direction', {
               id_tag,
@@ -120,7 +120,7 @@ export const Scrubber = (props, context) => {
     power,
     scrubbing,
     id_tag,
-    quicksucc,
+    widenet,
     filter_types,
   } = scrubber;
   return (
@@ -148,12 +148,12 @@ export const Scrubber = (props, context) => {
               val: Number(!scrubbing),
             })} />
           <Button
-            icon={quicksucc ? 'expand' : 'compress'}
-            selected={quicksucc}
-            content={quicksucc ? 'Fast Siphon' : 'Standard Siphon'}
-            onClick={() => act('quicksucc', {
+            icon={widenet ? 'expand' : 'compress'}
+            selected={widenet}
+            content={widenet ? 'Expanded range' : 'Normal range'}
+            onClick={() => act('widenet', {
               id_tag,
-              val: Number(!quicksucc),
+              val: Number(!widenet),
             })} />
         </LabeledList.Item>
         <LabeledList.Item label="Filters">

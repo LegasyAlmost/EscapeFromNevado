@@ -54,10 +54,6 @@ const TARGET_SPECIES_LIST = [
     name: 'Zombie',
     value: 'zombie',
   },
-  { // Why are these hardcoded
-    name: 'Teshari',
-    value: 'teshari',
-  },
 ];
 
 const TARGET_NUTRITION_LIST = [

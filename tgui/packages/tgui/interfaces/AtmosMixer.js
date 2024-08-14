@@ -1,6 +1,5 @@
 import { useBackend } from '../backend';
-import { formatSiUnit } from '../format';
-import { Button, LabeledList, NumberInput, Section, ProgressBar } from '../components';
+import { Button, LabeledList, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 export const AtmosMixer = (props, context) => {
@@ -8,7 +7,7 @@ export const AtmosMixer = (props, context) => {
   return (
     <Window
       width={370}
-      height={179}>
+      height={165}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -40,7 +39,7 @@ export const AtmosMixer = (props, context) => {
                   pressure: 'max',
                 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Main Node" labelColor="green">
+            <LabeledList.Item label="Node 1">
               <NumberInput
                 animated
                 value={data.node1_concentration}
@@ -53,7 +52,7 @@ export const AtmosMixer = (props, context) => {
                   concentration: value,
                 })} />
             </LabeledList.Item>
-            <LabeledList.Item label="Side Node" labelColor="blue">
+            <LabeledList.Item label="Node 2">
               <NumberInput
                 animated
                 value={data.node2_concentration}
@@ -65,15 +64,6 @@ export const AtmosMixer = (props, context) => {
                 onDrag={(e, value) => act('node2', {
                   concentration: value,
                 })} />
-            </LabeledList.Item>
-            <LabeledList.Item label="Power Usage">
-              <ProgressBar
-                value={data.last_draw}
-                maxValue={data.max_power}
-                color="yellow"
-              >
-                {formatSiUnit(data.last_draw, 0, 'W')}
-              </ProgressBar>
             </LabeledList.Item>
           </LabeledList>
         </Section>

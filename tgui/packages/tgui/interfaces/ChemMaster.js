@@ -203,7 +203,7 @@ const PackagingControlsItem = props => {
         stepPixelSize={15}
         value={amount}
         minValue={1}
-        maxValue={20}
+        maxValue={10}
         onChange={onChangeAmount} />
       <Button
         ml={1}
@@ -230,12 +230,6 @@ const PackagingControls = (props, context) => {
     bottleAmount,
     setBottleAmount,
   ] = useSharedState(context, 'bottleAmount', 1);
-  // PARIAH EDIT ADDITION
-  const [
-    vialAmount,
-    setVialAmount,
-  ] = useSharedState(context, 'vialAmount', 1);
-  // PARIAH EDIT END
   const [
     packAmount,
     setPackAmount,
@@ -247,8 +241,6 @@ const PackagingControls = (props, context) => {
     autoCondiStyle,
     pillStyles = [],
     condiStyles = [],
-    patch_style,
-    patch_styles = [],
   } = data;
   const autoCondiStyleChosen = autoCondiStyle === chosenCondiStyle;
   return (
@@ -280,20 +272,6 @@ const PackagingControls = (props, context) => {
             amount: pillAmount,
             volume: 'auto',
           })} />
-      )}
-      {!condi && (
-        <LabeledList.Item label="Patch type">
-          {patch_styles.map(patch => (
-            <Button
-              key={patch.style}
-              selected={patch.style === patch_style}
-              textAlign="center"
-              color="transparent"
-              onClick={() => act('change_patch_style', { patch_style: patch.style })}>
-              <Box mb={0} mt={1} className={patch.class_name} />
-            </Button>
-          ))}
-        </LabeledList.Item>
       )}
       {!condi && (
         <PackagingControlsItem
@@ -330,19 +308,6 @@ const PackagingControls = (props, context) => {
             Guess from contents
           </Button.Checkbox>
         </LabeledList.Item>
-      )}
-      {!condi && ( // PARIAH EDIT ADDITION
-        <PackagingControlsItem
-          label="Hypovials"
-          amount={vialAmount}
-          amountUnit="vials"
-          sideNote="max 60u"
-          onChangeAmount={(e, value) => setVialAmount(value)}
-          onCreate={() => act('create', {
-            type: 'vial',
-            amount: vialAmount,
-            volume: 'auto',
-          })} /> // PARIAH EDIT END
       )}
       {!!condi && !autoCondiStyleChosen && (
         <LabeledList.Item label="">

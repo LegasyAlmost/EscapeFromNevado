@@ -1,28 +1,18 @@
-import { FeatureColorInput, FeatureTriColorInput, Feature, FeatureChoiced, FeatureDropdownInput } from "./base";
+import { CheckboxInput, FeatureColorInput, Feature, FeatureChoiced, FeatureDropdownInput } from "./base";
 
-export const feature_mutant_colors: Feature<string[]> = {
-  name: "Generic Mutant Colors",
-  component: FeatureTriColorInput,
-};
-
-export const eye_color: Feature<string> = {
-  name: "Eye color",
+export const left_eye_color: Feature<string> = {
+  name: "Left eye color",
   component: FeatureColorInput,
 };
 
-export const facial_hair_color: Feature<string> = {
-  name: "Facial hair color",
+export const right_eye_color: Feature<string> = {
+  name: "Right eye color",
   component: FeatureColorInput,
 };
 
-export const facial_hair_gradient: FeatureChoiced = {
-  name: "Facial hair gradient",
-  component: FeatureDropdownInput,
-};
-
-export const facial_hair_gradient_color: Feature<string> = {
-  name: "Facial hair gradient color",
-  component: FeatureColorInput,
+export const skin_tone_toggle: Feature<string> = {
+  name: "Use skintones",
+  component: CheckboxInput,
 };
 
 export const hair_color: Feature<string> = {
@@ -40,16 +30,20 @@ export const hair_gradient_color: Feature<string> = {
   component: FeatureColorInput,
 };
 
-
-export const feature_human_ears: FeatureChoiced = {
-  name: "Ears",
-  component: FeatureDropdownInput,
+export const facial_hair_color: Feature<string> = {
+  name: "Facial hair color",
+  component: FeatureColorInput,
 };
 
-export const feature_human_tail: FeatureChoiced = {
-  name: "Tail",
-  component: FeatureDropdownInput,
-};
+ export const feature_human_ears: FeatureChoiced = {
+   name: "Ears",
+   component: FeatureDropdownInput,
+ };
+
+ export const feature_human_tail: FeatureChoiced = {
+   name: "Tail",
+   component: FeatureDropdownInput,
+ };
 
 export const feature_lizard_legs: FeatureChoiced = {
   name: "Legs",
@@ -66,37 +60,12 @@ export const feature_lizard_tail: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
+export const feature_mcolor: Feature<string> = {
+  name: "Mutant color",
+  component: FeatureColorInput,
+};
+
 export const underwear_color: Feature<string> = {
   name: "Underwear color",
-  component: FeatureColorInput,
-};
-
-export const feature_vampire_status: Feature<string> = {
-  name: "Vampire status",
-  component: FeatureDropdownInput,
-};
-
-export const feature_headtails: FeatureChoiced = {
-  name: "Headtails",
-  component: FeatureDropdownInput,
-};
-
-export const teshari_tail_colors: Feature<string[]> = {
-  name: "Teshari Tail Colors",
-  component: FeatureTriColorInput,
-};
-
-export const teshari_body_colors: Feature<string[]> = {
-  name: "Teshari Feather Colors",
-  component: FeatureTriColorInput,
-};
-
-export const heterochromatic: Feature<string> = {
-  name: "Heterochromatic (Right Eye) color",
-  component: FeatureColorInput,
-};
-
-export const sclera_color: Feature<string> = {
-  name: "Sclera color",
   component: FeatureColorInput,
 };

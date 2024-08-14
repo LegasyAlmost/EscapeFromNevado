@@ -140,7 +140,7 @@ export const sound_prayers: FeatureToggle = {
 };
 
 export const sound_ship_ambience: FeatureToggle = {
-  name: "Enable ship ambience",
+  name: "Enable ambient music",
   category: "SOUND",
   component: CheckboxInput,
 };

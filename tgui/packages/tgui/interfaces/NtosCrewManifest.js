@@ -3,14 +3,6 @@ import { useBackend } from '../backend';
 import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
-
-// PARIAH EDIT
-//
-// width={500} - Original: width={400}
-//
-// Original: entry.rank
-// {entry.rank === entry.trim ? entry.rank : <>{entry.rank} ({entry.trim})</>}
-
 export const NtosCrewManifest = (props, context) => {
   const { act, data } = useBackend(context);
   const {
@@ -19,7 +11,7 @@ export const NtosCrewManifest = (props, context) => {
   } = data;
   return (
     <NtosWindow
-      width={500}
+      width={400}
       height={480}>
       <NtosWindow.Content scrollable>
         <Section
@@ -45,9 +37,7 @@ export const NtosCrewManifest = (props, context) => {
                       {entry.name}
                     </Table.Cell>
                     <Table.Cell>
-                      {entry.rank === entry.trim // PARIAH EDIT
-                        ? entry.rank
-                        : <>{entry.rank} ({entry.trim})</>}
+                      ({entry.rank})
                     </Table.Cell>
                   </Table.Row>
                 ))}

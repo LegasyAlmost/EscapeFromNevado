@@ -1,20 +1,20 @@
 import { classes } from "common/react";
-import { InfernoNode } from "inferno";
 import { sendAct, useBackend, useLocalState } from "../../backend";
-import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks, Dropdown, Tooltip } from "../../components";
+import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks } from "../../components";
 import { createSetPreference, PreferencesMenuData, RandomSetting } from "./data";
 import { CharacterPreview } from "./CharacterPreview";
 import { RandomizationButton } from "./RandomizationButton";
 import { ServerPreferencesFetcher } from "./ServerPreferencesFetcher";
 import { MultiNameInput, NameInput } from "./names";
 import { Gender, GENDERS } from "./preferences/gender";
+import { CharacterPreviewType } from "./preferences/features/game_preferences/preview_type";
 import features from "./preferences/features";
 import { FeatureChoicedServerData, FeatureValueInput } from "./preferences/features/base";
 import { filterMap, sortBy } from "common/collections";
 import { useRandomToggleState } from "./useRandomToggleState";
 
 const CLOTHING_CELL_SIZE = 48;
-const CLOTHING_SIDEBAR_ROWS = 13.4; // PARIAH EDIT CHANGE - ORIGINAL:  9
+const CLOTHING_SIDEBAR_ROWS = 9;
 
 const CLOTHING_SELECTION_CELL_SIZE = 48;
 const CLOTHING_SELECTION_WIDTH = 5.4;
@@ -22,9 +22,9 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 const CharacterControls = (props: {
   handleRotate: () => void,
+  handleRotateLeft: () => void,
+  handleRotateRight: () => void,
   handleOpenSpecies: () => void,
-  handleLoadout: () => void,
-  handleAppearanceMods: () => void,
   gender: Gender,
   setGender: (gender: Gender) => void,
   showGender: boolean,
@@ -33,15 +33,15 @@ const CharacterControls = (props: {
     <Stack>
       <Stack.Item>
         <Button
-          onClick={props.handleRotate}
+          onClick={props.handleRotateLeft}
           fontSize="22px"
           icon="undo"
-          tooltip="Rotate"
+          tooltip="Rotate Left"
           tooltipPosition="top"
         />
       </Stack.Item>
 
-      <Stack.Item>
+      {/* <Stack.Item>
         <Button
           onClick={props.handleOpenSpecies}
           fontSize="22px"
@@ -49,7 +49,7 @@ const CharacterControls = (props: {
           tooltip="Species"
           tooltipPosition="top"
         />
-      </Stack.Item>
+      </Stack.Item> */}
 
       {props.showGender && (
         <Stack.Item>
@@ -59,29 +59,18 @@ const CharacterControls = (props: {
           />
         </Stack.Item>
       )}
-      {props.handleLoadout && (
-        // PARIAH EDIT ADDITION
-        <Stack.Item>
-          <Button
-            onClick={props.handleLoadout}
-            fontSize="22px"
-            icon="suitcase"
-            tooltip="Show Loadout Menu"
-            tooltipPosition="top"
-          />
-        </Stack.Item>
-      )}
-      {props.handleAppearanceMods && (
-        <Stack.Item>
-          <Button
-            onClick={props.handleAppearanceMods}
-            fontSize="22px"
-            icon="user-plus"
-            tooltip="Modify Appearance Mods"
-            tooltipPosition="top"
-          />
-        </Stack.Item>
-      )}
+
+
+      <Stack.Item>
+        <Button
+          onClick={props.handleRotateRight}
+          fontSize="22px"
+          icon="redo"
+          tooltip="Rotate Right"
+          tooltipPosition="top"
+        />
+      </Stack.Item>
+
     </Stack>
   );
 };
@@ -118,7 +107,7 @@ const ChoicedSelection = (props: {
 
       height:
       `${CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_MULTIPLIER}px`,
-      width: `${CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_WIDTH}px`,
+      width: `${CLOTHING_SELECTION_CELL_SIZE * CLOTHING_SELECTION_WIDTH * 2}px`,
     }}>
       <Stack vertical fill>
         <Stack.Item>
@@ -163,6 +152,7 @@ const ChoicedSelection = (props: {
               {Object.entries(catalog.icons).map(([name, image], index) => {
                 return (
                   <Flex.Item
+                    mr={2}
                     key={index}
                     basis={`${CLOTHING_SELECTION_CELL_SIZE}px`}
                     style={{
@@ -183,6 +173,9 @@ const ChoicedSelection = (props: {
                     >
                       <Box className={classes(["preferences32x32", image, "centered-image"])} />
                     </Button>
+                    <Box>
+                      {name}
+                    </Box>
                   </Flex.Item>
                 );
               })}
@@ -207,7 +200,7 @@ const GenderButton = (props: {
       genderMenuOpen
         && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female, Gender.Other].map(gender => {
+            {[Gender.Male, Gender.Female].map(gender => {
               return (
                 <Stack.Item key={gender}>
                   <Button
@@ -267,7 +260,9 @@ const MainFeature = (props: {
   } = props;
 
   const supplementalFeature = catalog.supplemental_feature;
-
+  if (!catalog?.name) {
+    return (<b>No catalog for {currentValue}!</b>);
+  }
   return (
     <Popper options={{
       placement: "bottom-start",
@@ -381,23 +376,10 @@ const PreferenceList = (props: {
                 );
               }
 
-              let name: InfernoNode = feature.name;
-              if (feature.description) {
-                name = (
-                  <Tooltip content={feature.description} position="bottom-start">
-                    <Box as="span" style={{
-                      "border-bottom": "2px dotted rgba(255, 255, 255, 0.8)",
-                    }}>
-                      {name}:
-                    </Box>
-                  </Tooltip>
-                );
-              }
-
               return (
                 <LabeledList.Item
                   key={featureId}
-                  label={name}
+                  label={feature.name}
                   verticalAlign="middle"
                 >
                   <Stack fill>
@@ -453,8 +435,10 @@ export const MainPage = (props: {
       const contextualPreferences
         = data.character_preferences.secondary_features || [];
 
+      const game_preferences
+        = data.character_preferences.game_preferences || [];
+
       const mainFeatures = [
-        ...Object.entries(data.character_preferences.clothing),
         ...Object.entries(data.character_preferences.features)
           .filter(([featureName]) => {
             if (!currentSpeciesData) {
@@ -534,38 +518,41 @@ export const MainPage = (props: {
                 <Stack.Item>
                   <CharacterControls
                     gender={data.character_preferences.misc.gender}
-                    handleOpenSpecies={props.openSpecies}
-                    handleRotate={() => {
-                      act("rotate");
-                    }}
-                    handleLoadout={() => {
-                      act("open_loadout");
-                    }}
-                    handleAppearanceMods={() => {
-                      act("appearance_mods");
-                    }}
                     setGender={createSetPreference(act, "gender")}
                     showGender={
                       currentSpeciesData ? !!currentSpeciesData.sexes : true
                     }
+                    handleOpenSpecies={props.openSpecies}
+                    handleRotate={() => {
+                      act("rotate");
+                    }}
+                    handleRotateLeft={() => {
+                      act("rotateleft");
+                    }}
+                    handleRotateRight={() => {
+                      act("rotateright");
+                    }}
                   />
                 </Stack.Item>
 
                 <Stack.Item grow>
                   <CharacterPreview
-                    height="80%" // PARIAH EDIT - ORIGINAL: height="100%"
+                    height="100%"
                     id={data.character_preview_view} />
                 </Stack.Item>
 
-                <Dropdown
-                  // PARIAH EDIT ADDITION
-                  width="100%"
-                  position="relative"
-                  selected={data.preview_selection}
-                  options={data.preview_options}
-                  onSelected={value => act('update_preview', {
-                    updated_preview: value,
-                  })} />
+                <Stack.Item position="relative">
+                  <CharacterPreviewType
+                    character_preview_type={data.character_preview_type}
+                    handlePreviewJob={() => act('select_preview_type', {
+                      new_preview_type: 'Job',
+                    })}
+                    handlePreviewNaked={() => act('select_preview_type', {
+                      new_preview_type: 'Naked',
+                    })}
+                  />
+                </Stack.Item>
+
                 <Stack.Item position="relative">
                   <NameInput
                     name={
@@ -642,6 +629,7 @@ export const MainPage = (props: {
                 />
               </Stack>
             </Stack.Item>
+
           </Stack>
         </>
       );
