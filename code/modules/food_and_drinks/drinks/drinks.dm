@@ -649,6 +649,7 @@
 	throwforce = 12 // set to 0 upon being opened. Have you ever been domed by a soda can? Those things fucking hurt
 	/// If the can hasn't been opened yet, this is the measure of how fizzed up it is from being shaken or thrown around. When opened, this is rolled as a percentage chance to burst
 	var/fizziness = 0
+	var/popped_open = FALSE
 
 /obj/item/reagent_containers/food/drinks/soda_cans/random/Initialize(mapload)
 	..()
@@ -704,6 +705,8 @@
 		return
 
 /obj/item/reagent_containers/food/drinks/soda_cans/proc/open_soda(mob/user)
+	if(popped_open)
+		return
 	if(prob(fizziness))
 		user.visible_message(span_danger("[user] opens [src], and is suddenly sprayed by the fizzing contents!"), span_danger("You pull back the tab of [src], and are suddenly sprayed with a torrent of liquid! Ahhh!!"))
 		burst_soda(user)
@@ -714,6 +717,7 @@
 	playsound(src, "can_open", 50, TRUE)
 	spillable = TRUE
 	throwforce = 0
+	popped_open = TRUE
 
 /**
  * Burst the soda open on someone. Fun! Opens and empties the soda can, but does not crush it.

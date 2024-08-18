@@ -1,21 +1,22 @@
 macro "default"
 
+
 menu "menu"
-	elem
+	elem 
 		name = "&File"
 		command = ""
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Quick screenshot\tF2"
 		command = ".screenshot auto"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Save screenshot as...\tShift+F2"
 		command = ".screenshot"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = ""
 		command = ""
 		category = "&File"
@@ -25,21 +26,21 @@ menu "menu"
 		command = ".reconnect"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Quit\tAlt-F4"
 		command = ".quit"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Help"
 		command = ""
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Admin Help\tF1"
 		command = "adminhelp"
 		category = "&Help"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Hotkeys"
 		command = "hotkeys-help"
 		category = "&Help"
@@ -49,22 +50,29 @@ menu "menu"
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 291,0
 		size = 640x440
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
 		icon = 'icons\\ss_32.png'
 		macro = "default"
 		menu = "menu"
+		outer-size = 656x499
+		outer-pos = 291,0
+		inner-size = 640x440
+		inner-pos = 8,51
+		screen-size = 2560x1400
 	elem "split"
 		type = CHILD
 		pos = 3,0
 		size = 634x440
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = ""
 		left = "mapwindow"
 		right = "infowindow"
@@ -76,6 +84,7 @@ window "mainwindow"
 		size = 200x200
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = ""
 	elem "tooltip"
@@ -84,18 +93,24 @@ window "mainwindow"
 		size = 999x999
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = ""
 
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 291,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 656x538
+		outer-pos = 291,0
+		inner-pos = 8,31
+		screen-size = 2560x1400
 	elem "map"
 		type = MAP
 		pos = 0,0
@@ -117,73 +132,34 @@ window "mapwindow"
 		is-visible = false
 		is-disabled = true
 		saved-params = ""
-		auto-format = false
 	elem "lobby_preview_map"
 		type = MAP
 		pos = 520,0
 		size = 120x480
 		anchor1 = 75,0
 		anchor2 = 100,100
-		right-click = true
-		saved-params = "zoom;letterbox;zoom-mode"
 		is-visible = false
 		is-disabled = true
+		right-click = true
+		saved-params = "zoom;letterbox;zoom-mode"
 	elem "status_bar"
 		type = LABEL
 		pos = 0,464
 		size = 280x16
 		anchor1 = 0,100
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #222222
 		is-visible = false
+		border = line
+		saved-params = ""
 		text = ""
 		align = left
-		background-color = #222222
-		text-color = #ffffff
-		border = line
 
 window "infowindow"
 	elem "infowindow"
 		type = MAIN
-		pos = 281,0
-		size = 640x480
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		saved-params = "pos;size;is-minimized;is-maximized"
-		is-pane = true
-	elem "info"
-		type = CHILD
-		pos = 0,30
-		size = 640x445
-		anchor1 = 0,0
-		anchor2 = 100,100
-		saved-params = ""
-		left = "statwindow"
-		right = "outputwindow"
-		is-vert = false
-		splitter = 27.5
-		show-splitter = false
-	elem "discord"
-		type = BUTTON
-		pos = 16,5
-		size = 300x20
-		anchor1 = 3,0
-		anchor2 = 50,0
-		saved-params = "is-checked"
-		text = "Discord"
-		command = "discord"
-	elem "codebase"
-		type = BUTTON
-		pos = 316,5
-		size = 300x20
-		anchor1 = 50,0
-		anchor2 = 97,0
-		saved-params = "is-checked"
-		text = "Codebase"
-		command = "repository"
-
-window "outputwindow"
-	elem "outputwindow"
-		type = MAIN
-		pos = 281,0
+		pos = 291,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
@@ -191,19 +167,48 @@ window "outputwindow"
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 		outer-size = 656x538
-		inner-size = 640x499
+		outer-pos = 291,0
+		inner-pos = 8,31
+		screen-size = 2560x1400
+	elem "info"
+		type = CHILD
+		pos = 0,30
+		size = 640x445
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = ""
+		left = "statwindow"
+		right = "outputwindow"
+		is-vert = false
+		splitter = 27.500000
+		show-splitter = false
+
+window "outputwindow"
+	elem "outputwindow"
+		type = MAIN
+		pos = 291,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		is-pane = true
+		outer-size = 656x538
+		outer-pos = 291,0
+		inner-pos = 8,31
+		screen-size = 2560x1400
 	elem "input"
 		type = INPUT
 		pos = 2,460
 		size = 517x20
 		anchor1 = 0,100
 		anchor2 = 100,100
-		background-color = #202020
 		text-color = #a5ffc8
+		background-color = #202020
 		is-default = true
 		border = line
 		saved-params = "command"
-		focus = false
 	elem "oocbutton"
 		type = BUTTON
 		pos = 599,460
@@ -265,48 +270,68 @@ window "outputwindow"
 window "popupwindow"
 	elem "popupwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 291,0
 		size = 120x120
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
 		can-resize = false
+		outer-size = 136x159
+		outer-pos = 291,0
+		inner-size = 120x120
+		inner-pos = 8,31
+		screen-size = 2560x1400
 
 window "preferences_window"
 	elem "preferences_window"
 		type = MAIN
-		pos = 281,0
+		pos = 291,0
 		size = 1280x1000
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
+		outer-size = 1296x1039
+		outer-pos = 291,0
+		inner-size = 1280x1000
+		inner-pos = 8,31
+		screen-size = 2560x1400
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
 		size = 1280x1000
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = ""
 
 window "statwindow"
 	elem "statwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 291,0
 		size = 340x240
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 356x298
+		outer-pos = 291,0
+		inner-size = 340x240
+		inner-pos = 8,31
+		screen-size = 2560x1400
 	elem "statbrowser"
 		type = BROWSER
 		pos = 0,0
 		size = 340x240
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		is-visible = false
 		saved-params = ""
 	elem "statmap"
@@ -316,3 +341,5 @@ window "statwindow"
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-visible = false
+		saved-params = "zoom;letterbox;zoom-mode"
+

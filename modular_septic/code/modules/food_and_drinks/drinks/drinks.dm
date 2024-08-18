@@ -17,9 +17,11 @@
 	list_reagents = list(/datum/reagent/consumable/coke = 30)
 	foodtype = SUGAR
 
-//obj/item/reagent_containers/food/drinks/soda_cans/coke/open_soda(mob/user)
-//	. = ..()
-//	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES) Never do this
+/obj/item/reagent_containers/food/drinks/soda_cans/coke/empty
+	list_reagents = list()
+	popped_open = TRUE
+	desc = "Well, it could have been tasty I guess."
+	name = "empty can"
 
 /obj/item/reagent_containers/food/drinks/soda_cans/pepsi
 	name = "Pepsi"
@@ -33,19 +35,25 @@
 	. = ..()
 	AddComponent(/datum/component/temporary_pollution_emission, /datum/pollutant/cum, 5, 3 MINUTES)
 
+/obj/item/reagent_containers/food/drinks/soda_cans/pepsi/empty
+	name = "empty can"
+	list_reagents = list()
+	popped_open = TRUE
+	desc = "Well, it could have been tasty I guess."
+
 /obj/item/reagent_containers/food/drinks/soda_cans/pepsi/diet
 	name = "Diet Pepsi"
 	desc = "A refreshing cola that tastes like water and doesn't offer any benefits."
-	//desc = "Replacing the sugar in the original drink with a concentrated \"Baphomet\" essence.\n\
-			<span class='dead'>WARNING: Excessive consumption of this product is linked with:\n\
-			Depression, anhedonia, autism, gynecomastia, tumor growth around the pubic region, erectile dysfunction, \
-			premature ejaculation, retrograde ejaculation, wet dreams, infertility, elevated libido, compulsive sexual behavior, \
-			post-coital tristesse, dyspareunia, vaginismus, vulvodynia, vulvar vestibulitis, peyronie's disease, priapism, \
-			pelvic floor dysfunctions, urinary incontinence, pelvic organ prolapse, menopause, male periods.</span>" NEVER do this.
 	icon = 'modular_septic/icons/obj/items/soder.dmi'
 	icon_state = "pepsi_diet"
 	list_reagents = list(/datum/reagent/consumable/pepsi/diet = 30)
 	foodtype = MEAT
+
+/obj/item/reagent_containers/food/drinks/soda_cans/pepsi/diet/empty
+	name = "empty can"
+	list_reagents = list()
+	popped_open = TRUE
+	desc = "Well, it could have been tasty I guess."
 
 /obj/item/reagent_containers/food/drinks/soda_cans/mug
 	name = "Mug Root Beer"
@@ -54,6 +62,12 @@
 	icon_state = "mug"
 	list_reagents = list(/datum/reagent/consumable/mug = 30)
 	foodtype = SUGAR
+
+/obj/item/reagent_containers/food/drinks/soda_cans/mug/empty
+	name = "empty can"
+	list_reagents = list()
+	popped_open = TRUE
+	desc = "Well, it could have been tasty I guess."
 
 /obj/item/reagent_containers/food/drinks/soda_cans/lean
 	name = "Lean"
