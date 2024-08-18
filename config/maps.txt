@@ -50,3 +50,6 @@ endmap
 
 map verina
 endmap
+
+map prison_verina
+endmap
