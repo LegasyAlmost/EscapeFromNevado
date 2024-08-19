@@ -245,6 +245,9 @@
 
 	SSticker.minds += character.mind
 	character.client.init_verbs() // init verbs for the late join
+	var/area/A = get_area(character)
+	if(A)
+		SSdroning.area_entered(A, character.client)
 	var/mob/living/carbon/human/humanc
 	if(ishuman(character))
 		humanc = character //Let's retypecast the var to be human,

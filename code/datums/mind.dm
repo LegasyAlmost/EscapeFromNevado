@@ -176,6 +176,9 @@
 	if(new_character.client)
 		LAZYCLEARLIST(new_character.client.recent_examines)
 		new_character.client.init_verbs() // re-initialize character specific verbs
+		var/area/A = get_area(new_character)
+		if(A)
+			SSdroning.area_entered(A, new_character.client)
 	current.update_atom_languages()
 
 //I cannot trust you fucks to do this properly
