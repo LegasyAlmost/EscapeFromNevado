@@ -1,6 +1,6 @@
 /obj/projectile/bullet/gyro
-	name ="explosive bolt"
-	icon_state= "bolter"
+	name = "explosive bolt"
+	icon_state = "bolter"
 	damage = 50
 	embedding = null
 	shrapnel_type = null
@@ -12,9 +12,10 @@
 
 /// PM9 HEDP rocket
 /obj/projectile/bullet/a84mm
-	name ="\improper HEDP rocket"
+	name = "\improper HEDP rocket"
 	desc = "USE A WEEL GUN"
-	icon_state= "84mm-hedp"
+	icon = 'icons/obj/guns/projectiles.dmi'
+	icon_state = "84mm-hedp"
 	damage = 80
 	armour_penetration = 100
 	dismemberment = 100
@@ -45,8 +46,9 @@
 
 /// PM9 standard rocket
 /obj/projectile/bullet/a84mm/he
-	name ="\improper HE missile"
+	name = "\improper HE missile"
 	desc = "Boom."
+	icon = 'icons/obj/guns/projectiles.dmi'
 	icon_state = "missile"
 	damage = 50
 	anti_armour_damage = 0
@@ -59,7 +61,7 @@
 
 /// PM9 weak rocket
 /obj/projectile/bullet/a84mm/weak
-	name ="low-yield HE missile"
+	name = "low-yield HE missile"
 	desc = "Boom, but less so."
 	damage = 30
 	anti_armour_damage = 0
@@ -72,8 +74,9 @@
 
 /// Mech BRM-6 missile
 /obj/projectile/bullet/a84mm_br
-	name ="\improper HE missile"
+	name = "\improper HE missile"
 	desc = "Boom."
+	icon = 'icons/obj/guns/projectiles.dmi'
 	icon_state = "missile"
 	damage = 30
 	ricochets_max = 0 //it's a MISSILE
