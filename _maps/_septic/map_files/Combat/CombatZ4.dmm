@@ -16,7 +16,7 @@
 "aW" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 9},/obj/item/kirbyplants/photosynthetic,/turf/open/floor/iron/dark,/area/maintenance/liminal/deep)
 "aX" = (/turf/closed/wall/r_wall,/area/maintenance/liminal/intro)
 "bd" = (/obj/effect/turf_decal/stripes/corner{dir = 4},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/chromosome)
-"be" = (/obj/item/ammo_box/magazine/abyss_shotgun_drum,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
+"be" = (/obj/item/ammo_box/magazine/abyss12g,/turf/open/floor/plating/rust,/area/maintenance/liminal/deep)
 "bg" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 5},/obj/machinery/computer/security/telescreen/entertainment/directional/north,/obj/machinery/computer/camera_advanced{dir = 8},/obj/item/paper{info = "I've already figured out what I want to be, I want to be a superstar, I want to be praised, I want recognition. Nothing else in the world would fufill me more then pride in my belly and another's love in my heart. But this place doesn't have any of that. It's just money, sex, drugs, vandalism, thugs, and hunters. It's just lava as long as the eye can see. There's nothing waiting for me here, not anywhere, I can't escape this place or myself, fuck this place, fuck these bastards, I hate dumb bastards."},/turf/open/floor/iron/dark,/area/maintenance/liminal/windowclub)
 "bm" = (/obj/machinery/light/small/blacklight/directional/south,/turf/open/floor/iron/dark/corner{dir = 4},/area/maintenance/liminal/deep)
 "bn" = (/obj/effect/turf_decal/siding/wideplating/dark/corner{dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/deep)

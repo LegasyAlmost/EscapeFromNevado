@@ -10,7 +10,21 @@
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "aM" = (
-/obj/item/ammo_casing/a762svd/ap,
+/obj/structure/closet/crate,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket/hedp,
+/obj/item/ammo_casing/caseless/rocket/hedp,
+/obj/item/ammo_casing/caseless/rocket/hedp,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket,
+/obj/item/ammo_casing/caseless/rocket/weak,
+/obj/item/ammo_casing/caseless/rocket/weak,
+/obj/item/ammo_casing/caseless/rocket/weak,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "aO" = (
@@ -299,6 +313,17 @@
 "mK" = (
 /obj/structure/closet/crate,
 /obj/machinery/light/small/red/directional/west,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
+/obj/item/ammo_box/magazine/a556g36,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "mW" = (
@@ -377,6 +402,11 @@
 	dir = 8
 	},
 /obj/machinery/light/small/red/directional/south,
+/obj/structure/guncase/shotgun{
+	open = 0
+	},
+/obj/item/gun/ballistic/automatic/remis/g36,
+/obj/item/gun/ballistic/automatic/remis/g36,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "qT" = (
@@ -446,6 +476,12 @@
 "tt" = (
 /obj/effect/turf_decal/tile/neutral/half,
 /obj/machinery/light/small/red/directional/south,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/structure/closet/crate,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "tC" = (
@@ -482,6 +518,31 @@
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 8
 	},
+/obj/structure/guncase/shotgun{
+	open = 0
+	},
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
+"vP" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/structure/closet/crate,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "ws" = (
@@ -502,6 +563,8 @@
 "xd" = (
 /obj/structure/table/wood,
 /obj/item/gun/ballistic/automatic/remis/smg/bolsa,
+/obj/item/ammo_box/magazine/uzi9mm,
+/obj/item/ammo_box/magazine/uzi9mm,
 /obj/item/ammo_box/magazine/uzi9mm,
 /obj/item/ammo_box/magazine/uzi9mm,
 /turf/open/floor/iron/dark/smooth_large,
@@ -607,6 +670,27 @@
 /area/maintenance/liminal/denominator)
 "BH" = (
 /obj/structure/closet/crate,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "BL" = (
@@ -657,6 +741,10 @@
 	pixel_y = 28;
 	pixel_x = 4
 	},
+/obj/item/ammo_box/magazine/u45,
+/obj/item/ammo_box/magazine/u45,
+/obj/item/gun/ballistic/automatic/pistol/cortes,
+/obj/item/ammo_box/magazine/u45,
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator/barracks)
 "CV" = (
@@ -736,6 +824,18 @@
 "HJ" = (
 /obj/structure/table/reinforced,
 /obj/item/gun/ballistic/revolver/remis/poppy,
+/obj/item/ammo_box/magazine/ammo_stack/a500{
+	pixel_x = 3;
+	pixel_y = 21
+	},
+/obj/item/ammo_box/magazine/ammo_stack/a500{
+	pixel_x = 7;
+	pixel_y = 21
+	},
+/obj/item/ammo_box/magazine/ammo_stack/a500{
+	pixel_x = -1;
+	pixel_y = 21
+	},
 /turf/open/floor/iron/freezer,
 /area/maintenance/liminal/intro)
 "HW" = (
@@ -860,6 +960,8 @@
 	open = 0
 	},
 /obj/structure/lattice/catwalk,
+/obj/item/gun/ballistic/rocketlauncher/unrestricted,
+/obj/item/gun/ballistic/rocketlauncher/unrestricted,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "Mc" = (
@@ -934,6 +1036,10 @@
 /obj/structure/closet/crate,
 /obj/item/clothing/head/denominator,
 /obj/item/clothing/suit/armor/denominator,
+/obj/item/clothing/suit/armor/denominator/shotgunner,
+/obj/item/clothing/suit/armor/denominator,
+/obj/item/clothing/head/denominator,
+/obj/item/clothing/head/denominator/shotgunner,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Pf" = (
@@ -1019,6 +1125,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/gun/ballistic/shotgun/denominator,
 /obj/item/gun/ballistic/shotgun/denominator,
+/obj/item/gun/ballistic/shotgun/denominator,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "RZ" = (
@@ -1044,6 +1151,15 @@
 	dir = 8
 	},
 /area/maintenance/liminal/intro)
+"Sr" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/structure/closet/crate,
+/obj/item/storage/box/c12buckshot,
+/obj/item/storage/box/c12buckshot,
+/obj/item/storage/box/c12buckshot,
+/obj/item/storage/box/c12buckshot,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
 "Sz" = (
 /obj/effect/mob_spawn/human/denominator,
 /obj/effect/mob_spawn/human/denominator{
@@ -1094,6 +1210,10 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"Tv" = (
+/obj/structure/sign/poster/contraband/lusty_xenomorph,
+/turf/closed/wall/r_wall,
+/area/maintenance/liminal/denominator)
 "TG" = (
 /obj/effect/turf_decal/tile/red/half{
 	dir = 1
@@ -1111,6 +1231,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
+/area/maintenance/liminal/denominator)
+"Up" = (
+/obj/structure/closet/crate,
+/turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator)
 "Uq" = (
 /obj/machinery/light/small/red/directional/south,
@@ -1862,8 +1986,8 @@ Ld
 ds
 Wr
 Wr
-aM
-MT
+Wr
+vP
 tP
 rd
 Wr
@@ -2229,7 +2353,7 @@ og
 Rp
 Gx
 Wr
-MT
+Sr
 tP
 BH
 YO
@@ -2351,7 +2475,7 @@ og
 LV
 Wr
 Wr
-Wr
+aM
 tP
 tP
 tP
@@ -2728,7 +2852,7 @@ Wr
 Wr
 Wr
 ID
-tP
+Tv
 tP
 "}
 (13,1,1) = {"
@@ -3329,7 +3453,7 @@ Wr
 Wr
 Wr
 Wr
-Ld
+Up
 jj
 tP
 Yb
