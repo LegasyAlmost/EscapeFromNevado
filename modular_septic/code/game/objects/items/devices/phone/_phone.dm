@@ -108,12 +108,13 @@
 				. += span_info("Ждёт ответа на звонок от <b>[connected_phone.simcard.username]</b>.")
 			if(CONNECTION_CALLING)
 				. += span_info("Звонит <b>[connected_phone.simcard.username]</b>.")
-	if(!simcard.username)
-		. += span_warning("[simcard]] Нету псевдонима пользователя.")
-	else
-		. += span_info("<b>Псевдоним:</b> [simcard.username]")
-	. += span_info("<b>Номер телдефона:</b> [simcard.phone_number]")
-	. += span_info("Правая кнопка (ПКМ) для настроек телефона. Левая кнопка (ЛКМ), чтобы позвонить.")
+	if(simcard)
+		if(!simcard.username)
+			. += span_warning("[simcard]] Нету псевдонима пользователя.")
+		else
+			. += span_info("<b>Псевдоним:</b> [simcard.username]")
+		. += span_info("<b>Номер телдефона:</b> [simcard.phone_number]")
+		. += span_info("Правая кнопка (ПКМ) для настроек телефона. Левая кнопка (ЛКМ), чтобы позвонить.")
 
 /obj/item/cellphone/attack_self(mob/user, modifiers)
 	. = ..()

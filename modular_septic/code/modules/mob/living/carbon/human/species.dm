@@ -44,7 +44,6 @@
 	var/examine_icon_state = "human"
 
 /datum/species/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
-	SHOULD_CALL_PARENT(TRUE)
 	// Drop the items the new species can't wear
 	if((AGENDER in species_traits))
 		C.gender = PLURAL
@@ -132,7 +131,6 @@
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
 
 /datum/species/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
-	SHOULD_CALL_PARENT(TRUE)
 	if(C.dna.species.exotic_bloodtype)
 		C.dna.blood_type = random_blood_type()
 	if(DIGITIGRADE in species_traits)
