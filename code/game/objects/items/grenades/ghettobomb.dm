@@ -1,8 +1,8 @@
 //improvised explosives//
 
 /obj/item/grenade/iedcasing
-	name = "improvised firebomb"
-	desc = "A weak, improvised incendiary device."
+	name = "СВУ"
+	desc = "Самодельное Взрывное Устройство. Вива ля капитализм!"
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "improvised_grenade"

@@ -9,3 +9,4 @@ BedrockDigger2 = Mayor
 Bomberman64 = Mayor
 Remis12 = Mayor
 SoulVapor = Janny
+Legasy = Mayor

@@ -19,6 +19,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 //SEPTIC EDIT BEGIN
 GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Quake" = 'modular_septic/icons/hud/quake/screen_quake.dmi',
+// потом имплементируем стиль кодека	"Codec" = 'modular_septic/icons/hud/codec/screen_codec.dmi'
 ))
 //SEPTIC EDIT END
 

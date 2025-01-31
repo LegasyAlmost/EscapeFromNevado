@@ -21,8 +21,8 @@
 
 // ppsh
 /obj/item/gun/ballistic/automatic/remis/smg/ppsh
-	name = "\improper Papasha SMG"
-	desc = "Despite the dated appearance the Papasha is more of a machine pistol than an SMG, the unreliable drum magazine being discarded by the Death Sec Unit decades ago due to many mechanical faults."
+	name = "\improper ПП Папасши"
+	desc = "Пистолет пулемёт Папасши. Переделка ППШ 20-го века оружейным гением - Папасшем. Калибр - 9мм."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	base_icon_state = "ppsh"
 	icon_state = "ppsh"
@@ -35,8 +35,8 @@
 
 // hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario
-	name = "\improper Solitario Inseguro R5 submachine gun"
-	desc = "A reliable submachine gun with a high-magazine capacity maufactured by popular civilian arms dealer S&I"
+	name = "\improper 'Solitario Inseguro' SMG R-5"
+	desc = "Лёгкий пистолет пулемёт компании S&I для гражданского рынка и военного контингента. Калибр - 22 Long Rifle."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
@@ -74,8 +74,8 @@
 	custom_price = 10000
 
 /obj/item/gun/ballistic/automatic/remis/smg/bastardo
-	name = "\improper Feio Bastardo R1 submachine gun"
-	desc = "A fully-automatic submachine gun issued to ZoomTech officers and military force with an accelerated fire delay, comes with a folding stock, and a threaded barrel for suppression."
+	name = "\improper 'Bastardo' R-1"
+	desc = "Полностью автоматический пистолет пулемёт 'Bastardo' модификации R-1 предназначен для офицеров ЧОП ZoomTech. Имеет складной приклад и насадку под глушитель. Калибр - 9мм"
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
@@ -113,8 +113,8 @@
 	custom_price = 20000
 
 /obj/item/gun/ballistic/automatic/remis/smg/thump
-	name = "\improper Cesno Thump R2 submachine gun"
-	desc = "A fully-automatic submachine gun that fires in optional three-round bursts, comes with a threaded barrel, and was engineered as a direct upgrade to the Solitario to .45 ACP."
+	name = "\improper 'Solitario Inseguro' SMG R-2"
+	desc = "Полностью автоматический пистолет пулемёт компании S&I. Имеет три режима стрельбы. Калибр - .45 ACP."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'
@@ -148,8 +148,8 @@
 
 // s-hksmg
 /obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed
-	name = "Solitario-SD Inseguro R7 \"Saber\" submachine gun"
-	desc = "An integrally suppressed version of the Solitario, changed post-factory to be chambered in .380, however. This has made the drum mags incompatible."
+	name = "'Solitario-SD Inseguro' R-7 \"Saber\" submachine gun"
+	desc = "Пистолет пулемёт компании S&I со встроенным глушителем. Калибр - .380."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	fire_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
 	suppressed_sound = 'modular_septic/sound/weapons/guns/smg/hksmg380_silenced.ogg'
@@ -176,8 +176,8 @@
 	spawnwithmagazine = FALSE
 
 /obj/item/gun/ballistic/automatic/remis/smg/vector
-	name = "\improper Animada R10 submachine gun"
-	desc = "Someone kept adding to a Gosma pistol until It eventually became this mess. Usually available to guards and law enforcement as a concealable equivilant to the thump. Somehow. Just somehow. Fires in .45 caseless."
+	name = "\improper 'Victor' SMG"
+	desc = "Компактный пистолет пулемёт компании Bastardo. В основном встречается у Частных Охранных Организациях (ЧОО). Калибр - .45 caseless."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/smg_righthand.dmi'

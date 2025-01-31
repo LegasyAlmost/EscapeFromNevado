@@ -39,7 +39,7 @@
 /obj/effect/overlay/combatstyle
 	name = "combat styles"
 	icon = 'modular_septic/icons/hud/quake/screen_quake_combat_style.dmi'
-	icon_state = "combat_style"
+	icon_state = "combat_styleRU"
 	plane = HUD_PLANE
 	screentip_flags = SCREENTIP_HOVERER_CLICKER
 	anchored = TRUE

@@ -1,14 +1,14 @@
 /mob/living/verb/succumb(whispered as null)
-	set name = "Succumb"
+	set name = "Суицид"
 	set category = "IC"
-	set desc = "Give up the gift of life."
+	set desc = "Отдайся смерти."
 
 	if(!CAN_SUCCUMB(src))
-		to_chat(src, span_info("I am unable to succumb to death! This life continues."))
+		to_chat(src, span_info("Я не способен покончить с собой! Жизнь должна продолжаться."))
 		return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
 	ADJUSTBRAINLOSS(src, src.maxHealth)
 	if(!whispered)
-		to_chat(src, span_dead("I have given up life and succumbed to death."))
+		to_chat(src, span_dead("Я отказался от жизни и поддался смерти."))
 	death()
 	updatehealth()

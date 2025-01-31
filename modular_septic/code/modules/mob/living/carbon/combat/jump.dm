@@ -8,24 +8,24 @@
 		return FALSE
 	//Not while knocked down
 	if(body_position != STANDING_UP)
-		to_chat(span_warning("I need to stand up."))
+		to_chat(span_warning("Мне нужно встать."))
 		return FALSE
 	//Not while buckled
 	if(buckled)
-		to_chat(span_warning("I need to unbuckle."))
+		to_chat(span_warning("Мне нужно встать с места."))
 		return FALSE
 	var/range = FLOOR(GET_MOB_ATTRIBUTE_VALUE(src, STAT_STRENGTH)/(ATTRIBUTE_MIDDLING/2), 1)
 	if(range < 1)
-		to_chat(src, span_warning("I'm too weak to do this..."))
+		to_chat(src, span_warning("Я слишком слаб для этого..."))
 		return FALSE
 	if(ismob(jump_target))
-		visible_message(span_warning("<b>[src]</b> jumps at <b>[jump_target]</b>!"), \
-					span_userdanger("I jump at <b>[jump_target]</b>!"), \
+		visible_message(span_warning("<b>[src]</b> прыгает на <b>[jump_target]</b>!"), \
+					span_userdanger("Я прыгаю на <b>[jump_target]</b>!"), \
 					ignored_mobs = jump_target)
-		to_chat(jump_target, span_userdanger("<b>[src]</b> jumps at me!"))
+		to_chat(jump_target, span_userdanger("<b>[src]</b> прыгает на меня!"))
 	else
-		visible_message(span_warning("<b>[src]</b> jumps at [jump_target]!"), \
-					span_userdanger("I jump at [jump_target]!"))
+		visible_message(span_warning("<b>[src]</b> прыгает на [jump_target]!"), \
+					span_userdanger("Я прыгаю на [jump_target]!"))
 	jump_grunt()
 	sound_hint()
 	safe_throw_at(jump_target, range, throw_speed, src, FALSE, callback = CALLBACK(src, PROC_REF(jump_callback)))

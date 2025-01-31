@@ -43,7 +43,7 @@
 			if(rev && prob(incoming_pain * 3))
 				rev.remove_revolutionary(FALSE)
 			if(wound_messages)
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] is disoriented!"))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] is дизориентирован!"))
 		if(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_R_ARM)
 			var/obj/item/held_item = get_item_for_held_index(RIGHT_HANDS)
 			if(held_item)
@@ -52,7 +52,7 @@
 					held_item = get_item_for_held_index(LEFT_HANDS)
 				dropItemToGround(held_item)
 				if(wound_messages)
-					SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] drops [p_their()] [held_item]!"))
+					SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] выбрасывает из [p_their()] рук [held_item]!"))
 		if(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM)
 			var/obj/item/held_item = get_item_for_held_index(LEFT_HANDS)
 			if(held_item)
@@ -61,11 +61,11 @@
 					held_item = get_item_for_held_index(RIGHT_HANDS)
 				dropItemToGround(held_item)
 				if(wound_messages)
-					SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] drops [p_their()] [held_item]!"))
+					SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] выбрасывает из [p_their()] рук [held_item]!"))
 		if(BODY_ZONE_PRECISE_VITALS, BODY_ZONE_PRECISE_GROIN)
 			vomiting = prob(50)
 			if(wound_messages)
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] [p_are()] nauseated!"))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" [src] тошнит!"))
 	KnockToFloor(4 SECONDS)
 	//OW!
 	if(LAZYACCESS(diceroll, RETURN_DICE_INDEX_DIFFERENCE) >= 5)
@@ -77,9 +77,9 @@
 			if((body_zone == BODY_ZONE_PRECISE_VITALS) && prob(5))
 				//gut status: busted
 				playsound(src, 'modular_septic/sound/effects/gutbusted.ogg', 100, 0)
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<u>Gut busted</u>!")]"))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<u>Кишки разорвало</u>!")]"))
 			else
-				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<u>Knock-out</u>!")]"))
+				SEND_SIGNAL(src, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("<u>Без сознания</u>!")]"))
 	else if(vomiting)
 		//vomit without blood
 		vomit(10, FALSE, FALSE)

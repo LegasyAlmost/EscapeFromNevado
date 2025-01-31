@@ -436,7 +436,7 @@
 /atom/movable/screen/resist
 	name = "resist"
 	icon = 'icons/hud/screen_midnight.dmi'
-	icon_state = "act_resist"
+	icon_state = "act_resistRU"
 	plane = HUD_PLANE
 
 /atom/movable/screen/resist/Click()

@@ -2,8 +2,8 @@
 /atom/movable/screen/rest
 	name = "rest"
 	icon = 'modular_septic/icons/hud/quake/screen_quake.dmi'
-	icon_state = "act_rest"
-	base_icon_state = "act_rest"
+	icon_state = "act_restRU"
+	base_icon_state = "act_restRU"
 	screen_loc = ui_rest
 
 /atom/movable/screen/rest/update_icon_state()

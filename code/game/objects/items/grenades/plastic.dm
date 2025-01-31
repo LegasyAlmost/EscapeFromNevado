@@ -1,6 +1,6 @@
 /obj/item/grenade/c4
-	name = "C-4 charge"
-	desc = "Used to put holes in specific areas without too much extra hole. A saboteur's favorite."
+	name = "заряд C-4"
+	desc = "Взрывчатка соединения C-4, часто используется для проделывания дыр. Перед ней лучше не стоять."
 	icon_state = "plastic-explosive0"
 	inhand_icon_state = "plastic-explosive"
 	worn_icon_state = "c4"
@@ -143,8 +143,8 @@
 // Intended to replace C4 for nukeops, and to be a randomdrop in surplus/random traitor purchases.
 
 /obj/item/grenade/c4/x4
-	name = "X-4 charge"
-	desc = "A shaped high-explosive breaching charge. Designed to ensure user safety and wall nonsafety."
+	name = "Заряд X-4"
+	desc = "Заряд X-4, направленного действия. Сносит многие стены и ебальники."
 	icon_state = "plasticx40"
 	inhand_icon_state = "plasticx4"
 	worn_icon_state = "x4"

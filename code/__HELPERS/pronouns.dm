@@ -60,9 +60,9 @@
 	. = "they"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "she"
+			. = "она"
 		if(MALE)
-			. = "he"
+			. = "он"
 	if(capitalized)
 		. = capitalize(.)
 
@@ -72,9 +72,9 @@
 	. = "their"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "her"
+			. = "её"
 		if(MALE)
-			. = "his"
+			. = "его"
 	if(capitalized)
 		. = capitalize(.)
 
@@ -84,18 +84,18 @@
 	. = "them"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "her"
+			. = "ей"
 		if(MALE)
-			. = "him"
+			. = "ему"
 	if(capitalized)
 		. = capitalize(.)
 
 /client/p_have(temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "has"
+	. = "имеет"
 	if(temp_gender == PLURAL || temp_gender == NEUTER)
-		. = "have"
+		. = "имеет"
 
 /client/p_are(temp_gender)
 	if(!temp_gender)
@@ -134,14 +134,14 @@
 /mob/p_they(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "it"
+	. = "оно"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "she"
+			. = "она"
 		if(MALE)
-			. = "he"
+			. = "он"
 		if(PLURAL)
-			. = "they"
+			. = "оно"
 	if(capitalized)
 		. = capitalize(.)
 
@@ -152,29 +152,29 @@
 	. = "its"
 	*/
 	//SEPTIC EDIT BEGIN
-	. = "its"
+	. = "этого"
 	//SEPTIC EDIT END
 	switch(temp_gender)
 		if(FEMALE)
-			. = "her"
+			. = "её"
 		if(MALE)
-			. = "his"
+			. = "его"
 		if(PLURAL)
-			. = "their"
+			. = "их"
 	if(capitalized)
 		. = capitalize(.)
 
 /mob/p_them(capitalized, temp_gender)
 	if(!temp_gender)
 		temp_gender = gender
-	. = "it"
+	. = "оно"
 	switch(temp_gender)
 		if(FEMALE)
-			. = "her"
+			. = "ей"
 		if(MALE)
-			. = "him"
+			. = "ему"
 		if(PLURAL)
-			. = "them"
+			. = "им"
 	if(capitalized)
 		. = capitalize(.)
 

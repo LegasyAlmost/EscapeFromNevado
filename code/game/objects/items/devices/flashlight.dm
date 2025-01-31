@@ -1,6 +1,6 @@
 /obj/item/flashlight
-	name = "flashlight"
-	desc = "A hand-held emergency light."
+	name = "фонарик"
+	desc = "Ручной строительный фонарь."
 	custom_price = PAYCHECK_EASY
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "flashlight"
@@ -178,8 +178,8 @@
 		return ..()
 
 /obj/item/flashlight/pen
-	name = "penlight"
-	desc = "A pen-sized light, used by medical staff. It can also be used to create a hologram to alert people of incoming medical assistance."
+	name = "офтальмологический фонарик"
+	desc = "Фонарик размером с ручку, используется офтальмологами для проверки реакции зрачков."
 	icon_state = "penlight"
 	inhand_icon_state = ""
 	worn_icon_state = "pen"
@@ -226,8 +226,8 @@
 
 
 /obj/item/flashlight/seclite
-	name = "seclite"
-	desc = "A robust flashlight used by security."
+	name = "фонарик"
+	desc = "Крепкий фонарь с мощной лампой. Увесистый, таким и убить можно!"
 	icon_state = "seclite"
 	inhand_icon_state = "seclite"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -239,8 +239,8 @@
 
 // the desk lamps are a bit special
 /obj/item/flashlight/lamp
-	name = "desk lamp"
-	desc = "A desk lamp with an adjustable mount."
+	name = "настольная лампа"
+	desc = "Прекрасная лампа для освещения рабочего места."
 	icon_state = "lamp"
 	inhand_icon_state = "lamp"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
@@ -256,7 +256,7 @@
 
 // green-shaded desk lamp
 /obj/item/flashlight/lamp/green
-	desc = "A classic green-shaded desk lamp."
+	desc = "Навевает воспоминаниями о каком-то фильме."
 	icon_state = "lampgreen"
 	inhand_icon_state = "lampgreen"
 
@@ -280,8 +280,8 @@
 // FLARES
 
 /obj/item/flashlight/flare
-	name = "flare"
-	desc = "A red Nanotrasen issued flare. There are instructions on the side, it reads 'pull cord, make light'."
+	name = "фальшфейер"
+	desc = "Красного цвета фальшфейер, на котором изображено лого какой-то компании. Ниже описана инструкция: 'сними защитный колпачок и дёрни за кольцо'."
 	w_class = WEIGHT_CLASS_SMALL
 	light_range = 7 // Pretty bright.
 	icon_state = "flare"
@@ -311,7 +311,7 @@
 		STOP_PROCESSING(SSobj, src)
 
 /obj/item/flashlight/flare/ignition_effect(atom/A, mob/user)
-	. = fuel && on ? span_notice("[user] lights [A] with [src] like a real badass.") : ""
+	. = fuel && on ? span_notice("[user] поджёг [A] с помощью [src]! Это выглядело круто.") : ""
 
 /obj/item/flashlight/flare/proc/turn_off()
 	on = FALSE
@@ -334,16 +334,16 @@
 
 	// Usual checks
 	if(fuel <= 0)
-		to_chat(user, span_warning("[src] is out of fuel!"))
+		to_chat(user, span_warning("У [src]а закончилось горючее вещество!"))
 		return
 	if(on)
-		to_chat(user, span_warning("[src] is already on!"))
+		to_chat(user, span_warning("[src] уже горит!"))
 		return
 
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message(span_notice("[user] lights \the [src]."), span_notice("You light \the [src]!"))
+		user.visible_message(span_notice("[user] поджигает \the [src]."), span_notice("Ты поджёг \the [src]!"))
 		force = on_damage
 		damtype = BURN
 		START_PROCESSING(SSobj, src)
@@ -352,8 +352,8 @@
 	return on * heat
 
 /obj/item/flashlight/flare/torch
-	name = "torch"
-	desc = "A torch fashioned from some leaves and a log."
+	name = "факел"
+	desc = "Палка с обмотанными листьями на конце. Достаточно горюча."
 	w_class = WEIGHT_CLASS_SMALL
 	light_range = 4
 	icon_state = "torch"
@@ -365,18 +365,18 @@
 	slot_flags = null
 
 /obj/item/flashlight/lantern
-	name = "lantern"
+	name = "масляная лампа"
 	icon_state = "lantern"
 	inhand_icon_state = "lantern"
 	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
-	desc = "A mining lantern."
+	desc = "Классическая лампа, использовавшаяся когда-то в прошлом. До сих пор актуальна на Земле."
 	light_range = 6 // luminosity when on
 	light_system = MOVABLE_LIGHT
 
 /obj/item/flashlight/lantern/heirloom_moth
-	name = "old lantern"
-	desc = "An old lantern that has seen plenty of use."
+	name = "старая масляная лампа"
+	desc = "Погоревшая и побитая местами лампа, лучше чем ничего."
 	light_range = 4
 
 /obj/item/flashlight/lantern/syndicate
@@ -468,8 +468,8 @@
 // Glowsticks, in the uncomfortable range of similar to flares,
 // but not similar enough to make it worth a refactor
 /obj/item/flashlight/glowstick
-	name = "glowstick"
-	desc = "A military-grade glowstick."
+	name = "хис"
+	desc = "Химический Источник Света. Пользуется спросом среди военного контингента на Земле."
 	custom_price = PAYCHECK_PRISONER
 	w_class = WEIGHT_CLASS_SMALL
 	light_range = 4
@@ -532,56 +532,56 @@
 
 /obj/item/flashlight/glowstick/attack_self(mob/user)
 	if(fuel <= 0)
-		to_chat(user, span_notice("[src] is spent."))
+		to_chat(user, span_notice("[src] закончился."))
 		return
 	if(on)
-		to_chat(user, span_warning("[src] is already lit!"))
+		to_chat(user, span_warning("[src] уже излучает свет! Нет смысла и дальше его переламывать!"))
 		return
 
 	. = ..()
 	if(.)
-		user.visible_message(span_notice("[user] cracks and shakes [src]."), span_notice("You crack and shake [src], turning it on!"))
+		user.visible_message(span_notice("[user] переломал [src] пополам, после чего [src] начал излучать свет."), span_notice("Ты переломил [src] пополами, изнутри начинает выливаться свет!"))
 		START_PROCESSING(SSobj, src)
 
 /obj/item/flashlight/glowstick/suicide_act(mob/living/carbon/human/user)
 	if(!fuel)
-		user.visible_message(span_suicide("[user] is trying to squirt [src]'s fluids into [user.p_their()] eyes... but it's empty!"))
+		user.visible_message(span_suicide("[user] пытается вылить жидкость из [src] прямо в свои глаза... К счастью, [src] пуст!"))
 		return SHAME
 	var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
-		user.visible_message(span_suicide("[user] is trying to squirt [src]'s fluids into [user.p_their()] eyes... but [user.p_they()] don't have any!"))
+		user.visible_message(span_suicide("[user] пытается вылить жидкость из [src] прямо в свои глаза... К счастью, у [user.p_they()] их нет!"))
 		return SHAME
-	user.visible_message(span_suicide("[user] is squirting [src]'s fluids into [user.p_their()] eyes! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] пытается вылить жидкость из [src] прямо в свои глаза! Кажется [user.p_theyre()] вот-вот убьётся!"))
 	fuel = 0
 	return (FIRELOSS)
 
 /obj/item/flashlight/glowstick/red
-	name = "red glowstick"
+	name = "красный хис"
 	color = COLOR_SOFT_RED
 
 /obj/item/flashlight/glowstick/blue
-	name = "blue glowstick"
+	name = "синий хис"
 	color = LIGHT_COLOR_BLUE
 
 /obj/item/flashlight/glowstick/cyan
-	name = "cyan glowstick"
+	name = "голубой хис"
 	color = LIGHT_COLOR_CYAN
 
 /obj/item/flashlight/glowstick/orange
-	name = "orange glowstick"
+	name = "оранжевый хис"
 	color = LIGHT_COLOR_ORANGE
 
 /obj/item/flashlight/glowstick/yellow
-	name = "yellow glowstick"
+	name = "жёлтый хис"
 	color = LIGHT_COLOR_YELLOW
 
 /obj/item/flashlight/glowstick/pink
-	name = "pink glowstick"
+	name = "розовый хис"
 	color = LIGHT_COLOR_PINK
 
 /obj/item/flashlight/spotlight //invisible lighting source
-	name = "disco light"
-	desc = "Groovy..."
+	name = "диско-свет"
+	desc = "Зажигай!"
 	icon_state = null
 	light_system = MOVABLE_LIGHT
 	light_range = 4

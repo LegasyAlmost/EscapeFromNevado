@@ -6,60 +6,60 @@
 
 /datum/injury/bruise/small
 	stages = list(
-		"mild bruise" = 15,
-		"small bruise" = 10,
-		"tiny bruise" = 5,
-		"tiny hematoma" = 0
+		"малая рана" = 15,
+		"синяки" = 10,
+		"царапина" = 5,
+		"гематома" = 0
 		)
 
 /datum/injury/bruise/moderate
 	stages = list(
-		"big bruise" = 25,
-		"moderate bruise" = 20,
-		"mild bruise" = 15,
-		"small bruise" = 10,
-		"small healing bruise" = 5,
-		"small hematoma" = 0
+		"рана" = 25,
+		"малая рана" = 20,
+		"небольшие ушибы" = 15,
+		"множество синяков" = 10,
+		"зажившие царапины" = 5,
+		"гематома" = 0
 		)
 	max_bleeding_stage = 2
 
 /datum/injury/bruise/large
 	stages = list(
-		"enormous bruise" = 50,
-		"large bruise" = 30,
-		"moderate bruise" = 20,
-		"mild bruise" = 15,
-		"small bruise" = 10,
-		"small healing bruise" = 5,
-		"small hematoma" = 0
+		"множество ран" = 50,
+		"рана" = 30,
+		"малая рана" = 20,
+		"небольшие ушибы" = 15,
+		"множество синяков" = 10,
+		"зажившие царапины" = 5,
+		"гематома" = 0
 		)
 	max_bleeding_stage = 3
 	fade_away_time = INFINITY
 
 /datum/injury/bruise/huge
 	stages = list(
-		"gigantic bruise" = 80,
-		"huge bruise" = 50,
-		"large bruise" = 30,
-		"moderate bruise" = 20,
-		"mild angry bruise" = 15,
-		"mild bruise" = 10,
-		"mild healing bruise" = 5,
-		"mild hematoma" = 0
+		"огромные раны" = 80,
+		"множество ран" = 50,
+		"рана" = 30,
+		"малая рана" = 20,
+		"большие ушибы" = 15,
+		"множество синяков" = 10,
+		"едва зажившие царапины" = 5,
+		"несколько гематом" = 0
 		)
 	max_bleeding_stage = 4
 	fade_away_time = INFINITY
 
 /datum/injury/bruise/monumental
 	stages = list(
-		"monumental bruise" = 80,
-		"huge bruise" = 50,
-		"large angry bruise" = 30,
-		"large bruise" = 20,
-		"moderate angry bruise" = 15,
-		"moderate bruise" = 10,
-		"moderate healing bruise" = 5,
-		"moderate hematoma" = 0
+		"раны, ссадины и порезы" = 80,
+		"огромные раны" = 50,
+		"множество ран" = 30,
+		"большой ушиб" = 20,
+		"множество синяков" = 15,
+		"множество ушибов" = 10,
+		"царапины" = 5,
+		"большая гематома" = 0
 		)
 	max_bleeding_stage = 4
 	fade_away_time = INFINITY

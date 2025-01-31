@@ -12,53 +12,53 @@
 	var/message = "<span class='infoplain'><div class='infobox'>"
 	switch(print_style)
 		if(CS_NONE)
-			message += span_largeinfo("None")
+			message += span_largeinfo("НИЧЕГО")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click will perform no special attacks - Useful to perform miscellaneous interactions.")
+			message += span_info("Нажатие ПКМа не привнесёт особых ударов - полезно для обыденного взаимодействия с предметами и терминалами.")
 		if(CS_FEINT)
-			message += span_largeinfo("Feint")
+			message += span_largeinfo("ФИНТ")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click to perform a feint attack. \
-								If successful, target will parry prematurely, leaving them open for a real attack.\n\
-								Price: Regardless of success, your defenses are left open.")
+			message += span_info("Прожми ПКМ, чтобы совершить финт. \
+								Если успешна, то открывается возможность нанести реальный удар.\n\
+								Цена: зависит от успеха, однако твоя защита остаётся открытой для ударов.")
 		if(CS_DUAL)
-			message += span_largeinfo("Dual")
+			message += span_largeinfo("АКИМБО")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click to attack with the item in your offhand.\n\
-								Price: None.")
+			message += span_info("Прожми ПКМ, чтобы атаковать второй рукой.\n\
+								Цена: Нет. Только твоя выносливость.")
 		if(CS_GUARD)
-			message += span_largeinfo("Guard")
+			message += span_largeinfo("НА ГОТОВЕ")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click in combat mode to automatically attack anyone who approaches. \
-								A shooting weapon allows targetting any tile in vision. \
-								Switching to another combat style will reset your guard.")
+			message += span_info("Нажатие ПКМ в режиме боя будет автоматически атаковать всякого, кто окажется рядом. \
+								При стрельбе позволяет стрелять точно в тайл. \
+								Изменение стиля боля уберёт имеющийся режим.")
 		if(CS_DEFEND)
-			message += span_largeinfo("Defend")
+			message += span_largeinfo("ЗАЩИТА")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Dodge and parry abilities are greatly heightened.\n\
-								Price: Reduced damage output.")
+			message += span_info("Уклонение и парирование в разы эффективнее.\n\
+								Цена: Уменьшенный исходящий урон.")
 		if(CS_STRONG)
-			message += span_largeinfo("Strong")
+			message += span_largeinfo("СИЛЬНО")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click to perform a strong attack. You will hit for maximum damage.\n\
-								Price: Regardless of success, your defenses are left open. Attack costs more stamina.")
+			message += span_info("Прожми ПКМ для атаки. Снесёт крышу знатно.\n\
+								Цена: зависит от успеха, твоя защита открыта для ударов. Атака тратит большое количество выносливости.")
 		if(CS_FURY)
-			message += span_largeinfo("Fury")
+			message += span_largeinfo("РЕЗКО")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click to attack quickly and recklessly. \
-								Parrying furious attacks will greatly hinder the target's dodge and parry.\n\
-								Price: -2 ST.")
+			message += span_info("Нажимай ПКМ для наненесения нескольких ударов в короткий промежуток. \
+								Противодействие этим атакам сложно - что для парирование, что для уклонения.\n\
+								Цена: -2 СИЛ")
 		if(CS_AIMED)
-			message += span_largeinfo("Aimed")
+			message += span_largeinfo("ТОЧНО")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Right click for an aimed attack. \
-								Far less likely to miss attack attempts.\n\
-								Price: Regardless of success, your defenses are left open. Attack is slower.")
+			message += span_info("Прожми ПКМ для точной атаки. \
+								Шанс попасть в разы выше.\n\
+								Цена: зависит от успеха, твоя защита открыта для ударов. Промежуток времени для атак увеличен.")
 		if(CS_WEAK)
-			message += span_largeinfo("Weak")
+			message += span_largeinfo("СЛАБО")
 			message += "\n<br><hr class='infohr'>\n"
-			message += span_info("Significantly reduces damage in melee combat - \
-								Useful for a friendly brawl or to non-lethally subdue someone.\n\
-								Price: Reduced damage output, but the attack is less tiring.")
+			message += span_info("Уменьшает урон атак - \
+								полезно при дуэли не на жизнь или нелетального взаимодействия (прим. хирургия).\n\
+								Цена: уменьшает в разы урон от так, но они менее изнурительнее.")
 	message += "</div></span>"
 	to_chat(src, message)

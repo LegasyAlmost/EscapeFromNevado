@@ -4,8 +4,8 @@
  *The assistant is bleeding. The assistant has a painful expression. The assistant is dead.
  */
 /obj/item/grenade/smokebomb
-	name = "smoke grenade"
-	desc = "Real bruh moment if you ever see this. Probably tell a c*der or something."
+	name = "Дымовая граната"
+	desc = "Запускает дым в своей области. Ахуй."
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "smokewhite"
 	inhand_icon_state = "smoke"

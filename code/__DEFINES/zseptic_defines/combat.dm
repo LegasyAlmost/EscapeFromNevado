@@ -10,28 +10,28 @@
 #define TERTIARY_ATTACK_CONTINUE_CHAIN SECONDARY_ATTACK_CONTINUE_CHAIN
 
 // ~combat style defines
-#define CS_WEAK "weak"
-#define CS_AIMED "aimed"
-#define CS_FURY "fury"
-#define CS_STRONG "strong"
-#define CS_DEFEND "defend"
-#define CS_GUARD "guard"
-#define CS_DUAL "dual"
-#define CS_FEINT "feint"
-#define CS_NONE "none"
+#define CS_WEAK "weakRU"
+#define CS_AIMED "aimedRU"
+#define CS_FURY "furyRU"
+#define CS_STRONG "strongRU"
+#define CS_DEFEND "defendRU"
+#define CS_GUARD "guardRU"
+#define CS_DUAL "dualRU"
+#define CS_FEINT "feintRU"
+#define CS_NONE "noneRU"
 
 #define CS_DEFAULT CS_NONE
 
 // ~dodge and parry
-#define DP_PARRY "parry"
-#define DP_DODGE "dodge"
+#define DP_PARRY "parryRU"
+#define DP_DODGE "dodgeRU"
 
 // ~special attacks (kicking, biting and jumping)
-#define SPECIAL_ATK_KICK "kick"
-#define SPECIAL_ATK_BITE "bite"
-#define SPECIAL_ATK_JUMP "jump"
-#define SPECIAL_ATK_STEAL "steal"
-#define SPECIAL_ATK_NONE "none"
+#define SPECIAL_ATK_KICK "kickRU"
+#define SPECIAL_ATK_BITE "biteRU"
+#define SPECIAL_ATK_JUMP "jumpRU"
+#define SPECIAL_ATK_STEAL "stealRU"
+#define SPECIAL_ATK_NONE "noneRU"
 
 // ~grabbies
 #define GM_STAUNCH "staunch"

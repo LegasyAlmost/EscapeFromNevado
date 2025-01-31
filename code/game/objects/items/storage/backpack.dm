@@ -10,8 +10,8 @@
  */
 
 /obj/item/storage/backpack
-	name = "backpack"
-	desc = "You wear this on your back and put items into it."
+	name = "рюзкак"
+	desc = "Рюкзак, который Вы носите на спине."
 	icon_state = "backpack"
 	inhand_icon_state = "backpack"
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
@@ -50,8 +50,8 @@
 	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/storage/backpack/holding
-	name = "bag of holding"
-	desc = "A backpack that opens into a localized pocket of bluespace."
+	name = "Сумка пустот"
+	desc = "Рюкзак, сквозь который видно пустоту."
 	icon_state = "holdingpack"
 	inhand_icon_state = "holdingpack"
 	resistance_flags = FIRE_PROOF
@@ -124,8 +124,8 @@
 	inhand_icon_state = "clownpack"
 
 /obj/item/storage/backpack/explorer
-	name = "explorer bag"
-	desc = "A robust backpack for stashing your loot."
+	name = "сумка"
+	desc = "Крепкая сумка, для ношения множества колких предметов."
 	icon_state = "explorerpack"
 	inhand_icon_state = "explorerpack"
 

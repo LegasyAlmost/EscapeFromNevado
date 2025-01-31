@@ -16,7 +16,7 @@
 				thrown_thing = throwable_mob
 				stop_pulling()
 				if(HAS_TRAIT(src, TRAIT_PACIFISM))
-					to_chat(src, span_notice("I gently let go of <b>[throwable_mob]</b>."))
+					to_chat(src, span_notice("Я аккуратно положил <b>[throwable_mob]</b>."))
 					return
 	else
 		thrown_thing = item.on_thrown(src, target)
