@@ -24,8 +24,8 @@
 	bolt_drop_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_lockin.wav'
 	rack_sound = 'modular_septic/sound/weapons/guns/shotgun/shotgun_cycle.wav'
 	drop_sound = 'modular_septic/sound/weapons/guns/drop_heavygun.wav'
-	safety_on_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
-	safety_off_sound = 'modular_septic/sound/weapons/guns/safety2.ogg'
+	safety_on_sound = 'modular_septic/sound/weapons/guns/safety3.aac'
+	safety_off_sound = 'modular_septic/sound/weapons/guns/safety3.aac'
 	load_sound = list(
 		'modular_septic/sound/weapons/guns/shotgun/shell1.wav', \
 		'modular_septic/sound/weapons/guns/shotgun/shell2.wav', \
@@ -68,8 +68,8 @@
 
 // The legendary
 /obj/item/gun/ballistic/shotgun/doublebarrel/bobox
-	name = "\the \"Early Retirement\""
-	desc = "A \"legendary\" shotgun with a simple combination of two barrels, not ideal, but a powerful weapon in the filthiest, unskilled hands."
+	name = "\"Ранний рекрут\""
+	desc = "\"Фирменный\" дробовик с двумя стволами. Не в бровь, а в глаз."
 	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
 	inhand_icon_state = "bobox"
 	base_icon_state = "bobox"
@@ -97,7 +97,7 @@
 
 // ITHACA SHOTGUN
 /obj/item/gun/ballistic/shotgun/ithaca
-	name = "\improper ITOBE modelo 37 shotgun"
+	name = "\improper modelo 37 \"Liquidador\""
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "ithaca"
 	base_icon_state = "ithaca"
@@ -106,7 +106,8 @@
 
 
 /obj/item/gun/ballistic/shotgun/hunting
-	name = "Hunting Shotgun"
+	name = "ОД Папасши \"Охотник\""
+	desc = "Охотничный дробовик Папасши. Калибр - 12."
 	icon_state = "huntingshot"
 	base_icon_state = "huntingshot"
 	empty_icon_state = TRUE
