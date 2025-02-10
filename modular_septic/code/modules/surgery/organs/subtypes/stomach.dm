@@ -1,7 +1,7 @@
 /obj/item/organ/stomach
-	name = "stomach"
+	name = "желудок"
 	icon_state = "stomach"
-	desc = "When bariatric goes too far."
+	desc = "Желудок, переваривает пищу."
 	attack_verb_continuous = list("gores", "squishes", "slaps", "digests")
 	attack_verb_simple = list("gore", "squish", "slap", "digest")
 
@@ -11,10 +11,10 @@
 
 	healing_factor = STANDARD_ORGAN_HEALING
 
-	low_threshold_passed = span_info("My stomach flashes with pain before subsiding. Food doesn't seem like a good idea right now.")
-	high_threshold_passed = span_warning("My stomach flares up with constant pain- you can hardly stomach the idea of food right now!")
-	high_threshold_cleared = span_info("The pain in my stomach dies down for now, but food still seems unappealing.")
-	low_threshold_cleared = span_info("The bouts of pain in my stomach have died out.")
+	low_threshold_passed = span_info("В животе вспыхивает боль, прежде чем утихнуть. Еду лучше не есть, пока что.")
+	high_threshold_passed = span_warning("Мой желудок резко заболел! Нахер пищу!")
+	high_threshold_cleared = span_info("Боль в животе на время утихает, но идея употребления чего-то съестного по-прежнему кажется сомнительной.")
+	low_threshold_cleared = span_info("Приступы боли в моем животе прекратились.")
 
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment/organ_tissue = 5,

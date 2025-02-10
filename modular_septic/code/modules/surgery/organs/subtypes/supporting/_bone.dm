@@ -1,5 +1,5 @@
 /obj/item/organ/bone
-	name = "bone"
+	name = "кость"
 	desc = "Bone apple tea."
 	icon_state = "bone"
 	base_icon_state = "bone"

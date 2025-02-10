@@ -1,5 +1,5 @@
 /obj/item/organ/artery/l_foot
-	name = "left dorsalis pedis artery"
+	name = "левая тыльная артерия стопы"
 	zone = BODY_ZONE_PRECISE_L_FOOT
 	blood_flow = ARTERIAL_BLOOD_FLOW * 0.5
 

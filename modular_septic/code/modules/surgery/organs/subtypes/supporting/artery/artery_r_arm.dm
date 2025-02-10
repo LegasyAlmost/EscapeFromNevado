@@ -1,5 +1,5 @@
 /obj/item/organ/artery/r_arm
-	name = "right brachial artery"
+	name = "правая плечевая артерия"
 	zone = BODY_ZONE_R_ARM
 	blood_flow = ARTERIAL_BLOOD_FLOW * 0.75
 

@@ -1,5 +1,5 @@
 /obj/item/organ/artery
-	name = "artery"
+	name = "артерия"
 	desc = "An artery is torn! Literally."
 	icon_state = "artery"
 	base_icon_state = "artery"

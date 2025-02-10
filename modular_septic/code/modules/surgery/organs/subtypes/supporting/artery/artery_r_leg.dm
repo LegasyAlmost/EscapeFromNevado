@@ -1,5 +1,5 @@
 /obj/item/organ/artery/r_leg
-	name = "right femoral artery"
+	name = "правая бедренная артерия"
 	zone = BODY_ZONE_R_LEG
 
 /obj/item/organ/artery/r_leg/robot

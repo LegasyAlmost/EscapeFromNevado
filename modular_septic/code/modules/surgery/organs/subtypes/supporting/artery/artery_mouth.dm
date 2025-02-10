@@ -1,5 +1,5 @@
 /obj/item/organ/artery/mouth
-	name = "facial artery"
+	name = "лицевая артерия"
 	zone = BODY_ZONE_PRECISE_MOUTH
 
 /obj/item/organ/artery/mouth/robot

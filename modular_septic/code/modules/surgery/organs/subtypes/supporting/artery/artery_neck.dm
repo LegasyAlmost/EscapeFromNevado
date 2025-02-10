@@ -1,5 +1,5 @@
 /obj/item/organ/artery/neck
-	name = "carotid artery"
+	name = "сонная артерия"
 	zone = BODY_ZONE_PRECISE_NECK
 	blood_flow = ARTERIAL_BLOOD_FLOW * 2
 

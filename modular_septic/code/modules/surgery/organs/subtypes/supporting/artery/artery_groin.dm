@@ -1,5 +1,5 @@
 /obj/item/organ/artery/groin
-	name = "iliac artery"
+	name = "подвздошная артерия"
 	desc = "My anus is bleeding!"
 	zone = BODY_ZONE_PRECISE_GROIN
 

@@ -1,5 +1,5 @@
 /obj/item/organ/artery/chest
-	name = "thoracic aorta"
+	name = "грудная аорта"
 	desc = "Shot through the heart, and you're to blame - Darlin', you give love a bad name."
 	zone = BODY_ZONE_CHEST
 

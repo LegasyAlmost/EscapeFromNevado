@@ -68,7 +68,7 @@
 
 // The legendary
 /obj/item/gun/ballistic/shotgun/doublebarrel/bobox
-	name = "\"Ранний рекрут\""
+	name = "\"Палач рока\""
 	desc = "\"Фирменный\" дробовик с двумя стволами. Не в бровь, а в глаз."
 	icon = 'modular_septic/icons/obj/items/guns/shotgun.dmi'
 	inhand_icon_state = "bobox"
@@ -107,15 +107,17 @@
 
 /obj/item/gun/ballistic/shotgun/hunting
 	name = "ОД Папасши \"Охотник\""
-	desc = "Охотничный дробовик Папасши. Калибр - 12."
+	desc = "Охотничный дробовик Папасши. Калибр - 12-ый."
 	icon_state = "huntingshot"
 	base_icon_state = "huntingshot"
 	empty_icon_state = TRUE
 
 // ??? SHOTGUN
 /obj/item/gun/ballistic/shotgun/riot
-	name = "\improper Shottex Sit-Down shotgun"
-	desc = "A sturdy shotgun with a longer magazine and a fixed tactical stock designed for \"non-lethal\" riot control."
+	name = "\improper Riot-S12 \"Downer\""
+	desc = "Дробовик компании Riot Solution с фиксированной тактическим прикладом. Был разработан в качестве решения для подавления беспорядков нелетальной силой. \
+		Тем не менее летальные боеприпасы без труда можно использовать. \
+		Калибр - 12-ый."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "riot"
 	base_icon_state = "riot"
@@ -141,8 +143,8 @@
 
 // BENELLI M4 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/combat
-	name = "\improper Shottex CKY shotgun"
-	desc = "A semi automatic shotgun with tactical furniture and a six-shell(+1) capacity underneath."
+	name = "\improper Shottex CQB shotgun"
+	desc = "Полуавтоматический дробовик в обвесе. Имеет магазин в 6(+1) патрон. Калибр - 12-ый."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "combat"
 	base_icon_state = "combat"
@@ -168,9 +170,9 @@
 
 // BROWNING 2000 SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2000
-	name = "\improper \the KILLEDBY™️ Shotgun 3000"
-	desc = "The original classic by KILLEDBY™️, known for their slogan \"No Shotgun, No Peace\". It is a gas operated, semi automatic shotgun. \
-		It has a 4(+1) shell capacity."
+	name = "\improper Shottex \"Classical\""
+	desc = "Классический помповый дробовик компании Shottex, их слоган: \"Без дробовика - и жизнь худа!\". \
+		Вмещает в себя 4(+1) патрона. Калибр - 12-ый."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "b2000"
 	base_icon_state = "b2000"
@@ -193,9 +195,10 @@
 
 // BELADOR 2021 SILENCED SHOTGUN
 /obj/item/gun/ballistic/shotgun/automatic/b2021
-	name = "\improper \the FiringFreak™️ 2021 shotgun"
-	desc = "The FiringFreak 2021 is a gas operated, semi automatic special-operations shotgun developed by the DEATH SEC Unit \
-		It has a 9(+1) shell capacity."
+	name = "\improper Shottex \"Pigeon\""
+	desc = "Дробовик компании Shottex \"Голубь\" сочетает в себе кастомизацию, грубую отладку и убойную точность. \
+		Имеет встроенный глушитель. \
+		Вмещает в себя 9(+1) патрон. Калибр - 12-й."
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "b2021"
 	inhand_icon_state = "b2021"
@@ -224,12 +227,12 @@
 	var/obj/item/suppressor/suppressor = new(src)
 	install_suppressor(suppressor)
 
-// ??? AUTOMATIC SHOTGUN
+// AA12 i guess AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/bulldog
-	name = "\improper Massacre Shotgun"
-	desc = "A semi-auto, mag-fed shotgun for combat in narrow corridors. \
-		Compatible only with specialized 8-round(+1) drum magazines. \
-		Famously used by a terrorist in the \"Corn syrup rapture\" incident."
+	name = "\improper Modelo 1337 \"Torturador\""
+	desc = "Полуавтоматический дробовик магазинного типа. Производитель - испанцы из Modelo. \
+		К его шахте заряжания подходят только барабанные магазины на 8(+1 в стволе) пуль! \
+		Калибр - 12-ый. "
 	icon = 'modular_septic/icons/obj/items/guns/40x32.dmi'
 	icon_state = "automatic"
 	base_icon_state = "automatic"
@@ -269,8 +272,9 @@
 
 // SAIGA-12 AUTOMATIC SHOTGUN
 /obj/item/gun/ballistic/shotgun/abyss
-	name = "\improper AN-12 KILLEDBY™️ automatic shotgun"
-	desc = "An odd-looking shotgun manufactured by KILLEDBY™️ Industries"
+	name = "\improper АД-12 Папасши"
+	desc = "Автоматический дробовик Папасши магазинной системы заряжания. Вмещает в себя 20 патрон. \
+		Калибр - 12-ый."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/guns/inhands/shotgun_righthand.dmi'
@@ -311,10 +315,11 @@
 	mag_type = /obj/item/ammo_box/magazine/abyss_shotgun_drum
 	suppressor_x_offset = 8
 
-// BALLS DESTROYER
+// KS23 | TOZ-123 DESTROYER
 /obj/item/gun/ballistic/shotgun/bolas
-	name = "\improper 3Shot™️ 4-gauge shotgun"
-	desc = "Holy shit. That's a big fucking shotgun."
+	name = "\improper ДС-4 Папасши"
+	desc = "Громоздкий дробовик, вмещающий в себя 4 огромных патрона. \
+		Калибр - 4-ый."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	icon_state = "bolas"
 	base_icon_state = "bolas"
@@ -340,9 +345,9 @@
 
 // SPAS 12
 /obj/item/gun/ballistic/shotgun/denominator
-	name = "\improper SPICE-12 12-gauge shotgun"
-	desc = "An iconic 12-gauge shotgun with a chunky, chewy design with selectable fire-mode simply by pressing the switch \
-	(MMB) while the pump is forward and the safety is off."
+	name = "\improper Riot-S12 \"Special\""
+	desc = "Автоматический дробовик с помповым заряжанием. Имеет выбор с полуавтоматического режима на автоматический. \
+	Нажми на СКМ, когда помпа в закрытом положении и предохранитель отключен."
 	icon = 'modular_septic/icons/obj/items/guns/48x32.dmi'
 	icon_state = "spas"
 	base_icon_state = "spas"
@@ -362,16 +367,16 @@
 /obj/item/gun/ballistic/shotgun/denominator/attack_self_tertiary(mob/user, modifiers)
 	. = ..()
 	if(bolt_locked || (!(safety_flags & GUN_SAFETY_ENABLED)))
-		var/wontbudge = "The switch won't budge."
+		var/wontbudge = "Флажок предохранителя не поддаётся."
 		if(!(safety_flags & GUN_SAFETY_ENABLED))
-			wontbudge += span_warning(" The safety has to be off.")
+			wontbudge += span_warning(" Предохранитель должен быть снят.")
 		if(bolt_locked)
-			wontbudge += span_danger(" The pump has to be forward.")
+			wontbudge += span_danger(" Завтор должен быть передёрнут.")
 		to_chat(user, span_notice("[wontbudge]"))
 		return
 	semi = !semi
-	user.visible_message(span_warning("[user] toggles the semi-automatic function to [semi ? "on" : "off"]."), \
-	span_notice("I toggle the semi-automatic function to [semi ? "on" : "off"]."))
+	user.visible_message(span_warning("[user] переключает предохранитель на [semi ? "S" : "F"]."), \
+	span_notice("Я переключил предохранитель на позицию [semi ? "S" : "F"]."))
 	if(semi)
 		playsound(src, safety_off_sound, safety_sound_volume, safety_sound_vary)
 	else

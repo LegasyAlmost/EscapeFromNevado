@@ -1,7 +1,7 @@
 // important note: Tendons in medical terminology connect muscles to bone - Here,
 // any sort of muscle tissue could be made as a tendon
 /obj/item/organ/tendon
-	name = "tendon"
+	name = "сухожилие"
 	desc = "Not the song made by experimental musician Igorrr."
 	icon_state = "tendon"
 	base_icon_state = "tendon"

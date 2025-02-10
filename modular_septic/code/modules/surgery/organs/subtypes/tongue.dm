@@ -1,6 +1,6 @@
 /obj/item/organ/tongue
-	name = "tongue"
-	desc = "Cat got your tongue?"
+	name = "язык"
+	desc = "Немой и в буржуазии немой."
 	icon_state = "tongue"
 	base_icon_state = "tongue"
 	zone = BODY_ZONE_PRECISE_MOUTH

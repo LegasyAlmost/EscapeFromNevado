@@ -1,5 +1,5 @@
 /obj/item/organ/artery/vitals
-	name = "abdominal aorta"
+	name = "брюшная аорта"
 	zone = BODY_ZONE_PRECISE_VITALS
 
 /obj/item/organ/artery/vitals/robot

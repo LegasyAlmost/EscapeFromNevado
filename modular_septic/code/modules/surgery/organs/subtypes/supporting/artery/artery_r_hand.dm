@@ -1,5 +1,5 @@
 /obj/item/organ/artery/r_hand
-	name = "right deep palmar arch"
+	name = "глубокая ладонная артерия справа"
 	zone = BODY_ZONE_PRECISE_R_HAND
 	blood_flow = ARTERIAL_BLOOD_FLOW * 0.5
 

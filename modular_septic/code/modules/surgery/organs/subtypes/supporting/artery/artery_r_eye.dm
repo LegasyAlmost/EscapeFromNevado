@@ -1,5 +1,5 @@
 /obj/item/organ/artery/r_eye
-	name = "right central retinal artery"
+	name = "левая центральная артерия сетчатки"
 	zone = BODY_ZONE_PRECISE_R_EYE
 	blood_flow = ARTERIAL_BLOOD_FLOW * 0.35
 

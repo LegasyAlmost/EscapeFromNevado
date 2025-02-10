@@ -1,8 +1,8 @@
 /atom/movable/screen/wield
 	name = "wield"
 	icon = 'modular_septic/icons/hud/quake/screen_quake.dmi'
-	icon_state = "act_wield"
-	base_icon_state = "act_wield"
+	icon_state = "act_wieldRU"
+	base_icon_state = "act_wieldRU"
 	screen_loc = ui_wield
 	var/active = FALSE
 

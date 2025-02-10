@@ -43,11 +43,7 @@ SUBSYSTEM_DEF(title)
 	else if(file_path == "[global.config.directory]/title_screens/images/hallway1.dmi" || file_path == "[global.config.directory]/title_screens/images/hallway2.dmi")
 		SSticker.login_music = "[global.config.directory]/title_music/sounds/hallway.ogg"
 	*/
-	SSticker.login_music = "[global.config.directory]/title_music/sounds/sunday.ogg"
-
-	for(var/mob/dead/new_player/P as anything in GLOB.new_player_list)
-		if(P.client)
-			P.client.playtitlemusic()
+	// было SSticker.login_music = "[global.config.directory]/title_music/sounds/sunday.ogg"
 
 
 	ASSERT(fexists(file_path))
@@ -59,6 +55,21 @@ SUBSYSTEM_DEF(title)
 		splash_turf.handle_generic_titlescreen_sizes()
 
 	return ..()
+
+/datum/controller/subsystem/title/proc/choose_lobby_song()
+	var/list/lobby_sounds = flist("[global.config.directory]/title_music/sounds/")
+	var/list/possible_title = list()
+
+	for(var/title in lobby_sounds)
+		possible_title += title
+	if(possible_title.len)
+		return "[global.config.directory]/title_music/sounds/[pick(possible_title)]"
+
+	SSticker.login_music = "[global.config.directory]/title_music/sounds/[pick(possible_title)]"
+
+	for(var/mob/dead/new_player/P as anything in GLOB.new_player_list)
+		if(P.client)
+			P.client.playtitlemusic()
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()

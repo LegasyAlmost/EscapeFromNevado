@@ -1,5 +1,5 @@
 /obj/item/organ/artery/head
-	name = "temporal artery"
+	name = "височная артерия"
 	desc = "Well, this one was certainly temporal."
 	zone = BODY_ZONE_HEAD
 

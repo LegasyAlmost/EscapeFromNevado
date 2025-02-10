@@ -25,8 +25,9 @@
 
 // ppsh
 /obj/item/gun/ballistic/automatic/remis/smg/ppsh
-	name = "\improper Papasha SMG"
-	desc = "Despite the dated appearance the Papasha is more of a machine pistol than an SMG, the unreliable drum magazine being discarded by the Death Sec Unit decades ago due to many mechanical faults."
+	name = "\improper ППС"
+	desc = "Автоматический пистолет пулемёт Папасши, простой в производстве. Вмещает в себя магазины по 32 патрона. \
+		Калибр - 9мм."
 	icon = 'modular_septic/icons/obj/items/guns/smg.dmi'
 	base_icon_state = "ppsh"
 	icon_state = "ppsh"
