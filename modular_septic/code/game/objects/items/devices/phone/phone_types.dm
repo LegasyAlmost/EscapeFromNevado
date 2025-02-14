@@ -1,6 +1,6 @@
 /obj/item/cellphone/hacker
-	desc = "A darkened, vintage phone.\n\
-			The design allows easy jailbreaking and loading of bootleg apps."
+	desc = "тёмный и устарвеший телефон.\n\
+			Конструкция позволяет легко осуществлять нарушение условий содержания и загружать пиратские приложения."
 	icon_state = "hacker_phone"
 	base_icon_state = "hacker_phone"
 	brand_name = "VANTABLACK VAGRANT"

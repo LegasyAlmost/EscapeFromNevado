@@ -8,8 +8,8 @@
 
 /datum/job/gakster/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	//if(ishuman(spawned))
-	//	spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
+	if(ishuman(spawned))
+		spawned.apply_status_effect(/datum/status_effect/gakster_dissociative_identity_disorder)
 	if(!prob(5))
 		return
 	qdel(spawned.get_item_by_slot(ITEM_SLOT_ID))
