@@ -4,15 +4,15 @@
 //Saw-tier bulky & blunt weapon. A decent bone breaker. Source of lead reagent.
 //Add lead material to this once implemented.
 /obj/item/lead_pipe
-	name = "lead pipe"
+	name = "Металлическая труба"
 	icon = 'icons/obj/maintenance_loot.dmi'
 	icon_state = "lead_pipe"
 	inhand_icon_state = "lead_pipe"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	//wow, lore
-	desc = "A hefty lead pipe.\nLead in an uncommon sight in this sector after being phased out due to employee health concerns. \
-	\nThose of a more cynical disposition assume that the NT lead ban is a scheme to prevent divertion to Syndicate ammunition factories."
+	desc = "Здоровенная свинцовая труба.\nОстаётся диковинкой на Луне, после замены всего на пластик. \
+	\nТем не менее, из неё всё ещё можно сделать нечто большее."
 	force = 15
 	throwforce = 12
 	throw_range = 4

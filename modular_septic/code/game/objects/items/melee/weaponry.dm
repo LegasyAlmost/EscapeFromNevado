@@ -22,8 +22,8 @@
 
 //Nice sexy sex
 /obj/item/melee/truncheon
-	name = "truncheon"
-	desc = "A tool to beat the bones out of criminals."
+	name = "Дубинка"
+	desc = "Инструмент выбивания говна из головы и нелетального задержания."
 	icon = 'modular_septic/icons/obj/items/melee/baton.dmi'
 	icon_state = "truncheon"
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
@@ -46,7 +46,7 @@
 	tetris_height = 64
 
 /obj/item/melee/truncheon/black
-	name = "black truncheon"
+	name = "Чёрная дубинка"
 	icon = 'modular_septic/icons/obj/items/melee/baton.dmi'
 	icon_state = "truncheon_black"
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/baton_lefthand.dmi'
@@ -54,8 +54,8 @@
 	inhand_icon_state = "truncheon_black"
 
 /obj/item/lead_pipe
-	name = "lead pipe"
-	desc = "Infantile Behavioral Correction Device."
+	name = "Металлическая труба"
+	desc = "ОНА ГРОМКАЯ И ТЯЖЁЛАЯ. СУКА."
 	icon = 'modular_septic/icons/obj/items/melee/pipe.dmi'
 	icon_state = "child_behavior_corrector"
 	tetris_width = 32
@@ -91,7 +91,7 @@
 /obj/item/changeable_attacks/examine(mob/user)
 	. = ..()
 	if(current_atk_mode)
-		. += span_info("It's currently ready to [current_atk_mode]")
+		. += span_info("Текущий выбор нанесения атак: [current_atk_mode]")
 
 /obj/item/changeable_attacks/attack_self(mob/user, modifiers)
 	. = ..()
@@ -103,7 +103,7 @@
 
 /obj/item/changeable_attacks/proc/swap_intents(mob/user)
 	if(isnull(current_atk_mode))
-		to_chat(user, span_warning("There's no other ways to attack with this weapon."))
+		to_chat(user, span_warning("Я не могу иначе бить этим оружием."))
 		return
 	user.playsound_local(get_turf(src), 'modular_septic/sound/weapons/melee/swap_intent.ogg', 5, FALSE)
 
@@ -112,8 +112,8 @@
 #define bash 3
 
 /obj/item/changeable_attacks/sword
-	name = "Nice Sword"
-	desc = "A Nice Sword."
+	name = "Кукри"
+	desc = "Хороший ножище."
 	icon_state = "cockri"
 	inhand_icon_state = "cockri"
 	worn_icon_state = "cockri"
@@ -157,7 +157,7 @@
 	. = ..()
 	switch(current_atk_mode)
 		if(slash)
-			to_chat(user, span_notice("I'm now stabbing them with the pointy end of the [src]."))
+			to_chat(user, span_notice("Теперь я наношу колотые атаки, своим [src]."))
 			hitsound = stab_hitsound
 			min_force = 6
 			force = 10
@@ -166,7 +166,7 @@
 			current_atk_mode = stab
 			sharpness = SHARP_POINTY
 		if(stab)
-			to_chat(user, span_notice("I'm now bashing with the hilt of the [src]."))
+			to_chat(user, span_notice("Теперь я бью рукояткой от своего [src]."))
 			hitsound = bash_hitsound
 			min_force = 6
 			force = 10
@@ -175,7 +175,7 @@
 			current_atk_mode = bash
 			sharpness = NONE
 		if(bash)
-			to_chat(user, span_notice("I'm now slicing with the [src]."))
+			to_chat(user, span_notice("Теперь я наношу режущие атаки, своим [src]."))
 			hitsound = slash_hitsound
 			min_force = 6
 			force = 10
@@ -185,12 +185,12 @@
 			sharpness = SHARP_EDGED
 
 /obj/item/changeable_attacks/sword/kukri
-	name = "Kukri"
-	desc = "A carbon-steel kukri, usually found in the hands of people who really want to make cartel videos."
+	name = "Кукри"
+	desc = "Кукри из углеродистой стали, пользуется спросом среди режиссёров картелей."
 
 /obj/item/changeable_attacks/skindeep
-	name = "Skin Deep Cleaver"
-	desc = "A Skin Deep Cleaver, known for It's tiny size and precision, definitely not being essentially a sharp club."
+	name = "Тесак"
+	desc = "Тесак, длинный и заточенный. Рубит мясо и кости."
 	icon = 'modular_septic/icons/obj/items/melee/48x32.dmi'
 	lefthand_file = 'modular_septic/icons/obj/items/melee/inhands/sword_lefthand.dmi'
 	righthand_file = 'modular_septic/icons/obj/items/melee/inhands/sword_righthand.dmi'
@@ -222,7 +222,7 @@
 	. = ..()
 	switch(current_atk_mode)
 		if(slash)
-			to_chat(user, span_notice("I'm now stabbing them with the slanted pointy end of the [src].")) //It's not that great at stabbing
+			to_chat(user, span_notice("Теперь я наношу колотые атаки, своим [src].")) //It's not that great at stabbing
 			hitsound = stab_hitsound
 			min_force = 8
 			force = 10
@@ -231,7 +231,7 @@
 			current_atk_mode = stab
 			sharpness = SHARP_POINTY
 		if(stab)
-			to_chat(user, span_notice("I'm now bashing with the hilt of the [src]."))
+			to_chat(user, span_notice("Теперь я бью рукояткой от своего [src]."))
 			hitsound = bash_hitsound
 			min_force = 6
 			force = 9
@@ -240,7 +240,7 @@
 			current_atk_mode = bash
 			sharpness = NONE
 		if(bash)
-			to_chat(user, span_notice("I'm now slicing with the [src]."))
+			to_chat(user, span_notice("Теперь я наношу режущие атаки, своим [src]."))
 			hitsound = slash_hitsound
 			min_force = 13
 			force = 25
@@ -254,8 +254,8 @@
 #undef bash
 
 /obj/item/kukri
-	name = "Kukri"
-	desc = "A carbon-steel kukri, usually found in the hands of people who really want to make cartel videos."
+	name = "Кукри"
+	desc = "Кукри из углеродистой стали, пользуется спросом среди режиссёров картелей."
 	icon_state = "cockri"
 	inhand_icon_state = "cockri"
 	worn_icon_state = "cockri"
@@ -284,8 +284,8 @@
 	tetris_height = 96
 
 /obj/item/skin_cleaver
-	name = "Skin Deep Cleaver"
-	desc = "A Skin Deep Cleaver, known for It's tiny size and precision, definitely not being essentially a sharp club."
+	name = "Тесак"
+	desc = "Тесак, длинный и заточенный. Рубит мясо и кости."
 	icon_state = "skin_cleaver"
 	inhand_icon_state = "skin_cleaver"
 	slot_flags = null

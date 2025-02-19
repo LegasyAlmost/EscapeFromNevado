@@ -1,5 +1,5 @@
 /obj/item/melee/baton
-	desc = "A wooden truncheon for beating criminal scum. What were you expecting here?"
+	desc = "Традиционная дубинка из дуба. Левым оглушить, правым ударить."
 	force = 12
 	wound_bonus = 6
 	bare_wound_bonus = 0

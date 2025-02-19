@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/russian
-	name = "Russian"
-	desc = "For the Motherland!"
+	name = "Ополченецъ"
+	desc = "За Матушку-Россию!"
 	icon = 'icons/mob/simple_human.dmi'
 	icon_state = "russianmelee"
 	icon_living = "russianmelee"
@@ -22,7 +22,7 @@
 	combat_mode = TRUE
 	var/list/secondary_loot = list()
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian,
-				/obj/item/knife/kitchen)
+				/obj/item/knife/combat)
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
 	unsuitable_atmos_damage = 7.5
 	faction = list("russian")
@@ -43,14 +43,14 @@
 	icon_state = "russianranged"
 	icon_living = "russianranged"
 	loot = list(/obj/effect/mob_spawn/human/corpse/russian/ranged,
-				/obj/item/gun/ballistic/revolver/nova)
+ 				/obj/item/gun/ballistic/automatic/pistol/glock17)
 	ranged = TRUE
 	retreat_distance = 3
 	minimum_distance = 3
 	check_friendly_fire = TRUE
 	projectilesound = 'modular_septic/sound/weapons/guns/revolver/nova.wav'
-	casingtype = /obj/item/ammo_casing/c38
-	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/c38/loaded, /obj/item/ammo_box/magazine/ammo_stack/c38/loaded)
+	casingtype = /obj/item/ammo_casing/c9mm
+	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/c9mm/loaded, /obj/item/ammo_box/magazine/ammo_stack/c9mm)
 
 
 /mob/living/simple_animal/hostile/russian/ranged/mosin

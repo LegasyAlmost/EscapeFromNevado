@@ -6,8 +6,9 @@
 	base_icon_state = "fireaxe"
 	lefthand_file = 'icons/mob/inhands/weapons/axes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/axes_righthand.dmi'
-	name = "fire axe"
-	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
+	name = "Пожарный топор"
+	desc = "Действительно, оружие ёбнутого. Кто же станет сражатся с огнём ТОПОРОМ, БЛЯДЬ? \
+		Очевидно, только маньяки и сошедшие с ума. Пожарных более не осталось."
 	force = 5
 	throwforce = 15
 	w_class = WEIGHT_CLASS_BULKY
@@ -70,8 +71,8 @@
 /obj/item/fireaxe/boneaxe  // Blatant imitation of the fireaxe, but made out of bone.
 	icon_state = "bone_axe0"
 	base_icon_state = "bone_axe"
-	name = "bone axe"
-	desc = "A large, vicious axe crafted out of several sharpened bone plates and crudely tied together. Made of monsters, by killing monsters, for killing monsters."
+	name = "Костянной топор"
+	desc = "Огромный, сотканный из костей перевязкой, но надёжно. Создано чудовищами, чтобы убивать чудовищ или НЕ чудовищ."
 
 /obj/item/fireaxe/boneaxe/ComponentInitialize()
 	. = ..()
@@ -84,8 +85,8 @@
 /obj/item/fireaxe/metal_h2_axe  // Blatant imitation of the fireaxe, but made out of metallic hydrogen
 	icon_state = "metalh2_axe0"
 	base_icon_state = "metalh2_axe"
-	name = "metallic hydrogen axe"
-	desc = "A large, menacing axe made of an unknown substance that the eldest atmosians call Metallic Hydrogen. Truly an otherworldly weapon."
+	name = "Металлический топор"
+	desc = "Огромный топорище, созданный, предположительно, из сплава металлического сплава с водородом. Явно - оружие другого мира."
 
 /obj/item/fireaxe/metal_h2_axe/ComponentInitialize()
 	. = ..()

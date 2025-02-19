@@ -55,6 +55,7 @@
 "bH" = (/obj/structure/lattice/catwalk,/obj/structure/disposalpipe/segment{dir = 8},/obj/structure/sign/directions/evac{pixel_y = 36; pixel_x = -2; dir = 4},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "bI" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/machinery/chem_dispenser/drinks/beer{dir = 4},/obj/structure/table,/turf/open/floor/iron{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "bO" = (/obj/item/card/id/advanced/prisoner,/turf/open/floor/iron/dark,/area/maintenance/liminal/termination_centre)
+"bQ" = (/obj/effect/decal/cleanable/blood,/obj/effect/mob_spawn/human/corpse/damaged,/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "bR" = (/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/labs)
 "bU" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/obj/effect/turf_decal/trimline/neutral/filled/corner{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "bX" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
@@ -126,6 +127,7 @@
 "em" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/iron/white{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "en" = (/obj/effect/spawner/random/trash/caution_sign,/turf/open/floor/iron/large,/area/maintenance/liminal/labs)
 "eo" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/grenade/smokebomb,/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,/obj/item/ammo_box/magazine/hksmg380,/obj/item/ammo_box/magazine/hksmg380,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
+"ep" = (/obj/machinery/light/small/directional/north,/mob/living/simple_animal/hostile/russian,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkgreen)
 "er" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "et" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
 "eu" = (/obj/machinery/door/metal_door/west,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkgreen)
@@ -170,6 +172,7 @@
 "fL" = (/obj/structure/lattice,/obj/structure/lattice/catwalk,/obj/effect/turf_decal/stripes/box,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "fM" = (/obj/effect/mob_spawn/human/corpse/damaged,/obj/structure/closet/crate/coffin,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "fN" = (/obj/effect/turf_decal/siding/wideplating/dark{dir = 1},/turf/open/floor/iron/half{dir = 1},/area/maintenance/liminal/darkgreen)
+"fO" = (/mob/living/simple_animal/hostile/nanotrasen/ranged/smg,/turf/open/floor/iron/dark/side{dir = 4},/area/maintenance/liminal/labs)
 "fQ" = (/obj/structure/dresser,/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
 "fS" = (/obj/structure/table/reinforced,/obj/effect/spawner/random/medical/firstaid_rare,/obj/effect/spawner/random/medical/injector,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/red)
 "fT" = (/obj/structure/table/reinforced,/obj/item/ddos{pixel_y = -3; pixel_x = 4},/obj/item/screwdriver{pixel_y = 6; pixel_x = -3},/obj/item/stack/cable_coil/cut{pixel_y = -3; pixel_x = -6},/turf/open/floor/iron/dark,/area/maintenance/liminal/labs)
@@ -216,6 +219,7 @@
 "hp" = (/obj/machinery/atmospherics/components/unary/portables_connector/visible,/obj/effect/turf_decal/stripes/line{dir = 10},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/elevators)
 "hq" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "hs" = (/obj/structure/falsewall/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"hv" = (/obj/effect/turf_decal/tile/brown{dir = 1},/obj/effect/turf_decal/tile/brown{dir = 4},/mob/living/simple_animal/hostile/zombie,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "hw" = (/obj/structure/flora/tree/pine,/turf/open/floor/grass/snow,/area/nevado/surface/outdoors)
 "hy" = (/obj/structure/cable,/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
 "hA" = (/obj/effect/turf_decal/trimline/red/filled/line{dir = 4},/obj/effect/turf_decal/trimline/red/filled/warning{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/termination_centre)
@@ -265,6 +269,7 @@
 "iN" = (/obj/structure/gptdfm/exit,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "iR" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/solarpanel,/area/maintenance/liminal/waitroom)
 "iT" = (/obj/structure/lattice,/obj/machinery/light/small/directional/north,/turf/open/floor/plating,/area/maintenance/liminal/red)
+"iU" = (/obj/machinery/light/small/blacklight/directional/south,/mob/living/simple_animal/hostile/nanotrasen/ranged,/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/labs)
 "iV" = (/obj/structure/bookcase/random,/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark/smooth_half,/area/maintenance/liminal/darkgreen)
 "iW" = (/obj/structure/safe/floor{tumblers = list(13,37)},/obj/item/ammo_box/a556winter/ap,/turf/open/floor/iron/dark/smooth_half{dir = 1},/area/maintenance/liminal/darkgreen)
 "iY" = (/obj/structure/fence/cut/medium{dir = 4},/turf/open/floor/plating/snowed,/area/maintenance/liminal/hallways)
@@ -668,6 +673,7 @@
 "wn" = (/obj/structure/sign/directions/run_red{pixel_y = 36},/obj/structure/sign/directions/run_purple{pixel_y = 29},/obj/structure/sign/directions/run_green{pixel_y = 23},/obj/machinery/vending/coffee{onstation = 0},/turf/open/floor/iron,/area/maintenance/liminal/termination_centre)
 "wo" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/machinery/infocom/north{voice_lines = list("This is the Mess Hall.","Ironically, there's no actual food.","Flouridated indeviduals took it a-long time ago.","If you want to meet them, they're purple-skinned and violent, previous occupants of Nevado, harsh words won't be enough for them.","They're somehow more malicious then you."); name = "Mess Hall Infocom"},/obj/machinery/vending/dinnerware{onstation = 0},/turf/open/floor/iron{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "wp" = (/turf/open/lava,/area/maintenance/liminal/darkgreen)
+"wq" = (/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,/turf/open/floor/iron/large,/area/maintenance/liminal/labs)
 "wr" = (/obj/item/storage/firstaid/morango,/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "wu" = (/obj/machinery/light/directional/east,/turf/open/floor/iron/freezer,/area/maintenance/liminal/darkgreen)
 "wv" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/thinplating/light{color = "#464646"; dir = 8},/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
@@ -767,6 +773,7 @@
 "zp" = (/obj/machinery/chem_heater/withbuffer,/turf/open/floor/iron/white,/area/maintenance/liminal/labs)
 "zq" = (/obj/effect/turf_decal/trimline/neutral/line{dir = 8},/turf/open/floor/iron/dark/side{dir = 8},/area/maintenance/liminal/waitroom)
 "zt" = (/obj/machinery/vending/clothing{onstation = 0},/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
+"zu" = (/obj/structure/window/reinforced{dir = 4},/mob/living/simple_animal/hostile/zombie,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "zw" = (/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
 "zz" = (/obj/machinery/door/metal_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "zC" = (/obj/machinery/resupply_puta/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -839,6 +846,7 @@
 "BV" = (/obj/effect/turf_decal/siding/wideplating/dark,/turf/open/floor/iron/dark,/area/maintenance/liminal/labs)
 "BW" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/obj/structure/table/reinforced,/obj/effect/turf_decal/tile/red{dir = 1},/obj/machinery/light/small/directional/west,/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "BY" = (/obj/effect/turf_decal/siding/thinplating/dark/corner{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/labs)
+"Cc" = (/mob/living/simple_animal/hostile/russian/ranged,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Cd" = (/obj/effect/turf_decal/trimline/neutral/line{dir = 1},/turf/open/floor/iron/dark/side{dir = 1},/area/maintenance/liminal/waitroom)
 "Cf" = (/obj/structure/lattice,/obj/machinery/light/small/directional/west,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "Ch" = (/turf/open/floor/iron/white,/area/maintenance/liminal/red)
@@ -865,7 +873,9 @@
 "CW" = (/obj/machinery/light/red/directional/north,/obj/effect/turf_decal/tile/brown{dir = 1},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "CY" = (/obj/effect/decal/cleanable/blood/xtracks{dir = 4},/obj/effect/turf_decal/tile/brown,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "Da" = (/turf/open/floor/iron/corner,/area/maintenance/liminal/darkgreen)
+"Db" = (/obj/structure/lattice/catwalk,/obj/structure/disposalpipe/segment{dir = 8},/mob/living/simple_animal/hostile/russian/ranged,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "Dd" = (/obj/machinery/light/small/directional/west,/turf/open/lava,/area/maintenance/liminal/darkgreen)
+"De" = (/mob/living/simple_animal/hostile/netherworld/migo,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "Df" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/iron/dark,/area/maintenance/liminal/green)
 "Dg" = (/obj/machinery/light/small/red/directional/south,/turf/open/floor/grass,/area/maintenance/liminal/termination_centre)
 "Dh" = (/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
@@ -907,6 +917,7 @@
 "Ew" = (/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "EA" = (/obj/effect/spawner/structure/window/reinforced,/turf/open/floor/low_wall,/area/maintenance/liminal/hallways)
 "EC" = (/obj/structure/lattice/catwalk,/obj/effect/turf_decal/siding/thinplating/light{color = "#464646"; dir = 10},/obj/machinery/light/small/directional/south,/obj/structure/closet/grief,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
+"EF" = (/obj/effect/decal/cleanable/blood/xtracks{dir = 4},/obj/effect/turf_decal/tile/brown{dir = 8},/obj/effect/turf_decal/tile/brown,/mob/living/simple_animal/hostile/zombie,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "EJ" = (/obj/structure/toilet{dir = 1},/turf/open/floor/iron/freezer{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "EL" = (/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/item/paper_bin{pixel_x = 1; pixel_y = 9},/obj/item/pen,/obj/machinery/computer/security/telescreen{desc = "Used for monitoring the research division and the labs within."; name = "research monitor"; network = list("uo45r")},/turf/open/floor/iron/cafeteria{dir = 5; heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "EO" = (/obj/item/flashlight/flare,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -1040,6 +1051,7 @@
 "JD" = (/obj/structure/chair/sofa/corp/left{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/waitroom)
 "JF" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/checker,/area/maintenance/liminal/red)
 "JG" = (/obj/effect/turf_decal/delivery/red,/obj/structure/window/reinforced{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"JL" = (/obj/item/clothing/mask/russian_balaclava,/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "JM" = (/obj/effect/turf_decal/tile/brown{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "JN" = (/obj/effect/turf_decal/stripes{dir = 1},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "JP" = (/obj/structure/chair/office{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/waitroom)
@@ -1065,6 +1077,7 @@
 "Ky" = (/obj/effect/decal/cleanable/xenoblood/xgibs,/obj/effect/mob_spawn/human/corpse/charredskeleton,/obj/effect/turf_decal/tile/brown{dir = 8},/obj/effect/turf_decal/tile/brown,/obj/item/gun/ballistic/shotgun/bolas,/obj/effect/decal/cleanable/greenglow,/obj/effect/decal/cleanable/insectguts,/obj/effect/decal/cleanable/xenoblood,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "KA" = (/obj/structure/rack,/obj/effect/spawner/random/redroom,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "KB" = (/obj/structure/table,/obj/structure/lattice,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
+"KC" = (/mob/living/simple_animal/hostile/nanotrasen/ranged,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/labs)
 "KH" = (/obj/effect/turf_decal/delivery/red,/obj/structure/reagent_dispensers/fueltank,/obj/structure/window/reinforced{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "KJ" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/structure/mirror/directional/west,/obj/structure/sink{dir = 4; pixel_x = -12},/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "KK" = (/obj/structure/fence/corner,/obj/machinery/light/floor,/turf/open/floor/plating/snowed,/area/maintenance/liminal/hallways)
@@ -1131,6 +1144,8 @@
 "MB" = (/obj/machinery/door/metal_door/wood_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "MC" = (/obj/item/pda/clear,/turf/open/floor/iron/dark,/area/maintenance/liminal/termination_centre)
 "MD" = (/obj/structure/flora/junglebush/b,/turf/open/floor/grass,/area/maintenance/liminal/termination_centre)
+"ME" = (/mob/living/simple_animal/hostile/zombie,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"MF" = (/obj/structure/table/reinforced,/obj/effect/mob_spawn/human/corpse/assistant,/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "MI" = (/obj/machinery/ticket_machine/directional/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "MJ" = (/obj/structure/lattice,/obj/structure/railing{dir = 4},/obj/machinery/chem_dispenser/drinks/fullupgrade{dir = 4},/obj/structure/table,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "ML" = (/obj/effect/decal/cleanable/crayon{color = "#801000"; icon_state = "a"; pixel_x = -6; pixel_y = -1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -1185,6 +1200,7 @@
 "Oy" = (/obj/structure/closet/secure_closet/personal,/obj/effect/turf_decal/delivery/white{color = "#00CA3A"},/obj/machinery/light/blacklight/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "OA" = (/obj/effect/turf_decal/stripes{dir = 1},/obj/effect/turf_decal/stripes,/turf/open/floor/iron/dark/corner{dir = 8},/area/maintenance/liminal/green)
 "OB" = (/obj/structure/lattice,/obj/machinery/light/directional/south,/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
+"OD" = (/obj/effect/decal/hammerandsickle,/turf/open/floor/plating/elevatorshaft,/area/maintenance/liminal/elevators)
 "OF" = (/obj/machinery/light/floor,/turf/open/floor/stone,/area/maintenance/liminal/hallways)
 "OG" = (/obj/structure/lattice,/obj/structure/rack,/obj/structure/window/reinforced/fulltile,/obj/item/circuitboard/mecha/honker,/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/labs)
 "OH" = (/obj/effect/turf_decal/trimline/blue/filled/line{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
@@ -1204,12 +1220,14 @@
 "Pl" = (/turf/open/floor/circuit/green/anim,/area/maintenance/liminal/green)
 "Pm" = (/obj/structure/lattice/catwalk,/obj/structure/table/reinforced,/obj/item/reagent_containers/food/condiment/bbqsauce{pixel_x = 2; pixel_y = -2},/obj/item/reagent_containers/food/condiment/quality_oil,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "Pn" = (/obj/structure/table/wood,/obj/item/toy/plush/beeplushie,/obj/item/storage/photo_album,/obj/machinery/light/small/directional/east,/turf/open/floor/iron/checker,/area/maintenance/liminal/darkgreen)
+"Po" = (/mob/living/simple_animal/hostile/cat_butcherer{name = "Unknown"},/turf/open/floor/plating,/area/maintenance/liminal/hallways)
 "Pq" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/darkgreen)
 "Pr" = (/obj/item/kirbyplants/random,/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "Ps" = (/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/labs)
 "Pv" = (/obj/effect/turf_decal/tile/blue{dir = 4},/obj/effect/turf_decal/tile/blue{dir = 1},/obj/effect/turf_decal/tile/blue{dir = 8},/obj/item/kirbyplants/random,/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/labs)
 "Pw" = (/obj/machinery/button/elevator{id = "liminal_elevators"; pixel_x = 10; pixel_y = 20},/obj/machinery/light/small/directional/north,/obj/effect/decal/cleanable/dirt,/turf/open/floor/plating,/area/maintenance/liminal/elevators)
 "PA" = (/obj/structure/flora/grass/jungle,/turf/open/floor/grass/snow,/area/nevado/surface/outdoors)
+"PB" = (/mob/living/simple_animal/hostile/nanotrasen/screaming,/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "PD" = (/obj/machinery/light/small/broken/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "PF" = (/obj/machinery/light/small/red/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "PG" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/machinery/vending/boozeomat{onstation = 0},/obj/machinery/light/small/red/directional/north,/turf/open/floor/iron{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
@@ -1221,8 +1239,10 @@
 "PR" = (/obj/structure/table/wood,/obj/item/newspaper,/turf/open/floor/wood{icon_state = "wood-broken"},/area/maintenance/liminal/darkgreen)
 "PS" = (/obj/machinery/door/metal_door/west,/turf/open/floor/iron/dark/smooth_large,/area/maintenance/liminal/termination_centre)
 "PT" = (/obj/machinery/light/small/directional/south,/obj/effect/turf_decal/siding/wideplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"PV" = (/obj/structure/lattice/catwalk,/mob/living/simple_animal/hostile/russian,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "PX" = (/obj/effect/turf_decal/stripes,/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "PY" = (/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/structure/urinal/directional/south,/obj/effect/spawner/random/lootshoot/clothing,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
+"Qb" = (/mob/living/simple_animal/hostile/russian,/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "Qc" = (/obj/effect/decal/cleanable/blood/old,/turf/open/floor/plating,/area/maintenance/liminal/termination_centre)
 "Qd" = (/obj/structure/cable,/obj/effect/turf_decal/stripes{dir = 1},/obj/effect/turf_decal/stripes,/turf/open/floor/iron/dark/corner,/area/maintenance/liminal/green)
 "Qf" = (/turf/open/floor/iron/dark/smooth_corner{dir = 8},/area/maintenance/liminal/red)
@@ -1267,6 +1287,7 @@
 "Rl" = (/obj/structure/flora/grass/brown,/turf/open/floor/grass/snow,/area/nevado/surface/outdoors)
 "Rn" = (/turf/open/floor/iron/textured_edge,/area/maintenance/liminal/darkgreen)
 "Ro" = (/obj/effect/spawner/structure/window/reinforced,/obj/structure/cable,/turf/open/floor/low_wall/reinforced,/area/maintenance/liminal/green)
+"Rp" = (/mob/living/simple_animal/hostile/nanotrasen/ranged,/turf/open/floor/iron/dark/side{dir = 10},/area/maintenance/liminal/labs)
 "Rr" = (/obj/item/kirbyplants{icon_state = "plant-21"},/obj/machinery/light/no_nightlight/directional/east,/turf/open/floor/iron/dark/side,/area/maintenance/liminal/green)
 "Rs" = (/obj/effect/turf_decal/stripes/corner{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/red)
 "Rt" = (/obj/effect/turf_decal/siding/thinplating/dark{dir = 4},/turf/open/floor/iron/dark,/area/maintenance/liminal/labs)
@@ -1307,7 +1328,7 @@
 "SA" = (/obj/machinery/cache/goated_with_the_sauce/north,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "SD" = (/obj/structure/window/reinforced{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "SE" = (/obj/machinery/light/small/directional/east,/turf/open/floor/iron/freezer{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
-"SG" = (/obj/effect/turf_decal/tile/brown{dir = 4},/obj/effect/turf_decal/tile/brown,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"SG" = (/obj/effect/turf_decal/tile/brown{dir = 4},/obj/effect/turf_decal/tile/brown,/mob/living/simple_animal/hostile/zombie,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "SH" = (/turf/open/floor/iron/textured,/area/maintenance/liminal/darkgreen)
 "SI" = (/turf/open/floor/iron/textured_corner,/area/maintenance/liminal/darkgreen)
 "SK" = (/obj/structure/disposalpipe/segment{dir = 8},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
@@ -1355,6 +1376,7 @@
 "TU" = (/obj/structure/toilet,/obj/structure/sign/poster/contraband/syndicate_recruitment{pixel_x = 36; pixel_y = 1},/obj/effect/turf_decal/bot{color = "#D381C9"},/obj/machinery/light/small/red/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
 "TV" = (/obj/structure/lattice,/obj/machinery/light/small/directional/east,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "TW" = (/obj/machinery/computer/security/telescreen{dir = 1; pixel_y = -32},/obj/effect/decal/cleanable/dirt/dust,/turf/open/floor/iron,/area/maintenance/liminal/elevators)
+"TY" = (/obj/structure/lattice/catwalk,/obj/effect/mob_spawn/human/corpse/russian/ranged/officer,/turf/open/floor/plating,/area/maintenance/liminal/darkgreen)
 "TZ" = (/obj/effect/turf_decal/tile/bar{dir = 1},/obj/effect/turf_decal/tile/bar,/obj/structure/table,/turf/open/floor/iron{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
 "Ua" = (/obj/structure/closet/grief,/turf/open/floor/iron/dark,/area/maintenance/liminal/termination_centre)
 "Ub" = (/obj/structure/lattice,/obj/effect/turf_decal/siding/thinplating/light{color = "#464646"},/turf/open/floor/iron/dark/textured,/area/maintenance/liminal/darkgreen)
@@ -1407,6 +1429,7 @@
 "VF" = (/obj/effect/mine/explosive,/turf/open/floor/iron/dark,/area/maintenance/liminal/labs)
 "VI" = (/obj/effect/turf_decal/siding/thinplating/dark,/obj/structure/rack,/obj/structure/window/reinforced{dir = 1},/obj/effect/spawner/random/medical/minor_healing,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "VJ" = (/turf/closed/wall/r_wall,/area/maintenance/liminal/elevators)
+"VL" = (/mob/living/simple_animal/hostile/russian/ranged,/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "VO" = (/obj/item/flashlight/lamp,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "VQ" = (/obj/effect/turf_decal/trimline/neutral/filled/line{dir = 8},/obj/machinery/light/blacklight/directional/east,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "VR" = (/obj/machinery/light_switch/directional/west,/turf/open/floor/iron/freezer,/area/maintenance/liminal/observitory)
@@ -1439,6 +1462,7 @@
 "WG" = (/obj/effect/turf_decal/trimline/green/filled/line{dir = 1},/obj/structure/sign/poster/contraband/smoke{pixel_y = 32},/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "WI" = (/obj/structure/flora/rock/icy,/turf/open/floor/grass/snow,/area/nevado/surface/outdoors)
 "WJ" = (/obj/structure/sign/poster/contraband/communist_state{pixel_y = 32},/turf/open/floor/iron/textured,/area/maintenance/liminal/hallways)
+"WK" = (/obj/effect/decal/cleanable/blood/splatter,/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "WL" = (/obj/effect/turf_decal/tile/red,/obj/effect/turf_decal/tile/red{dir = 8},/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "WN" = (/obj/effect/turf_decal/stripes/red/line{dir = 4},/turf/open/floor/iron,/area/maintenance/liminal/darkgreen)
 "WP" = (/obj/machinery/light/small/directional/west,/turf/open/floor/iron/dark,/area/maintenance/liminal/termination_centre)
@@ -1489,6 +1513,7 @@
 "YA" = (/turf/closed/wall,/area/maintenance/liminal/hallways)
 "YD" = (/obj/machinery/door/metal_door/wood_door/north,/turf/open/floor/iron/dark,/area/maintenance/liminal/hallways)
 "YF" = (/obj/effect/turf_decal/tile/brown{dir = 4},/obj/effect/turf_decal/tile/brown,/obj/effect/turf_decal/tile/brown{dir = 1},/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
+"YH" = (/mob/living/simple_animal/hostile/nanotrasen/ranged/smg,/turf/open/floor/iron,/area/maintenance/liminal/labs)
 "YJ" = (/obj/machinery/camera/all{dir = 4},/obj/structure/table/reinforced,/turf/open/floor/iron/dark,/area/maintenance/liminal/darkgreen)
 "YM" = (/obj/machinery/door/metal_door/south,/turf/open/floor/iron/large,/area/maintenance/liminal/darkgreen)
 "YN" = (/obj/structure/table/glass,/obj/effect/spawner/random/entertainment/dice,/turf/open/floor/iron/white{heat_capacity = 1e+006},/area/maintenance/liminal/darkgreen)
@@ -1531,19 +1556,19 @@
 (1,1,1) = {"
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFvRXFXFXFXFXFlMlMVJVJVJVJVJlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFqYqYROXFpjnuXFXFcsnununqXFXFhNcKXFecchwuXFlMlMVJDiDiDiVJlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFoBqYOTwYwRyCXFbpyTnunuIYcMXFjhRdwYchchyoXFlMlMVJDiDiDiVJlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFoBqYOTwYwRyCXFbpyTnunuIYcMXFjhRdwYchchyoXFlMlMVJDiODDiVJlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFoBqYqYwYwRlkXFXFiAnunukgXFXFZhdtwYchchyoXFlMlMVJDiDiDiVJlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFOTfIOrXFoChFXFOayTnunuIYOaXFlmcKXFylchyIXFlMlMVJVJvCVJVJVJVJVJVJVJVJVJVJVJVJVJVJVJVJ
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFqYqYROXFpjhFXFqkyTnunuIYqkXFOpRdXFgrchyoXFlMlMVJPwWVkJWVWVWVWVWVWVWVWVWVWVWVWVWVWVAE
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXFETqYqYwYwRTDXFXFoHvfnuqdXFXFjhnuwYchchyoXFlMlMVJWVWVWVWVdRWVWVWVWVWVWVWVWVWVWVWVWVAE
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXFXFXFXFXFXFXFXFXFXFXFXFXFXFXFlMlMlMlMXFoBqYszwYwRlkXFOayTnunuIYOaXFZhdtwYchchyoXFmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnmnWVAE
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXcZCvnXFBkCYHoHoHoHoZoHoHoKycUBwEWXFlMlMlMlMXFOTqYROXFWEhFXFqkyTnunuIYqkXFkRcKXFgrchyoXFaCXngKXnaCaCaCmnouHPfskYMdtrmnmnmnmnmnWVAE
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXcZCvnXFBkCYHoHoHoHoZoHoEFKycUBwEWXFlMlMlMlMXFOTqYROXFWEhFXFqkyTnunuIYqkXFkRcKXFgrchyoXFaCXngKXnaCaCaCmnouHPfskYMdtrmnmnmnmnmnWVAE
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXckUkUXFXsiMrYGeKVSDQkKHosJGHEmOAOXFlMlMlMlMXFqYqYscXFpjhFXFXFtsnunudYXFXFnuRdXFylchyIXFaCaCCRaCaCrXaCmnfNIETJIEwmTPwYxxYScQmnYnHF
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcgYXFpeoljuaiQrSDQkpUjPfwoQYFSGXFlMXFXFXFXFoBqYqYwYwRTDXFXFrDnununqXFXFnunuwYchchyoXFaCaCaCaCaCaCaCmnaaaCaCaCetqkwYaCaCxwmnmPHF
-lMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXcXcXcXcXcXcXcLRDOJQLVNHygDONMLRLRQQdrdrnMUfuXXFhGRIMmtIyGSDQkpUpUkooQcwlNXFlMXFRkaNXFoBBUqYwYwRyCXFXFadnunuxmXFXFqUnuwYchchyoXFBmaCaCliaCaCtJmnrTaCaCaCetTVmnaCaCPnmnmPHF
+lMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXcXcXcXcXcXcXcLRDOJQLVNHygDONMLRLRQQdrdrnMUfuXXFhGRIMmtIyGSDzupUpUkooQcwlNXFlMXFRkaNXFoBBUqYwYwRyCXFXFadnunuxmXFXFqUnuwYchchyoXFBmaCaCliaCaCtJmnrTaCaCaCetTVmnaCaCPnmnmPHF
 lMlMlMlMlMlMlMlMlMlMlMlMXcDubjWtWtdCHOAhYRcnkUkUkUkUkUkUkUkUkUkUTtLRLRXvkUdEXFXsbGMmYuCtSDQkWYjPDLYuJMAOXFlMXFnunuXFqYqYROXFoCnuXFXFnununudYXFXFjhnuXFecchwuXFlGlGGtlGlGlGlGmnaaaCaCaCDXucwYaCaCpXmnmPHF
-lMlMlMlMlMlMlMlMlMlMlMlMXcPXzlMNkUDUYRAhfrxngvHfgvgvgvgvsSgvgvWtzRkUdbkUdbdEXFMsBwJtJtJtJtnAJtJtJtJtlNcwXFXFXFgCXFXFXFXFXFXFnunuaNnununununuTmaNZhnumnXFXFXFXFoFoFoFoFoFoFmnmnoNaCaCaCaCXQefaCxqhhmnmPHF
-lMlMlMlMlMlMlMlMlMlMlMlMXcAHTOvPvPvPvPvPvPMBvPvPvPvPvPvPvPvPvPvPvPqoXctiXcqoXFMscwBwnunukPVOCSnununulNcwcwXFOaqkvjZjqkqkOaXFnunununununununununununumnmnmnmnmnFIFIFIFIFIFImniibCFIFIUuFIwxmnmnmnmnmnmPHF
+lMlMlMlMlMlMlMlMlMlMlMlMXcPXzlMNkUDUYRAhfrxngvHfgvgvgvgvsSgvgvWtzRkUdbkUdbdEXFMsBwJthvJtJtnAJtJtJtJtlNcwXFXFXFgCXFXFXFXFXFXFnunuaNnununununuTmaNZhnumnXFXFXFXFoFoFoFoFoFoFmnmnoNaCaCaCaCXQefaCxqhhmnmPHF
+lMlMlMlMlMlMlMlMlMlMlMlMXcAHTOvPvPvPvPvPvPMBvPvPvPvPvPvPvPvPvPvPvPqoXctiXcqoXFMscwBwnunukPVOCSMEnunulNcwcwXFOaqkvjZjqkqkOaXFnunununununununununununumnmnmnmnmnFIFIFIFIFIFImniibCFIFIUuFIwxmnmnmnmnmnmPHF
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPTOvPSaWyslRPIzdfWyQfAhYRiTYRYRiTYRYRvPzYmxChlxzoXFwdqkAjIkQEcwOkcwGYaQQtULqkqkXFErErErErErErZwXFXFXFUmXFXFcsnumnmnmnmnmnmnmnmnmnmnsImnUeUemnmnmnmnpkmnUeUeUemnmnQFhpwjeWmPHF
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPbavPQJHXPHpapNHXHXdDvPvPqoqoqoqovPYRvPjAlZChIIpsXFADADXFXFXFrdrdrdXFXFXFXFADADXFXFXYykXYXFXFXFXFXFfmfmfmXFrDnuseaNprnualrwnununukjMUWTeoEPRVnuMIuENcNcNcNcNcqXUwGNBDnvBDmPHF
 lMlMlMlMlMlMlMlMlMlMlMlMXcsPFVvPfSHXzXrIOtHXWANnnmvPgJkUkUkUqofevPxHChChwCpsXFOaOaErFzErErErErfyFzRaErOaOaErFzErErErFzErErfcXFfmfmfmXFadnunuyqkeMLOYLrZanunuPQnunuauaxspnuFnNmNmKospnununumnTWavoWnGmPHF
@@ -1556,22 +1581,22 @@ lMlMlMlMlMlMlMlMlMlMlMlMXcAHsPvPvPqoMBqovPvPZlvPZlvPvPvPZcvPvPvPvPXFlpkbXFXFXFqk
 lMlMlMlMlMlMlMlMlMlMlMlMXcMtMtRsIZTtDlXvvPrhYOkUkUQNvPeMLiXclMlMlMXFnunuXFXFXFXFXFXFfoXFXFnunununuXlXFnBahnununuXFXFfoXFADADXFroroVnXFyTqyXFXFXFmnmpGHkBsXgquQePKAQVmnxjxjmnqkqkmnmnmnmnmnmnmnmnmnWVWVAE
 lMlMlMlMlMlMlMlMlMlMlMlMXckUkIpqRgkIpqRgvPzIYOlskUqsvPXcXcXclMlMlMXFnuyCXFXFXFDsRVnununuNrnunununuXlXFnBnunuEOnuNrnuyCXFEcErXFpADJXVXFrDqyXFXFXFmnezHSwBmJxbfLOlfLxbmnxjFkmnXQWNsIyPnbnbOIVhnbJSmnWVWVAE
 lMlMlMlMlMlMlMlMlMlMlMlMXcXcXcXcXcXcXcXcvPydkUycYOeevPlMlMlMlMlMlMXFWEfpXFXFXFYJnununununununununuXlXFnBnununununununuVDErErXFaBPRCGUmyTxdXFXFXFmnWbzkiVxbxbfLvzfLxbmnxjkXmnCfTVmngnTyTyVeBTAgPbmnWVWVAE
-lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMvPgtkUkUYOqVvPlMlMlMlMlMlMXFnunuXFXFXFEwIvgAgAHMgAgAgAgAgAbrXFECUbSWsWfhUbkwXFXFlpkbXFXFdPXVXFrDqyXFXFmnmnLgeaeaeaRvMisxKAoJmnxjiWmnqkqkUeKfGmVIdHIoXJITmnWVWVAE
+lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMvPgtkUkUYOqVvPlMlMlMlMlMlMXFCcnuXFXFXFEwIvgAgAHMgAgAgAgAgAbrXFECUbSWsWfhUbkwXFXFlpkbXFXFdPXVXFrDqyXFXFmnmnLgeaeaeaRvMisxKAoJmnxjiWmnqkqkUeKfGmVIdHIoXJITmnWVWVAE
 lMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMmnvPvPvPvPvPvPvPmnlMlMlMlMmnXFqkjfXFXFXFXFBNBNXFXFrdXFXFXFXFXFXFXFXFXFXFXFXFXFXFqkqkqkGQXFXFAsXFyTqyifcoeSMuMuMuMuMumnmnmnmnmnmnxjFkmnqkqkUeXQXQXQnrXQXQOHmnWVWVAE
 lMmWmWmWmWmWmWmWmWmWmWmWXFXFXFXFXFmnmnmnXDaNnuNrNyaNTbmnmnwYwYmnmnCfqkqkkbXFXFXFXQXQmzCWmzmzCWmzuaCWmzmzCWmzmzCiXFXFsUqkqkqkqkqkXFXFXFadxYXFXFmnwplvwplvwpmnlMlMlMlMmnxjxjsIDaXQUewzCzTytRObGykKmnWVWVAE
-lMhBxoxoxoxoohHlaOyMyMaOLnYmswbHxOPhtotoaTnunuienunuUrtotototooExOxOswswxOIpVYXWPqhqhqhqhqhqhqhqEvhqhqhqhqhqhqPqPqUZxOxOswswxOxOBtzJkHSKbsXFXFXFDdlvwplvnyXFlMlMlMlMmnWbzkmnXQwxmnmnmnmnmnmnmnmnmnWVWVAE
+lMhBxoxoxoxoohHlaOyMyMaOLnYmswbHxOPhtotoaTnunuienunuUrtotototooExOxOswswxOIpVYXWPqhqhqhqhqhqhqhqEvhqhqhqhqhqhqPqPqUZxOxODbswxOxOBtzJkHSKbsXFXFXFDdlvwplvnyXFlMlMlMlMmnWbzkmnXQwxmnmnmnmnmnmnmnmnmnWVWVAE
 lMmWLPLPLPLPLQdGqEejejqEMPPTOaOaqkyNtotoEnFJFJFJFJIhxJtotototoyNqkqkOaOaqkqkeutotoXQXQXQXQXFXFYMLNXFXFXQXQXQXQtotoyWqkqknQOaqkqkjzmXnunudYXFXFXFwplvwplvwpXFlMlMlMlMmnTqTqmnUwUwmnWVWVWVWVWVWVWVWVWVWVAE
 lMmWuDyQuDmWmWmWmWmWmWmWXFXFqkqkXFmnmnmnmnwcwYwYwYmnmnmnwYwYmnXFXFlpqkqkTVXFXFXFXFXFXFwYwYXFWZuugPWZXFwYwYXFXFXFXFXFXFqkqkqkqkqkXFXFXFnugSXFXFXFwplvwplvwpXFlMlMlMlMVJWVWVkJWVWVWVWVWVWVWVWVWVWVWVWVWVAE
 lMmWmjLPjbTzcRWuKhLPCKXhMeXFnunuXFnHxenununueZeZopXFBGmdGiGiDmVBXFXFqkqkXFXFYdPJrdLZLZRFKbmzXQXQgPXQeJLpAPLZLZrddhRDXFXFqkqkqkXFXFXFXFnuxYXFXFXFwplvwplvZEXFlMlMlMlMVJWVWVWVWVWVWVWVWVWVWVWVWVWVWVWVWVAE
 lMmWZPkLrqLPLPLPLPLPLPLPuMXFnunurdaTnunununununuxJeuGiGiGiGiGiGiGiXFMPEUXFoSXQXQrdLZLZqkXQXQXQXQgPXQXQXQqkLZLZrdXQXQbuXFlpkbXFXFUOQPXFnudYXFXFXFwplvwplvwpXFlMlMlMlMVJVJVJVJVJVJVJVJVJVJVJVJVJVJVJVJVJVJ
-lMmWLPLPMSaSaSGILPLPLPLPLPXFWEnurdsNRKpPpPpPpPRKMzXFQmGiGiXfxyxyaIXFmDWWXFmzXQjgXFSoLZqkXQXQXFYQueXFXQXQqkLZrQXFptvkQnXFnunuXFSISHSZXFcszCXFXFXFDdlvwplvnyXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWLPLPMSaSaSGILPLPLPLPLPXFWEnurdsNRKpPpPpPpPRKMzXFQmGiGiXfxyxyaIXFmDWWXFmzXQjgXFSoLZqkVLXQXFYQueXFXQXQqkLZrQXFptvkQnXFnunuXFSISHSZXFcszCXFXFXFDdlvwplvnyXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWJZpvufHDHDzqLPLPRzLsLPXFnuyCXFXFXFwYwYwYwYXFXFXFqFGiGiemaXwMogrdMPEUrdmzXQPilWYzOaOaXQXQXQOamGXQXQXQOaOambxGFisQUJrdnunuXFrgRnRnXFrDnuXFXFXFwplvwplvwpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWLPUpIUHDHDzqLPLPFOoULPXFWEnurdPGoqzfmszfzfwoESXFfFGiGiemzDwMOSrdMPEUrdmzXQPilWYzOaOaXQWnXQOamGXQXQXQOaOambxGFivDuhrdnunuXFhsXFXFXFadnuXFXFXFwplvwplvwpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWLPUpIUHDHDzqLPLPFOoULPXFWEnurdPGoqzfmszfzfwoESXFfFGiGiemzDwMOSrdMPEUrdmzXQPilWYzTYOaXQWnXQPVmGXQXQXQOaOambxGFivDuhrdnunuXFhsXFXFXFadnuXFXFXFwplvwplvwpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWJZjmVCbgCdqBLPpumWmWmWXFnunurdbIzfzfjdixzfzfzfxGGiGiGiujZtZtZtrdMPEUrdmzXQFTXFSoLZqkXQXQXFYQueXFXQXQqkLZrQXFqTvNQOrdnunusedYZradQjnunuCQlVXHJNJNJNJNJNXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWtHLPINJDLPLPJPdUmWlMlMXFnunurdbyzfzfQRixzfzfzfXFBRGiGiGiGiGieKXFmDWWXFKUvkvkXFLZLZqkXQibXQXQgPXQXQXQqkLZLZXFXQXQysXFnunununqnPcsWonunuCQlVCQxpErGTErxpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWBJLPLPLPLPLPLPpumWlMlMXFnunuXFlJzfzfmsixzfzfwEXFUCqqYNOmKNJXhfXFwSoOXFQUFfvMXFLZLZXQXQXQibVigPXQXQXQXQLZLZXFdhXQXQXFWEnuXFXFXFXFXFCQCQXFXFXFXFXFXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWtHLPINJDLPLPJPdUmWlMlMXFnunurdbyzfzfQRixzfzfzfXFBRGiGiGiGiGieKXFmDWWXFKUvkvkXFLZLZqkXQibXQJLgPWKXQVLqkLZLZXFXQXQysXFnunununqnPcsWonunuCQlVCQxpErGTErxpXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMmWBJLPLPLPLPLPLPpumWlMlMXFnunuXFlJzfzfmsixzfzfwEXFUCqqYNOmKNJXhfXFwSoOXFQUFfvMXFLZLZXQXQQbibVigPbQXQXQXQLZLZXFdhXQXQXFWEnuXFXFXFXFXFCQCQXFXFXFXFXFXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMmWVbLPLPLPevLPLPLPmWlMlMXFqkqkXFzfzfmsajzfzfzfzfXFXFwYwYXFXFXFXFXFqkqkXFXFXFXFXFXFFeRYRYJpmbmbgPmbRYdBxKFeXFXFXFXFXFXFqkcXXFXFXFXFXFgCpkXFXFXFXFlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMmWmWmWiRmWmWmWiRmWmWlMlMXFdAOaXFzfzfzfzfzfzfzfzfzfDyzfzfzfDyhLRHqkOaOahltoPhtotoXFXFwYwYXFXFwcqgXFXFwYwYXFXFtotoPhRwLGqkkSXFXFXFXFAXxWxWuKXFXFXFlMlMlMlMlMlMlMlMlMwPwPypypypwPwPwPwPwPypypwPlMlMlMlMlM
+lMmWmWmWiRmWmWmWiRmWmWlMlMXFdAOaXFzfzfzfzfzfzfzfzfzfDyzfzfzfDyhLRHqkOaOahltoeptotoXFXFwYwYXFXFwcqgXFXFwYwYXFXFtotoPhRwLGqkkSXFXFXFXFAXxWxWuKXFXFXFlMlMlMlMlMlMlMlMlMwPwPypypypwPwPwPwPwPypypwPlMlMlMlMlM
 lMlMmWaJaJwlmWfuaJAxmWlMlMXFOaOaXFzfWzzfzfzfzfWzzfzfoTzfzfzfoTzfRHdNOaOajrtotototoJMJMJMJMJMJMJMJMJMJMJMJMJMJMtotototoxOOBWBXFXFAqIRnuLlLlLlLlYWXFlMlMlMlMlMlMlMlMlMwPdOAnCyNLruwPZgMWwnuReDwPlMlMlMlMlM
 lMlMmWaJaJNRmWTIaJNRmWlMlMXFqkqkXFxfTZAKzfzfxfinAKXFXFYMwYwYdQdQdQdQvYvYdQdQdQdQMcspnunununununununununununuspMcXFrdSOrdXFXFXFtFoYtZnuEgQgTkpiwWXFlMlMlMlMlMlMlMlMlMwPAnAnAnAnAnypikjUQGiEiEwPlMlMlMlMlM
 lMlMmWaJaJQwmWaJaJsFmWlMlMXFPDUNXFzffdzfzfzfxfnwAKXFCMDolqrKdQNvTjIODhDhTGJfYPdQdQdQdQdQdQXFXFwYwYXFwYwYXFXFXFXFXFnununuXFXFXFqGoYIBnutXnFBhBhyCXFlMlMlMlMlMlMlMlMlMwPAnGvGvGvAnypQGQGQGQGaFwPwPwPwPwPlM
@@ -1595,22 +1620,22 @@ lMlMlMlMlMlMYABopBpBAoFBYAYAhTzzEAYAYAtqbEYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAYAYAYAYAYAYAYAubybAAYAYAtqbEYAiNWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLbRtkVFPsVFPsVFPstkytytXjXjXjytytIWUWHVHVHVTwtkfjfjfjfjfjfjfjtkypwPwPWPbOAnAnyplMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAfQWJlTWJXTYAmkWluCWlSmYAazBdYAwHPFYAlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBcBlMtktktktknemLmLbRtkPsPsPskvPsPsDpJbJbCkytLeJbJbIWUWmUsDUWHVtkfjfjfjfjfjfjfjtkQGDWsVAGAnAnAnyplMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAuNuNMouNuNYAtqWlKsUDbEYAIJWmYAYAYDYAYAOFlMvKvKcBcBcBcBcBcBcBcBcBcBcBtktkytyttknemLmLbRtkVFPsVFPsVFPstkQYsErnytKTsEsvtkojFHHVtzRZtkfjfjfjfjfjfjfjtkQGQGypAnAnAnmRwPlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMlMlMlMYAuNuNcEuNSkYAnIEsybLcYAYAWlWlWlAZWlWleYvKvKvKvKvKcBTsInInwgIniYTucBcBIWytytyttknemLmLbRtktktktktktktktktktkIWzhIWtktktkHVZfHVNsHVtkfjfjfjfjfjfjfjtkiwpFwPAnAnAnAnwPlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMlMlMlMYAuNuNcEuNSkYAnIPoybLcYAYAWlWlWlAZWlWleYvKvKvKvKvKcBTsInInwgIniYTucBcBIWytytyttknemLmLbRtktktktktktktktktktkIWzhIWtktktkHVZfHVNsHVtkfjfjfjfjfjfjfjtkiwpFwPAnAnAnAnwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYAYAdTYAYAYAYAThUjXMEAYAYAWlWlOKRJWlWleYvKvKvKvKcBcBBqtCtCtCtCjWBqcBcBIWytytytoaTvmLmLxrtknOhPytytytytytnOtknemLmLbRTKtkHVIMugVoHVtkfjfjfjfjfjfjfjtkwPwPwPwPXGJiwPwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMlMlMlMYASLWlztqDVxaRcJEsKxZOPgYAYAYAYAYAYAYAYAOFvKvKcBcBcBBqtCFRFEtCtCBqcBcBIWytytytoanemLmLbRtkmLytYYYYYYYYytmLtknemLmLbRnjtktkIWIWIWtktkfjfjfjfjfjfjfjtkNkbboXwPWPmRwPlMlMlMDqlMlMlMlMlMlMlMlMlM
 lMlMlMHHHHHHHHOyWlWlrvNTNTrSsGHyKdTgYAZdvKlMlMlMlMlMvKvKvKvKcBcBBqtCtCwetCtCBqcBcBIWytytyttknemLmLbRtkmLytYYYYYYYYytmLtknemLmLbRtktkmiLDLDLDlHtkfjfjfjfjfjfjfjtkMwHbtbypAnAnyplMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHSLWlWlrvNTNTqhzaDVKdvWmQvKvKlMlMlMlMlMlMvKvKcBcBcBxUInInInInInKKcBcBtktkytyttknemLmLbRtkmLytytytytytytmLtkGqmLmLjltkGSytytVssrGXtkfjfjfjfjfjfjfjtkmuisQGypAnAnyplMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfllWlWlWlrvNTNTzaMADVKdQzYAZdvKvKlMlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBlMtktktktknemLmLbRtkZZytytytytytytZZtknemLmLbRIWkiytqrytqKrPtkfjfjfjfjfjfjfjtkiLbtbowPWPmRwPlMlMlMDqlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfllWlWlWlrvNTNTzaMADVKdQzYAZdvKvKlMlMlMlMlMlMlMcBcBcBcBcBcBcBcBcBcBcBcBlMtktktktknemLmLbRtkZZytytytytytytZZtkfOmLmLbRIWkiytqrytqKrPtkfjfjfjfjfjfjfjtkiLbtbowPWPmRwPlMlMlMDqlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHSLWlWlrvNTNTnpnSNZKdIFYAvKvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkTvmLmLxrtktkIWIWIWtkhCtktktknemLmLbRIWkiytytytyHgotkfjfjfjfjfjfjfjtkwPvZwPwPXGJiwPlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfHHOyWlWlrvNTNTNTNTKdKdVQYAvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLUQIrjaIrIrIrIrIrjaIrIWnemLmLbRtkBWXZfgWLWLAbtkfjfjfjfjsTfjfjtkYqKqUYwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfHHOyWlWlrvNTNTNTNTKdKdVQYAvKvKvKlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLRpIrjaIrIrIrIrKCjaIrIWnemLmLbRtkBWXZfgWLWLAbtkfjfjfjfjsTfjfjtkYqKqUYwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHrZerHHSLWlWlZulRaDwIeNaDwIYaYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLmLmLmLmLmLmLmLmLenmLmwnemLmLbRtktktktkIWNttktkIWtktkXjXjtktktkQGQGuVwPWPmRwPwPlMlMlMlMlMlMlMlMlMlMlMlM
 lMlMlMHHqfqfHHHHHHHHHHHHHHtpgWYAYAYAYAYAYAYAYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtknemLmLmLmLmLmLmLmLmLmLmLmLtkGqmLmLUQLHIrorIrIrIrIrorIrFwuBIrIrorIrIWQGwPwPwPAnAnYgwPlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfHISAPrrpHHTUHHWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkjNnhcxnhnhcxnhnhnhnhnhcxnhtknemLmLmLmLmLmLmLmLmLmLmLmLmLmLVSmLmLmLIWilwPWjgDAnAnlSwPlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHrZerHHVRqfWaHIqAHHdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtktktktkIWIWtkhCRetktktktktktknemLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLmLoahAsVQvAnAnAnvHwPlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfHHKJqfbXHHHHHHYAYAYAYAYAYAvbEAhKYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLmLmLnOmLmLnOLdLdLdLdtkjNnhSnnhnhnhSnnhnhnhnhSnnhnhnhnhnhSnnhtkwPwPElAnwPwPwPwPlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHqfqfHHKJqfWaHIkxHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytytytytytytytLdtktktktktktktktktktktktktktktktktktktktktklMwPWPmRwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-lMlMlMHHrZerHHtwPYCOHHyeHHlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLYYYYytYYYYytYYYYytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
-HHHHHHHHqfqfHHHHHHHHHHHHHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytytytytytytytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfHISAPrrpHHTUHHWlWlWmlrpKVfpKlrIJWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkjNnhiUnhnhcxnhnhnhnhnhiUnhtkfOmLmLmLmLmLmLmLmLmLmLmLmLmLmLVSmLmLmLIWilwPWjgDAnAnlSwPlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHrZerHHVRqfWaHIqAHHdyNeSTpTSTNeaPWlWlWlYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtktktktkIWIWtkhCRetktktktktktknemLmLmLmLmLmLmLwqmLmLmLmLmLmLmLmLmLmLoahAsVQvAnAnAnvHwPlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfHHKJDebXHHHHHHYAYAYAYAYAYAvbEAhKYAYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLmLmLnOmLmLnOLdLdLdLdtkjNnhSnnhnhnhSnnhnhnhnhSnnhnhnhnhnhSnnhtkwPwPElAnwPwPwPwPlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHqfqfHHKJqfWaHIkxHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytytPBytytytytLdtktktktktktktktktktktktktktktktktktktktktklMwPWPmRwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+lMlMlMHHrZerHHtwPYCOHHyeHHlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLYYYYytYYMFytYYYYytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
+HHHHHHHHqfqfHHHHHHHHHHHHHHlMlMlMlMlMYAqmuCgsYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkmLytytytYHytytytytytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPAnAnwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 HHQDQDQDIDTQQDQDQDHHlMlMlMlMlMlMlMlMYAhKEAhKYAlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMtkhoDFytUqytytUqytytytmLtklMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMlMwPWPmRwPlMlMlMlMlMlMlMlMlMlMlMlMlMlMlM
 HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMYAYAYAYAqmuCgsYAlMYAYAYAYAlMlMlMlMlMYAYAYAYAYAYAYAYAYAYAYAYAlMlMtktktktktkYYYYtktktktkLdtkYAYAYAlMYAYAYAYAlMlMYAYAYAYAlMlMlMYAYAYAYAwPAGAGwPYAYAYAYAlMlMlMlMlMlMlMlMlMlMlM
 HHQDQDQDQDQDQDQDQDHHlMlMlMlMlMYADKJsYAuCuCuCYAYAYADKJsYAYAYAYAYAYAYADKJsYAYAmIppYAYADKJsYAYAYAYAYADKDKYAYAYAYADKDKYAYAYADKDKYAYAYADKDKYAYAYAYADKJsYAYAYAYAYADKJsEsYAeQrCYAEsDKJsYAlMlMlMlMlMlMlMlMlMlMlM

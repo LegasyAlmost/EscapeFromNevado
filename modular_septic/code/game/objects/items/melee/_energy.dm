@@ -1,6 +1,6 @@
 /obj/item/melee/energy/sword/kelzad
-	name = "Bonitinho"
-	desc = "A highly dangerous device manufactured by a dumbass scientist used specifically for slicing onions."
+	name = "Лазерный клинок"
+	desc = "Крайне опасный клинок, излучающий невероятную силу при активации. Рубит почти всё."
 	icon = 'modular_septic/icons/obj/items/melee/transforming_energy.dmi'
 	base_icon_state = "kelzad"
 	icon_state = "kelzad"

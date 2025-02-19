@@ -1,13 +1,13 @@
 // Knife Template, should not appear in game normaly //
 /obj/item/knife
-	name = "knife"
+	name = "Нож"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "knife"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 	inhand_icon_state = "knife"
 	worn_icon_state = "knife"
-	desc = "The original knife, it is said that all other knives are only copies of this one."
+	desc = "Нож, который режет. Мясо, овощи, плоть. В глаз лучше не целить."
 	flags_1 = CONDUCT_1
 	force = 10
 	w_class = WEIGHT_CLASS_SMALL
@@ -16,8 +16,8 @@
 	throw_speed = 3
 	throw_range = 6
 	custom_materials = list(/datum/material/iron=12000)
-	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("режет", "протыкает", "нарезает", "рвёт", "оставляет рваную рану", "разрывает")
+	attack_verb_simple = list("резать", "колоть", "нарезать", "рвать", "оставлять рваные раны", "разрывает")
 	sharpness = SHARP_EDGED
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50)
 	var/bayonet = FALSE //Can this be attached to a gun?
@@ -78,23 +78,23 @@
 		B.add_stacks(bleed_stacks_per_hit)
 
 /obj/item/knife/butcher
-	name = "butcher's cleaver"
+	name = "Мясницкий нож"
 	icon_state = "butch"
 	inhand_icon_state = "butch"
-	desc = "A huge thing used for chopping and chopping up meat. This includes clowns and clown by-products."
+	desc = "Громоздкий нож для рубки сухожилий и костей."
 	flags_1 = CONDUCT_1
 	force = 15
 	throwforce = 10
 	custom_materials = list(/datum/material/iron=18000)
-	attack_verb_continuous = list("cleaves", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("cleave", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("режет", "протыкает", "нарезает", "рвёт", "оставляет рваную рану", "разрывает")
+	attack_verb_simple = list("резать", "колоть", "нарезать", "рвать", "оставлять рваные раны", "разрывает")
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_price = PAYCHECK_EASY * 5
 	wound_bonus = 15
 
 /obj/item/knife/hunting
-	name = "hunting knife"
-	desc = "Despite its name, it's mainly used for cutting meat from dead prey rather than actual hunting."
+	name = "Охотничий кинжал"
+	desc = "Исходя из имени - он зачастую используются для мёртвой добычи, нежели живой."
 	inhand_icon_state = "huntingknife"
 	icon_state = "huntingknife"
 	wound_bonus = 10
@@ -103,9 +103,9 @@
 	AddComponent(/datum/component/butchering, 80 - force, 100, force + 10)
 
 /obj/item/knife/combat
-	name = "combat knife"
+	name = "Штык-нож"
 	icon_state = "buckknife"
-	desc = "A military combat utility survival knife."
+	desc = "Такие обычно используют в качестве штыка."
 	embedding = list("pain_mult" = 4, "embed_chance" = 65, "fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
 	force = 20
 	throwforce = 20
@@ -114,22 +114,22 @@
 	bayonet = TRUE
 
 /obj/item/knife/combat/survival
-	name = "survival knife"
+	name = "Аварийный нож"
 	icon_state = "survivalknife"
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
-	desc = "A hunting grade survival knife."
+	desc = "Слегка переделанная версия охотничего кинжала для аварийных наборов и снаряжения. Лучше, чем ничего."
 	force = 15
 	throwforce = 15
 	bayonet = TRUE
 
 /obj/item/knife/combat/bone
-	name = "bone dagger"
+	name = "Костянной клинок"
 	inhand_icon_state = "bone_dagger"
 	icon_state = "bone_dagger"
 	worn_icon_state = "bone_dagger"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	desc = "A sharpened bone. The bare minimum in survival."
+	desc = "Острая кость. Абсолютно примитивный дизайн."
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	force = 15
 	throwforce = 15
@@ -142,13 +142,13 @@
 	desc = "A cyborg-mounted plasteel knife. Extremely sharp and durable."
 
 /obj/item/knife/shiv
-	name = "glass shiv"
+	name = "Заточка"
 	icon = 'icons/obj/shards.dmi'
 	icon_state = "shiv"
 	inhand_icon_state = "shiv"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	desc = "A makeshift glass shiv."
+	desc = "Кусок стекла, обмотанный в тряпку. Популярен в среде пред-Гакстеров."
 	force = 8
 	throwforce = 12
 	attack_verb_continuous = list("shanks", "shivs")
