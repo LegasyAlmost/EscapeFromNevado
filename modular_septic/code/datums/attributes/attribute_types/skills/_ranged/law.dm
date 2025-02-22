@@ -1,7 +1,7 @@
 // LAW
 /datum/attribute/skill/light_antiarmor_weapon
-	name = "Light Anti-armor Weapon"
-	desc = "All forms of rocket launchers and recoilless rifles."
+	name = "Лёгкое противотанковое вооружение"
+	desc = "Этот навык включает в себя любые гранатомёты и крупнокалиберные винтовки."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

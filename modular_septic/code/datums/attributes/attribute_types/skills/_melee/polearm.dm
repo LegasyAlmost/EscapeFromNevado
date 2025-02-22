@@ -4,9 +4,9 @@
  * Pole weapons are long (usually wooden) shafts, often adorned with striking heads. All require two hands.
  */
 /datum/attribute/skill/polearm
-	name = "Polearm"
-	desc = "Any very long (at least 2 meters), unbalanced pole weapon with a heavy striking head, including the glaive, halberd, poleaxe, and countless others. \
-			Polearms become unready after an attack, but not after a parry."
+	name = "Древковое"
+	desc = "Любое очень длинное (более 2 метров) несбалансированное древковое оружие с тяжелой ударной головкой, включая глефу, алебарду, секиру и бесчисленное множество других. \
+			Чтоб ударить древковым повторно после атаки, нужно подождать, но не при парировании."
 	icon_state = "spear"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY
@@ -19,8 +19,9 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/spear
-	name = "Spear"
-	desc = "Any long, balanced pole weapon with a thrusting point, including spears, javelins, tridents, and fixed bayonets."
+	name = "Копья"
+	desc = "Любое длинное, но сбалансированное древковое оружие и пронзающее. \
+		Этот навык включает в себя копья, метательные копья, трезубцы и установленные штыки."
 	icon_state = "spear"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY
@@ -32,9 +33,9 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/staff
-	name = "Staff"
-	desc = "Any long, balanced pole without a striking head. \
-			This skill makes good use of the staff's extensive parrying surface when defending, giving +2 to your parry score."
+	name = "Посохи"
+	desc = "Любое длинное, полностью сбалансированное оружие без конкретных точек для нанесения увечий. \
+			Этот навык позволяет эффективно использовать обширную поверхность посоха для защиты, давая +2 к показателю парирования."
 	icon_state = "blunt"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY

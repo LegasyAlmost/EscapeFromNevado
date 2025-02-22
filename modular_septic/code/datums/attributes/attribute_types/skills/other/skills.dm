@@ -1,7 +1,7 @@
 // General combat skills
 /datum/attribute/skill/acrobatics
-	name = "Acrobatics"
-	desc = "Ability at acrobatic maneuvers and climbing obstacles."
+	name = "Акробатика"
+	desc = "Способность к взбиранию на вершины и изнуряющим манёврам."
 	icon_state = "acrobatics"
 	category = SKILL_CATEGORY_COMBAT
 	governing_attribute = STAT_DEXTERITY
@@ -12,8 +12,8 @@
 
 // Skulduggery skills
 /datum/attribute/skill/pickpocket
-	name = "Pickpocketing"
-	desc = "Ability to steal without being noticed."
+	name = "Воровство"
+	desc = "Умение к скрытому хищению средств с карман."
 	icon_state = "sneak"
 	category = SKILL_CATEGORY_SKULDUGGERY
 	governing_attribute = STAT_DEXTERITY
@@ -23,8 +23,8 @@
 	difficulty = SKILL_DIFFICULTY_HARD
 
 /datum/attribute/skill/lockpicking
-	name = "Lockpicking"
-	desc = "Ability at breaking mechanical locks open."
+	name = "Взлом"
+	desc = "Умение взламывать механизмы."
 	icon_state = "lockpicking"
 	category = SKILL_CATEGORY_SKULDUGGERY
 	governing_attribute = STAT_INTELLIGENCE
@@ -34,8 +34,8 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/forensics
-	name = "Forensics"
-	desc = "Proficiency at analyzing the clues and tracks of your enemies."
+	name = "Криминалистика"
+	desc = "Умение анализировать улики и следы врагов."
 	icon_state = "illusion"
 	category = SKILL_CATEGORY_SKULDUGGERY
 	governing_attribute = STAT_INTELLIGENCE
@@ -46,8 +46,8 @@
 
 // Medical skills
 /datum/attribute/skill/medicine
-	name = "Medicine"
-	desc = "Proficiency at diagnosis and treatment of physical ailments, and handling of medical instruments."
+	name = "Врачевание"
+	desc = "Умение определять и вылечивать различные физические травмы, а также успешно пользоваться медицинским оборудованием"
 	icon_state = "restoration"
 	category = SKILL_CATEGORY_MEDICAL
 	governing_attribute = STAT_INTELLIGENCE
@@ -57,8 +57,8 @@
 	difficulty = SKILL_DIFFICULTY_EASY
 
 /datum/attribute/skill/surgery
-	name = "Surgery"
-	desc = "Knowledge in humanoid anatomy, as well as surgical procedures and tools."
+	name = "Хирургия"
+	desc = "Знание анатомии и, соответственно, умение пользоваться хирургическими инструментами."
 	icon_state = "alteration"
 	category = SKILL_CATEGORY_MEDICAL
 	governing_attribute = STAT_INTELLIGENCE
@@ -69,8 +69,8 @@
 
 // Engineering skills
 /datum/attribute/skill/masonry
-	name = "Masonry"
-	desc = "Ability to create infrastructure, structure and furniture out of various materials."
+	name = "Каменное дело"
+	desc = "Способность работать по камню, делать из камня."
 	icon_state = "smithing"
 	category = SKILL_CATEGORY_ENGINEERING
 	governing_attribute = STAT_INTELLIGENCE
@@ -80,8 +80,8 @@
 	difficulty = SKILL_DIFFICULTY_EASY
 
 /datum/attribute/skill/smithing
-	name = "Smithing"
-	desc = "Ability to create weapons, armor and other items out of metal."
+	name = "Кузнечное дело"
+	desc = "Способность ковать из металла: оружие, броню и иные предметы."
 	icon_state = "smithing"
 	category = SKILL_CATEGORY_ENGINEERING
 	governing_attribute = STAT_INTELLIGENCE
@@ -91,8 +91,8 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/electronics
-	name = "Electronics"
-	desc = "Ability at handling, hacking and repairing electrical machinery and wiring."
+	name = "Электрическое дело"
+	desc = "Способность работать с электрическими приборами: их взлом, починка и проводка."
 	icon_state = "smithing"
 	category = SKILL_CATEGORY_ENGINEERING
 	governing_attribute = STAT_INTELLIGENCE
@@ -103,8 +103,8 @@
 
 // Research skills
 /datum/attribute/skill/science
-	name = "Science"
-	desc = "Comprehension, research, experimentation and creation of complex technology."
+	name = "Научное дело"
+	desc = "Способность к комплексной работе со сложными приборами, их исследование и создание новых."
 	icon_state = "mysticism"
 	category = SKILL_CATEGORY_RESEARCH
 	governing_attribute = STAT_INTELLIGENCE
@@ -114,8 +114,8 @@
 	difficulty = SKILL_DIFFICULTY_HARD
 
 /datum/attribute/skill/chemistry
-	name = "Chemistry"
-	desc = "Capability at handling chemicals and chemical reactions."
+	name = "Химическое дело"
+	desc = "Способность к варке различных веществ из таблицы периодической системы химической Д. И. Менделеева."
 	icon_state = "alchemy"
 	category = SKILL_CATEGORY_RESEARCH
 	governing_attribute = STAT_INTELLIGENCE
@@ -126,8 +126,8 @@
 
 // Domestic skills
 /datum/attribute/skill/culinary
-	name = "Culinary"
-	desc = "Ability at preparing and cooking food."
+	name = "Кулинария"
+	desc = "Способность к готовке."
 	icon_state = "alchemy"
 	category = SKILL_CATEGORY_DOMESTIC
 	governing_attribute = STAT_INTELLIGENCE
@@ -138,8 +138,8 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/agriculture
-	name = "Agriculture"
-	desc = "Ability at planting and harvesting produce."
+	name = "Сельское хозяйство"
+	desc = "Способность к выращиванию растений и сбора их урожая."
 	icon_state = "alchemy"
 	category = SKILL_CATEGORY_DOMESTIC
 	governing_attribute = STAT_INTELLIGENCE
@@ -149,8 +149,8 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/cleaning
-	name = "Housekeeping"
-	desc = "This is the ability to manage a household. It covers both home economics and domestic chores like cleaning."
+	name = "Уборка"
+	desc = "Способность к бытию горничной. Ну то есть поддержание очага: в чистоте - в порядке."
 	icon_state = "athletics"
 	category = SKILL_CATEGORY_DOMESTIC
 	governing_attribute = STAT_INTELLIGENCE
@@ -161,9 +161,9 @@
 
 // Dumb meme skills
 /datum/attribute/skill/gaming
-	name = "Gaming"
-	desc = "Ability at getting totally EPIC kill streaks in fortnight. \
-		Applies as competence in both video games, board games and puzzles."
+	name = "Гейминг"
+	desc = "Способность к игре. Да, играть внутри игры в игру. Как в думе. \
+		Применяется как к настольным, так и компьютерным."
 	icon_state = "unarmored"
 	category = SKILL_CATEGORY_DUMB
 	governing_attribute = STAT_INTELLIGENCE

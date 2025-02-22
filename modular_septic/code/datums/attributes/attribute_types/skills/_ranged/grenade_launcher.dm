@@ -1,8 +1,8 @@
 // Grenade launcher
 /datum/attribute/skill/grenade_launcher
-	name = "Grenade Launcher"
-	desc = "Any largebore, low-powered small arm that fires a bursting projectile. \
-			Includes under-barrel grenade launchers and flare pistols."
+	name = "Гранатомёт"
+	desc = "Любое крупнокалиберное маломощное стрелковое оружие, стреляющее разрывными снарядами. \
+			Навык, включает в себя подствольные гранатомёты и сигнальные пистолеты."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

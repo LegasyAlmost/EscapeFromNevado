@@ -1,7 +1,7 @@
 // Light Machine Gun
 /datum/attribute/skill/light_machine_gun
-	name = "Light Machine Gun "
-	desc = "Any machine gun fired from the hip or a bipod."
+	name = "Ручной пулемёт"
+	desc = "Этот навык включает в себя любые пулемёты, стрельба с которых осуществляется на сошках или от бедра."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

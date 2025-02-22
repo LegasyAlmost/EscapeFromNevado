@@ -1,7 +1,7 @@
 /obj/item/cellphone
-	name = "cellular phone"
-	desc = "An allegedly portable phone that comes with primarily communication uses, with the ability to make both public and private calls from anywhere in the world. Data service may vary If you're \
-			tightly trapped in a supernatural warehouse with only one way out."
+	name = "Трубка"
+	desc = "Предположительно портативный телефон, который в первую очередь используется для связи, с возможностью совершать как публичные, так и личные звонки из любой точки мира. Связь может отличаться если Вы \
+		плотно заперты в сверхъестественном складе с единственным выходом."
 	icon = 'modular_septic/icons/obj/items/phone.dmi'
 	icon_state = "phone"
 	base_icon_state = "phone"
@@ -93,7 +93,7 @@
 /obj/item/cellphone/examine(mob/user)
 	. = ..()
 	if(!simcard)
-		. += span_warning("[src] has no sim card loaded, making [p_them()] pretty useless.")
+		. += span_warning("Из-за того, что в трубке нет симки, то пользование [p_them()] достаточно бесполезное действие.")
 	else
 		. += span_info("[src] has [icon2html(simcard, user)] <b>[simcard]</b> installed in the sim card slot.")
 	if(phone_flags & PHONE_RESETTING)

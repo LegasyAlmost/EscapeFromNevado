@@ -1,7 +1,7 @@
 // Pistol
 /datum/attribute/skill/pistol
-	name = "Pistol"
-	desc = "All kinds of handguns, including derringers, pepperboxes, revolvers, and automatics, but not machine pistols."
+	name = "Пистолет"
+	desc = "Любые пистолеты, включая двухзарядные (derringers), перцовки, револьверы, в том числе и самозарядные, но не автоматические."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

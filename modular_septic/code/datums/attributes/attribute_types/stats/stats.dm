@@ -1,68 +1,68 @@
 /datum/attribute/stat/strength
-	name = "Strength"
+	name = "Сила"
 	shorthand = "ST"
-	desc = "Strength measures how strong your blows are, as well as your capacity at carrying weight. \
-		Favorite attribute of the warrior."
+	desc = "Сила определяет вес, который ты способен переносить и на силу твоих ударов. \
+		Параметр настоящих викингов."
 	icon_state = "strength"
 
 /datum/attribute/stat/dexterity
-	name = "Dexterity"
+	name = "Ловкость"
 	shorthand = "DX"
-	desc = "Dexterity measures your reflexes and balance, making you better at landing blows as well as avoiding them. \
-		Favorite attribute of the thief."
+	desc = "Ловкость определяет твои рефлексы и равновесие, позволяя точнее наносить удары, а также уклоняться от них. \
+		Параметр воров."
 	icon_state = "dexterity"
 
 /datum/attribute/stat/endurance
-	name = "Endurance"
+	name = "Выносливость"
 	shorthand = "ED"
-	desc = "Endurance measures your capability at handling pain, disease and other physical hardships. \
-		Favorite attribute of the masochist."
+	desc = "Выносливость определяет твою способность терпеться с болью, болезнями и подобными недугами. \
+		Параметр мазохиста."
 	icon_state = "endurance"
 
 /datum/attribute/stat/intelligence
-	name = "Intellect"
+	name = "Интеллект"
 	shorthand = "IQ"
-	desc = "Intellect measures your abilities to perform complex tasks and retain information. \
-		Favorite attribute of the scholar."
+	desc = "Интеллект определяет твою способность выполнять сложные задачи и запоминать информацию. \
+		Параметр студента."
 	icon_state = "intelligence"
 
 //i had to
 /datum/attribute/stat/intelligence/description_from_level(level)
 	switch(CEILING(level, 1))
 		if(-INFINITY to 6)
-			return "crippling"
+			return "деградирован"
 		if(7)
-			return "poor"
+			return "плохо"
 		if(8,9)
-			return "below average"
+			return "ниже среднего"
 		if(10)
-			return "average"
+			return "средний"
 		if(11,12)
-			return "above average"
+			return "выше среднего"
 		if(13,14)
-			return "gifted"
+			return "способный"
 		if(15,16)
-			return "amazing"
+			return "хороший"
 		if(17,18)
-			return "incredible"
+			return "невероятный"
 		if(19,20)
-			return "legendary"
+			return "легендарный"
 		if(21 to INFINITY)
-			return "divine"
+			return "просвещённый"
 		else
-			return "invalid"
+			return "недопустимое значение"
 
 /datum/attribute/stat/perception
-	name = "Perception"
+	name = "Восприятие"
 	shorthand = "PR"
-	desc = "Perception measures your general alertness. \
-		Favorite attribute of the detective."
+	desc = "Восприятие определяет твою общую бдительность. \
+		Параметр детективов."
 	icon_state = "perception"
 
 /datum/attribute/stat/will
-	name = "Will"
+	name = "Воля"
 	shorthand = "WL"
-	desc = "Will measures your ability to withstand psychological stress and your \
-		resistance to supernatural attacks. \
-		Favorite attribute of the priest."
+	desc = "Воля определяет твою способность противостоять психологическому стрессу и \
+		защиту от сверхествественного. \
+		Параметр священника."
 	icon_state = "willpower"

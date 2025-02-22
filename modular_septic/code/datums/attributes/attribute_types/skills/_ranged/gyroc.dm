@@ -1,7 +1,7 @@
 // Gyroc
 /datum/attribute/skill/gyroc
-	name = "Gyroc"
-	desc = "Any kind of small arm that fires miniature rockets."
+	name = "Реактивное"
+	desc = "Любое оружие, стреляющее маленькими ракетами."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

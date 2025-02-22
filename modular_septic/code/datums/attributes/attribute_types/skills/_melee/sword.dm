@@ -22,9 +22,9 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/sword_twohanded
-	name = "Two-Handed Sword"
-	desc = "Any balanced, two-handed blade over 4 feet in length: greatswords, zweihanders, etc. \
-			This skill also covers quarterstaffs wielded like swords, as well as bastard swords, katanas, and longswords used two-handed."
+	name = "Двуручный меч"
+	desc = "Любый сбалансированный двуручный клинок более 4х футов длинной: двуручные мечи, полуторники, цвайхандеры и т.п. \
+		Этот навык также включает в себя посохи, которые подобно мечам и бастардам, катанам и полуторникам используют двумя руками"
 	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY
@@ -36,10 +36,9 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/longsword
-	name = "Longsword"
-	desc = "Any balanced, 0.6 to 1.2 meter blade wielded in one hand – Broadsword, cavalry saber, \
-			scimitar, etc. This skill also covers any staff or club of similar size and balance to these blades, \
-			as well as bastard swords, katanas, and longswords used one-handed."
+	name = "Длинный меч"
+	desc = "Любой сбалансированный меч, длинною от 0,6 до 1,2 метра, и удерживаемый одной рукой – палаш, кавалерийская сабля, \
+			скимитар и т.п. Этот навык также включает палки или дубины со схожим размером."
 	icon_state = "longblade"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY
@@ -53,9 +52,9 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/shortsword
-	name = "Shortsword"
-	desc = "Any balanced, one-handed weapon 0.3 to 0.6 meters in length – \
-			Including the shortsword and any club of comparable size and balance (such as a police baton)."
+	name = "Короткий меч"
+	desc = "Любой сбалансированный меч, хват которого осуществляется одной рукой, а длина оружия от 0,3 до 0,6 метра – \
+			Этот навык также включает в себя короткий меч и любую дубинку сопоставимого размера и баланса (например, полицейскую дубинку)."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY
@@ -69,9 +68,9 @@
 	difficulty = SKILL_DIFFICULTY_AVERAGE
 
 /datum/attribute/skill/knife
-	name = "Knife"
-	desc = "Any rigid, hilted blade less than one foot long, from a pocket knife to a bowie knife. \
-			A knife has a very small parrying surface, which gives you -1 to your parry score."
+	name = "Нож"
+	desc = "Любой жесткий клинок с рукоятью длиной менее одного фута, от карманного и до ножа Боуи. \
+			Т.к. у ножей очень маленькая поверхность парирования, то парирование получает штраф в -1 к показателю."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY

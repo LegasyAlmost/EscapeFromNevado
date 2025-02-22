@@ -1,8 +1,8 @@
 // Crossbow
 /datum/attribute/skill/crossbow
-	name = "Crossbow"
-	desc = "This is the ability to use all types of crossbows, including the pistol crossbow, \
-			repeating crossbow, and compound crossbow."
+	name = "Арбалет"
+	desc = "Способность использовать все виды арбалетов, включая арбалеты-пистолеты, \
+			чо-ко-ну и блочные арбалеты."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

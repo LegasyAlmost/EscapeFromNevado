@@ -5,8 +5,8 @@
  * So i came up with my own interpretation of unarmed combat skills.
  */
 /datum/attribute/skill/brawling
-	name = "Brawling"
-	desc = "Your ability at landing blows in unarmed combat, no matter which limb you are using."
+	name = "Задирство"
+	desc = "Способность бить и хуярить, неважно какой конечностью и чем именно."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY
@@ -16,8 +16,8 @@
 	difficulty = SKILL_DIFFICULTY_EASY
 
 /datum/attribute/skill/wrestling
-	name = "Wrestling"
-	desc = "Your ability at landing and managing grapples in unarmed combat."
+	name = "Борьба"
+	desc = "Способность захватывать в удущающие или сопротивляться им в Ближнем Бою. Словом - любые виды захватов."
 	icon_state = "shortblade"
 	category = SKILL_CATEGORY_MELEE
 	governing_attribute = STAT_DEXTERITY

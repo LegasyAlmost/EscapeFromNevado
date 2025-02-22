@@ -1,7 +1,7 @@
 // Rifle
 /datum/attribute/skill/rifle
-	name = "Rifle"
-	desc = "Any kind of rifled long arm – assault rifle, hunting rifle, sniper rifle, etc – that fires a solid projectile."
+	name = "Ружья"
+	desc = "Любое длинноствольное ружейное оружие: штурмовые винтовки, охотничие ружья, снайперские винтовки, словом – всё, что выпускает снаряд."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY

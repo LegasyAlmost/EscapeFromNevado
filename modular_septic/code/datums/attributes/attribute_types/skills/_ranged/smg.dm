@@ -1,7 +1,7 @@
 // SMG
 /datum/attribute/skill/smg
-	name = "Submachine Gun"
-	desc = "All short, fully automatic weapons that fire pistol-caliber ammunition, including machine pistols."
+	name = "Пистолеты-пулемёты"
+	desc = "Любое автоматическое оружие, размером с пистолет и стреляющее соразмерным калибром, включая автоматические пистолеты."
 	icon_state = "marksman"
 	category = SKILL_CATEGORY_RANGED
 	governing_attribute = STAT_DEXTERITY
