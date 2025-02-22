@@ -1,6 +1,6 @@
 /obj/item/simcard
-	name = "\improper sim card"
-	desc = "Sim, sim, I agree with your statement"
+	name = "\improper симкарта"
+	desc = "Это симкарта для телефонов."
 	icon = 'modular_septic/icons/obj/items/phone.dmi'
 	icon_state = "simcard"
 	base_icon_state = "simcard"

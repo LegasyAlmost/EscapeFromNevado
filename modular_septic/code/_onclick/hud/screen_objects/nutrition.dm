@@ -1,5 +1,5 @@
 /atom/movable/screen/nutrition
-	name = "nutrition"
+	name = "голод"
 	icon = 'modular_septic/icons/hud/quake/screen_quake.dmi'
 	icon_state = "nutrition3"
 	base_icon_state = "nutrition"
@@ -13,22 +13,22 @@
 /atom/movable/screen/nutrition/Click(location, control, params)
 	. = ..()
 	if(!isliving(usr))
-		to_chat(usr, div_infobox(span_notice("I don't need food.")))
+		to_chat(usr, div_infobox(span_notice("Я не хочу есть.")))
 		return
 	var/mob/living/living_user = usr
 	switch(living_user.nutrition)
 		if(NUTRITION_LEVEL_FULL to INFINITY)
-			to_chat(usr, div_infobox(span_notice("I'm completely stuffed!")))
+			to_chat(usr, div_infobox(span_notice("Я полностью насыщен!")))
 		if(NUTRITION_LEVEL_WELL_FED to NUTRITION_LEVEL_FULL)
-			to_chat(usr, div_infobox(span_notice("I'm well fed!")))
+			to_chat(usr, div_infobox(span_notice("Вот перекус уж!")))
 		if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
-			to_chat(usr, div_infobox(span_notice("I'm not hungry.")))
+			to_chat(usr, div_infobox(span_notice("Я не голоден, но могу и покушать.")))
 		if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
-			to_chat(usr, div_infobox(span_warning("I could use a bite to eat.")))
+			to_chat(usr, div_infobox(span_warning("Нужно перекусить.")))
 		if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
-			to_chat(usr, div_infobox(span_danger("I feel quite hungry.")))
+			to_chat(usr, div_infobox(span_danger("Я проголодался.")))
 		if(0 to NUTRITION_LEVEL_STARVING)
-			to_chat(usr, div_infobox(span_userdanger("I'm starving!")))
+			to_chat(usr, div_infobox(span_userdanger("Я помираю от голода! ЕДЫ!!!")))
 
 /atom/movable/screen/nutrition/proc/update_nutrition(new_nutri = 3)
 	if(nutrition_index == new_nutri)

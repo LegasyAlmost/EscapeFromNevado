@@ -74,7 +74,7 @@
 	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded, /obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded)
 
 /mob/living/simple_animal/hostile/russian/ranged/officer
-	name = "Russian Officer"
+	name = "Офицеръ Ополченцевъ"
 	icon_state = "russianofficer"
 	icon_living = "russianofficer"
 	maxHealth = 65

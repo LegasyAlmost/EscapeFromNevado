@@ -29,35 +29,38 @@
 	if(prob(10))
 		suit_store = /obj/item/gun/ballistic/automatic/remis/abyss
 		backpack_contents = list(/obj/item/ammo_box/magazine/a545 = 4,
-		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+			/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else if(prob(15))
 		suit_store = /obj/item/gun/ballistic/automatic/remis/smg/bolsa
 		backpack_contents = list(/obj/item/ammo_box/magazine/uzi9mm = 4,
-		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+			/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else if (prob(25))
 		suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat
 		backpack_contents = list(/obj/item/ammo_box/magazine/ammo_stack/shotgun/loaded = 6,
-		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+			/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else if(prob(1))
 		r_hand = /obj/item/gun/ballistic/shotgun/bolas
 		backpack_contents = list(/obj/item/ammo_box/magazine/ammo_stack/shotgun/bolas/loaded = 6,
-		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+			/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else if(prob(10))
 		suit_store = /obj/item/gun/ballistic/automatic/remis/svd
 		backpack_contents = list(/obj/item/ammo_box/magazine/a762svd = 4,
-		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+			/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else if(prob(5))
 		suit_store = /obj/item/gun/ballistic/rifle/boltaction/remis/federson
 		backpack_contents = list(/obj/item/ammo_box/magazine/ammo_stack/a276/loaded = 6,
-		/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+			/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
 
 	else
-		backpack_contents = list(/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1, /obj/item/flashlight/seclite = 1)
+		backpack_contents = list(/obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1,
+			/obj/item/flashlight/seclite = 1, /obj/item/ammo_box/magazine/glock9mm = 2)
+		belt = /obj/item/gun/ballistic/automatic/pistol/glock17
+		r_pocket = /obj/item/ammo_box/magazine/glock9mm
 
 	if(prob(50))//random chance for the colt instead of the glock
 		belt = /obj/item/gun/ballistic/automatic/pistol/m1911
@@ -88,9 +91,7 @@
 	name = "Gakster Scavenger"
 	uniform = /obj/item/clothing/under/itobe
 	id = /obj/item/cellphone
-	belt = /obj/item/gun/ballistic/automatic/pistol/glock17
 	l_pocket = /obj/item/simcard
-	r_pocket = /obj/item/ammo_box/magazine/glock9mm
 	back = /obj/item/storage/backpack/satchel/chestrig
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots

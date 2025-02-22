@@ -11,9 +11,9 @@
 	if(istype(held_item))
 		held_item.toggle_safety(usr)
 	else if(held_item)
-		to_chat(usr, span_warning("I am not holding a gun."))
+		to_chat(usr, span_warning("Я не держу в руках оружие с предохранителем."))
 	else
-		to_chat(usr, span_warning("I am unarmed."))
+		to_chat(usr, span_warning("Я безоружен."))
 
 /atom/movable/screen/safety/Initialize(mapload)
 	. = ..()

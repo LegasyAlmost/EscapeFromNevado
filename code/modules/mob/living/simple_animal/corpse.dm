@@ -98,13 +98,13 @@
 
 
 /obj/effect/mob_spawn/human/corpse/russian
-	name = "Russian"
+	name = "Ополченецъ"
 	outfit = /datum/outfit/russiancorpse
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 
 /datum/outfit/russiancorpse
-	name = "Russian Corpse"
+	name = "Тело ополченца"
 	uniform = /obj/item/clothing/under/costume/soviet
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/bearpelt
@@ -117,7 +117,7 @@
 	outfit = /datum/outfit/russiancorpse/ranged
 
 /datum/outfit/russiancorpse/ranged
-	name = "Ranged Russian Corpse"
+	name = "Тело ополченца-штурмовика"
 	head = /obj/item/clothing/head/ushanka
 
 
@@ -125,7 +125,7 @@
 	outfit = /datum/outfit/russiancorpse/ranged/trooper
 
 /datum/outfit/russiancorpse/ranged/trooper
-	name = "Ranged Russian Trooper Corpse"
+	name = "Тело ополченца-штурмовика"
 	uniform = /obj/item/clothing/under/syndicate/camo
 	suit = /obj/item/clothing/suit/armor/bulletproof
 	shoes = /obj/item/clothing/shoes/combat
@@ -136,11 +136,11 @@
 
 
 /obj/effect/mob_spawn/human/corpse/russian/ranged/officer
-	name = "Russian Officer"
+	name = "Офицеръ Ополченцевъ"
 	outfit = /datum/outfit/russiancorpse/officer
 
 /datum/outfit/russiancorpse/officer
-	name = "Russian Officer Corpse"
+	name = "Тело офицера ополченцевъ"
 	uniform = /obj/item/clothing/under/costume/russian_officer
 	suit = /obj/item/clothing/suit/security/officer/russian
 	shoes = /obj/item/clothing/shoes/combat
@@ -165,13 +165,13 @@
 
 
 /obj/effect/mob_spawn/human/corpse/nanotrasensoldier
-	name = "\improper Nanotrasen Private Security Officer"
+	name = "\improper мёртвый Боец ЧОПа"
 	outfit = /datum/outfit/nanotrasensoldiercorpse2
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 
 /datum/outfit/nanotrasensoldiercorpse2
-	name = "NT Private Security Officer Corpse"
+	name = "Тело сотрудника ЧОПа"
 	uniform = /obj/item/clothing/under/rank/security/officer
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/combat
@@ -184,13 +184,13 @@
 	id_trim = /datum/id_trim/centcom/corpse/private_security/tradepost_officer
 
 /obj/effect/mob_spawn/human/corpse/nanotrasenassaultsoldier
-	name = "Nanotrasen Private Security Officer"
+	name = "Тело высокорангового сотрудника ЧОП"
 	outfit = /datum/outfit/nanotrasenassaultsoldiercorpse
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 
 /datum/outfit/nanotrasenassaultsoldiercorpse
-	name = "NT Assault Officer Corpse"
+	name = "Мёртвый боец высокого ранга ЧОПа"
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/armor/vest
 	shoes = /obj/item/clothing/shoes/combat

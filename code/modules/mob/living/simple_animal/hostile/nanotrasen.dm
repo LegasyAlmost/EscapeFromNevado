@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/nanotrasen
-	name = "\improper Nanotrasen Private Security Officer"
-	desc = "An officer part of Nanotrasen's private security force, he seems rather unpleased to meet you."
+	name = "\improper Боец ЧОПа"
+	desc = "Сотрудник Частного Охранного Предприятия, у него есть задача и он идёт к ней."
 	icon = 'icons/mob/simple_human.dmi'
 	icon_state = "nanotrasen"
 	icon_living = "nanotrasen"
@@ -39,7 +39,7 @@
 /mob/living/simple_animal/hostile/nanotrasen/screaming/Aggro()
 	..()
 	summon_backup(15)
-	say("411 in progress, requesting backup!")
+	say("Code 63, we have 10-75 armed suspect! Request backup!")
 
 
 /mob/living/simple_animal/hostile/nanotrasen/ranged

@@ -35,9 +35,9 @@
 	AddComponent(/datum/component/butchering, 80 - force, 100, force - 10) //bonus chance increases depending on force
 
 /obj/item/knife/suicide_act(mob/user)
-	user.visible_message(pick(span_suicide("[user] is slitting [user.p_their()] wrists with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-						span_suicide("[user] is slitting [user.p_their()] throat with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-						span_suicide("[user] is slitting [user.p_their()] stomach open with the [src.name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
+	user.visible_message(pick(span_suicide("[user] режет [user.p_their()] вены на предплечье с помощью [src.name]а! Кажется, [user.p_theyre()] пытается покончить с собой."), \
+						span_suicide("[user] режет [user.p_their()] глотку с помощью [src.name]а! Кажется, [user.p_theyre()] пытается покончить с собой."), \
+						span_suicide("[user] режет [user.p_their()] брюхо с помощью [src.name]а! Кажется, [user.p_theyre()] пытается сделать харакири.")))
 	return (BRUTELOSS)
 /////
 

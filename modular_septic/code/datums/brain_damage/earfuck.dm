@@ -2,11 +2,11 @@
 #define STRANGER 1
 
 /datum/brain_trauma/severe/earfuck
-	name = "Earfuck Brain Transfer"
-	desc = "There is a neuro tripmine that has detonated in the patient's brain, causing a new conciousness to remotely control it."
-	scan_desc = "complete lobe separation"
-	gain_text = "<span class='boldwarning'>My mind is violated in every way It's possible to be violated.</span>"
-	lose_text = "<span class='boldnotice'>My mind feels like It only has one occupant again.</span>"
+	name = "ОПЕРАЦИЯ TP4X4T_YSH1"
+	desc = "В мозгу пациента активировался выброс нейромина, в результате чего появилось новое сознание, способное дистанционно управлять им."
+	scan_desc = "полное разделение долей завершенно"
+	gain_text = "<span class='boldwarning'>Мой разум осквернён всеми возможными способами, которые могут быть и не могут.</span>"
+	lose_text = "<span class='boldnotice'>В моем разуме снова только один обитатель. Кажется.</span>"
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/control = 100 // the amount of control they have over the body, starts full
@@ -46,7 +46,7 @@
 	if(owner_backseat.ckey == stranger_backseat.ckey)
 		owner.emote("agonyscream")
 		owner.flash_pain(100)
-		to_chat(owner, span_bigdanger("NEURAL ENTANGLEMENT!"))
+		to_chat(owner, span_bigdanger("НЕЙРОННАЯ ЗАПУТАННОСТЬ!"))
 		playsound(owner, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
 		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon, neural_entanglement)), 1.67 SECONDS)
 		return
@@ -84,15 +84,15 @@
 	var/rounded_control = round(control/10, 1)
 	if(owner)
 		if(control <= 0)
-			to_chat(owner, span_bigdanger("[fail_msg()]... I have lost control."))
+			to_chat(owner, span_bigdanger("[fail_msg()]... Я потерял контроль над собою."))
 		else
-			to_chat(owner, span_warning("I am losing control. \n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>."))
+			to_chat(owner, span_warning("Я теряю контроль над собой. \n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>."))
 		playsound(owner, 'modular_septic/sound/efn/earfuck_losecontrol.ogg', 20, TRUE)
 	if(owner_backseat)
 		if(control <= 0)
-			to_chat(owner_backseat, span_bigdanger("Their control is destroyed.\n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>"))
+			to_chat(owner_backseat, span_bigdanger("Их контроль уничтожен.\n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>"))
 		else
-			to_chat(owner_backseat, span_boldwarning("I make progress.\n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>"))
+			to_chat(owner_backseat, span_boldwarning("Успехи идут полным ходом.\n<b>\[[chat_progress_characters(rounded_control, 10)]\]</b>"))
 	var/sound_pool = list('modular_septic/sound/effects/mind_break_audible1.ogg')
 	if(owner.gender == MALE)
 		sound_pool += 'modular_septic/sound/effects/mind_break_audible2.ogg' //man angry
@@ -103,7 +103,7 @@
 
 /datum/brain_trauma/severe/earfuck/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
-		to_chat(owner, span_boldwarning("The intruder is forcibly removed!"))
+		to_chat(owner, span_boldwarning("Вторженец убран силой!"))
 		switch_minds(TRUE)
 		owner.vomit(10, blood = TRUE, stun = TRUE, vomit_type = VOMIT_PURPLE, purge_ratio = 1)
 	QDEL_NULL(stranger_backseat)
@@ -122,8 +122,8 @@
 		qdel(src)
 		return
 	stranger_backseat.ckey = earfucker.ckey
-	to_chat(stranger_backseat, span_notice("I HAVE SUCCESSFULLY ENTERED THEIR MIND. I HAVE A MINUTE UNTIL THEY FIGHT BACK.\n\
-								IF I DIE IN THIS BODY, I WON'T BE ABLE TO GET BACK TO MY OLD BODY!"))
+	to_chat(stranger_backseat, span_notice("Я УСПЕШНО ПРОНИК В ИХ МОЗГ. У МЕНЯ РОВНО МИНУТА ПЕРЕД ТЕМ, КАК ОНИ НАЧНУТ БОРОТЬСЯ.\n\
+								УМЕРЕВ В ЭТОМ ТЕЛЕ, Я УМРУ НАВСЕГДА!"))
 
 /datum/brain_trauma/severe/earfuck/proc/switch_minds(reset_to_owner = FALSE, cancel_possession = FALSE, violence = 0, silent = FALSE)
 	if(QDELETED(owner) || QDELETED(stranger_backseat) || QDELETED(owner_backseat))
@@ -138,11 +138,11 @@
 		current_backseat = stranger_backseat
 		new_backseat = owner_backseat
 
-	to_chat(current_backseat, span_userdanger("I seize this body."))
+	to_chat(current_backseat, span_userdanger("Я завладел этим телом."))
 	if(!(silent && cancel_possession))
 		playsound(owner, 'modular_septic/sound/efn/earfuck_laugh.ogg', 65, FALSE, 2)
 		current_backseat.playsound_local(owner.loc, 'modular_septic/sound/efn/earfuck_switch.ogg', 70, FALSE)
-		owner.visible_message(span_bolddanger("[owner] makes otherwordly noises as [owner.p_their()] head snaps and switches!"))
+		owner.visible_message(span_bolddanger("[owner] издает потусторонние шумы, как [owner.p_their()] ударяет себя по голове и переключается!"))
 		owner.sound_hint()
 
 	set_eyecolors(color = "#E10600")
@@ -197,7 +197,7 @@
 			owner.mind = owner_backseat.mind
 
 		if(!original_stranger || original_stranger.stat == DEAD)
-			to_chat(stranger_backseat, span_bigdanger("My old body is unusable."))
+			to_chat(stranger_backseat, span_bigdanger("Моё прошлое тело невозможно использовать."))
 			stranger_backseat.ghostize(FALSE)
 			qdel(src)
 			return
@@ -212,27 +212,27 @@
 		set_eyecolors(color = "#ffc813")
 
 		var/end_possession_noise = pick('modular_septic/sound/efn/possession/p_shake1.ogg', 'modular_septic/sound/efn/possession/p_shake2.ogg', 'modular_septic/sound/efn/possession/p_shake3.ogg') // The possession shaker
-		var/bad_message = "shakes their head, their eyes blinking rapidly."
+		var/bad_message = "трясёт своей головой, после чего их глаза начинают быстро моргать."
 		switch(violence)
 			if(11 to 20)
-				bad_message = "shakes their head violently while clenching their teeth!"
+				bad_message = "яростно трясет головой, сжимая зубы!"
 				original_stranger.HeadRape(4 SECONDS)
 			if(21 to 50)
-				bad_message = "shudders, wincing in pain!"
+				bad_message = "вздрагивает, морщится от боли!"
 				original_stranger.emote("deathscream")
-				var/bangs = pick("bangs", "sears", "swirls")
-				to_chat(original_stranger, span_boldwarning("My head [bangs] in agony!"))
+				var/bangs = pick("бьётся", "хуярится", "трясётся")
+				to_chat(original_stranger, span_boldwarning("Моя голова [bangs] в агонии!"))
 				original_stranger.flash_pain(50)
 				original_stranger.HeadRape(6 SECONDS)
 			if(51 to 75) //Anything above 50 should only happen due to enemy hackers
-				var/rapid_hangover = pick("DYING", "SEIZING", "FRANTICALLY GASPING", "PERISHING")
-				bad_message = "falls down to the floor and starts <b>FUCKING [rapid_hangover]!</b>"
+				var/rapid_hangover = pick("УМИРАТЬ", "ЗАСТРЕВАТЬ", "ЗАДЫХАТЬСЯ", "ПОГИБАТЬ")
+				bad_message = "падает на пол и начинает <b>БЛЯДЬ [rapid_hangover]!</b>"
 				original_stranger.emote(act = "agonyscream", intentional = FALSE)
 				INVOKE_ASYNC(original_stranger, TYPE_PROC_REF(/mob/living/carbon, sexual_vomit)) // Don't ask
 			if(76 to INFINITY)
 				original_stranger.emote("agonyscream", intentional = FALSE)
 				original_stranger.flash_pain(100)
-				to_chat(original_stranger, span_bigdanger("NEURAL DEGRADATION!"))
+				to_chat(original_stranger, span_bigdanger("ДЕГРАДАЦИЯ МОЗГА!"))
 				playsound(original_stranger, 'modular_septic/sound/efn/hacker_fucked.ogg', 90, FALSE)
 				addtimer(CALLBACK(original_stranger, TYPE_PROC_REF(/mob/living/carbon, neural_entanglement)), 1.67 SECONDS)
 				return
@@ -246,8 +246,8 @@
 	set_eyecolors(color = "#E10600")
 
 /mob/living/earfuck
-	name = "earfuck victim"
-	real_name = "original mind trapped in an synthetic fate."
+	name = "жертва TP4X4T_YSH1"
+	real_name = "оригинальный разум, попавший в ловушку синтетической судьбы."
 	var/mob/living/carbon/body
 	var/datum/brain_trauma/severe/earfuck/earfuck
 
@@ -283,7 +283,7 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_boldwarning("I'm regaining my conciousness back from this wretched intruder, everything is unavailable to me, I just have to keep fighting idly until I'm back in my rightful place."))
+	to_chat(src, span_boldwarning("Я прихожу в себя после этого жалкого вторжения, мне ничего недоступно, мне остается только продолжать лениво бороться, пока я не вернусь на свое законное место."))
 
 /mob/living/earfuck/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -291,11 +291,11 @@
 		qdel(src)
 
 /mob/living/earfuck/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null)
-	to_chat(src, span_bolddanger("Something is controlling MY body, I can't speak using MY mouth."))
+	to_chat(src, span_bolddanger("Что-то контроллирует МОЁ тело, я не могу использовать СВОЙ рот."))
 	return FALSE
 
 /mob/living/earfuck/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)
-	to_chat(src, span_bolddanger("Something is controlling MY body, I can't speak using MY mouth."))
+	to_chat(src, span_bolddanger("Что-то контроллирует МОЁ тело, я не могу использовать СВОЙ рот."))
 	return FALSE
 
 #undef OWNER

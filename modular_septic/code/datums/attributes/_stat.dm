@@ -5,24 +5,24 @@
 /datum/attribute/stat/description_from_level(level)
 	switch(CEILING(level, 1))
 		if(-INFINITY to 6)
-			return "crippling"
+			return "ужасающе фигово"
 		if(7)
-			return "poor"
+			return "плохо"
 		if(8,9)
-			return "below average"
+			return "ниже среднего"
 		if(10)
-			return "average"
+			return "среднее"
 		if(11,12)
-			return "above average"
+			return "выше среднего"
 		if(13,14)
-			return "gifted"
+			return "наделённый"
 		if(15,16)
-			return "amazing"
+			return "замечательный"
 		if(17,18)
-			return "incredible"
+			return "невероятный"
 		if(19,20)
-			return "legendary"
+			return "легендарный"
 		if(21 to INFINITY)
-			return "mythic"
+			return "мифический"
 		else
-			return "invalid"
+			return "неккоректное значение"
