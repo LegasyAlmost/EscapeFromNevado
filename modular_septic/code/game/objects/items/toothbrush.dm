@@ -5,6 +5,8 @@
 	icon_state = "toothbrush"
 	base_icon_state = "toothbrush"
 	w_class = WEIGHT_CLASS_SMALL
+	tetris_width = 64
+	tetris_height = 32
 
 /obj/item/toothbrush/random
 	name = "random toothbrush"

@@ -434,6 +434,8 @@
 	foodtypes = GRAIN
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
+	tetris_width = 64
+	tetris_height = 32
 
 //donk pockets cook quick... try not to burn them for using an unoptimal tool
 /obj/item/food/donkpocket/MakeBakeable()

@@ -63,7 +63,7 @@ Slimecrossing Potions
 		ADD_TRAIT(peace_target, TRAIT_PACIFISM, MAGIC_TRAIT)
 	else if(iscarbon(peace_target))
 		var/mob/living/carbon/peaceful_carbon = peace_target
-		peaceful_carbon.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_SURGERY)
+//		peaceful_carbon.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_SURGERY)
 	qdel(src)
 
 //Love potion - Charged Pink

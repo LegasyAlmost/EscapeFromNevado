@@ -15,6 +15,8 @@
 	verb_say = "communicates"
 	pickup_sound = 'modular_septic/sound/efn/phone_pickup.ogg'
 	equip_sound = 'modular_septic/sound/efn/phone_holster.ogg'
+	tetris_width = 32
+	tetris_height = 64
 	/// General flags about the state of the phone
 	var/phone_flags = PHONE_FLIPHONE
 	/// Only matters if phone_flags has PHONE_FLIPHONE enabled

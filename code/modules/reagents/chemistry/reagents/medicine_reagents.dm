@@ -1173,7 +1173,7 @@
 			M.adjustToxLoss(6 * REM * delta_time, 0)
 	if(iscarbon(M))
 		var/mob/living/carbon/hippie = M
-		hippie.gain_trauma(/datum/brain_trauma/severe/pacifism)
+//		hippie.gain_trauma(/datum/brain_trauma/severe/pacifism)
 	..()
 	. = TRUE
 

@@ -24,6 +24,8 @@
 	wound_bonus = 5
 	bare_wound_bonus = 15
 	tool_behaviour = TOOL_KNIFE
+	tetris_width = 64
+	tetris_height = 32
 
 /obj/item/knife/Initialize(mapload)
 	. = ..()
