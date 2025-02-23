@@ -76,7 +76,7 @@
 		user.mind?.add_memory(MEMORY_BOMB_PRIMED, list(DETAIL_BOMB_TYPE = src), story_value = STORY_VALUE_OKAY)
 	active = TRUE
 	if(grenade_flags & GRENADE_BUTTONED)
-		to_chat(user, span_warning("I press the arming button on the [src]."))
+		to_chat(user, span_warning("Я нажал на спуской рычаг [src]. Кажется оно вот-вот взорвётся!"))
 	if(!(grenade_flags & GRENADE_PINNED))
 		spoon_grenade()
 	update_appearance(UPDATE_ICON)
@@ -91,23 +91,23 @@
 			if(!active && pin)
 				user.transferItemToLoc(pin, user.loc)
 				user.put_in_hands(pin)
-				user.visible_message(span_red("[user] pulls the pin from the [src]!"),
-							span_warning("I pull the pin from the [src]."))
+				user.visible_message(span_red("[user] достаёт чеку из [src]!"),
+							span_warning("Я достал чеку из [src]."))
 				initial_pin = pin
 				pin = null
 				arm_grenade(user)
 				update_appearance(UPDATE_ICON)
 	else
-		to_chat(user, span_warning("This grenade doesn't have a pin!"))
+		to_chat(user, span_warning("У этой гранаты нет чеки!"))
 
 /obj/item/grenade/attack_self(mob/user)
 	if(grenade_flags & GRENADE_UNCONVENTIONAL_TRIGGER)
-		to_chat(user, span_warning("There's no way to trigger it like that, I have to wire it to something!"))
+		to_chat(user, span_warning("Я не могу её так активировать, нужно её прицепить к чему-то!"))
 		return
 	if(HAS_TRAIT_FROM(src, TRAIT_NODROP, STICKY_NODROP))
-		to_chat(user, span_notice("I try prying [src] off my hand..."))
+		to_chat(user, span_notice("Я пытаюсь отодрать [src] с моей руки..."))
 		if(do_after(user, 7 SECONDS, target=src))
-			to_chat(user, span_notice("I manage to remove [src] from my hand."))
+			to_chat(user, span_notice("Я отодрал [src] с моей руки."))
 			REMOVE_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 		return
 
@@ -139,29 +139,29 @@
 
 /obj/item/grenade/attackby(obj/item/I, mob/user, params)
 	if(grenade_flags & GRENADE_UNCONVENTIONAL_TRIGGER)
-		to_chat(user, span_warning("There's nothing here for me to tamper with!"))
+		to_chat(user, span_warning("Мне здесь нечего трогать!"))
 		return
 	if(istype(I, /obj/item/pin))
 		if(grenade_spooned)
-			to_chat(user, span_colossus("I'm fucked."))
+			to_chat(user, span_colossus("...мне пизда."))
 			user.client?.give_award(/datum/award/achievement/misc/imfucked, user)
 		else if(grenade_flags & GRENADE_PINNED)
 			if(pin)
-				to_chat(user, span_warning("Oh. It already has a pin."))
+				to_chat(user, span_warning("О. Тут уже есть чека."))
 			else if(I.type != initial(pin))
 				var/obj/item/pin/other_pin = I.type
-				to_chat(user, span_warning("This Isn't the right pin, where'd I get a [initial(other_pin.name)]?"))
+				to_chat(user, span_warning("Эта чека сюда не подходит, мне нужна подходящая под [initial(other_pin.name)]?"))
 			else
 				pin = I
 				user.transferItemToLoc(I, src, TRUE)
 				active = FALSE
-				user.visible_message(span_warning("[user] puts the pin back into the [src]!"), \
-							span_warning("I put the pin back into the [src]."))
+				user.visible_message(span_warning("[user] вставил чеку обратно в [src]!"), \
+							span_warning("Я всунул чеку обратно в [src]."))
 				playsound(I, 'modular_septic/sound/weapons/grenade_safety.wav', 65, FALSE)
 				update_appearance(UPDATE_ICON)
 	else if((grenade_flags & GRENADE_FUSED) && I.get_temperature() && !active && !botch_check(user))
 		arm_grenade(user)
-		to_chat(user, span_info("I light the fuse on the [src]"))
+		to_chat(user, span_info("Я поджёг запал [src]"))
 		icon_state = "[initial(icon_state)]_lit"
 		log_bomber(user, "seems to be committing an act of intellectual anprim genocide!")
 
@@ -201,7 +201,7 @@
 	grenade_spooned = FALSE
 	deltimer(det_timer)
 	if(visible)
-		src.visible_message(span_warning("[src] <b>disarms itself!</b>"))
+		src.visible_message(span_warning("[src] <b>обезвреживается сама по себе!</b>"))
 		new /obj/effect/temp_visual/annoyed(get_turf(src))
 	//if(loud)
 		//sound_hint()
@@ -222,13 +222,13 @@
 		else
 			pin = new copy_of_pin(src)
 		if(visible)
-			src.visible_message(span_warning("[src] repins itself!"))
+			src.visible_message(span_warning("[src] возвращает чеку обратно себе!"))
 
 	update_appearance(UPDATE_ICON) // This updates overlays as well.
 
 /obj/item/pin
-	name = "grenade pin"
-	desc = "The detonation pin of a grenade, usually found on a grenade before It's armed."
+	name = "Чека от гранаты"
+	desc = "Чека, не дающая гранате взорватся. Обычно, её можно обнаружить на поле боя, уже после его конца. На полу."
 	icon = 'modular_septic/icons/obj/items/grenade.dmi'
 	icon_state = "pin"
 	drop_sound = 'modular_septic/sound/items/coin_drop.wav'

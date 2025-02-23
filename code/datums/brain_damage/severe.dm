@@ -233,7 +233,6 @@
 	REMOVE_TRAIT(owner, TRAIT_DISCOORDINATED_TOOL_USER, TRAUMA_TRAIT)
 	..()
 
-/*
 /datum/brain_trauma/severe/pacifism
 	name = "Traumatic Non-Violence"
 	desc = "Patient is extremely unwilling to harm others in violent ways."
@@ -248,7 +247,7 @@
 /datum/brain_trauma/severe/pacifism/on_lose()
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, TRAUMA_TRAIT)
 	..()
-*/
+
 /datum/brain_trauma/severe/hypnotic_stupor
 	name = "Hypnotic Stupor"
 	desc = "Patient is prone to episodes of extreme stupor that leaves them extremely suggestible."

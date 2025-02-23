@@ -42,60 +42,60 @@
 		if(!parent_bodypart.is_dead())
 			if(parent_bodypart.is_organic_limb())
 				if(parent_mob)
-					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] partially melts away!")]"))
+					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("[parent_bodypart.name] сгорает!")]"))
 				parent_bodypart.kill_limb()
 			else
 				if(parent_bodypart.can_dismember())
 					if(parent_mob)
-						SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] fully melts away!")]"))
+						SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("[parent_bodypart.name] сгорает!")]"))
 					parent_bodypart.apply_dismember(WOUND_BURN, TRUE, FALSE)
 		else if(parent_bodypart.can_dismember())
 			if(parent_mob)
 				if(parent_bodypart.is_organic_limb())
-					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] fully melts away!")]"))
+					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("[parent_bodypart.name] сгорает!")]"))
 				else
-					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("The [parent_bodypart.name] fully melts away!")]"))
+					SEND_SIGNAL(parent_mob, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_bolddanger(" [span_big("[parent_bodypart.name] сгорает!")]"))
 			parent_bodypart.apply_dismember(WOUND_BURN, TRUE, FALSE)
 
 /datum/injury/burn/moderate
 	stages = list(
-		"ripped burn" = 10,
-		"moderate burn" = 5,
-		"healing moderate burn" = 2,
-		"fresh skin" = 0
+		"рваный ожог" = 10,
+		"умеренный ожог" = 5,
+		"заживающий умеренный ожог" = 2,
+		"свежая кожа" = 0
 		)
 
 /datum/injury/burn/large
 	stages = list(
-		"ripped large burn" = 20,
-		"large burn" = 15,
-		"healing large burn" = 5,
-		"fresh burn scar" = 0
+		"рваный обширный ожог" = 20,
+		"значительный ожог" = 15,
+		"заживающий большой ожог" = 5,
+		"свежий обоженный шрам" = 0
 		)
 	fade_away_time = INFINITY
 
 /datum/injury/burn/severe
 	stages = list(
-		"ripped severe burn" = 35,
-		"severe burn" = 30,
-		"healing severe burn" = 10,
-		"burn scar" = 0
+		"рваный тяжелый ожог" = 35,
+		"сильный ожог" = 30,
+		"заживающий тяжелый ожог" = 10,
+		"обоженный шрам" = 0
 		)
 	fade_away_time = INFINITY
 
 /datum/injury/burn/deep
 	stages = list(
-		"ripped deep burn" = 45,
-		"deep burn" = 40,
-		"healing deep burn" = 15,
-		"large burn scar" = 0
+		"рваный глубокий ожог" = 45,
+		"глубокий ожог" = 40,
+		"заживающий глубокий ожог" = 15,
+		"большой шрам от ожога" = 0
 		)
 	fade_away_time = INFINITY
 
 /datum/injury/burn/carbonised
 	stages = list(
-		"carbonised area" = 50,
-		"healing carbonised area" = 20,
-		"massive burn scar" = 0
+		"обугленная зона" = 50,
+		"заживающая обугленная область" = 20,
+		"обширный шрам от ожога" = 0
 		)
 	fade_away_time = INFINITY

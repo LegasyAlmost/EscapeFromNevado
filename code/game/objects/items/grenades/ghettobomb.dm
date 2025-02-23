@@ -59,7 +59,7 @@
 /obj/item/grenade/iedcasing/attack_self(mob/user) //
 	if(!active)
 		if(!botch_check(user))
-			to_chat(user, span_warning("You light the [name]!"))
+			to_chat(user, span_warning("Ты зажжёг [name]!"))
 			cut_overlay("improvised_grenade_filled")
 			arm_grenade(user, null, FALSE)
 
@@ -74,4 +74,4 @@
 
 /obj/item/grenade/iedcasing/examine(mob/user)
 	. = ..()
-	. += "You can't tell when it will explode!"
+	. += "Ты понятия не имеешь, когда оно рванёт!"

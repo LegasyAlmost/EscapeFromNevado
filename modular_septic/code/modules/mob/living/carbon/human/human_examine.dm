@@ -13,10 +13,10 @@
 	var/t_isnt = "[t_is]n't"
 	var/t_es = p_es()
 	if(user == src)
-		t_He = "I"
+		t_He = "Я"
 		t_he = "i"
 		t_His = "My"
-		t_his = "my"
+		t_his = "моей"
 		t_him = "me"
 		t_has = "have"
 		t_is = "am"
@@ -29,7 +29,7 @@
 		fancy_name = "<span style='color: [sanitized_chat_color];text-shadow: 0 0 3px [sanitized_chat_color];'>[name]</span>"
 	var/obscure_name = FALSE
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
-	var/obscure_species = (skipface || obscure_name || (name == "Unknown"))
+	var/obscure_species = (skipface || obscure_name || (name == "Неизвестный"))
 	var/obscured = check_obscured_slots()
 	var/distance = get_dist(user, src)
 	if(isliving(user))
@@ -40,9 +40,9 @@
 
 	. = list()
 	if(obscure_species)
-		. += "[icon2html(dna.species.examine_icon, user, "human")] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, a <EM>Human</EM>?</span>"
+		. += "[icon2html(dna.species.examine_icon, user, "human")] <span class='info'>О! Да это же... <EM>[obscure_name ? "Неизвестный" : fancy_name]</EM>, и его вид... <EM>Человек</EM>?</span>"
 	else
-		. += "[icon2html(dna.species.examine_icon, user, dna.species.examine_icon_state)] <span class='info'>Oh, this is <EM>[obscure_name ? "Unknown" : fancy_name]</EM>, [prefix_a_or_an(dna.species.name)] <EM>[dna.species.name]</EM>!</span>"
+		. += "[icon2html(dna.species.examine_icon, user, dna.species.examine_icon_state)] <span class='info'>О! Да это же... <EM>[obscure_name ? "Неизвестный" : fancy_name]</EM>, и его вид... <EM>[dna.species.name]</EM>!</span>"
 	. += "<br><hr class='infohr'>"
 
 	//TODO: Add a social recordkeeping mechanic and datum to keep tracker of who the viewer knows
@@ -50,22 +50,22 @@
 	var/visible_job = get_assignment(if_no_id = "", if_no_job = "", hand_first = FALSE)
 	var/job_message = "<span class='info'>"
 	if(visible_job)
-		job_message += "I'm pretty sure [t_he] [t_is] [prefix_a_or_an(visible_job)] <b>[visible_job]</b>."
+		job_message += "Насколько я помню, [t_he] занимает должность <b>[visible_job]</b>."
 	else
-		job_message += "I don't know [t_his] occupation."
+		job_message += "Я без понятия, насчёт [t_his] трудовой занятости где-либо."
 	. += job_message
 
 	var/visible_gender = t_he
 	switch(visible_gender)
 		if("he", "she", "am")
-			visible_gender = "[t_He] [t_is] [get_aged_gender(TRUE, TRUE)]."
+			visible_gender = "Внешне, [t_He] половая принадлежность - [get_aged_gender(TRUE, TRUE)]."
 		if("i")
-			visible_gender = "[t_He] [t_is] [get_aged_gender(TRUE, TRUE)]."
+			visible_gender = "Моя половая принадлежность - [get_aged_gender(TRUE, TRUE)]."
 		else
 			if(user != src)
-				visible_gender = "I don't know their gender."
+				visible_gender = "Я не могу определить пол этого существа."
 			else
-				visible_gender = "I don't know my gender."
+				visible_gender = "Я не могу определить мой пол."
 	. += visible_gender
 
 	//lips
@@ -79,11 +79,11 @@
 		if(HAS_TRAIT(src, TRAIT_SSD_INDICATOR))
 			covered_lips |= "<span style='color: #[COLOR_BLUE_WATER];'>drool</span>"
 		if(LAZYLEN(covered_lips))
-			. += "Mmm, [t_his] lips are covered with [english_list(covered_lips)]!"
+			. += "Ммм, [t_his] губы покрыты [english_list(covered_lips)]!"
 
 	//head
 	if(head && !(obscured & ITEM_SLOT_HEAD) && !(head.item_flags & EXAMINE_SKIP) && !(head.item_flags & ABSTRACT))
-		. += "[t_He] [t_is] wearing <b>[head.get_examine_string(user)]</b> on [t_his] head."
+		. += "[t_He] носит на голове <b>[head.get_examine_string(user)]</b>."
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP) && !(w_uniform.item_flags & ABSTRACT))
@@ -92,21 +92,21 @@
 		if(istype(w_uniform, /obj/item/clothing/under))
 			var/obj/item/clothing/under/U = w_uniform
 			if(U.attached_accessory && !(U.attached_accessory.item_flags & EXAMINE_SKIP) && !(U.attached_accessory.item_flags & ABSTRACT))
-				accessory_msg += " with \a <b>[U.attached_accessory.get_examine_string(user, FALSE)]</b>"
+				accessory_msg += ", также у него есть <b>[U.attached_accessory.get_examine_string(user, FALSE)]</b>"
 
-		. += "[t_He] [t_is] wearing <b>[w_uniform.get_examine_string(user)]</b>[accessory_msg]."
+		. += "[t_He] одет в <b>[w_uniform.get_examine_string(user)]</b>[accessory_msg]."
 
 	//suit/armor
 	if(wear_suit && !(obscured & ITEM_SLOT_OCLOTHING) && !(wear_suit.item_flags & EXAMINE_SKIP) && !(wear_suit.item_flags & ABSTRACT))
-		. += "[t_He] [t_is] wearing <b>[wear_suit.get_examine_string(user)]</b>."
+		. += "[t_He] на туловище надето <b>[wear_suit.get_examine_string(user)]</b>."
 
 	//back
 	if(back && !(obscured & ITEM_SLOT_BACKPACK) && !(back.item_flags & EXAMINE_SKIP) && !(back.item_flags & ABSTRACT))
-		. += "[t_He] [t_has] <b>[back.get_examine_string(user)]</b> on [t_his] back."
+		. += "[t_He] носит на спине <b>[back.get_examine_string(user)]</b>."
 
 	//back 2 storage boogaloo
 	if(s_store && !(obscured & ITEM_SLOT_SUITSTORE) && !(s_store.item_flags & EXAMINE_SKIP) && !(s_store.item_flags & ABSTRACT))
-		. += "[t_He] [t_has] <b>[s_store.get_examine_string(user)]</b> on [t_his] back."
+		. += "[t_He] носит на плече <b>[s_store.get_examine_string(user)]</b>."
 
 	//hands
 	for(var/obj/item/I in held_items)

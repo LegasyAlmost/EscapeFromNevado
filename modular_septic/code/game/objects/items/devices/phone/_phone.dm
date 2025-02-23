@@ -109,7 +109,7 @@
 			if(CONNECTION_CALLING)
 				. += span_info("Звонит <b>[connected_phone.simcard.username]</b>.")
 	if(!simcard.username)
-		. += span_warning("[simcard]] Нету псевдонима пользователя.")
+		. += span_warning("[simcard] Нету псевдонима пользователя.")
 	else
 		. += span_info("<b>Псевдоним:</b> [simcard.username]")
 	. += span_info("<b>Номер телдефона:</b> [simcard.phone_number]")
