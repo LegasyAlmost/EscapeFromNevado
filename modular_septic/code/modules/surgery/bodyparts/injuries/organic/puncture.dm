@@ -9,50 +9,50 @@
 /datum/injury/puncture/small
 	max_bleeding_stage = 2
 	stages = list(
-		"puncture" = 5,
-		"healing puncture" = 2,
-		"small round scab" = 0
+		"прокол" = 5,
+		"заживающий прокол" = 2,
+		"маленький круглый струп" = 0
 		)
 
 /datum/injury/puncture/flesh
 	max_bleeding_stage = 2
 	stages = list(
-		"puncture wound" = 15,
-		"round blood soaked clot" = 5,
-		"large scab" = 2,
-		"small round scar" = 0
+		"колотая рана" = 15,
+		"круглый сгусток, пропитанный кровью" = 5,
+		"большой шрам" = 2,
+		"маленький круглый шрам" = 0
 		)
 	fade_away_time = INFINITY
 
 /datum/injury/puncture/gaping
 	max_bleeding_stage = 3
 	stages = list(
-		"gaping hole" = 30,
-		"large round blood soaked clot" = 15,
-		"round blood soaked clot" = 10,
-		"small round angry scar" = 5,
-		"small round scar" = 0
+		"зияющая дыра" = 30,
+		"большой круглый сгусток, пропитанный кровью" = 15,
+		"круглый сгусток, пропитанный кровью" = 10,
+		"маленький круглый рассеченный шрам" = 5,
+		"маленький круглый шрам" = 0
 		)
 	fade_away_time = INFINITY
 
 /datum/injury/puncture/gaping_big
 	max_bleeding_stage = 3
 	stages = list(
-		"big gaping hole" = 50,
-		"healing gaping hole" = 20,
-		"large round blood soaked clot" = 15,
-		"large round angry scar" = 10,
-		"large round scar" = 0
+		"большая зияющая дыра" = 50,
+		"заживающая зияющая дыра" = 20,
+		"большой круглый сгусток, пропитанный кровью" = 15,
+		"круглый рассеченный сгусток, пропитанный кровью" = 10,
+		"крупный круглый шрам" = 0
 		)
 	fade_away_time = INFINITY
 
 /datum/injury/puncture/massive
 	max_bleeding_stage = 3
 	stages = list(
-		"massive hole" = 60,
-		"massive healing hole" = 30,
-		"massive round blood soaked clot" = 25,
-		"massive round angry scar" = 10,
-		"massive round jagged scar" = 0
+		"огромная дыра" = 60,
+		"огромная заживающая дыра" = 30,
+		"огромный круглый сгусток, пропитанный кровью" = 25,
+		"огромный круглый рассеченный шрам" = 10,
+		"огромный круглый зазубренный шрам" = 0
 		)
 	fade_away_time = INFINITY

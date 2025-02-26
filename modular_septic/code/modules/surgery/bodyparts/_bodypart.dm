@@ -1293,9 +1293,9 @@
 		victim.applyOrganDamage(damage_amt, silent = (damage_amt >= 15))
 	if(owner)
 		if(damage_amt >= 15)
-			owner.custom_pain("<b>MY [uppertext(victim.name)] HURTS!</b>", rand(25, 35), affecting = src, nopainloss = TRUE)
+			owner.custom_pain("<b>МОЙ [uppertext(victim.name)] БОЛИТ!</b>", rand(25, 35), affecting = src, nopainloss = TRUE)
 		if(wound_messages)
-			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <b>An organ is damaged!</b>"))
+			SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_danger(" <b>Орган повреждён!</b>"))
 	return TRUE
 
 /// Creates an injury on the bodypart
@@ -1321,7 +1321,7 @@
 			var/datum/injury/compatible_injury = pick(compatible_injuries)
 			compatible_injury.open_injury(damage)
 			if(owner && wound_messages && prob(25 + damage))
-				SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_warning(" \The [compatible_injury.get_desc()] on [src] worsens!"))
+				SEND_SIGNAL(owner, COMSIG_CARBON_ADD_TO_WOUND_MESSAGE, span_warning(" ранение [compatible_injury.get_desc()] на [src] ухудшилось!"))
 			last_injury = compatible_injury
 			. = compatible_injury
 
@@ -1961,8 +1961,8 @@
 
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
-		owner.visible_message(span_danger("<b>[owner]</b>'s [current_gauze] on [owner.p_their()] [name] falls away in rags."), \
-						span_userdanger("<i>[current_gauze] on my [name] falls away in rags.</i>"), \
+		owner.visible_message(span_danger("<b>[owner]</b> износившаяся [current_gauze] падает с [owner.p_their()] [name] на пол."), \
+						span_userdanger("<i>[current_gauze] износилось на [name] и упало на пол.</i>"), \
 						vision_distance=COMBAT_MESSAGE_RANGE,\
 						)
 		remove_gauze(FALSE)

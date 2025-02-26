@@ -2,8 +2,8 @@
  * Base class for all grenades.
  */
 /obj/item/grenade
-	name = "Граната"
-	desc = "It has an adjustable timer."
+	name = "граната"
+	desc = "У неё есть настраиваемый таймер."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "grenade"
@@ -47,7 +47,7 @@
 	var/shrapnel_initialized
 
 /obj/item/grenade/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] primes [src], then eats it! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] активирует [src], и затем съедает её! Кажись, [user.p_theyre()] пытается убиться!"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	arm_grenade(user, det_time)
 	user.transferItemToLoc(src, user, TRUE)//>eat a grenade set to 5 seconds >rush captain
@@ -73,11 +73,11 @@
 
 	var/clumsy = HAS_TRAIT(user, TRAIT_CLUMSY)
 	if(clumsy && (clumsy_check == GRENADE_CLUMSY_FUMBLE) && prob(50))
-		to_chat(user, span_warning("Huh? How does this thing work?"))
+		to_chat(user, span_warning("А? Как эта штука работает?"))
 		arm_grenade(user, 5, FALSE)
 		return TRUE
 	else if(!clumsy && (clumsy_check == GRENADE_NONCLUMSY_FUMBLE))
-		to_chat(user, span_warning("You pull the pin on [src]. Attached to it is a pink ribbon that says, \"[span_clown("HONK")]\""))
+		to_chat(user, span_warning("Вы достали чеку из [src]. К ней прикреплена розовая лента с надписью: \"[span_clown("ХОНК")]\""))
 		arm_grenade(user, 5, FALSE)
 		return TRUE
 
@@ -85,9 +85,9 @@
 	. = ..()
 	if(display_timer)
 		if(det_time > 0)
-			. += "The timer is set to [DisplayTimeText(det_time)]."
+			. += "Таймер подрыва установлен на: [DisplayTimeText(det_time)]."
 		else
-			. += "\The [src] is set for instant detonation."
+			. += "[src] граната взорвётся мгновенно."
 
 /obj/item/grenade/attack_self(mob/user)
 	if(HAS_TRAIT(src, TRAIT_NODROP))
@@ -151,16 +151,16 @@
 		return ..()
 
 	if(weapon.tool_behaviour == TOOL_MULTITOOL)
-		var/newtime = text2num(stripped_input(user, "Please enter a new detonation time", name))
+		var/newtime = text2num(stripped_input(user, "Введите новое время перед детонацией", name))
 		if (newtime != null && user.canUseTopic(src, BE_CLOSE))
 			if(change_det_time(newtime))
-				to_chat(user, span_notice("You modify the time delay. It's set for [DisplayTimeText(det_time)]."))
+				to_chat(user, span_notice("Вы изменили задержку перед взрывом. Теперь она взорвётся через: [DisplayTimeText(det_time)]."))
 				if (round(newtime * 10) != det_time)
-					to_chat(user, span_warning("The new value is out of bounds. The lowest possible time is 3 seconds and highest is 5 seconds. Instant detonations are also possible."))
+					to_chat(user, span_warning("Новое значение не входит в доступные рамки. Установите время от 3 или до 5 секунд. Мгновенная детонация тоже возможна для установки."))
 		return
 	else if(weapon.tool_behaviour == TOOL_SCREWDRIVER)
 		if(change_det_time())
-			to_chat(user, span_notice("You modify the time delay. It's set for [DisplayTimeText(det_time)]."))
+			to_chat(user, span_notice("Ты изменил задержку перед подрывом. Время установлено на: [DisplayTimeText(det_time)]."))
 
 /obj/item/grenade/proc/change_det_time(time) //Time uses real time.
 	. = TRUE

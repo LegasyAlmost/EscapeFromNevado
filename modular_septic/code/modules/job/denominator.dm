@@ -16,10 +16,12 @@
 	backpack_contents = list(
 		/obj/item/keycard/red = 1,
 		/obj/item/melee/truncheon/black = 1,
+		/obj/item/ammo_box/magazine/hksmg380 = 3
 		)
 	l_pocket = /obj/item/simcard
 	r_pocket = /obj/item/ammo_box/magazine/hksmg380
 	id = /obj/item/cellphone
+	glasses = /obj/item/clothing/glasses/night
 	head = /obj/item/clothing/head/denominator
 	gloves = /obj/item/clothing/gloves/color/black
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -30,6 +32,12 @@
 /datum/outfit/denominator/shotgunner
 	name = "Denominator Shotgunner"
 	suit = /obj/item/clothing/suit/armor/denominator/shotgunner
+	glasses = /obj/item/clothing/glasses/night
 	head = /obj/item/clothing/head/denominator/shotgunner
 	suit_store = /obj/item/gun/ballistic/shotgun/denominator
 	r_pocket = /obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded
+	backpack_contents = list(
+		/obj/item/keycard/red = 1,
+		/obj/item/melee/truncheon/black = 1,
+		/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded = 4
+		)

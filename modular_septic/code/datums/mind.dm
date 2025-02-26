@@ -6,6 +6,8 @@
 	. = ..()
 	if(SSmapping.config?.combat_map)
 		combat_music = 'modular_septic/sound/music/combat/gakstercombat.ogg'
+//		combat_music = list('modular_septic/sound/music/combat/deathmatch/inborn.ogg', 'modular_septic/sound/music/combat/deathmatch/denominator.ogg',
+//			'modular_septic/sound/music/combat/orcherd.ogg', 'modular_septic/sound/music/combat/gakstercombat.ogg') // it's just works. Случайная мелодия при запуске.
 
 /datum/mind/give_uplink(silent, datum/antagonist/antag_datum)
 	if(!current)
