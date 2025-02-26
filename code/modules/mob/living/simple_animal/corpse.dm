@@ -173,7 +173,7 @@
 /datum/outfit/nanotrasensoldiercorpse2
 	name = "Тело сотрудника ЧОПа"
 	uniform = /obj/item/clothing/under/rank/security/officer
-	suit = /obj/item/clothing/suit/armor/vest
+	suit = /obj/item/clothing/suit/armor/vest/alt
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/tackler/combat
 	ears = /obj/item/radio/headset
@@ -192,7 +192,7 @@
 /datum/outfit/nanotrasenassaultsoldiercorpse
 	name = "Мёртвый боец высокого ранга ЧОПа"
 	uniform = /obj/item/clothing/under/syndicate
-	suit = /obj/item/clothing/suit/armor/vest
+	suit = /obj/item/clothing/suit/armor/vest/alt
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	ears = /obj/item/radio/headset

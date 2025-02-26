@@ -5474,6 +5474,7 @@
 #include "modular_septic\code\modules\uplink\uplink_items.dm"
 #include "modular_septic\code\modules\vending\_vending.dm"
 #include "modular_septic\code\modules\vending\autodrobe.dm"
+#include "modular_septic\code\modules\vending\h34lth.dm"
 #include "modular_septic\code\modules\vending\killbitches.dm"
 #include "modular_septic\code\modules\vending\medical.dm"
 #include "modular_septic\code\modules\vending\resupply_puta.dm"

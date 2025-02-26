@@ -1,35 +1,36 @@
-/obj/machinery/vending/tiktok
-	name = "Godforsaken"
-	desc = "РњР°С€РёРЅР° РЅРµРёР·РІРµСЃС‚РЅРѕРіРѕ РіРµРЅРёСЏ, РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ, РєР°Рє Рё Р»РѕРіРѕ РєРѕРјРїР°РЅРёРё-РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ СЃС‚С‘СЂС‚С‹, СѓРІС‹. \n\
+/*
+/obj/machinery/vending/healther
+	name = "Docforsaken"
+	desc = "Машина неизвестного гения, порядковый номер, как и лого компании-производителя стёрты, увы. \n\
 	<div class='infobox'> \
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 РїСЂРѕРІРѕРґ + 1 Р±Р°РЅРєР° Р±РѕР±РѕРІ - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = PPK \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 Р±Р°РЅРєРё С‚СѓС€РµРЅРєРё - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Bolsa SMG \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 РїРёСЃС‚РѕР»РµС‚Р° PPK - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Th(ump) SMG \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 3 individual batteries - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Inverno Genocidio Rifle \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Chunky Battery - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Federson bolt-action \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Р·СѓР±РЅР°СЏ С‰С‘С‚РєР° - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Combat Shotgun \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Р“РћР›РћР’Рђ - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Frag Master 9mm \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Stomach - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Touro-5 Faceshield \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 (any) computer circuit - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Р§РЃР РќР«Р™ РџРћРњРџРћР’Р«Р™ Р”Р РћР‘РћР’РРљ \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 8 Carbonylmethamphetamine pills - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Abyss Rifle \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 4 HE Shells - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Batata grenade launcher \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 (any) bottle - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Solitario-SD \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Soap Dispenser - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Lampiao (SVD) DMR \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Sounding Rod - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Bolt ACR \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 (any) hearts - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Industrial Glue Gun \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 (any) intestines - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Bolas 4 Guage Shotgun \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 (any) kidneys - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Aniquilador LE living pistol \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 CCP booklet - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Heavy Helmet \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Broken LCD - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Heavy Vest \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 3 Left legs, 3 Right legs - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = UltraHeavy Vest \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Crowbar - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Slaughter Goggles \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 3 Light Bulbs - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Satchel \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Black Gloves - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Suppressor \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Chair - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Military Rig (belt) \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Syringe + 2 Individual Batteries - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Energy Sword \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Left Arm + 1 Right Arm - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Kukri \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Wooden Chair - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Oxygen Tank \n\
-	Рџ Р  Р Рќ Р Рњ Рђ Р®: 4 Glass Shards - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Carbonylmethamphetamine \
+	П Р И Н И М А Ю: 1 провод + 1 банка бобов - П О Л У Ч И Ш Ь = PPK \n\
+	П Р И Н И М А Ю: 2 банки тушенки - П О Л У Ч И Ш Ь = Bolsa SMG \n\
+	П Р И Н И М А Ю: 2 пистолета PPK - П О Л У Ч И Ш Ь = Th(ump) SMG \n\
+	П Р И Н И М А Ю: 3 individual batteries - П О Л У Ч И Ш Ь = Inverno Genocidio Rifle \n\
+	П Р И Н И М А Ю: 1 Chunky Battery - П О Л У Ч И Ш Ь = Federson bolt-action \n\
+	П Р И Н И М А Ю: 1 зубная щётка - П О Л У Ч И Ш Ь = Combat Shotgun \n\
+	П Р И Н И М А Ю: 1 ГОЛОВА - П О Л У Ч И Ш Ь = Frag Master 9mm \n\
+	П Р И Н И М А Ю: 1 Stomach - П О Л У Ч И Ш Ь = Touro-5 Faceshield \n\
+	П Р И Н И М А Ю: 1 (any) computer circuit - П О Л У Ч И Ш Ь = ЧЁРНЫЙ ПОМПОВЫЙ ДРОБОВИК \n\
+	П Р И Н И М А Ю: 8 Carbonylmethamphetamine pills - П О Л У Ч И Ш Ь = Abyss Rifle \n\
+	П Р И Н И М А Ю: 4 HE Shells - П О Л У Ч И Ш Ь = Batata grenade launcher \n\
+	П Р И Н И М А Ю: 1 (any) bottle - П О Л У Ч И Ш Ь = Solitario-SD \n\
+	П Р И Н И М А Ю: 1 Soap Dispenser - П О Л У Ч И Ш Ь = Lampiao (SVD) DMR \n\
+	П Р И Н И М А Ю: 1 Sounding Rod - П О Л У Ч И Ш Ь = Bolt ACR \n\
+	П Р И Н И М А Ю: 2 (any) hearts - П О Л У Ч И Ш Ь = Industrial Glue Gun \n\
+	П Р И Н И М А Ю: 1 (any) intestines - П О Л У Ч И Ш Ь = Bolas 4 Guage Shotgun \n\
+	П Р И Н И М А Ю: 2 (any) kidneys - П О Л У Ч И Ш Ь = Aniquilador LE living pistol \n\
+	П Р И Н И М А Ю: 1 CCP booklet - П О Л У Ч И Ш Ь = Heavy Helmet \n\
+	П Р И Н И М А Ю: 1 Broken LCD - П О Л У Ч И Ш Ь = Heavy Vest \n\
+	П Р И Н И М А Ю: 3 Left legs, 3 Right legs - П О Л У Ч И Ш Ь = UltraHeavy Vest \n\
+	П Р И Н И М А Ю: 1 Crowbar - П О Л У Ч И Ш Ь = 1 Slaughter Goggles \n\
+	П Р И Н И М А Ю: 3 Light Bulbs - П О Л У Ч И Ш Ь = 1 Satchel \n\
+	П Р И Н И М А Ю: 1 Black Gloves - П О Л У Ч И Ш Ь = 1 Suppressor \n\
+	П Р И Н И М А Ю: 1 Chair - П О Л У Ч И Ш Ь = 1 Military Rig (belt) \n\
+	П Р И Н И М А Ю: 1 Syringe + 2 Individual Batteries - П О Л У Ч И Ш Ь = Energy Sword \n\
+	П Р И Н И М А Ю: 1 Left Arm + 1 Right Arm - П О Л У Ч И Ш Ь = Kukri \n\
+	П Р И Н И М А Ю: 1 Wooden Chair - П О Л У Ч И Ш Ь = 1 Oxygen Tank \n\
+	П Р И Н И М А Ю: 4 Glass Shards - П О Л У Ч И Ш Ь = 1 Carbonylmethamphetamine \
     </div>"
 	density = FALSE
 	onstation = FALSE
@@ -166,3 +167,4 @@
 /obj/machinery/vending/tiktok/directional/west
 	dir = EAST
 	pixel_x = -32
+*/
