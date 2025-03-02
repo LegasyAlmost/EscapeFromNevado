@@ -1,27 +1,27 @@
-import { exhaustiveCheck } from "common/exhaustive";
+import { exhaustiveCheck } from "../../../common/exhaustive";
 import { useBackend, useLocalState } from "../../backend";
 import { Button, Stack } from "../../components";
 import { Window } from "../../layouts";
 import { PreferencesMenuData } from "./data";
 import { PageButton } from "./PageButton";
-//import { AntagsPage } from "./AntagsPage";
-//import { JobsPage } from "./JobsPage";
+// import { AntagsPage } from "./AntagsPage";
+// import { JobsPage } from "./JobsPage";
 import { MainPage } from "./MainPage";
 import { SpeciesPage } from "./SpeciesPage";
 import { QuirksPage } from "./QuirksPage";
-//import { LanguagesPage } from "./LanguagesPage";
-//import { MarkingsPage } from "./MarkingsPage";
+// import { LanguagesPage } from "./LanguagesPage";
+// import { MarkingsPage } from "./MarkingsPage";
 import { AugmentsPage } from "./AugmentsPage";
 import { BackgroundPage } from "./BackgroundPage";
 
 enum Page {
   Main,
-  //Markings,
+  // Markings,
   Augments,
-  //Languages,
+  // Languages,
   Background,
-  //Jobs,
-  //Antags,
+  // Jobs,
+  // Antags,
   Species,
   Quirks,
 }
@@ -57,12 +57,12 @@ export const CharacterPreferenceWindow = (props, context) => {
   let pageContents;
 
   switch (currentPage) {
-    //case Page.Antags:
-      //pageContents = <AntagsPage />;
-      //break;
-    //case Page.Jobs:
-      //pageContents = <JobsPage />;
-     // break;
+    // case Page.Antags:
+    //  pageContents = <AntagsPage />;
+    //  break;
+    // case Page.Jobs:
+    //  pageContents = <JobsPage />;
+    // break;
     case Page.Main:
       pageContents = (<MainPage
         openSpecies={() => setCurrentPage(Page.Species)}
@@ -76,10 +76,10 @@ export const CharacterPreferenceWindow = (props, context) => {
     case Page.Quirks:
       pageContents = <QuirksPage />;
       break;
-    //case Page.Languages:
-      //pageContents = <LanguagesPage />;
-      //break;
-    //case Page.Markings:
+    // case Page.Languages:
+      // pageContents = <LanguagesPage />;
+      // break;
+    // case Page.Markings:
     //  pageContents = <MarkingsPage />;
     //  break;
     case Page.Augments:
