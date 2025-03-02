@@ -2,7 +2,7 @@
 
 	if(notransform)
 		return
-	if(stat == DEAD)
+	if(stat == DEAD && !mind)
 		return
 
 	if(recoil_buildup > 0)
@@ -357,7 +357,7 @@
 			. |= BP.on_life(delta_time, times_fired, stam_regen)
 
 /mob/living/carbon/proc/handle_organs(delta_time, times_fired)
-	if(stat != DEAD)
+	if(stat != DEAD && !mind)
 		for(var/organ_slot in GLOB.organ_process_order)
 			var/obj/item/organ/organ = getorganslot(organ_slot)
 			if(organ?.owner) // This exist mostly because reagent metabolization can cause organ reshuffling
@@ -375,7 +375,7 @@
 		if(DT_PROB(D.infectivity, delta_time))
 			D.spread()
 
-		if(stat != DEAD || D.process_dead)
+		if(stat != DEAD && !mind || D.process_dead)
 			D.stage_act(delta_time, times_fired)
 
 /mob/living/carbon/handle_wounds(delta_time, times_fired)
@@ -583,7 +583,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /mob/living/carbon/handle_environment(datum/gas_mixture/environment, delta_time, times_fired)
 	var/areatemp = get_temperature(environment)
 
-	if(stat != DEAD) // If you are dead your body does not stabilize naturally
+	if(stat != DEAD && !mind) // If you are dead your body does not stabilize naturally
 		natural_bodytemperature_stabilization(environment, delta_time, times_fired)
 
 	if(!on_fire || areatemp > bodytemperature) // If we are not on fire or the area is hotter

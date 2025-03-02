@@ -25,7 +25,7 @@
 	. = ..()
 	if(QDELETED(src))
 		return FALSE
-	if(stat == DEAD)
+	if(stat == DEAD && !mind)
 		return FALSE
 	//Body temperature stability and damage
 	dna.species.handle_body_temperature(src, delta_time, times_fired)
@@ -50,7 +50,7 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(stat != DEAD)
+	if(stat != DEAD && !mind)
 		return TRUE
 
 
