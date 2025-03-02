@@ -74,6 +74,9 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 
 /obj/structure/gptdfm/proc/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Time for my journey. I'm going to [specific_location.name].")
 	to_chat(user, span_notice("[leaving_message]"))
+	if(HAS_TRAIT(user, TRAIT_NO_ACCESS))
+		to_chat(user, span_notice("You can't"))
+		return
 	if(user.pulling)
 		var/mob/friend1 = user.pulling
 		var/mob/friend2
@@ -91,9 +94,6 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 		do_teleport(user, specific_location, no_effects = TRUE, channel = TELEPORT_CHANNEL_BLUESPACE)
 		playsound(user, gurby_unescape, 80, FALSE)
 		user.flash_darkness(100)
-	if(HAS_TRAIT(user, TRAIT_NO_ACCESS))
-		to_chat(user, span_notice("You can't"))
-		return
 
 /obj/structure/gptdfm/proc/mass_teleportation(mob/leader, list/mob/friends_list, specific_location)
 	var/friend_message_composed = "<div class='infobox'>I'm bringing my PARTY along with me:"
