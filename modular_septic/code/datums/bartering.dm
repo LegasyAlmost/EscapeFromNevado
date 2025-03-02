@@ -260,3 +260,40 @@
     inputs = list(
         /obj/item/shard = 4
     )
+
+////////////////////HEALTHER////////////////////////
+/datum/healther_recipe
+    var/list/outputs = null
+    var/list/inputs = null
+
+///SURGERY///
+
+/datum/healther_recipe/helmet
+    outputs = list(
+        /obj/item/clothing/head/helmet/heavy = 1
+    )
+    inputs = list(
+        /obj/item/book/ccp_propaganda = 1
+    )
+
+/datum/healther_recipe/vest
+    outputs = list(
+        /obj/item/clothing/suit/armor/vest/alt/heavy = 1
+    )
+    inputs = list(
+        /obj/item/deviouslick/broken_lcd = 1
+    )
+
+///KITS///
+/datum/bartering_recipe/abyss
+    outputs = list(
+        /obj/item/gun/ballistic/automatic/remis/abyss = 1,
+		/obj/item/ammo_box/magazine/a545 = 2
+    )
+    inputs = list(
+        /obj/item/reagent_containers/pill/carbonylmethamphetamine = 8
+    )
+
+///IMPLANTS///
+
+///DRUGS///

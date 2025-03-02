@@ -1,36 +1,35 @@
-/*
 /obj/machinery/vending/healther
-	name = "Docforsaken"
-	desc = "Машина неизвестного гения, порядковый номер, как и лого компании-производителя стёрты, увы. \n\
+	name = "GodForBlooded"
+	desc = "God. For. Blood. Р‘Р°СЂС‚РµСЂРЅС‹Р№ Р°РІС‚РѕРјР°С‚, РІС‹РґР°СЋС‰РёР№ РјРµРґРёС†РёРЅСѓ Р·Р° С‡С‚Рѕ-С‚Рѕ... \n\
 	<div class='infobox'> \
-	П Р И Н И М А Ю: 1 провод + 1 банка бобов - П О Л У Ч И Ш Ь = PPK \n\
-	П Р И Н И М А Ю: 2 банки тушенки - П О Л У Ч И Ш Ь = Bolsa SMG \n\
-	П Р И Н И М А Ю: 2 пистолета PPK - П О Л У Ч И Ш Ь = Th(ump) SMG \n\
-	П Р И Н И М А Ю: 3 individual batteries - П О Л У Ч И Ш Ь = Inverno Genocidio Rifle \n\
-	П Р И Н И М А Ю: 1 Chunky Battery - П О Л У Ч И Ш Ь = Federson bolt-action \n\
-	П Р И Н И М А Ю: 1 зубная щётка - П О Л У Ч И Ш Ь = Combat Shotgun \n\
-	П Р И Н И М А Ю: 1 ГОЛОВА - П О Л У Ч И Ш Ь = Frag Master 9mm \n\
-	П Р И Н И М А Ю: 1 Stomach - П О Л У Ч И Ш Ь = Touro-5 Faceshield \n\
-	П Р И Н И М А Ю: 1 (any) computer circuit - П О Л У Ч И Ш Ь = ЧЁРНЫЙ ПОМПОВЫЙ ДРОБОВИК \n\
-	П Р И Н И М А Ю: 8 Carbonylmethamphetamine pills - П О Л У Ч И Ш Ь = Abyss Rifle \n\
-	П Р И Н И М А Ю: 4 HE Shells - П О Л У Ч И Ш Ь = Batata grenade launcher \n\
-	П Р И Н И М А Ю: 1 (any) bottle - П О Л У Ч И Ш Ь = Solitario-SD \n\
-	П Р И Н И М А Ю: 1 Soap Dispenser - П О Л У Ч И Ш Ь = Lampiao (SVD) DMR \n\
-	П Р И Н И М А Ю: 1 Sounding Rod - П О Л У Ч И Ш Ь = Bolt ACR \n\
-	П Р И Н И М А Ю: 2 (any) hearts - П О Л У Ч И Ш Ь = Industrial Glue Gun \n\
-	П Р И Н И М А Ю: 1 (any) intestines - П О Л У Ч И Ш Ь = Bolas 4 Guage Shotgun \n\
-	П Р И Н И М А Ю: 2 (any) kidneys - П О Л У Ч И Ш Ь = Aniquilador LE living pistol \n\
-	П Р И Н И М А Ю: 1 CCP booklet - П О Л У Ч И Ш Ь = Heavy Helmet \n\
-	П Р И Н И М А Ю: 1 Broken LCD - П О Л У Ч И Ш Ь = Heavy Vest \n\
-	П Р И Н И М А Ю: 3 Left legs, 3 Right legs - П О Л У Ч И Ш Ь = UltraHeavy Vest \n\
-	П Р И Н И М А Ю: 1 Crowbar - П О Л У Ч И Ш Ь = 1 Slaughter Goggles \n\
-	П Р И Н И М А Ю: 3 Light Bulbs - П О Л У Ч И Ш Ь = 1 Satchel \n\
-	П Р И Н И М А Ю: 1 Black Gloves - П О Л У Ч И Ш Ь = 1 Suppressor \n\
-	П Р И Н И М А Ю: 1 Chair - П О Л У Ч И Ш Ь = 1 Military Rig (belt) \n\
-	П Р И Н И М А Ю: 1 Syringe + 2 Individual Batteries - П О Л У Ч И Ш Ь = Energy Sword \n\
-	П Р И Н И М А Ю: 1 Left Arm + 1 Right Arm - П О Л У Ч И Ш Ь = Kukri \n\
-	П Р И Н И М А Ю: 1 Wooden Chair - П О Л У Ч И Ш Ь = 1 Oxygen Tank \n\
-	П Р И Н И М А Ю: 4 Glass Shards - П О Л У Ч И Ш Ь = 1 Carbonylmethamphetamine \
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 РїСЂРѕРІРѕРґ + 1 Р±Р°РЅРєР° Р±РѕР±РѕРІ - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = PPK \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 Р±Р°РЅРєРё С‚СѓС€РµРЅРєРё - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Bolsa SMG \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 РїРёСЃС‚РѕР»РµС‚Р° PPK - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Th(ump) SMG \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 3 individual batteries - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Inverno Genocidio Rifle \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Chunky Battery - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Federson bolt-action \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Р·СѓР±РЅР°СЏ С‰С‘С‚РєР° - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Combat Shotgun \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Р“РћР›РћР’Рђ - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Frag Master 9mm \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Stomach - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Touro-5 Faceshield \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 (any) computer circuit - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Р§РЃР РќР«Р™ РџРћРњРџРћР’Р«Р™ Р”Р РћР‘РћР’РРљ \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 8 Carbonylmethamphetamine pills - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Abyss Rifle \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 4 HE Shells - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Batata grenade launcher \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 (any) bottle - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Solitario-SD \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Soap Dispenser - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Lampiao (SVD) DMR \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Sounding Rod - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Bolt ACR \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 (any) hearts - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Industrial Glue Gun \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 (any) intestines - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Bolas 4 Guage Shotgun \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 2 (any) kidneys - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Aniquilador LE living pistol \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 CCP booklet - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Heavy Helmet \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Broken LCD - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Heavy Vest \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 3 Left legs, 3 Right legs - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = UltraHeavy Vest \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Crowbar - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Slaughter Goggles \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 3 Light Bulbs - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Satchel \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Black Gloves - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Suppressor \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Chair - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Military Rig (belt) \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Syringe + 2 Individual Batteries - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Energy Sword \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Left Arm + 1 Right Arm - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = Kukri \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 1 Wooden Chair - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Oxygen Tank \n\
+	Рџ Р  Р Рќ Р Рњ Рђ Р®: 4 Glass Shards - Рџ Рћ Р› РЈ Р§ Р РЁ Р¬ = 1 Carbonylmethamphetamine \
     </div>"
 	density = FALSE
 	onstation = FALSE
@@ -54,9 +53,9 @@
 	var/crushersound = list('modular_septic/sound/effects/crusher1.wav', 'modular_septic/sound/effects/crusher2.wav', 'modular_septic/sound/effects/crusher3.wav')
 	COOLDOWN_DECLARE(refuse_cooldown)
 
-/obj/machinery/vending/tiktok/attackby(obj/item/I, mob/living/user, params)
+/obj/machinery/vending/healther/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
-	if(!GLOB.bartering_inputs[I.type])
+	if(!GLOB.healther_inputs[I.type])
 		if(COOLDOWN_FINISHED(src, refuse_cooldown))
 			sound_hint()
 			playsound(src, 'modular_septic/sound/effects/clunk.wav', 60, vary = FALSE)
@@ -66,16 +65,16 @@
 		sound_hint()
 		playsound(src, crushersound, 70, vary = FALSE)
 		INVOKE_ASYNC(src, PROC_REF(crushing_animation))
-		check_bartering()
+		check_healther()
 
-/obj/machinery/vending/tiktok/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/machinery/vending/healther/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	if(!isliving(usr) || !usr.Adjacent(src) || usr.incapacitated())
 		return
 	if(over == loc)
 		vomit_items()
 
-/obj/machinery/vending/tiktok/process(delta_time)
+/obj/machinery/vending/healther/process(delta_time)
 	if(machine_stat & BROKEN | NOPOWER)
 		return PROCESS_KILL
 	if(!active)
@@ -92,23 +91,23 @@
 		speak(slogan)
 		last_slogan = world.time
 
-/obj/machinery/vending/tiktok/proc/crushing_animation()
+/obj/machinery/vending/healther/proc/crushing_animation()
 	add_overlay("[base_icon_state]-eat")
 	sleep(11)
 	cut_overlay("[base_icon_state]-eat")
 
-/obj/machinery/vending/tiktok/proc/check_bartering()
-	var/datum/bartering_recipe/bartering_recipe
+/obj/machinery/vending/healther/proc/check_healther()
+	var/datum/healther_recipe/healther_recipe
 	//loop through every bartering recipe and attempt to execute it
-	for(var/recipe_type as anything in GLOB.bartering_recipes)
-		bartering_recipe = GLOB.bartering_recipes[recipe_type]
+	for(var/recipe_type as anything in GLOB.healther_recipes)
+		healther_recipe = GLOB.healther_recipes[recipe_type]
 		//associated list, every item we end up needing to use in the recipe and the associated input path type
 		var/list/valid_inputs = list()
 		//associated list, every input path type associated with the amount we have
 		var/list/input_counter = list()
 		var/recipe_failed = FALSE
-		for(var/input_type in bartering_recipe.inputs)
-			var/amount_needed = bartering_recipe.inputs[input_type]
+		for(var/input_type in healther_recipe.inputs)
+			var/amount_needed = healther_recipe.inputs[input_type]
 			for(var/obj/item/thing_inside_us in contents)
 				if(input_counter[input_type] >= amount_needed)
 					break
@@ -138,33 +137,33 @@
 			else
 				input_counter[input_type] -= 1
 				qdel(input)
-		for(var/output in bartering_recipe.outputs)
-			var/output_amount = bartering_recipe.outputs[output]
+		for(var/output in healther_recipe.outputs)
+			var/output_amount = healther_recipe.outputs[output]
 			for(var/i in 1 to output_amount)
 				new output(loc)
 		playsound(src, 'modular_septic/sound/effects/ring.wav', 90, TRUE)
 		speak("Take from me.")
 
-/obj/machinery/vending/tiktok/proc/vomit_items()
+/obj/machinery/vending/healther/proc/vomit_items()
 	//remis please add a vomiting blorf sound right below this comment
 	playsound(src, barfsound, 65, FALSE)
 	for(var/obj/item/vomited in src)
 		vomited.forceMove(loc)
 
 //	remove_overlay("[base_icon_state]-eat")
-/obj/machinery/vending/tiktok/directional/north
+/obj/machinery/vending/healther/directional/north
 	dir = SOUTH
 	pixel_y = 32
 
-/obj/machinery/vending/tiktok/directional/south
+/obj/machinery/vending/healther/directional/south
 	dir = NORTH
 	pixel_y = -32
 
-/obj/machinery/vending/tiktok/directional/east
+/obj/machinery/vending/healther/directional/east
 	dir = WEST
 	pixel_x = 32
 
-/obj/machinery/vending/tiktok/directional/west
+/obj/machinery/vending/healther/directional/west
 	dir = EAST
 	pixel_x = -32
-*/
+
