@@ -2,6 +2,8 @@
 
 	if(notransform)
 		return
+	if(stat == DEAD)
+		return
 
 	if(recoil_buildup > 0)
 		recoil_buildup -= 2

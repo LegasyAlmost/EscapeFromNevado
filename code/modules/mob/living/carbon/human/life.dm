@@ -25,7 +25,8 @@
 	. = ..()
 	if(QDELETED(src))
 		return FALSE
-
+	if(stat == DEAD)
+		return FALSE
 	//Body temperature stability and damage
 	dna.species.handle_body_temperature(src, delta_time, times_fired)
 

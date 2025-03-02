@@ -49,6 +49,7 @@ map breaker
 endmap
 
 map verina
+default
 endmap
 
 map prison_verina
