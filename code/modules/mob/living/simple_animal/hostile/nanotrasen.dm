@@ -23,6 +23,7 @@
 	attack_sound = 'sound/weapons/punch1.ogg'
 	combat_mode = TRUE
 	loot = list(/obj/effect/mob_spawn/human/corpse/nanotrasensoldier)
+	var/list/secondary_loot = list()
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
 	unsuitable_atmos_damage = 7.5
 	faction = list(ROLE_DEATHSQUAD)
@@ -31,6 +32,13 @@
 	del_on_death = TRUE
 	dodging = TRUE
 	footstep_type = FOOTSTEP_MOB_SHOE
+
+/mob/living/simple_animal/hostile/nanotrasen/drop_loot()
+	..()
+	if(secondary_loot.len)
+		for(var/i in secondary_loot)
+			if(prob(50))
+				new i(loc)
 
 /mob/living/simple_animal/hostile/nanotrasen/screaming
 	icon_state = "nanotrasen"
@@ -56,5 +64,6 @@
 	icon_state = "nanotrasenrangedsmg"
 	icon_living = "nanotrasenrangedsmg"
 	rapid = 3
-	casingtype = /obj/item/ammo_casing/c46x30mm
-	projectilesound = 'sound/weapons/gun/smg/shot.ogg'
+	casingtype = /obj/item/ammo_casing/c45
+	projectilesound = 'modular_septic/sound/weapons/guns/smg/vityaz.ogg'
+	secondary_loot = list(/obj/item/gun/ballistic/automatic/remis/smg/bastardo, /obj/item/ammo_box/magazine/bastardo9mm = 4)
