@@ -49,6 +49,7 @@
 	minimum_distance = 3
 	check_friendly_fire = TRUE
 	projectilesound = 'modular_septic/sound/weapons/guns/revolver/nova.wav'
+	projectiletype = /obj/projectile/bullet/c9mm
 	casingtype = /obj/item/ammo_casing/c9mm
 	secondary_loot = list(/obj/item/ammo_box/magazine/ammo_stack/c9mm/loaded, /obj/item/ammo_box/magazine/ammo_stack/c9mm)
 

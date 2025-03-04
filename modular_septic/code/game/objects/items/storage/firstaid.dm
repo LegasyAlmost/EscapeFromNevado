@@ -162,6 +162,8 @@
 	pickup_sound = 'modular_septic/sound/effects/pouch_pickup.wav'
 	drop_sound = 'modular_septic/sound/effects/pouch_drop.wav'
 	var/is_open = FALSE
+	tetris_width = 32
+	tetris_height = 64
 
 /obj/item/storage/firstaid/morango/Initialize()
 	. = ..()

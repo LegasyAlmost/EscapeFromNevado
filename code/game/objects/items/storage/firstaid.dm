@@ -18,6 +18,8 @@
 	throw_range = 7
 	var/empty = FALSE
 	var/damagetype_healed //defines damage type of the medkit. General ones stay null. Used for medibot healing bonuses
+	tetris_width = 64
+	tetris_height = 64
 
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"

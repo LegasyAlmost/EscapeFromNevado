@@ -9,9 +9,9 @@
 	worn_icon_state = "knife"
 	desc = "Нож, который режет. Мясо, овощи, плоть. В глаз лучше не целить."
 	flags_1 = CONDUCT_1
-	force = 10
+	force = 12
 	w_class = WEIGHT_CLASS_SMALL
-	throwforce = 10
+	throwforce = 15
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throw_speed = 3
 	throw_range = 6

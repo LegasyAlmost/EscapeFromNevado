@@ -66,58 +66,58 @@
 		//var/pitch = initial_pitch Disabled for now. Doesn't work as intended- seemingly anything above default is dumb sounding
 		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
-		switch(lowertext(message[i])) // A super convoluted list of checks, I know. I doubt there's a better way to do it.
-			if("a")
+		switch(lowertext(message[i])) //TODO: add kirilitca = english word
+			if("a" || "а")
 				boop_letter = "A"
-			if("b")
+			if("b" || "б")
 				boop_letter = "B"
-			if("c")
+			if("c" || "ц" || "ч")
 				boop_letter = "C"
-			if("d")
+			if("d" || "д")
 				boop_letter = "D"
-			if("e")
+			if("e" || "е" || "ё")
 				boop_letter = "E"
-			if("f")
+			if("f" || "ф")
 				boop_letter = "F"
-			if("g")
+			if("g" || "г")
 				boop_letter = "G"
-			if("h")
+			if("h" || "х" || "ш" || "щ")
 				boop_letter = "H"
-			if("i")
+			if("i" || "и" || "ы")
 				boop_letter = "I"
-			if("j")
+			if("j" || "ж")
 				boop_letter = "J"
-			if("k")
+			if("k" || "к")
 				boop_letter = "K"
-			if("l")
+			if("l" || "л")
 				boop_letter = "L"
-			if("m")
+			if("m" || "м")
 				boop_letter = "M"
-			if("n")
+			if("n" || "н")
 				boop_letter = "N"
-			if("o")
+			if("o" || "о")
 				boop_letter = "O"
-			if("p")
+			if("p" || "п")
 				boop_letter = "P"
-			if("q")
+			if("q" || "у")
 				boop_letter = "Q"
-			if("r")
+			if("r" || "р")
 				boop_letter = "R"
-			if("s")
+			if("s" || "с")
 				boop_letter = "S"
-			if("t")
+			if("t" || "т")
 				boop_letter = "T"
-			if("u")
+			if("u" || "у" || "э")
 				boop_letter = "U"
-			if("v")
+			if("v" || "в")
 				boop_letter = "V"
-			if("w")
+			if("w" || "ъ" || "ь")
 				boop_letter = "W"
-			if("x")
+			if("x" || "к")
 				boop_letter = "X"
-			if("y")
+			if("y" || "ю" || "я")
 				boop_letter = "Y"
-			if("z")
+			if("z" || "з")
 				boop_letter = "Z"
 			if("!")
 				volume = 0

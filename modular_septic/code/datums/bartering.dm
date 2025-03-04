@@ -285,13 +285,12 @@
     )
 
 ///KITS///
-/datum/bartering_recipe/abyss
+/datum/healther_recipe/ifak_morango
     outputs = list(
-        /obj/item/gun/ballistic/automatic/remis/abyss = 1,
-		/obj/item/ammo_box/magazine/a545 = 2
+        /obj/item/storage/firstaid/morango = 1
     )
     inputs = list(
-        /obj/item/reagent_containers/pill/carbonylmethamphetamine = 8
+        /obj/item/book/ccp_propaganda = 1
     )
 
 ///IMPLANTS///

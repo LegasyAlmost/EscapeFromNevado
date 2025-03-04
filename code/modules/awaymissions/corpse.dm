@@ -438,6 +438,36 @@
 	mob_name = "Nameless Intern"
 	mob_gender = MALE
 
+/////////////////Itobe//////////////////////
+/obj/effect/mob_spawn/human/itobe
+	name = "\improper Itobe operative"
+	outfit = /datum/outfit/itobe
+
+/datum/outfit/itobe
+	name = "Itobe operative corpse"
+	uniform = /obj/item/clothing/under/misc/vice_officer
+
+/obj/effect/mob_spawn/human/itobe/agent
+	name = "\improper Itobe agent"
+	outfit = /datum/outfit/itobe_agent
+
+/datum/outfit/itobe_agent
+	name = "Itobe agent corpse"
+	uniform = /obj/item/clothing/under/itobe/agent
+	shoes = /obj/item/clothing/shoes/combat
+	glasses = /obj/item/clothing/glasses/itobe/agent
+
+/obj/effect/mob_spawn/human/itobe/engineer
+	name = "\improper Itobe engineer"
+	outfit = /datum/outfit/itobe_engineer
+
+/datum/outfit/itobe_engineer
+	name = "Itobe engineer corpse"
+	head = /obj/item/clothing/head/welding/itobe
+	uniform = /obj/item/clothing/under/itobe/engineer
+	back = /obj/item/storage/backpack/itobe
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat
 /////////////////Spooky Undead//////////////////////
 //there are living variants of many of these, they're now in ghost_role_spawners.dm
 

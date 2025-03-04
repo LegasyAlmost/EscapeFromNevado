@@ -318,7 +318,8 @@
 			if(chambered.harmful) // Is the bullet chambered harmful?
 				to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
 				return
-		if(SPECIES_INBORN) // stupid inborn
+		var/mob/living/carbon/human/ebanutiy = user
+		if(ebanutiy.dna?.species?.id == SPECIES_INBORN) // stupid inborn
 			to_chat(user, span_warning("How this bullshit works... I can't understand this boom-stick."))
 			return
 		if(randomspread)
@@ -389,6 +390,10 @@
 				if(chambered.harmful) // Is the bullet chambered harmful?
 					to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
 					return
+			var/mob/living/carbon/human/ebanutiy = user
+			if(ebanutiy.dna?.species?.id == SPECIES_INBORN) // stupid inborn
+				to_chat(user, span_warning("How this bullshit works... I can't understand this boom-stick."))
+				return
 			sprd = round((rand(0, 1) - pick(1, 0.5)) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * (randomized_gun_spread + randomized_bonus_spread))
 			before_firing(target,user)
 			if(!chambered.fire_casing(target, user, params, , suppressed, zone_override, sprd, src))
@@ -616,7 +621,7 @@
 	var/mob/living/carbon/human/user = usr
 	gun_light.on = !gun_light.on
 	gun_light.update_brightness()
-	to_chat(user, span_notice("You toggle the gunlight [gun_light.on ? "on":"off"]."))
+	to_chat(user, span_notice("Ты переключил фонарик у ствола на положение [gun_light.on ? "вкл":"выкл"]."))
 
 	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
 	update_gunlight()
