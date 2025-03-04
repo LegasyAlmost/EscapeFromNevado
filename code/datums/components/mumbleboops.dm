@@ -67,57 +67,57 @@
 		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
 		switch(lowertext(message[i])) //TODO: add kirilitca = english word
-			if("a" || "а")
+			if("a", "а")
 				boop_letter = "A"
-			if("b" || "б")
+			if("b", "б")
 				boop_letter = "B"
-			if("c" || "ц" || "ч")
+			if("c", "ц", "ч")
 				boop_letter = "C"
-			if("d" || "д")
+			if("d", "д")
 				boop_letter = "D"
-			if("e" || "е" || "ё")
+			if("e", "е", "ё")
 				boop_letter = "E"
-			if("f" || "ф")
+			if("f", "ф")
 				boop_letter = "F"
-			if("g" || "г")
+			if("g", "г")
 				boop_letter = "G"
-			if("h" || "х" || "ш" || "щ")
+			if("h", "х", "ш", "щ")
 				boop_letter = "H"
-			if("i" || "и" || "ы")
+			if("i", "и", "ы")
 				boop_letter = "I"
-			if("j" || "ж")
+			if("j", "ж")
 				boop_letter = "J"
-			if("k" || "к")
+			if("k", "к")
 				boop_letter = "K"
-			if("l" || "л")
+			if("l", "л")
 				boop_letter = "L"
-			if("m" || "м")
+			if("m", "м")
 				boop_letter = "M"
-			if("n" || "н")
+			if("n", "н")
 				boop_letter = "N"
-			if("o" || "о")
+			if("o", "о")
 				boop_letter = "O"
-			if("p" || "п")
+			if("p", "п")
 				boop_letter = "P"
-			if("q" || "у")
+			if("q", "у")
 				boop_letter = "Q"
-			if("r" || "р")
+			if("r", "р")
 				boop_letter = "R"
-			if("s" || "с")
+			if("s", "с")
 				boop_letter = "S"
-			if("t" || "т")
+			if("t", "т")
 				boop_letter = "T"
-			if("u" || "у" || "э")
+			if("u", "у", "э")
 				boop_letter = "U"
-			if("v" || "в")
+			if("v", "в")
 				boop_letter = "V"
-			if("w" || "ъ" || "ь")
+			if("w", "ъ", "ь")
 				boop_letter = "W"
-			if("x" || "к")
+			if("x", "к")
 				boop_letter = "X"
-			if("y" || "ю" || "я")
+			if("y", "ю", "я")
 				boop_letter = "Y"
-			if("z" || "з")
+			if("z", "з")
 				boop_letter = "Z"
 			if("!")
 				volume = 0
