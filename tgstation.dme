@@ -5481,4 +5481,5 @@
 #include "modular_septic\code\modules\vending\soder.dm"
 #include "modular_septic\code\modules\vending\tiktok.dm"
 #include "modular_septic\interface\interface.dm"
+#include "modular_zebtic\code\modules\is12_mines\code\mine.dm"
 // END_INCLUDE
