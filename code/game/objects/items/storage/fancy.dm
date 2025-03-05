@@ -25,6 +25,8 @@
 	var/is_open = FALSE
 	/// What this container folds up into when it's empty.
 	var/obj/fold_result = /obj/item/stack/sheet/cardboard
+	tetris_width = 32
+	tetris_height = 32
 
 /obj/item/storage/fancy/PopulateContents()
 	if(!spawn_type)

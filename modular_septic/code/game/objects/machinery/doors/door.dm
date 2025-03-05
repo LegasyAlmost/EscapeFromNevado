@@ -22,21 +22,21 @@
 
 /obj/machinery/door/attackby(obj/item/I, mob/living/user, params)
 	if(!COOLDOWN_FINISHED(src, key_cooldown))
-		to_chat(user, span_warning("I need to calm down."))
+		to_chat(user, span_warning("Мне нужно потерпеть."))
 		return
 	if(istype(I, /obj/item/key) && key_worthy)
 		var/obj/item/key/key = I
 		if(key.door_allowed(src)) //I...?
-			var/lock_status = "unlock"
+			var/lock_status = "открыто"
 			if(!locked)
-				lock_status = "lock"
+				lock_status = "закрыто"
 				locked = TRUE
 			else
 				locked = FALSE
-			to_chat(user, span_notice("I [lock_status] the [src] with the [I]."))
+			to_chat(user, span_notice("Я [lock_status] [src], используя мой [I]."))
 			playsound(src, 'modular_septic/sound/effects/keys_use.wav', 75, FALSE)
 		else
-			to_chat(user, span_warning("Wrong key."))
+			to_chat(user, span_warning("Ключ не подходит."))
 			playsound(src, 'modular_septic/sound/effects/keys_remove.ogg', 75, FALSE)
 		add_fingerprint(user)
 		sound_hint()

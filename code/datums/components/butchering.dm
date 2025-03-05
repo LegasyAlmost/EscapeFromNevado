@@ -54,14 +54,14 @@
 			var/obj/item/bodypart/throat = H.get_bodypart(BODY_ZONE_PRECISE_NECK)
 			if(throat.is_artery_torn())
 		//SEPTIC EDIT END
-				user.show_message(span_warning("[H]'s neck has already been already cut, you can't make the bleeding any worse!"), MSG_VISUAL, \
-								span_warning("Their neck has already been already cut, you can't make the bleeding any worse!"))
+				user.show_message(span_warning("[H] шея уже прорезана полностью!"), MSG_VISUAL, \
+								span_warning("Их шея уже прорезана полностью!"))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 			INVOKE_ASYNC(src, PROC_REF(startNeckSlice), source, H, user)
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/butchering/proc/startButcher(obj/item/source, mob/living/M, mob/living/user)
-	to_chat(user, span_notice("You begin to butcher [M]..."))
+	to_chat(user, span_notice("Ты начал освежевать тело [M], превращая его в мясо, кожу и кости..."))
 	playsound(M.loc, butcher_sound, 50, TRUE, -1)
 	if(do_mob(user, M, speed) && M.Adjacent(source))
 		Butcher(user, M)
@@ -122,12 +122,12 @@
 		for(var/_i in 1 to amount)
 			if(!prob(final_effectiveness))
 				if(butcher)
-					to_chat(butcher, span_warning("You fail to harvest some of the [initial(bones.name)] from [meat]."))
+					to_chat(butcher, span_warning("У тебя не получилось достать [initial(bones.name)] из [meat]."))
 				continue
 
 			if(prob(bonus_chance))
 				if(butcher)
-					to_chat(butcher, span_info("You harvest some extra [initial(bones.name)] from [meat]!"))
+					to_chat(butcher, span_info("Ты достал больше [initial(bones.name)] из [meat], чем думал! <b>Джекпот мясника!</b>"))
 				results += new bones (T)
 			results += new bones (T)
 
@@ -147,8 +147,8 @@
 		carrion.set_custom_materials((carrion.custom_materials - meat_mats) + list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, meat) = counterlist_sum(meat_mats)))
 
 	if(butcher)
-		butcher.visible_message(span_notice("[butcher] butchers [meat]."), \
-								span_notice("You butcher [meat]."))
+		butcher.visible_message(span_notice("[butcher] превращает в груду мяса [meat]."), \
+								span_notice("Ты нарезаешь в мясо [meat]."))
 	butcher_callback?.Invoke(butcher, meat)
 	meat.harvest(butcher)
 	meat.gib(FALSE, FALSE, TRUE)

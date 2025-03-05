@@ -30,7 +30,7 @@
 	if(!new_limb.max_teeth)
 		qdel(src)
 		return
-	var/final_descriptive = "Teeth sail off in an arc!"
+	var/final_descriptive = "Зубы отлетают!"
 	if(victim)
 		if(sound_effect)
 			playsound(new_limb.owner, pick(sound_effect), 70 + 20 * severity, TRUE)

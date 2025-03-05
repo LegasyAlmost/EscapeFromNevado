@@ -3,7 +3,8 @@
 	roundend_category = "inborns"
 	antagpanel_category = "Inborn"
 	preview_outfit = /datum/outfit/denominator
-	combat_music = 'modular_septic/sound/music/combat/deathmatch/inborn.ogg'
+	combat_music = list('modular_septic/sound/music/combat/deathmatch/inborn.ogg', 'modular_septic/sound/music/combat/ahuy/blowout.ogg',
+		'modular_septic/sound/music/combat/ahuy/turbokiller.ogg', 'modular_septic/sound/music/combat/ahuy/trainmadness.ogg')
 	show_to_ghosts = TRUE
 
 /datum/antagonist/inborn/on_gain()
@@ -22,7 +23,8 @@
 	roundend_category = "denominators"
 	antagpanel_category = "Denominator"
 	preview_outfit = /datum/outfit/denominator
-	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator.ogg'
+	combat_music = list('modular_septic/sound/music/combat/deathmatch/denominator.ogg', 'modular_septic/sound/music/combat/deathmatch/denominator_shotgunner.ogg',
+		'modular_septic/sound/music/combat/ahuy/raid.ogg')
 	show_to_ghosts = TRUE
 	antag_hud_type = ANTAG_HUD_DENOMINATOR
 	var/employer = "OcularTech"
@@ -52,7 +54,6 @@
 	name = "Third Denomination Shotgunner"
 	preview_outfit = /datum/outfit/denominator/shotgunner
 	antag_hud_name = "deno_shotgunner"
-	combat_music = 'modular_septic/sound/music/combat/deathmatch/denominator_shotgunner.ogg'
 
 /datum/antagonist/denominator/shotgunner/on_gain()
 	. = ..()

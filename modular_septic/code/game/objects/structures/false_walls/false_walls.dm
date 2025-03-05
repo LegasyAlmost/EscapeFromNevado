@@ -23,7 +23,7 @@
 
 	if(!can_open)
 		user.changeNext_move(CLICK_CD_MELEE)
-		to_chat(user, span_notice("I push the wall but nothing happens!"))
+		to_chat(user, span_notice("Я вдавился кулаком в стену! Но ничего не произошло."))
 		playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
 		return
 

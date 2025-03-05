@@ -12,3 +12,5 @@
 	force_strength = 1.25
 	w_class = WEIGHT_CLASS_NORMAL
 	carry_weight = 1 KILOGRAMS
+	tetris_width = 64
+	tetris_height = 32

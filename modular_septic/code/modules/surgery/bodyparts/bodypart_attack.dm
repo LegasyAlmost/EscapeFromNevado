@@ -8,7 +8,7 @@
 			if(!human.get_bodypart(body_zone) && !animal_origin)
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				if(!attach_limb(human))
-					to_chat(user, span_warning("<b>[human]</b>'s body rejects [src]!"))
+					to_chat(user, span_warning("Тело <b>[human]</b> отвергает [src]!"))
 					forceMove(human.loc)
 				if(human == user)
 					human.visible_message(span_warning("<b>[human]</b> jams [src] into [human.p_their()] empty socket!"),\
@@ -23,11 +23,11 @@
 	if(attacking_item.get_sharpness())
 		add_fingerprint(user)
 		if(!LAZYLEN(contents))
-			to_chat(user, span_warning("There is nothing left inside [src]!"))
+			to_chat(user, span_warning("Внутри [src] ничего не осталось!"))
 			return
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message(span_warning("[user] begins to cut open [src]."),\
-			span_notice("I begin to cut open [src]..."))
+		user.visible_message(span_warning("[user] начал вскрывать [src]."),\
+			span_notice("Я начал вскрывать [src]..."))
 		if(do_after(user, 5 SECONDS, target = src))
 			drop_organs(TRUE)
 		return

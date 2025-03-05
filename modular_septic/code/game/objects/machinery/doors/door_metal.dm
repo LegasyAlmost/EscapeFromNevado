@@ -1,8 +1,8 @@
 #define DOOR_CLOSE_WAIT 60
 
 /obj/machinery/door/metal_door
-	name = "Metal Door"
-	desc = "A broad metal door with a lock for keys, usually not locked, If It is, a nice firm kick from a friendly orange-suited protagonist would do the trick."
+	name = "Металлическая дверь"
+	desc = "Широкая металлическая дверь с замком для ключей, обычно не запертая. Если замок есть, то дай ей хорошего крепкого пинка."
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal"
 	icon_state = "metal"
@@ -54,8 +54,11 @@
 		sound_hint()
 		COOLDOWN_START(src, open_cooldown, open_cooldown_duration)
 		if(user)
-			visible_message(span_danger("[user] shakes the handle of the [src]."), \
-			span_notice("It's locked!"))
+			visible_message(span_danger("[user] дёргает ручку [src]."), \
+			if(src, SPECIES_HOMIE)
+				span_notice("Закрыто, сука!")
+			else
+				span_notice("Заперто"))
 		return
 	operating = TRUE
 	do_animate("opening")
@@ -109,8 +112,8 @@
 	return TRUE
 
 /obj/structure/metal_door_frame
-	name = "Metal Door Frame"
-	desc = "Someone broke down this fucking door, now where is it?"
+	name = "Дверная рамка"
+	desc = "Дверь не запилили."
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal_broken"
 	icon_state = "metal_broken"
@@ -121,8 +124,8 @@
 	move_resist = MOVE_FORCE_VERY_STRONG
 
 /obj/structure/metal_door
-	name = "Metal Door"
-	desc = "A door lying on the floor, the hinges are broken and It's broken and useless, just like you."
+	name = "Металлическая дверь"
+	desc = "ДВЕРЬ МНЕ ЗАПИЛИ."
 	icon = 'modular_septic/icons/obj/structures/metal_door.dmi'
 	base_icon_state = "metal_freeman_evidence"
 	icon_state = "metal_freeman_evidence"
@@ -164,22 +167,22 @@
 		return
 	if(!(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 11))
 		playsound(src, kickfailure, 75, FALSE, 2)
-		visible_message(span_danger("[user] kicks the [src]!"), \
-			span_danger("I kick the [src], but It's too hard!"))
+		visible_message(span_danger("[user] вышибает с ноги [src]!"), \
+			span_danger("Я ударил с ноги [src], но это даётся тяжко!"))
 		sound_hint()
 		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)
 		return
 	if(user.diceroll(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH)+1) <= DICE_FAILURE)
 		playsound(src, kickfailure, 75, FALSE, 2)
-		visible_message(span_danger("[user] kicks the [src]!"), \
-			span_danger("I kick the [src]!"))
+		visible_message(span_danger("[user] вышибает с ноги [src]!"), \
+			span_danger("Я ударил с ноги [src]!"))
 		sound_hint()
 		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)
 		return
 	else if(GET_MOB_ATTRIBUTE_VALUE(user, STAT_STRENGTH) > 18)
 		playsound(src, kicksuccess, 100, FALSE, 5)
-		visible_message(span_bigdanger("[user] kicks the [src] straight off it's hinges!"), \
-			span_bolddanger("I kick the [src] straight off it's hinges!"))
+		visible_message(span_bigdanger("[user] хуярит с ноги по [src], отчега она отлетает в сторону к хуям!"), \
+			span_bolddanger("Я ёбнул по [src] и она уебалась в пол!"))
 		sound_hint()
 		locked = FALSE
 		imbatublow(user, src)
@@ -187,8 +190,8 @@
 	else
 		playsound(src, kicksuccess, 90, FALSE, 2)
 		sound_hint()
-		visible_message(span_danger("[user] kicks the [src] open!"), \
-			span_danger("I kick the [src] down."))
+		visible_message(span_danger("[user] вышибает [src] и она открывается!"), \
+			span_danger("Я вдарил ногой по [src] и она открылась."))
 		locked = FALSE
 		open()
 		COOLDOWN_START(src, kicking_cooldown, kicking_cooldown_duration)

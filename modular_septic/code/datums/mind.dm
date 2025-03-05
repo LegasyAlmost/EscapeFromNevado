@@ -4,10 +4,9 @@
 
 /datum/mind/New()
 	. = ..()
-	if(SSmapping.config?.combat_map)
-		combat_music = 'modular_septic/sound/music/combat/gakstercombat.ogg'
-//		combat_music = list('modular_septic/sound/music/combat/deathmatch/inborn.ogg', 'modular_septic/sound/music/combat/deathmatch/denominator.ogg',
-//			'modular_septic/sound/music/combat/orcherd.ogg', 'modular_septic/sound/music/combat/gakstercombat.ogg') // it's just works. Случайная мелодия при запуске.
+	if(SSmapping.config?.combat_map) //gakster musin
+		combat_music = list('modular_septic/sound/music/combat/gakstercombat.ogg', 'modular_septic/sound/music/combat/ahuy/beforeeveryload.ogg',
+			'modular_septic/sound/music/combat/ahuy/unsheathe.ogg', 'modular_septic/sound/music/combat/ahuy/overdose.ogg') // it's just works. Случайная мелодия при запуске.
 
 /datum/mind/give_uplink(silent, datum/antagonist/antag_datum)
 	if(!current)

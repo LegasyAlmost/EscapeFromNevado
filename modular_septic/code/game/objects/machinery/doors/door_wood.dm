@@ -1,5 +1,5 @@
 /obj/machinery/door/metal_door/wood_door
-	name = "Wooden Door"
+	name = "Деревянная дверь"
 	desc = "A flimsy wooden door used for libraries and other nerd-related areas"
 	icon = 'modular_septic/icons/obj/structures/wood_door.dmi'
 	base_icon_state = "wood"
@@ -17,14 +17,14 @@
 	thrown_door = new /obj/structure/metal_door/wooden_door(doorturf)
 
 /obj/structure/metal_door_frame/wooden_door_frame
-	name = "Wooden Door Frame"
+	name = "Деревянная рамка"
 	desc = "Someone broke down this fucking door, now where did it go?"
 	icon = 'modular_septic/icons/obj/structures/wood_door.dmi'
 	base_icon_state = "wood_broken"
 	icon_state = "wood_broken"
 
 /obj/structure/metal_door/wooden_door
-	name = "Wooden Door"
+	name = "Деревянная дверь"
 	desc = "A wooden plank with a door knob on it, has some metal pieces at the edge, I wonder what this radical invention is for."
 	icon = 'modular_septic/icons/obj/structures/wood_door.dmi'
 	base_icon_state = "wood_freeman_evidence"

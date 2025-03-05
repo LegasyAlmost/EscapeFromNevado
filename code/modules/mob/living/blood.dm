@@ -32,29 +32,29 @@
 			blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * delta_time), BLOOD_VOLUME_NORMAL)
 
 		//Effects of bloodloss
-		var/word = pick("dizzy","woozy","faint")
+		var/word = pick("слабость","головную боль")
 		switch(blood_volume)
 			if(BLOOD_VOLUME_EXCESS to BLOOD_VOLUME_MAX_LETHAL)
 				if(DT_PROB(7.5, delta_time))
-					to_chat(src, span_userdanger("Blood starts to tear your skin apart. You're going to burst!"))
+					to_chat(src, span_userdanger("Твои сосуды, буквально, разрывают кожу! Зря, ты в себя залил столько кровищи!"))
 					inflate_gib()
 			if(BLOOD_VOLUME_MAXIMUM to BLOOD_VOLUME_EXCESS)
 				if(DT_PROB(5, delta_time))
-					to_chat(src, span_warning("You feel terribly bloated."))
+					to_chat(src, span_warning("Ты чувствуешь себя раздутым изнутри."))
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				if(DT_PROB(2.5, delta_time))
-					to_chat(src, span_warning("You feel [word]."))
+					to_chat(src, span_warning("Ты чувствуешь [word]."))
 				adjustOxyLoss(round(0.005 * (BLOOD_VOLUME_NORMAL - blood_volume) * delta_time, 1))
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 				adjustOxyLoss(round(0.01 * (BLOOD_VOLUME_NORMAL - blood_volume) * delta_time, 1))
 				if(DT_PROB(2.5, delta_time))
 					blur_eyes(6)
-					to_chat(src, span_warning("You feel very [word]."))
+					to_chat(src, span_warning("Ты чувствуешь ужасную [word]."))
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 				adjustOxyLoss(2.5 * delta_time)
 				if(DT_PROB(7.5, delta_time))
 					Unconscious(rand(20,60))
-					to_chat(src, span_warning("You feel extremely [word]."))
+					to_chat(src, span_warning("Ты ощущаешь изнуряющую [word]. Сил нет."))
 			if(-INFINITY to BLOOD_VOLUME_SURVIVE)
 				if(!HAS_TRAIT(src, TRAIT_NODEATH))
 					death()
@@ -124,23 +124,23 @@
 		if(-INFINITY to 0)
 			return
 		if(0 to 1)
-			bleeding_severity = "You feel light trickles of blood across your skin"
+			bleeding_severity = "Ты чувствуешь небольшие струйки, вероятно крови, которые текут по твоей коже."
 			next_cooldown *= 2.5
 		if(1 to 3)
-			bleeding_severity = "You feel a small stream of blood running across your body"
+			bleeding_severity = "Ты ощущаешь достаточно много крови, что стекает по твоей коже."
 			next_cooldown *= 2
 		if(3 to 5)
-			bleeding_severity = "You skin feels clammy from the flow of blood leaving your body"
+			bleeding_severity = "Моя кожа кажется влажной и самую малость легче. Похоже это из-за оттока крови, покидающей моё тело!"
 			next_cooldown *= 1.7
 		if(5 to 7)
-			bleeding_severity = "Your body grows more and more numb as blood streams out"
+			bleeding_severity = "Ты ощущаешь значительную слабость и опустошение в теле. У тебя точно вытекает стремительно кровь!"
 			next_cooldown *= 1.5
 		if(7 to INFINITY)
-			bleeding_severity = "Your heartbeat thrashes wildly trying to keep up with your bloodloss"
+			bleeding_severity = "Твоё сердце колышется в бешенном ритме, стараясь поддерживать кровянной поток. Так и кровь вся уйдёт!"
 
-	var/rate_of_change = ", but it's getting better." // if there's no wounds actively getting bloodier or maintaining the same flow, we must be getting better!
+	var/rate_of_change = " Но кровотечение затягивается слабо." // if there's no wounds actively getting bloodier or maintaining the same flow, we must be getting better!
 	if(HAS_TRAIT(src, TRAIT_COAGULATING)) // if we have coagulant, we're getting better quick
-		rate_of_change = ", but it's clotting up quickly!"
+		rate_of_change = " НАЙДИ, БЛЯДЬ, ПЕРЕВЯЗКУ!"
 	else
 		// flick through our wounds to see if there are any bleeding ones getting worse or holding flow (maybe move this to handle_blood and cache it so we don't need to cycle through the wounds so much)
 		for(var/i in all_wounds)
@@ -150,10 +150,10 @@
 			var/iter_wound_roc = iter_wound.get_bleed_rate_of_change()
 			switch(iter_wound_roc)
 				if(BLOOD_FLOW_INCREASING) // assume the worst, if one wound is getting bloodier, we focus on that
-					rate_of_change = ", <b>and it's getting worse!</b>"
+					rate_of_change = " <b>и оно ухудшилось! Вытекает ещё больше!</b>"
 					break
 				if(BLOOD_FLOW_STEADY) // our best case now is that our bleeding isn't getting worse
-					rate_of_change = ", and it's holding steady."
+					rate_of_change = " Пока кровотечение держится на том же уровне..."
 				if(BLOOD_FLOW_DECREASING) // this only matters if none of the wounds fit the above two cases, included here for completeness
 					continue
 
