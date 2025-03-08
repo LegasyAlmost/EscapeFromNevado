@@ -3,6 +3,8 @@
 	if (..())
 		return TRUE
 
+	user.changeNext_move(CLICK_CD_MELEE)
+
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
 		user.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 		playsound(src, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
