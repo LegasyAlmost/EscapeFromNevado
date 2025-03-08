@@ -404,7 +404,7 @@
 
 /turf/closed/wall/Initialize(mapload)
 	. = ..()
-	new /atom/movable/atom_shadow(loc, src)
+	new /atom/movable/atom_shadow(src, src)
 
 /turf/closed/wall
 	plane = WALL_PLANE

@@ -94,6 +94,10 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		//to_world("particle holder was created with no loc!")
 		return INITIALIZE_HINT_QDEL
 	particles = new particle_path
+	addtimer(CALLBACK(src, PROC_REF(destroy_self)), 0.5 SECONDS)
+
+/obj/effect/abstract/particle_holder/proc/destroy_self()
+	Destroy()
 
 /obj/effect/abstract/particle_holder/Destroy(force)
 	QDEL_NULL(particles)
