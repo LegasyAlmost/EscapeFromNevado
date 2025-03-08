@@ -9,19 +9,19 @@
 	worn_icon_state = "deno"
 	armor_broken_sound = "heavy"
 	armor_damaged_sound = "heavy"
-	max_integrity = 600
+	max_integrity = 300
 	integrity_failure = 0.05
 	limb_integrity = 500
 	repairable_by = /obj/item/stack/ballistic
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 75, \
-                CRUSHING = 30, \
-                CUTTING = 30, \
-                PIERCING = 60, \
-                IMPALING = 30, \
+                CRUSHING = 26, \
+                CUTTING = 26, \
+                PIERCING = 50, \
+                IMPALING = 20, \
                 LASER = 1, \
                 ENERGY = 0, \
-                BOMB = 60, \
+                BOMB = 40, \
                 BIO = 0, \
                 FIRE = 2, \
                 ACID = 2, \

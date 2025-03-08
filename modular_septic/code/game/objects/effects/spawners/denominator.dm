@@ -14,7 +14,7 @@
 	outfit = /datum/outfit/denominator
 	spawner_job_path = /datum/job/denominator
 	mob_species = /datum/species/denominator
-	uses = 3
+	uses = 1
 	var/shotgunner = FALSE
 	var/spawn_oldpod = TRUE
 

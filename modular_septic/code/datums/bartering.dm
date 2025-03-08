@@ -106,7 +106,7 @@
 		/obj/item/ammo_box/magazine/combatmaster9mm = 2
     )
     inputs = list(
-         /obj/item/bodypart/head = 1
+        /obj/item/bodypart/head = 1
     )
 
 /datum/bartering_recipe/svd
@@ -267,23 +267,12 @@
     var/list/inputs = null
 
 ///SURGERY///
-
 /datum/healther_recipe/scalpel
     outputs = list(
         /obj/item/scalpel = 1
     )
     inputs = list(
         /obj/item/organ/liver = 1
-    )
-
-/*
-/datum/healther_recipe/blacktar
-    outputs = list(
-        /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1
-    )
-	inputs = list(
-        /obj/item/bodypart/r_arm = 1,
-        /obj/item/bodypart/l_arm = 1
     )
 
 ///KITS///
@@ -297,7 +286,7 @@
 
 /datum/healther_recipe/firstaid
     outputs = list(
-        /obj/item/storage/firstaid = 1
+        /obj/item/storage/firstaid/medical = 1
     )
     inputs = list(
         /obj/item/deviouslick/broken_lcd = 1,
@@ -308,8 +297,16 @@
     outputs = list(
         /obj/item/reagent_containers/hypospray/medipen/survival = 1
     )
-	inputs = list(
-		/obj/item/organ/heart = 1
+    inputs = list(
+        /obj/item/organ/heart = 1
     )
-*/
+
+/datum/healther_recipe/blacktars
+    outputs = list(
+        /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1
+    )
+    inputs = list(
+        /obj/item/bodypart/r_arm = 1,
+        /obj/item/bodypart/l_arm = 1
+    )
 ///DRUGS///

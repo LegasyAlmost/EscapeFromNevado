@@ -72,10 +72,10 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 	. += span_info("Back to the Safezone!")
 	. += span_big(span_alert("Hmm..."))
 
-/obj/structure/gptdfm/proc/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Time for my journey. I'm going to [specific_location.name].")
+/obj/structure/gptdfm/proc/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Пора идти. Я отправляюсь [specific_location.name].")
 	to_chat(user, span_notice("[leaving_message]"))
 	if(HAS_TRAIT(user, TRAIT_NO_ACCESS))
-		to_chat(user, span_notice("You can't"))
+		to_chat(user, span_notice("Ты не можешь."))
 		return
 	if(user.pulling)
 		var/mob/friend1 = user.pulling
@@ -110,15 +110,15 @@ GLOBAL_LIST_EMPTY(denominator_exiterporter)
 			friend.flash_darkness(100)
 		playsound(leader, gurby_unescape, 80, FALSE)
 
-/obj/structure/gptdfm/exit/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Time for my journey. I'm going to [specific_location.name].")
+/obj/structure/gptdfm/exit/teleportation(mob/user, obj/structure/gptdfm/specific_location = pick(GLOB.child_exiterporter), leaving_message = "Пора кончать. Я ухожу [specific_location.name].")
 	specific_location = pick(GLOB.child_enterporter)
-	leaving_message = "I'm going back to the safezone now."
+	leaving_message = "Отправляюсь в безопасную зону."
 	if(HAS_TRAIT(user, TRAIT_DENOMINATOR_ACCESS))
-		leaving_message = "Establishing an exfil back to base."
+		leaving_message = "Возвращение на базу."
 		if(GLOB.denominator_exiterporter)
 			specific_location = pick(GLOB.denominator_exiterporter)
 		else
-			to_chat(user, span_boldwarning("I can't make it back to my base. I'm stuck!"))
+			to_chat(user, span_boldwarning("Я не могу вернуться на базу. Встрял тут!"))
 			return
 	. = ..()
 

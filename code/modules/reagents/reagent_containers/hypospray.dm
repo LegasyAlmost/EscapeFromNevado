@@ -227,8 +227,8 @@
 	icon_state = "[base_icon_state][(reagents.total_volume > 0) ? 1 : 0]"
 
 /obj/item/reagent_containers/hypospray/medipen/survival
-	name = "survival emergency medipen"
-	desc = "A medipen for surviving in the harsh environments, heals most common damage sources. WARNING: May cause organ damage."
+	name = "инъектор последнего шанса"
+	desc = "Небольшой шприц-сыворотка, полностью герметизированный в реалиях ваккума. Восстанавливает тело от основных источников повреждения: огня, грубой силы. ПРЕДОСТОРОЖНОСТЬ: Может повредить органы."
 	icon_state = "stimpen"
 	inhand_icon_state = "stimpen"
 	base_icon_state = "stimpen"
@@ -245,8 +245,8 @@
 		to_chat(user,span_notice("You are too busy to use \the [src]!"))
 		return
 
-	to_chat(user,span_notice("You start manually releasing the low-pressure gauge..."))
-	if(!do_mob(user, affected_mob, 10 SECONDS, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
+	to_chat(user,span_notice("Ты начал давить наконечником на себя, пытаясь его разорвать..."))
+	if(!do_mob(user, affected_mob, 4 SECONDS, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
 		return
 
 	amount_per_transfer_from_this = initial(amount_per_transfer_from_this) * 0.5

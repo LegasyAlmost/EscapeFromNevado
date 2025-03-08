@@ -9,6 +9,11 @@
 "ab" = (
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
+"aL" = (
+/obj/machinery/light/small/directional/south,
+/obj/machinery/vending/killbitches/resupply,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "aM" = (
 /obj/item/ammo_casing/a762svd/ap,
 /turf/open/floor/iron/dark,
@@ -91,6 +96,11 @@
 	},
 /turf/open/floor/iron,
 /area/maintenance/liminal/intro)
+"dN" = (
+/obj/machinery/light/small/directional/north,
+/obj/structure/bodycontainer,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "dS" = (
 /obj/machinery/light/small/red/directional/north,
 /turf/open/floor/iron/dark,
@@ -128,6 +138,11 @@
 /obj/structure/drain/big,
 /turf/open/floor/iron/dark/smooth_large,
 /area/maintenance/liminal/denominator)
+"fB" = (
+/obj/structure/table/reinforced/plasmarglass,
+/obj/structure/curtain/cloth/fancy,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "fK" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/siding/wideplating/dark,
@@ -233,6 +248,10 @@
 /obj/machinery/light/red/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
+"jm" = (
+/obj/machinery/vending/killbitches,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "jr" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/intro/barracks)
@@ -342,6 +361,10 @@
 /obj/effect/turf_decal/siding/thinplating/dark,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"on" = (
+/obj/structure/bodycontainer,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "os" = (
 /obj/machinery/vending/tiktok/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
@@ -764,6 +787,17 @@
 /obj/structure/fans/tiny/invisible,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
+"FU" = (
+/obj/structure/closet/syndicate,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
+"FZ" = (
+/obj/structure/safe,
+/obj/structure/rack{
+	pixel_y = 29
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "Gn" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -1024,6 +1058,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"Qs" = (
+/obj/vehicle/ridden/wheelchair/gold{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "QA" = (
 /obj/structure/urinal/directional/north,
 /obj/item/food/urinalcake{
@@ -1104,6 +1144,12 @@
 	dir = 8
 	},
 /area/maintenance/liminal/intro)
+"Sy" = (
+/obj/machinery/vending/medical{
+	onstation = 0
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "Sz" = (
 /obj/effect/mob_spawn/human/denominator,
 /obj/effect/mob_spawn/human/denominator{
@@ -1118,6 +1164,13 @@
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
+/area/maintenance/liminal/intro)
+"SI" = (
+/obj/machinery/light/small/directional/south,
+/obj/structure/bodycontainer/crematorium{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
 "SS" = (
 /obj/structure/railing{
@@ -1328,6 +1381,16 @@
 /obj/item/ammo_box/magazine/hksmg380,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"Zf" = (
+/obj/structure/table/reinforced/plasmarglass,
+/mob/living/simple_animal/hostile/retaliate/trader{
+	dir = 8;
+	pixel_x = 29;
+	pixel_y = -3
+	},
+/obj/structure/curtain/cloth/fancy,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "Zp" = (
 /turf/open/floor/iron/dark/side{
 	dir = 10
@@ -9238,11 +9301,11 @@ JN
 JN
 JN
 ZX
-Jv
+dN
 gs
 gs
 gs
-ql
+SI
 ZX
 Dg
 ZT
@@ -9482,7 +9545,7 @@ JN
 JN
 JN
 ZX
-gs
+on
 gs
 gs
 gs
@@ -9726,7 +9789,7 @@ JN
 JN
 JN
 ZX
-gs
+on
 gs
 gs
 gs
@@ -9852,7 +9915,7 @@ Jv
 gs
 gs
 gs
-ql
+SI
 ZX
 Dg
 ZT
@@ -11193,8 +11256,8 @@ gs
 gs
 gs
 ZX
-gs
-gs
+fB
+Zf
 ZX
 ig
 Oy
@@ -11313,10 +11376,10 @@ ZX
 gs
 gs
 gs
-gs
+Sy
 ZX
 gs
-gs
+Qs
 ZX
 Dg
 ZT
@@ -11435,9 +11498,9 @@ ZX
 Jv
 gs
 gs
-ql
+aL
 ZX
-gs
+FU
 gs
 ZX
 WN
@@ -11557,9 +11620,9 @@ ZX
 gs
 gs
 gs
-gs
+jm
 ZX
-gs
+FZ
 uy
 ZX
 jr

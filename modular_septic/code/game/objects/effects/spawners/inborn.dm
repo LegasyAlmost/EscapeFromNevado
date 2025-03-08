@@ -13,7 +13,7 @@
 	outfit = /datum/outfit/inborn
 	spawner_job_path = /datum/job/inborn
 	mob_species = /datum/species/inborn
-	uses = 2
+	uses = 1
 
 /obj/effect/mob_spawn/human/inborn/equip(mob/living/carbon/human/H)
 	. = ..()
