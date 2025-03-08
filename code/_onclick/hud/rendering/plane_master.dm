@@ -385,6 +385,7 @@
 	//icon = 'icons/shadow.dmi'
 	icon = 'icons/solid_wall_mask.dmi'
 	icon_state = "shadow"
+	anchored = TRUE
 	plane = ATOMS_FOV_SHADOWS_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
