@@ -55,7 +55,7 @@
 
 
 /datum/component/pellet_cloud/Initialize(projectile_type=/obj/item/shrapnel, magnitude=5)
-	if(!isammocasing(parent) && !isgrenade(parent) && !islandmine(parent) && !issupplypod(parent))
+	if(!isammocasing(parent) && !isgrenade(parent) && !islandmine(parent) && !issupplypod(parent) && !islandmine_is12(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	if(magnitude < 1)
@@ -66,7 +66,7 @@
 
 	if(isammocasing(parent))
 		num_pellets = magnitude
-	else if(isgrenade(parent) || islandmine(parent) || issupplypod(parent))
+	else if(isgrenade(parent) || islandmine(parent) || issupplypod(parent) || islandmine_is12(parent))
 		radius = magnitude
 
 /datum/component/pellet_cloud/Destroy(force, silent)
@@ -85,6 +85,8 @@
 		RegisterSignal(parent, COMSIG_GRENADE_ARMED, PROC_REF(grenade_armed))
 		RegisterSignal(parent, COMSIG_GRENADE_DETONATE, PROC_REF(create_blast_pellets))
 	else if(islandmine(parent))
+		RegisterSignal(parent, COMSIG_MINE_TRIGGERED, PROC_REF(create_blast_pellets))
+	else if(islandmine_is12(parent))
 		RegisterSignal(parent, COMSIG_MINE_TRIGGERED, PROC_REF(create_blast_pellets))
 	else if(issupplypod(parent))
 		RegisterSignal(parent, COMSIG_SUPPLYPOD_LANDED, PROC_REF(create_blast_pellets))
@@ -150,7 +152,7 @@
 
 	if(isgrenade(parent)) // handle_martyrs can reduce the radius and thus the number of pellets we produce if someone dives on top of a frag grenade
 		INVOKE_ASYNC(src, PROC_REF(handle_martyrs), triggerer) // note that we can modify radius in this proc
-	else if(islandmine(parent))
+	else if(islandmine(parent) || islandmine_is12(parent))
 		var/obj/effect/mine/shrapnel/triggered_mine = parent
 		if(triggered_mine.shred_triggerer && istype(triggerer)) // free shrapnel for the idiot who stepped on it if we're a mine that shreds the triggerer
 			pellet_delta += radius // so they don't count against the later total

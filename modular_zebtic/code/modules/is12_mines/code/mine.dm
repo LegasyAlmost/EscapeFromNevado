@@ -3,23 +3,14 @@
 	desc = "Use it to place a landmine in front of you. Be careful..."
 	icon = 'modular_zebtic/code/modules/is12_mines/sprites/warfare.dmi'
 	icon_state = "mine_item"
-	var/open = FALSE
-	var/can_be_armed = TRUE
-	var/explode = FALSE
+	var/mine_type = /obj/structure/landmine
 
-	var/blow_timer_id
-
-/obj/item/landmine/Initialize(mapload)
+/obj/item/landmine/Initialize(mapload, mine_type)
+	if(mine_type)
+		src.mine_type = mine_type
 	. = ..()
-	wires = new /datum/wires/landmine_item(src)
 
 /obj/item/landmine/attack_self(var/mob/user)
-	if(open)
-		to_chat(user, "Panel of mine is open!")
-		return
-	if(explode)
-		to_chat(user, "Mine is going to explode!")
-		return
 	var/turf/T = get_step(user, user.dir)
 	if(T)
 		if(isopenspaceturf(T))
@@ -33,8 +24,7 @@
 		visible_message("[user] begins to place the mine!")
 		if(do_after(user, 20))
 			qdel(src)
-			new /obj/structure/landmine(T, can_be_armed)
-
+			new mine_type(T)
 
 /obj/structure/landmine
 	name = "landmine"
@@ -46,16 +36,16 @@
 	var/armed = FALSE//Whether or not it will blow up.
 	var/can_be_armed = TRUE//Whether or not it can be armed to blow up. Disarmed mines won't blow.
 	var/mob/stepper = null
+	var/heavy_impact = 2
+	var/light_impact = 2
+	var/magnitude = 4
+	var/reject_chance = 5
+	var/shred_triggerer = FALSE
 
-	var/open = FALSE
-	var/explode = FALSE
-
-	var/blow_timer_id
-
-/obj/structure/landmine/Initialize(mapload, )
+/obj/structure/landmine/Initialize(mapload)
 	. = ..()
-	wires = new /datum/wires/vending(src)
 	update_icon()
+	AddComponent(/datum/component/pellet_cloud, projectile_type=/obj/projectile/bullet/shrapnel, magnitude=src.magnitude)
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 		COMSIG_ATOM_ENTERED = PROC_REF(on_enter)
@@ -63,9 +53,9 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/landmine/proc/blow()
-	AddComponent(/datum/component/pellet_cloud, projectile_type=/obj/projectile/bullet/shrapnel, magnitude=4)
-	explosion(loc, 2, 2, 1, 1)
+/obj/structure/landmine/proc/blow(mob/living/stepper)
+	SEND_SIGNAL(src, COMSIG_MINE_TRIGGERED, stepper)
+	explosion(loc, heavy_impact_range=heavy_impact, light_impact_range=light_impact)
 	qdel(src)
 
 /obj/structure/landmine/update_icon()
@@ -78,37 +68,32 @@
 		overlays.Cut()
 		icon_state = "mine_disarmed"
 
-
-/obj/structure/landmine/attackby(obj/item/W as obj, mob/user as mob)
-	if(!ishuman(user))
+/obj/structure/landmine/wrench_act(mob/living/user, obj/item/tool)
+	if(can_be_armed)
+		to_chat(user, "Disarm mine with wirecutters!")
 		return
-	var/mob/living/carbon/human/H = user
-	if(istype(W, /obj/item/wirecutters))
-		if(!can_be_armed)
-			return
-		H.visible_message("<span class='danger'>[H] begins to disarm the landmine...</span>")
-		if(do_after(user,100))
-			armed = FALSE
-			can_be_armed = FALSE
-			to_chat(H, "You successfully disarm the [src]")
-			playsound(src, 'sound/items/Wirecutter.ogg', 100, FALSE)
-			update_icon()
-			stepper = null
-			return
-		blow()
-	if(istype(W, /obj/item/wrench))
-		if(can_be_armed)
-			to_chat(H, "Disarm mine with wirecutters!")
-			return
-		new /obj/item/landmine(loc)
+	var/doing = FALSE
+	if(doing)
+		to_chat(user, "You already wrenching landmine")
+		return
+	doing = TRUE
+	if(do_after(user,50))
+		new /obj/item/landmine(loc, src.type)
 		qdel(src)
+	doing = FALSE
+
+/obj/structure/landmine/wirecutter_act(mob/living/user, obj/item/tool)
+	if(!can_be_armed)
 		return
-
-/obj/structure/landmine/screwdriver_act(mob/living/user, obj/item/tool)
-	open = !open
-	to_chat(user, "You open panel of [src]")
-	playsound(src, 'sound/items/screwdriver.ogg', 100, FALSE)
-
+	user.visible_message("<span class='danger'>[user] begins to disarm the landmine...</span>")
+	if(do_after(user,50))
+		armed = FALSE
+		can_be_armed = FALSE
+		to_chat(user, "You successfully disarm the [src]")
+		playsound(src, 'sound/items/Wirecutter.ogg', 100, FALSE)
+		update_icon()
+		stepper = null
+		return
 
 /obj/structure/landmine/proc/on_enter(datum/source, atom/movable/leaving, direction)
 	if(isliving(leaving))
@@ -126,4 +111,23 @@
 		var/mob/living/M = leaving
 		if(armed)
 			if(M == stepper)
-				blow()
+				if(prob(reject_chance))
+					to_chat(M, "<span class='danger'>Nothing happend. The mine didn't work!</span>")
+					armed = FALSE
+					stepper = null
+					return
+				blow(stepper)
+
+/obj/structure/landmine/Destroy()
+	. = ..()
+
+/obj/structure/landmine/old
+	desc = "If you step on this you'll probably fucking die. It's covered with a thick layer of dust"
+
+	reject_chance = 30
+
+/obj/structure/landmine/defective
+	desc = "If you step on this you'll probably fucking die. It looks odd"
+
+	reject_chance = 50
+

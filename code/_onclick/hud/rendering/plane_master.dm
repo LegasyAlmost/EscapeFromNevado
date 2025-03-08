@@ -388,12 +388,23 @@
 	plane = ATOMS_FOV_SHADOWS_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+	var/parent
+
+/atom/movable/atom_shadow/Initialize(mapload, parent)
+	. = ..()
+	src.parent = parent
+	RegisterSignal(parent, COMSIG_PARENT_QDELETING, PROC_REF(parent_destroy))
+
+/atom/movable/atom_shadow/proc/parent_destroy()
+	Destroy()
+
+
 /atom/movable/atom_shadow/door
 	icon = 'icons/obj/doors/airlocks/station/airlock_mask.dmi'
 
 /turf/closed/wall/Initialize(mapload)
 	. = ..()
-	new /atom/movable/atom_shadow(src)
+	new /atom/movable/atom_shadow(loc, src)
 
 /turf/closed/wall
 	plane = WALL_PLANE
