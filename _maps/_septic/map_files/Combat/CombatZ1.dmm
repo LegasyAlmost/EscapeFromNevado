@@ -299,6 +299,24 @@
 "mK" = (
 /obj/structure/closet/crate,
 /obj/machinery/light/small/red/directional/west,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag/semtex,
+/obj/item/grenade/frag/semtex,
+/obj/item/grenade/frag/semtex,
+/obj/item/grenade/frag/semtex,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "mW" = (
@@ -553,6 +571,9 @@
 /area/maintenance/liminal/denominator)
 "zE" = (
 /obj/structure/table/reinforced,
+/obj/item/fireaxe{
+	pixel_y = 9
+	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "At" = (
@@ -607,6 +628,36 @@
 /area/maintenance/liminal/denominator)
 "BH" = (
 /obj/structure/closet/crate,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
+/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "BL" = (
@@ -856,10 +907,10 @@
 	},
 /area/maintenance/liminal/intro)
 "LV" = (
-/obj/structure/guncase/shotgun{
-	open = 0
-	},
 /obj/structure/lattice/catwalk,
+/obj/structure/guncase,
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,
+/obj/item/gun/ballistic/automatic/remis/smg/solitario/suppressed,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
 "Mc" = (
@@ -924,6 +975,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"Pb" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/effect/turf_decal/arrows,
+/obj/machinery/vending/healther/directional/south,
+/turf/open/floor/iron,
+/area/maintenance/liminal/intro)
 "Pd" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -934,6 +991,8 @@
 /obj/structure/closet/crate,
 /obj/item/clothing/head/denominator,
 /obj/item/clothing/suit/armor/denominator,
+/obj/item/clothing/suit/armor/denominator/shotgunner,
+/obj/item/clothing/head/denominator/shotgunner,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Pf" = (
@@ -1017,6 +1076,7 @@
 	open = 0
 	},
 /obj/structure/lattice/catwalk,
+/obj/item/gun/ballistic/shotgun/denominator,
 /obj/item/gun/ballistic/shotgun/denominator,
 /obj/item/gun/ballistic/shotgun/denominator,
 /turf/open/floor/plating,
@@ -1253,6 +1313,19 @@
 "YO" = (
 /obj/structure/closet/crate,
 /obj/machinery/light/small/red/directional/east,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
+/obj/item/ammo_box/magazine/hksmg380,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Zp" = (
@@ -9917,7 +9990,7 @@ fe
 ZX
 BS
 Pi
-NL
+Pb
 ZX
 CI
 CI
@@ -10527,7 +10600,7 @@ fe
 ZX
 BS
 Pi
-NL
+Pb
 ZX
 CI
 CI

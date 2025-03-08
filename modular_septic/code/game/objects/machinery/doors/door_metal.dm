@@ -54,11 +54,8 @@
 		sound_hint()
 		COOLDOWN_START(src, open_cooldown, open_cooldown_duration)
 		if(user)
-			visible_message(span_danger("[user] дёргает ручку [src]."), \
-			if(src, SPECIES_HOMIE)
-				span_notice("Закрыто, сука!")
-			else
-				span_notice("Заперто"))
+			visible_message(span_danger("[user] дёргает за ручку [src]."), \
+			span_notice("Закрыто!"))
 		return
 	operating = TRUE
 	do_animate("opening")

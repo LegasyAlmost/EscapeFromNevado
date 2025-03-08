@@ -117,10 +117,10 @@
 	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	if(!(obscured & ITEM_SLOT_GLOVES))
 		if(gloves && !(gloves.item_flags & EXAMINE_SKIP) && !(gloves.item_flags & ABSTRACT))
-			. += "[t_He] [t_has] <b>[gloves.get_examine_string(user)]</b> on [t_his] hands."
+			. += "[t_He] имеет <b>[gloves.get_examine_string(user)]</b> на [t_his] руках."
 		else if(!(obscured & ITEM_SLOT_GLOVES) && LAZYLEN(FR?.blood_DNA))
 			if(num_hands)
-				. += "<span class='warning'>[t_He] [t_has][num_hands > 1 ? "" : " a"] <span class='bloody'><b>blood-stained</b></span> hand[num_hands > 1 ? "s" : ""]!</span>"
+				. += "<span class='warning'>[t_He] ходит с [num_hands > 1 ? "одной" : "двумя"] <span class='bloody'><b>окровавленными</b></span> рук[num_hands > 1 ? "ами" : "ой"]!</span>"
 
 	//handcuffed
 	if(handcuffed && !(obscured & ITEM_SLOT_HANDCUFFED) && !(handcuffed.item_flags & EXAMINE_SKIP))
@@ -128,15 +128,15 @@
 
 	//belt
 	if(belt && !(obscured & ITEM_SLOT_BELT) && !(belt.item_flags & EXAMINE_SKIP))
-		. += "[t_He] [t_has] <b>[belt.get_examine_string(user)]</b> about [t_his] waist."
+		. += "[t_He] имеет обвязанный <b>[belt.get_examine_string(user)]</b> вокруг [t_his] пояса."
 
 	//shoes
 	if(shoes && !(obscured & ITEM_SLOT_FEET)  && !(shoes.item_flags & EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing <b>[shoes.get_examine_string(user)]</b> on [t_his] feet."
+		. += "[t_He] носит <b>[shoes.get_examine_string(user)]</b> на [t_his] ногах."
 
 	//mask
 	if(wear_mask && !(obscured & ITEM_SLOT_MASK) && !(wear_mask.item_flags & EXAMINE_SKIP))
-		. += "[t_He] [t_has] [wear_mask.get_examine_string(user)] on [t_his] face."
+		. += "[t_He] носит [wear_mask.get_examine_string(user)] на [t_his] лице."
 
 	if(wear_neck && !(obscured & ITEM_SLOT_NECK) && !(wear_neck.item_flags & EXAMINE_SKIP))
 		. += "[t_He] [t_is] wearing <b>[wear_neck.get_examine_string(user)]</b> around [t_his] neck."

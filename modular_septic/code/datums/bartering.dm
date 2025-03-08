@@ -268,20 +268,22 @@
 
 ///SURGERY///
 
-/datum/healther_recipe/helmet
+/datum/healther_recipe/scalpel
     outputs = list(
-        /obj/item/clothing/head/helmet/heavy = 1
+        /obj/item/scalpel = 1
     )
     inputs = list(
-        /obj/item/book/ccp_propaganda = 1
+        /obj/item/organ/liver = 1
     )
 
-/datum/healther_recipe/vest
+/*
+/datum/healther_recipe/blacktar
     outputs = list(
-        /obj/item/clothing/suit/armor/vest/alt/heavy = 1
+        /obj/item/reagent_containers/hypospray/medipen/retractible/blacktar = 1
     )
-    inputs = list(
-        /obj/item/deviouslick/broken_lcd = 1
+	inputs = list(
+        /obj/item/bodypart/r_arm = 1,
+        /obj/item/bodypart/l_arm = 1
     )
 
 ///KITS///
@@ -293,6 +295,21 @@
         /obj/item/book/ccp_propaganda = 1
     )
 
-///IMPLANTS///
+/datum/healther_recipe/firstaid
+    outputs = list(
+        /obj/item/storage/firstaid = 1
+    )
+    inputs = list(
+        /obj/item/deviouslick/broken_lcd = 1,
+    )
 
+///IMPLANTS///
+/datum/healther_recipe/survival
+    outputs = list(
+        /obj/item/reagent_containers/hypospray/medipen/survival = 1
+    )
+	inputs = list(
+		/obj/item/organ/heart = 1
+    )
+*/
 ///DRUGS///
