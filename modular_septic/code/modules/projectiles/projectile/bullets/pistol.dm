@@ -25,6 +25,25 @@
 					"pain_jostle_mult"=6,
 					"rip_time"=20)
 
+/obj/projectile/bullet/c9mm/evil
+	name = "evil 9mm bullet"
+	damage = 40
+	organ_bonus = 30
+	bare_organ_bonus = 30
+	armor_damage_modifier = 60
+	embedding = list("embed_chance"=10, \
+					"fall_chance"=0, \
+					"jostle_chance"=5, \
+					"ignore_throwspeed_threshold"=TRUE, \
+					"pain_stam_pct"=0.5, \
+					"pain_mult"=0, \
+					"pain_jostle_mult"=6,
+					"rip_time"=20)
+
+/obj/projectile/bullet/c9mm/evil/Initialize(mapload)
+	. = ..()
+	name = "[pick("evil", "chaotic", "nightmarish", "disturbing", "cruel", "corrupted")] 9mm bullet"
+
 /obj/projectile/bullet/c45
 	damage = 35
 	wound_bonus = 0

@@ -382,6 +382,10 @@
 	carry_weight = 2
 	custom_price = 5500
 
+/obj/item/gun/ballistic/automatic/pistol/pm9/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/trumadness, /obj/item/ammo_casing/c9mm/evil)
+
 /obj/item/gun/ballistic/automatic/pistol/pm9/desc_chaser(mob/user)
 	. = list()
 	var/image_src = image2html('modular_septic/images/pm9.gif', user, format = "gif", sourceonly = TRUE)
