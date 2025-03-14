@@ -5484,4 +5484,6 @@
 #include "modular_septic\interface\interface.dm"
 #include "modular_zebtic\code\modules\is12_mines\code\mine.dm"
 #include "modular_zebtic\code\modules\is12_mines\code\mine_spawner.dm"
+#include "modular_zebtic\code\modules\shuttle_items\code\machinery.dm"
+#include "modular_zebtic\code\modules\shuttle_items\code\cards.dm"
 // END_INCLUDE
