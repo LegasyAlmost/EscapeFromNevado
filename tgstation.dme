@@ -5487,4 +5487,5 @@
 #include "modular_septic\interface\interface.dm"
 #include "modular_zebtic\code\modules\is12_mines\code\mine.dm"
 #include "modular_zebtic\code\modules\is12_mines\code\mine_spawner.dm"
+#include "modular_zebtic\code\modules\roundstart_roles\code\jobs\spawnpoints.dm"
 // END_INCLUDE

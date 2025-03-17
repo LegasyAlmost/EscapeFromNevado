@@ -62,7 +62,8 @@
 
 	C.mob_biotypes = inherent_biotypes
 
-	regenerate_organs(C, old_species, replace_current = TRUE)
+	if(check_mutant_organs(C))
+		regenerate_organs(C, old_species, replace_current = TRUE)
 
 	if(exotic_bloodtype && (C.dna.blood_type != exotic_bloodtype))
 		C.dna.blood_type = exotic_bloodtype
@@ -129,6 +130,32 @@
 		C.regenerate_icons()
 
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
+
+//Need for optimization. Checks if the mob has unique mutant organs that differ from the standard human's
+//Returns TRUE if such organs are found or if the mob is missing organs in any slot (first-time generation)
+/datum/species/proc/check_mutant_organs(mob/living/carbon/C)
+	var/list/slot_mutantorgans = list(ORGAN_SLOT_BRAIN = mutantbrain, \
+							ORGAN_SLOT_HEART = mutantheart, ORGAN_SLOT_LUNGS = mutantlungs, \
+							ORGAN_SLOT_APPENDIX = mutantappendix, ORGAN_SLOT_EARS = mutantears, \
+							ORGAN_SLOT_EYES = mutanteyes, ORGAN_SLOT_TONGUE = mutanttongue, \
+							ORGAN_SLOT_LIVER = mutantliver, ORGAN_SLOT_STOMACH = mutantstomach, \
+							ORGAN_SLOT_SPLEEN = mutantspleen, ORGAN_SLOT_KIDNEYS = mutantkidneys, \
+							ORGAN_SLOT_INTESTINES = mutantintestines, ORGAN_SLOT_BLADDER = mutantbladder)
+	var/has_unique_organs = FALSE
+	for_all_neworgans:
+		for(var/slot in slot_mutantorgans)
+			var/list/oldorgans = list()
+			oldorgans |= C.getorganslotlist(slot)
+			if(oldorgans.len == 0) //Generating organs first time
+				return TRUE
+			for(var/obj/item/organ/oldorgan in oldorgans)
+				var/obj/item/organ/neworgan = slot_mutantorgans[slot]
+				neworgan = new neworgan()
+				if(oldorgan.type != neworgan.type)
+					has_unique_organs = TRUE
+					break for_all_neworgans
+	if(has_unique_organs)
+		return TRUE
 
 /datum/species/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	if(C.dna.species.exotic_bloodtype)

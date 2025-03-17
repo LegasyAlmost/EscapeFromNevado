@@ -56,31 +56,39 @@
 			job.spawn_positions = 64
 			SSjob.joinable_occupations += job
 			SSjob.set_overflow_role(job.title)
-		/*
 		else if(istype(job, /datum/job/denominator))
-			SSjob.name_occupations[job.title] = job
-			denominator_department.add_job(job)
-			denominator_department.department_head = job.type
-			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 0
-			job.spawn_positions = 0
-			SSjob.joinable_occupations += job
+			addtimer(CALLBACK(src, PROC_REF(add_denominators), job, denominator_department), 15 MINUTES)
 		else if(istype(job, /datum/job/denominator_shotgunner))
-			SSjob.name_occupations[job.title] = job
-			denominator_department.add_job(job)
-			denominator_department.department_head = job.type
-			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 0
-			job.spawn_positions = 0
-			SSjob.joinable_occupations += job
+			addtimer(CALLBACK(src, PROC_REF(add_denominators), job, denominator_department), 15 MINUTES)
 		else if(istype(job, /datum/job/inborn))
 			SSjob.name_occupations[job.title] = job
 			inborn_department.add_job(job)
 			inborn_department.department_head = job.type
 			job.job_flags |= JOB_NEW_PLAYER_JOINABLE
-			job.total_positions = 0
-			job.spawn_positions = 0
+			job.total_positions = 2
+			job.spawn_positions = 2
 			SSjob.joinable_occupations += job
-		*/
+
 		else
 			SSjob.joinable_occupations -= job
+
+
+/datum/dynamic_ruleset/roundstart/efn/proc/add_denominators(var/datum/job/J, var/datum/job_department/denominators/denominator_department)
+	if(istype(J, /datum/job/denominator))
+		var/datum/job/denominator/job = J
+		SSjob.name_occupations[job.title] = job
+		denominator_department.add_job(job)
+		denominator_department.department_head = job.type
+		job.job_flags |= JOB_NEW_PLAYER_JOINABLE
+		job.total_positions = 2
+		job.spawn_positions = 2
+		SSjob.joinable_occupations += job
+	else if(istype(J, /datum/job/denominator_shotgunner))
+		var/datum/job/denominator_shotgunner/job = J
+		SSjob.name_occupations[job.title] = job
+		denominator_department.add_job(job)
+		denominator_department.department_head = job.type
+		job.job_flags |= JOB_NEW_PLAYER_JOINABLE
+		job.total_positions = 2
+		job.spawn_positions = 2
+		SSjob.joinable_occupations += job

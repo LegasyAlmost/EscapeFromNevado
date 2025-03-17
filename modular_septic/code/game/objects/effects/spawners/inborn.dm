@@ -24,12 +24,3 @@
 	new_spawn.fully_replace_character_name(new_spawn.real_name, "Inborn")
 	new_spawn.mind.add_antag_datum(/datum/antagonist/inborn)
 	new_spawn.attributes.add_sheet(/datum/attribute_holder/sheet/job/inborn)
-
-/datum/outfit/inborn
-	name = "Inborn uniform"
-
-	uniform = /obj/item/clothing/under/stray
-	r_pocket = /obj/item/keycard/inborn
-	gloves = /obj/item/clothing/gloves/color/black
-	shoes = /obj/item/clothing/shoes/jackboots
-	r_hand = /obj/item/changeable_attacks/sword/kukri
