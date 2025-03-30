@@ -5489,4 +5489,6 @@
 #include "modular_zebtic\code\modules\is12_mines\code\mine_spawner.dm"
 #include "modular_zebtic\code\modules\shuttle_items\code\machinery.dm"
 #include "modular_zebtic\code\modules\shuttle_items\code\cards.dm"
+#include "modular_zebtic\code\modules\stationary_autodoc\code\cartridge.dm"
+#include "modular_zebtic\code\modules\stationary_autodoc\code\autodoc_stationary.dm"
 // END_INCLUDE
