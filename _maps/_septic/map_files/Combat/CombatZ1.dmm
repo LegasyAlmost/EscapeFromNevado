@@ -9,11 +9,6 @@
 "ab" = (
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
-"aL" = (
-/obj/machinery/light/small/directional/south,
-/obj/machinery/vending/killbitches/resupply,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/intro)
 "aM" = (
 /obj/item/ammo_casing/a762svd/ap,
 /turf/open/floor/iron/dark,
@@ -248,10 +243,6 @@
 /obj/machinery/light/red/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
-"jm" = (
-/obj/machinery/vending/killbitches,
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/intro)
 "jr" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/liminal/intro/barracks)
@@ -927,6 +918,8 @@
 /obj/effect/mob_spawn/human/denominator{
 	pixel_y = 12
 	},
+/obj/effect/landmark/start/denominator,
+/obj/effect/landmark/start/denominator_shotgunner,
 /turf/open/floor/iron/corner{
 	dir = 4
 	},
@@ -1144,17 +1137,13 @@
 	dir = 8
 	},
 /area/maintenance/liminal/intro)
-"Sy" = (
-/obj/machinery/vending/medical{
-	onstation = 0
-	},
-/turf/open/floor/iron/dark,
-/area/maintenance/liminal/intro)
 "Sz" = (
 /obj/effect/mob_spawn/human/denominator,
 /obj/effect/mob_spawn/human/denominator{
 	pixel_y = 12
 	},
+/obj/effect/landmark/start/denominator,
+/obj/effect/landmark/start/denominator_shotgunner,
 /turf/open/floor/iron/corner,
 /area/maintenance/liminal/denominator/barracks)
 "SC" = (
@@ -1382,14 +1371,8 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "Zf" = (
-/obj/structure/table/reinforced/plasmarglass,
-/mob/living/simple_animal/hostile/retaliate/trader{
-	dir = 8;
-	pixel_x = 29;
-	pixel_y = -3
-	},
-/obj/structure/curtain/cloth/fancy,
-/turf/open/floor/iron/dark,
+/obj/structure/autodoc/infinite,
+/turf/open/floor/iron,
 /area/maintenance/liminal/intro)
 "Zp" = (
 /turf/open/floor/iron/dark/side{
@@ -9084,8 +9067,8 @@ CI
 CI
 CI
 ZX
-uc
-uc
+Zf
+Zf
 ZX
 JN
 "}
@@ -11257,7 +11240,7 @@ gs
 gs
 ZX
 fB
-Zf
+fB
 ZX
 ig
 Oy
@@ -11376,7 +11359,7 @@ ZX
 gs
 gs
 gs
-Sy
+gs
 ZX
 gs
 Qs
@@ -11498,7 +11481,7 @@ ZX
 Jv
 gs
 gs
-aL
+ql
 ZX
 FU
 gs
@@ -11524,8 +11507,8 @@ CI
 CI
 CI
 OI
-uc
-uc
+Zf
+Zf
 ZX
 JN
 "}
@@ -11620,7 +11603,7 @@ ZX
 gs
 gs
 gs
-jm
+gs
 ZX
 FZ
 uy
