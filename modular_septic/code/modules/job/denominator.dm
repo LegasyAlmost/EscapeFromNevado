@@ -3,10 +3,12 @@
 	department_head = list("misery")
 
 	outfit = /datum/outfit/denominator
+	mob_species = /datum/species/denominator
 
 /datum/job/denominator_shotgunner
 	title = "Denominator Shotgunner"
 	outfit = /datum/outfit/denominator/shotgunner
+	mob_species = /datum/species/denominator
 
 /datum/outfit/denominator
 	name = "Denominator"
@@ -41,3 +43,37 @@
 		/obj/item/melee/truncheon/black = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/shotgun/buckshot/loaded = 4
 		)
+
+
+/datum/job/denominator/after_spawn(mob/living/spawned, client/player_client)
+	..()
+	var/mob/living/carbon/human/spawned_human = spawned
+
+	spawned_human.mind.add_antag_datum(/datum/antagonist/denominator)
+	spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator)
+
+	spawned_human.hairstyle = "Bald"
+	spawned_human.facial_hairstyle = "Shaved"
+	spawned_human.skin_tone = "albino"
+	spawned_human.update_body()
+	spawned_human.update_hair()
+
+	spawned_human.real_name = "[denominator_first()] [prob(1) ? "Sixty-Nine" : denominator_last()]"
+	spawned_human.update_name()
+	spawned_human.update_sight()
+
+/datum/job/denominator_shotgunner/after_spawn(mob/living/spawned, client/player_client)
+	..()
+
+	var/mob/living/carbon/human/spawned_human = spawned
+	spawned_human.mind.add_antag_datum(/datum/antagonist/denominator/shotgunner)
+	spawned_human.attributes.add_sheet(/datum/attribute_holder/sheet/job/denominator/shotgunner)
+
+	spawned_human.hairstyle = "Bald"
+	spawned_human.facial_hairstyle = "Shaved"
+	spawned_human.skin_tone = "albino"
+	spawned_human.update_body()
+	spawned_human.update_hair()
+
+	spawned_human.real_name = "[denominator_first()] [prob(1) ? "Sixty-Nine" : denominator_last()]"
+	spawned_human.update_name()

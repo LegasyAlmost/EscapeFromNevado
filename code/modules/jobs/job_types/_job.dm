@@ -37,6 +37,8 @@
 	/// What kind of mob type joining players with this job as their assigned role are spawned as.
 	var/spawn_type = /mob/living/carbon/human
 
+	var/mob_species = null
+
 	/// If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
 	var/req_admin_notify
 
@@ -143,6 +145,10 @@
 
 	if(!ishuman(spawned))
 		return
+
+	if(mob_species)
+		var/mob/living/carbon/human/H = spawned
+		H.set_species(mob_species)
 
 	var/list/roundstart_experience
 
