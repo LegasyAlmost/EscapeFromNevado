@@ -24,6 +24,9 @@
 		if(1)
 			. += "[initial(icon_state)]_burst"
 
+/obj/item/gun/ballistic/automatic/AltClick(mob/user)
+	burst_select()
+
 /obj/item/gun/ballistic/automatic/ui_action_click(mob/user, actiontype)
 	if(istype(actiontype, /datum/action/item_action/toggle_firemode))
 		burst_select()

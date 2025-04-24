@@ -231,6 +231,7 @@
 
 	var/list/modifiers = params2list(params)
 	victim.attacked_by(src, user, modifiers)
+	user.changeNext_move(CLICK_CD_MELEE)
 
 	log_combat(user, victim, "attacked", src.name, "(COMBAT MODE: [uppertext(user.combat_mode)]) INTENT: [uppertext(user.a_intent)] (DAMTYPE: [uppertext(damtype)])")
 	add_fingerprint(user)

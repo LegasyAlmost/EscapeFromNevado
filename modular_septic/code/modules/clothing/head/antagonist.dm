@@ -48,7 +48,5 @@
 	. = ..()
 	if(slot == ITEM_SLOT_HEAD)
 		user.apply_status_effect(/datum/status_effect/denominator_hud)
-
-/obj/item/clothing/head/denominator/dropped(mob/living/user)
-	. = ..()
-	user.remove_status_effect(/datum/status_effect/denominator_hud)
+	if(slot == ITEM_SLOT_HANDS)
+		user.remove_status_effect(/datum/status_effect/denominator_hud)

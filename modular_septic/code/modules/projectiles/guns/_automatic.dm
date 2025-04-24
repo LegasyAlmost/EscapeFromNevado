@@ -60,17 +60,21 @@
 	switch(select)
 		if(1)
 			burst_size = 1
-			fire_delay = initial(fire_delay)
+			full_auto.autofire_off()
+			full_auto.autofire_stat = AUTOFIRE_STAT_OFF
 			to_chat(user, span_notice("I switch [src] to semi-automatic."))
 			playsound(user, fireselector_semi, fireselector_semi_volume, fireselector_semi_vary)
 		if(2)
 			burst_size = burst_size_toggled
 			fire_delay = fire_delay_toggled
+			full_auto.autofire_stat = AUTOFIRE_STAT_IDLE
+			full_auto.autofire_on(user.client)
 			to_chat(user, span_notice("I switch [src] to [burst_size]-round burst."))
 			playsound(user, fireselector_burst, fireselector_burst, fireselector_burst_vary)
 		if(3)
-			burst_size = burst_size_auto
-			fire_delay = fire_delay_auto
+			burst_size = initial(burst_size)
+			full_auto.autofire_stat = AUTOFIRE_STAT_IDLE
+			full_auto.autofire_on(user.client)
 			to_chat(user, span_notice("I switch [src] to automatic."))
 			playsound(user, fireselector_semi, fireselector_auto_volume, fireselector_semi_vary)
 
