@@ -457,7 +457,7 @@
 		to_chat(user, span_boldwarning("You cannot send IC messages (muted)."))
 		return FALSE
 	else if(!params)
-		custom_emote = copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
+//.		custom_emote = copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)
 		if(custom_emote && !check_invalid(user, custom_emote))
 			var/type = tgui_input_list(user, "Is this a visible or hearable emote?", "Emote choose", list("Visible", "Hearable"))
 			switch(type)

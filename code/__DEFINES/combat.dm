@@ -292,6 +292,8 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define AUTOFIRE_STAT_ALERT	(1<<1)
 /// Gun is shooting.
 #define AUTOFIRE_STAT_FIRING (1<<2)
+//Auto fire is off
+#define AUTOFIRE_STAT_OFF (1<<3)
 
 #define COMSIG_AUTOFIRE_ONMOUSEDOWN "autofire_onmousedown"
 	#define COMPONENT_AUTOFIRE_ONMOUSEDOWN_BYPASS (1<<0)

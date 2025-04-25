@@ -10,6 +10,7 @@
 	var/mouse_parameters
 	var/autofire_shot_delay = 0.3 SECONDS //Time between individual shots.
 	var/mouse_status = AUTOFIRE_MOUSEUP //This seems hacky but there can be two MouseDown() without a MouseUp() in between if the user holds click and uses alt+tab, printscreen or similar.
+	var/auto_on = TRUE
 
 	COOLDOWN_DECLARE(next_shot_cd)
 
@@ -39,6 +40,8 @@
 /datum/component/automatic_fire/proc/wake_up(datum/source, mob/user, slot)
 	SIGNAL_HANDLER
 
+	if(autofire_stat == AUTOFIRE_STAT_OFF)
+		return //Autofire is off
 	if(autofire_stat == AUTOFIRE_STAT_ALERT)
 		return //We've updated the firemode. No need for more.
 	if(autofire_stat == AUTOFIRE_STAT_FIRING)
