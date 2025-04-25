@@ -93,7 +93,9 @@
 /area/maintenance/liminal/intro)
 "dN" = (
 /obj/machinery/light/small/directional/north,
-/obj/structure/bodycontainer,
+/obj/structure/bodycontainer/morgue{
+	dir = 2
+	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
 "dS" = (
@@ -155,6 +157,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"gm" = (
+/turf/closed/indestructible/cult,
+/area/nevado/surface/outdoors/unexplored)
 "gs" = (
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
@@ -353,7 +358,9 @@
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
 "on" = (
-/obj/structure/bodycontainer,
+/obj/structure/bodycontainer/morgue{
+	dir = 2
+	},
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/intro)
 "os" = (
@@ -547,6 +554,13 @@
 /obj/structure/drain,
 /turf/open/floor/plating,
 /area/maintenance/liminal/denominator)
+"xO" = (
+/obj/structure/plaque{
+	pixel_x = -29;
+	name = "CORPSED"
+	},
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "xU" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
@@ -1156,7 +1170,7 @@
 /area/maintenance/liminal/intro)
 "SI" = (
 /obj/machinery/light/small/directional/south,
-/obj/structure/bodycontainer/crematorium{
+/obj/structure/bodycontainer/morgue{
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
@@ -1236,6 +1250,10 @@
 /obj/item/clothing/suit/hazardvest,
 /turf/open/floor/iron/dark,
 /area/maintenance/liminal/denominator)
+"VP" = (
+/obj/structure/rack,
+/turf/open/floor/iron/dark,
+/area/maintenance/liminal/intro)
 "VW" = (
 /obj/machinery/door/metal_door/south{
 	id_tag = "Prison"
@@ -1454,7 +1472,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 BL
 BL
@@ -1576,7 +1594,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -1698,7 +1716,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -1820,7 +1838,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -1942,7 +1960,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2064,7 +2082,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2186,7 +2204,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2308,7 +2326,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2430,7 +2448,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2552,7 +2570,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2674,7 +2692,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2796,7 +2814,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -2918,7 +2936,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3040,7 +3058,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3162,7 +3180,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3284,7 +3302,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3406,7 +3424,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3528,7 +3546,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3650,7 +3668,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3772,7 +3790,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -3894,7 +3912,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4016,7 +4034,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4138,7 +4156,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4260,7 +4278,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4382,7 +4400,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4504,7 +4522,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4626,7 +4644,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4748,7 +4766,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4870,7 +4888,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -4992,7 +5010,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5114,7 +5132,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5236,7 +5254,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5358,7 +5376,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5480,7 +5498,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5602,7 +5620,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5724,7 +5742,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 JN
 JN
@@ -5846,7 +5864,7 @@ JN
 JN
 JN
 JN
-JN
+gm
 BL
 BL
 BL
@@ -5968,59 +5986,59 @@ JN
 JN
 JN
 JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
-JN
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
 "}
 (39,1,1) = {"
 JN
@@ -9532,7 +9550,7 @@ on
 gs
 gs
 gs
-gs
+VP
 OI
 SC
 SC
@@ -9654,7 +9672,7 @@ gs
 gs
 gs
 gs
-gs
+VP
 OI
 Si
 TO
@@ -10263,7 +10281,7 @@ gs
 gs
 gs
 gs
-gs
+xO
 gs
 ml
 ia
