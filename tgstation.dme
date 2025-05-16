@@ -5493,4 +5493,6 @@
 #include "modular_zebtic\code\modules\stationary_autodoc\code\autodoc_stationary.dm"
 #include "modular_zebtic\code\modules\stationary_autodoc\code\cartridge.dm"
 #include "modular_zebtic\code\modules\stationary_autodoc\code\spawner.dm"
+#include "modular_zebtic\code\modules\madness_combat\madness_combat_race.dm"
+#include "modular_zebtic\code\modules\madness_combat\attribute_sheets.dm"
 // END_INCLUDE

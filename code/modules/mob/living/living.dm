@@ -1417,6 +1417,8 @@
 		return
 	on_fire = FALSE
 	fire_stacks = 0 //If it is not called from set_fire_stacks()
+	if(burn_timer)
+		deltimer(burn_timer)
 	for(var/obj/effect/dummy/lighting_obj/moblight/fire/F in src)
 		qdel(F)
 	clear_alert("fire")

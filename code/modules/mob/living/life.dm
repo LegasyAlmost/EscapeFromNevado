@@ -114,9 +114,16 @@
 	if(fire_stacks < 0) //If we've doused ourselves in water to avoid fire, dry off slowly
 		set_fire_stacks(min(0, fire_stacks + (0.5 * delta_time))) //So we dry ourselves back to default, nonflammable.
 	if(!on_fire)
+		if(burn_timer)
+			deltimer(burn_timer)
 		return TRUE //the mob is no longer on fire, no need to do the rest.
 	if(fire_stacks > 0)
-		adjust_fire_stacks(-0.05 * delta_time) //the fire is slowly consumed
+		if(stat == DEAD && !burn_timer && fire_stacks > 5)
+			burn_timer = addtimer(CALLBACK(src, PROC_REF(burn_to_ash)), 3 MINUTES, flags = TIMER_UNIQUE|TIMER_OVERRIDE)
+		if(fire_stacks <= 5 && stat == DEAD)
+			adjust_fire_stacks(-0.2 * delta_time)
+		else
+			adjust_fire_stacks(-0.05 * delta_time)
 	else
 		extinguish_mob()
 		return TRUE //mob was put out, on_fire = FALSE via extinguish_mob(), no need to update everything down the chain.
@@ -126,6 +133,12 @@
 		return TRUE
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(700, 25 * delta_time, TRUE)
+
+/mob/living/proc/burn_to_ash()
+	if(stat != DEAD || !on_fire || fire_stacks < 5)
+		return
+	new /obj/effect/decal/cleanable/ash(loc)
+	qdel(src)
 
 /**
  * Get the fullness of the mob
