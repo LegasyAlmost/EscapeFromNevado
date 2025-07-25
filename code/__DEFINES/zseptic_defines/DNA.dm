@@ -93,6 +93,7 @@
 #define SPECIES_IPC "ipc"
 #define SPECIES_INBORN "nagger"
 #define SPECIES_DENOMINATOR "combiners"
+#define SPECIES_MADNESS "mad"
 
 // ~body types
 #define BODY_TYPE_MASCULINE MALE
