@@ -16,19 +16,19 @@ $include septic/septic_config.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-SERVERNAME Concordia March
+SERVERNAME ESCAPE FROM NEVADO: OMSK CRUELTY
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 # SERVERSQLNAME tgstation
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Concordia Station
+STATIONNAME Zero Hub
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 HUB
 
 ## Lobby time: This is the amount of time between rounds that players have to setup their characters and be ready.
-LOBBY_COUNTDOWN 120
+LOBBY_COUNTDOWN 220
 
 ## Round End Time: This is the amount of time after the round ends that players have to murder death kill each other.
 ROUND_END_COUNTDOWN 90
@@ -244,16 +244,16 @@ CHECK_RANDOMIZER
 
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
 ## Don't set this to the same server, BYOND will automatically restart players to the server when it has restarted.
-# SERVER ss13.example.com:2506
+# SERVER 77.110.104.171:55550
 
 ## forum address
-FORUMURL https://discord.gg/e7JkxvRtvX
+FORUMURL https://discord.gg/wKB2XEqG2P
 
 ## Wiki address
-WIKIURL https://discord.gg/e7JkxvRtvX
+WIKIURL https://discord.gg/wKB2XEqG2P
 
 ## Rules address
-RULESURL https://discord.gg/e7JkxvRtvX
+RULESURL https://discord.gg/wKB2XEqG2P
 
 ## Github address
 GITHUBURL https://gitgud.io/bobstation/bobstation-reignited
