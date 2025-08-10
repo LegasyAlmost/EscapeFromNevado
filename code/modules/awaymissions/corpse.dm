@@ -257,6 +257,8 @@
 	icon_state = "corpsehuman"
 	roundstart = FALSE
 	instant = TRUE
+	brute_damage = 500
+	death = TRUE
 
 /obj/effect/mob_spawn/human/corpse/damaged
 	brute_damage = 1000
