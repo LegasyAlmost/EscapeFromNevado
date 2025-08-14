@@ -168,7 +168,6 @@ const setupHotReloading = () => {
     }
   }
 };
-
 module.exports = {
   subscribe,
   sendMessage,

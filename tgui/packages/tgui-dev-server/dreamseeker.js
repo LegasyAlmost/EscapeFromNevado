@@ -10,6 +10,7 @@ import { createLogger } from './logging.js';
 import { require } from './require.js';
 
 const axios = require('axios');
+
 const logger = createLogger('dreamseeker');
 
 const instanceByPid = new Map();
@@ -28,9 +29,6 @@ export class DreamSeeker {
       .map(key => encodeURIComponent(key)
         + '=' + encodeURIComponent(params[key]))
       .join('&');
-    logger.log(
-      `topic call at ${this.client.defaults.baseURL + '/dummy?' + query}`
-    );
     return this.client.get('/dummy?' + query);
   }
 }
@@ -63,21 +61,17 @@ DreamSeeker.getInstancesByPids = async pids => {
       });
       // Line format:
       // proto addr mask mode pid
-      const entries = [];
-      const lines = stdout.split('\r\n');
-      for (let line of lines) {
-        const words = line.match(/\S+/g);
-        if (!words || words.length === 0) {
-          continue;
-        }
-        const entry = {
-          addr: words[1],
-          pid: parseInt(words[4], 10),
-        };
-        if (pidsToResolve.includes(entry.pid)) {
-          entries.push(entry);
-        }
-      }
+      const entries = stdout
+        .split('\r\n')
+        .filter(line => line.includes('LISTENING'))
+        .map(line => {
+          const words = line.match(/\S+/g);
+          return {
+            addr: words[1],
+            pid: parseInt(words[4], 10),
+          };
+        })
+        .filter(entry => pidsToResolve.includes(entry.pid));
       const len = entries.length;
       logger.log('found', len, plural('instance', len));
       for (let entry of entries) {
@@ -88,12 +82,7 @@ DreamSeeker.getInstancesByPids = async pids => {
       }
     }
     catch (err) {
-      if (err.code === 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER') {
-        logger.error(err.message, err.code);
-      }
-      else {
-        logger.error(err);
-      }
+      logger.error(err);
       return [];
     }
   }

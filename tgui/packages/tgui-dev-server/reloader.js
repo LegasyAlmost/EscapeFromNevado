@@ -67,8 +67,6 @@ export const findCacheRoot = async () => {
 
 const onCacheRootFound = cacheRoot => {
   logger.log(`found cache at '${cacheRoot}'`);
-  // Plant a dummy browser window file, byond 514 stuff.
-  fs.closeSync(fs.openSync(cacheRoot + '/dummy', 'w'));
 };
 
 export const reloadByondCache = async bundleDir => {
@@ -93,9 +91,9 @@ export const reloadByondCache = async bundleDir => {
     // Clear garbage
     const garbage = await resolveGlob(cacheDir, './*.+(bundle|chunk|hot-update).*');
     try {
-      // Plant a dummy browser window file
-      // we'll be using this to avoid world topic for 515
+      // Plant a dummy browser window file, we'll be using this to avoid world topic
       fs.closeSync(fs.openSync(cacheDir + '/dummy', 'w'));
+
       for (let file of garbage) {
         fs.unlinkSync(file);
       }
@@ -106,6 +104,7 @@ export const reloadByondCache = async bundleDir => {
       }
       logger.log(`copied ${assets.length} files to '${cacheDir}'`);
     }
+    // Copy assets
     catch (err) {
       logger.error(`failed copying to '${cacheDir}'`);
       logger.error(err);
