@@ -29,10 +29,7 @@ export const setClientTheme = name => {
   Byond.command(`.output statbrowser:set_theme ${name}`);
   setClientThemeTimer = setTimeout(() => {
     Byond.command(`.output statbrowser:set_theme ${name}`);
-    setClientThemeTimer = setTimeout(() => {
-      Byond.command(`.output statbrowser:set_theme ${name}`);
-    }, 1000);
-  }, 2500);
+  }, 1500);
 
   if (name === 'light') {
     return Byond.winset({

@@ -31,7 +31,7 @@ const Story = (props, context) => {
         buttons={(
           <Button
             icon="chevron-right"
-            onClick={() => setTimeout(() => {
+            onClick={() => setImmediate(() => {
               try {
                 const result = new Function('return (' + code + ')')();
                 if (result && result.then) {

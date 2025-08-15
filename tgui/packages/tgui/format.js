@@ -26,7 +26,7 @@ const SI_SYMBOLS = [
   'Z', // zetta
   'Y', // yotta
   'R', // ronna
-  'Q', // quetta
+  'Q', // quecca
   'F',
   'N',
   'H',
@@ -71,10 +71,6 @@ export const formatSiUnit = (
 
 export const formatPower = (value, minBase1000 = 0) => {
   return formatSiUnit(value, minBase1000, 'W');
-};
-
-export const formatJoule = (value, minBase1000 = 0) => {
-  return formatSiUnit(value, minBase1000, 'J');
 };
 
 export const formatMoney = (value, precision = 0) => {
