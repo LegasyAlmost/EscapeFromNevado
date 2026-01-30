@@ -1,6 +1,6 @@
 /atom/movable/screen/movable/pic_in_pic
 	name = "Picture-in-picture"
-	screen_loc = "CENTER"
+	screen_loc = "1,1"
 	plane = FLOOR_PLANE
 	var/atom/center
 	var/width = 0

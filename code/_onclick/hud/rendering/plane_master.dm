@@ -1,5 +1,5 @@
 /atom/movable/screen/plane_master
-	screen_loc = "CENTER"
+	screen_loc = "1,1"
 	icon_state = "blank"
 	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
 	blend_mode = BLEND_OVERLAY
