@@ -1,2 +1,2 @@
 /// LOL
-#define DEFAULT_CLIENT_COUNTRY "Omsk"
+#define DEFAULT_CLIENT_COUNTRY "Nevado"
