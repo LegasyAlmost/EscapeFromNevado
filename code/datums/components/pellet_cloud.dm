@@ -243,7 +243,7 @@
 				// unfortunately, due to how pellet clouds handle finalizing only after every pellet is accounted for, that also means there might be a short delay in dealing wounds if one pellet goes wide
 				// while buckshot may reach a target or miss it all in one tick, we also have to account for possible ricochets that may take a bit longer to hit the target
 				if(isnull(wound_info_by_part[hit_part]))
-					wound_info_by_part[hit_part] = list(0, 0, 0)
+					wound_info_by_part[hit_part] = alist(0, 0, 0)
 				wound_info_by_part[hit_part][CLOUD_POSITION_DAMAGE] += P.damage // these account for decay
 				wound_info_by_part[hit_part][CLOUD_POSITION_W_BONUS] += P.wound_bonus
 				wound_info_by_part[hit_part][CLOUD_POSITION_BW_BONUS] += P.bare_wound_bonus
