@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/favorite_outfits = list()
 
 	/// A preview of the current character
-	var/atom/movable/screen/character_preview_view/character_preview_view
+	var/atom/movable/screen/map_view/char_preview/character_preview_view
 
 	/// A list of instantiated middleware
 	var/list/datum/preference_middleware/middleware = list()
@@ -123,19 +123,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	save_character() //let's save this new random character so it doesn't keep generating new ones.
 
 /datum/preferences/ui_interact(mob/user, datum/tgui/ui)
-	// If you leave and come back, re-register the character preview
-	if (!isnull(character_preview_view) && !(character_preview_view in user.client?.screen))
-		user.client?.register_map_obj(character_preview_view)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		tainted_character_profiles = TRUE
+		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "PreferencesMenu")
 		ui.set_autoupdate(FALSE)
 		ui.open()
-
-		// HACK: Without this the character starts out really tiny because of some BYOND bug.
-		// You can fix it by changing a preference, so let's just forcably update the body to emulate this.
-		addtimer(CALLBACK(character_preview_view, /atom/movable/screen/character_preview_view/proc/update_body), 1 SECONDS)
+		character_preview_view.display_to(user, ui.window)
 
 /datum/preferences/ui_state(mob/user)
 	return GLOB.always_state
@@ -292,9 +288,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		return TRUE
 
 /datum/preferences/proc/create_character_preview_view(mob/user)
-	character_preview_view = new(null, src, user.client)
+	character_preview_view = new(null, null, src)
+	character_preview_view.assigned_map = "character_preview_[REF(character_preview_view)]"
 	character_preview_view.update_body()
-	character_preview_view.register_to_client(user.client)
 
 	return character_preview_view
 
@@ -336,14 +332,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 // This is necessary because you can open the set preferences menu before
 // the atoms SS is done loading.
-INITIALIZE_IMMEDIATE(/atom/movable/screen/character_preview_view)
+INITIALIZE_IMMEDIATE(/atom/movable/screen/map_view/char_preview)
 
 /// A preview of a character for use in the preferences menu
-/atom/movable/screen/character_preview_view
+/atom/movable/screen/map_view/char_preview
 	name = "character_preview"
-	del_on_map_removal = FALSE
-	layer = GAME_PLANE
-	plane = GAME_PLANE
 
 	/// The body that is displayed
 	var/mob/living/carbon/human/dummy/body
@@ -351,12 +344,10 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/character_preview_view)
 	/// The preferences this refers to
 	var/datum/preferences/preferences
 
-	var/list/plane_masters = list()
-
 	/// The client that is watching this view
 	var/client/client
 
-/atom/movable/screen/character_preview_view/Initialize(mapload, datum/preferences/preferences, client/client)
+/atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/hud/hud_owner, datum/preferences/preferences)
 	. = ..()
 
 	assigned_map = "character_preview_[REF(src)]"
@@ -364,55 +355,28 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/character_preview_view)
 
 	src.preferences = preferences
 
-/atom/movable/screen/character_preview_view/Destroy()
+/atom/movable/screen/map_view/char_preview/Destroy()
 	QDEL_NULL(body)
-
-	for (var/plane_master in plane_masters)
-		client?.screen -= plane_master
-		qdel(plane_master)
-
-	client?.clear_map(assigned_map)
-
 	preferences?.character_preview_view = null
-
-	client = null
-	plane_masters = null
 	preferences = null
-
 	return ..()
 
 /// Updates the currently displayed body
-/atom/movable/screen/character_preview_view/proc/update_body()
+/atom/movable/screen/map_view/char_preview/proc/update_body()
 	if (isnull(body))
 		create_body()
 	else
 		body.wipe_state()
 	appearance = preferences.render_new_preview_appearance(body)
 
-/atom/movable/screen/character_preview_view/proc/create_body()
+/atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)
-
 	body = new
 
-	// Without this, it doesn't show up in the menu
-	body.appearance_flags &= ~KEEP_TOGETHER
-
-/// Registers the relevant map objects to a client
-/atom/movable/screen/character_preview_view/proc/register_to_client(client/client)
-	QDEL_LIST(plane_masters)
-
+/atom/movable/screen/map_view/char_preview/proc/register_to_client(client/client)
 	src.client = client
-
 	if (!client)
 		return
-
-	for (var/plane_master_type in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/blackness)
-		var/atom/movable/screen/plane_master/plane_master = new plane_master_type()
-		plane_master.screen_loc = "[assigned_map]:CENTER"
-		client?.screen |= plane_master
-
-		plane_masters += plane_master
-
 	client?.register_map_obj(src)
 
 /datum/preferences/proc/create_character_profiles()
