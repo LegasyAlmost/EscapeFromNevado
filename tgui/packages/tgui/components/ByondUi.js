@@ -61,12 +61,12 @@ const getBoundingBox = element => {
   const rect = element.getBoundingClientRect();
   return {
     pos: [
-      rect.left,
-      rect.top,
+      rect.left * pixelRatio,
+      rect.top * pixelRatio,
     ],
     size: [
-      rect.right - rect.left,
-      rect.bottom - rect.top,
+      (rect.right - rect.left) * pixelRatio,
+      (rect.bottom - rect.top) * pixelRatio,
     ],
   };
 };
