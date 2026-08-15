@@ -9,7 +9,6 @@ import { vecAdd, vecSubtract, vecMultiply, vecScale } from 'common/vector';
 import { createLogger } from './logging';
 
 const logger = createLogger('drag');
-const pixelRatio = window.devicePixelRatio ?? 1;
 
 let windowKey = Byond.windowId;
 let dragging = false;
@@ -26,13 +25,13 @@ export const setWindowKey = key => {
 };
 
 const getWindowPosition = () => [
-  window.screenLeft * pixelRatio,
-  window.screenTop * pixelRatio,
+  window.screenLeft,
+  window.screenTop,
 ];
 
 const getWindowSize = () => [
-  window.innerWidth * pixelRatio,
-  window.innerHeight * pixelRatio,
+  window.innerWidth,
+  window.innerHeight,
 ];
 
 const setWindowPosition = vec => {
@@ -54,8 +53,8 @@ const getScreenPosition = () => [
 ];
 
 const getScreenSize = () => [
-  window.screen.availWidth * pixelRatio,
-  window.screen.availHeight * pixelRatio,
+  window.screen.availWidth,
+  window.screen.availHeight,
 ];
 
 /**
@@ -113,8 +112,8 @@ export const recallWindowGeometry = async (options = {}) => {
   // Convert size from css-pixels to display-pixels
   if (size) {
     size = [
-      size[0] * pixelRatio,
-      size[1] * pixelRatio,
+      size[0],
+      size[1],
     ];
   }
   // Wait until screen offset gets resolved
@@ -258,7 +257,7 @@ const resizeMoveHandler = event => {
     vecMultiply(resizeMatrix, delta),
     [1, 1]);
   // Sane window size values
-  size[0] = Math.max(size[0], 150 * pixelRatio);
-  size[1] = Math.max(size[1], 50 * pixelRatio);
+  size[0] = Math.max(size[0], 150);
+  size[1] = Math.max(size[1], 50);
   setWindowSize(size);
 };

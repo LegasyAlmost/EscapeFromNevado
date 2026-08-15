@@ -20,13 +20,12 @@ export const SepticShockCredits = (props, context) => {
           <Stack.Item>
             <Section title="Developers">
               <LabeledList>
-                <LabeledList.Item label="Matt">
-                  Guy who updated this mess and continues to update it.
+                <LabeledList.Item label="CrazyDuster">
+                  The guy.
                 </LabeledList.Item>
-              </LabeledList>
-            </Section>
-            <Section title="Past Developers">
-              <LabeledList>
+                <LabeledList.Item label="Matt">
+                  Guy who updated this mess to 515.
+                </LabeledList.Item>
                 <LabeledList.Item label="Bomberman66">
                   Host, head coder, boss of this gym.
                 </LabeledList.Item>
@@ -68,6 +67,9 @@ export const SepticShockCredits = (props, context) => {
                 </LabeledList.Item>
                 <LabeledList.Item label="CEV Eris">
                   Providing several sprites.
+                </LabeledList.Item>
+                <LabeledList.Item label="LegasyAlmost, Kopit32 and others">
+                  For keeping this shit alive till 516.
                 </LabeledList.Item>
                 <LabeledList.Item label="Kapu">
                   For putting up with Matt&apos;s retardation.

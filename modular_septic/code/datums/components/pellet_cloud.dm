@@ -75,7 +75,7 @@
 			// while buckshot may reach a target or miss it all in one tick, we also have to account for possible ricochets
 			// that may take a bit longer to hit the target
 			if(isnull(wound_info_by_part[hit_part]))
-				wound_info_by_part[hit_part] = list(\
+				wound_info_by_part[hit_part] = alist(\
 					CLOUD_POSITION_DAMAGE = 0, \
 					CLOUD_POSITION_W_BONUS = 0, \
 					CLOUD_POSITION_BW_BONUS = 0, \

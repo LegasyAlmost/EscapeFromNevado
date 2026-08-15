@@ -4184,6 +4184,7 @@
 #include "modular_septic\code\_onclick\hud\screen_objects\jumpscare.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\lookdown.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\lookup.dm"
+#include "modular_septic\code\_onclick\hud\screen_objects\map_view.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\mood.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\mov_intent.dm"
 #include "modular_septic\code\_onclick\hud\screen_objects\niqqer.dm"

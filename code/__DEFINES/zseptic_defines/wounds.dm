@@ -94,7 +94,7 @@
 // ~wound global lists
 // list in order of highest severity to lowest
 GLOBAL_LIST_INIT(global_wound_types, \
-		list(WOUND_BLUNT = list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
+		alist(WOUND_BLUNT = list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate),
 		WOUND_ARTERY = list(/datum/wound/artery/dissect, /datum/wound/artery/tear),
 		WOUND_TENDON = list(/datum/wound/tendon/dissect, /datum/wound/tendon/tear),
 		WOUND_NERVE = list(/datum/wound/nerve/dissect, /datum/wound/nerve/tear),

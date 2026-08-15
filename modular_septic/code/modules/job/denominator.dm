@@ -77,3 +77,4 @@
 
 	spawned_human.real_name = "[denominator_first()] [prob(1) ? "Sixty-Nine" : denominator_last()]"
 	spawned_human.update_name()
+	spawned.mind.combat_music = list('modular_septic/sound/music/combat/deathmatch/denominator_shotgunner.ogg')
