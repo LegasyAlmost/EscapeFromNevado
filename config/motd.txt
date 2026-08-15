@@ -1,9 +1,4 @@
 <!-- Most valid html will work in here, excluding images. -->
-
-<h1>Welcome to Escape From Nevado!</h1>
-
-<i>Yet another attempt to revive this repository. Revived with love by the Russian SS13 community</i><br>
-<i>Server have a unique combat, ballistic, and medical system. All foreigners are welcome!</i><br>
-<i>Have fun bruh we appreciate you playing here</i><br>
-<i>Join our discord: <i><b><a href='https://discord.gg/c7NnThWdqX'</a>https://discord.gg/c7NnThWdqX</b></i>
-<!-- Most valid html will work in here, excluding images. -->
+<div style='height: 1000px'></div>
+<h1>Welcome to the Escape from Nevado: Omsk Cruelty!</h1>
+If you need to learn how to play, check our discord. Talk with people, betray them. Enjoy Omsk.
